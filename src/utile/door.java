@@ -7,7 +7,8 @@ public class door {
 	private boolean Break; 
 	
 	/**
-	 * @param Breakable
+	 * Door Builder
+	 * @param Breakable if a door is unbreakable or not 
 	 */
 	public door(boolean Breakable) {
 		this.Break = false;
@@ -16,18 +17,21 @@ public class door {
 	}
 	
 	/**
-	 * @return if we can break the door
+	 * @return true if we can break the door and else false
 	 */
 	public boolean isBreakable() {
 		return Breakable;
 	}
 	/**
-	 * @return if the door is break or not
+	 * @return true if the door is break and else false
 	 */
 	public boolean isBreak() {
 		return Break;
 	}
 
+	/**
+	 * Break a door if we can 
+	 */
 	public void Break() {
 		if(this.isBreakable()) {
 			Break = true;
