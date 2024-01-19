@@ -18,4 +18,5 @@ public class Continental extends Room {
 		return "players are in a rest, there are no attacks";
 	}
 	
+	
 }
