@@ -32,12 +32,21 @@ public class Room extends Cell {
 		this.items.add(i) ;
 	}
 	
+	/** 
+	 * removes the given item from the list of items
+	 * @param i Item 
+	 * @return i the item 
+	 */
+	public Item removeItem(Item i){
+		this.items.remove(i);
+		return i;
+	}
 	
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "this room has "+this.getAllItems().size()+ " items"; 
+		
 	}
 
 }
