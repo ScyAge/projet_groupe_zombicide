@@ -41,6 +41,13 @@ public class DrugStore extends Room {
 		super.addPlayers(p);
 		this.addHealingVial(null);
 	}
+
+	@Override
+	public String toString() {
+		return "DrugStore [healingVials=" + this.healingVials + "]";
+	}
+	
+	
 	
 	
 	
