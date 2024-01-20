@@ -87,6 +87,7 @@ Gabriel Kreutser : Création et écriture des classes Direction, Door, Board, Te
 Théo Nave : Création diagramme UML, écriture des classes Street, Sewer et rédaction compte rendu Semaine 1  
 Wissal-Asma Harrat : Création et écriture des classes Room, DrugStore, Continental, Item, HealingVial
 
+Diagramme UML Semaine 1 : [https://nextcloud.univ-lille.fr/index.php/s/jBCi5HAjN92PnnY](https://nextcloud.univ-lille.fr/index.php/s/jBCi5HAjN92PnnY)
 
 ## Semaine 2
 
