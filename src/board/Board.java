@@ -22,13 +22,13 @@ public class Board {
 			initBoard(x1+1,xf,y1+1,yf);
 		}
 		else {
-			Building(xf-xd,yf-yd);
+			Building(xf,xd,yf,yd);
 		}
 	}
-	private void Building(int x , int y) {
-		for(int i =0;i<x;i++) {
-			for(int j =0;j<y;j++) {
-				this.board[i][j] = new Room(i,j,"tropico");
+	private void Building(int xf,int xd , int yf,int yd) {
+		for(int i =0;i<(xf-xd);i++) {
+			for(int j =0;j<(yf-yd);j++) {
+				this.board[xd+i][yd+j] = new Room(i,j,"tropico");
 			}
 		}
 	}
@@ -48,7 +48,7 @@ public class Board {
 	public void Display() {
 		for(int i =0;i<this.board[0].length;i++) {
 			for(int j =0;j<this.board.length;j++) {
-				System.out.print("|a");
+				System.out.print("|"+this.board[j][i].toString());
 			}
 			System.out.println("|");
 			for(int j =0;j<this.board.length;j++) {

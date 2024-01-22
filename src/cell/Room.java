@@ -43,7 +43,7 @@ public class Room extends Cell {
 	
 	@Override
 	public String toString() {
-		return "this room has "+this.getAllItems().size()+ " items"; 
+		return "R"; 
 		
 	}
 

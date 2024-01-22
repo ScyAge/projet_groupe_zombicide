@@ -13,7 +13,7 @@ public class Street extends Cell{
 
 	@Override
 	public String toString() {
-		return "it's the street here"; 
+		return "S"; 
 		
 	}
 }
