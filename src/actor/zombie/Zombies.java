@@ -1,4 +1,4 @@
-package Zombie;
+package actor.zombie;
 
 public class Zombies {
 

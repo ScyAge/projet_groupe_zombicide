@@ -1,6 +1,6 @@
-package Cell;
+package cell;
 
-import Zombie.Zombies;
+import actor.zombie.Zombies;
 
 public class Sewer extends Street{
 	

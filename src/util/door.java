@@ -1,4 +1,4 @@
-package utile;
+package util;
 
 public class door {
 

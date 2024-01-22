@@ -1,11 +1,9 @@
-package Cell;
+package cell;
 import java.util.*;
 
-
-import Player.Player;
-import Zombie.Zombies;
-import utile.*;
-//import exeption.ActorDoesNotExistExeption;
+import actor.player.Player;
+import actor.zombie.Zombies;
+import util.*;
 
 
 /**
@@ -17,7 +15,7 @@ public abstract class Cell {
 	private Map<Direction,door> direction;
 	private int x;
 	private int y;
-	private String type;
+	
 	
 	/**
 	 * Constructor of the class Cell 
@@ -28,7 +26,6 @@ public abstract class Cell {
 	public Cell(int x , int y , String type) {
 		this.x = x;
 		this.y = y;
-		this.type = type;
 		this.players = new ArrayList<>();
 		this.zombies = new ArrayList<>();
 		this.direction = new HashMap<>();
@@ -109,13 +106,6 @@ public abstract class Cell {
 	 */
 	public int getY() {
 		return y;
-	}
-	
-	/**
-	 * @return the type of the cell
-	 */
-	public String getType() {
-		return type;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package Player;
+package actor.player;
 
 public class Player {
 

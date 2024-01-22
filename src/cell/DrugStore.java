@@ -1,9 +1,10 @@
-package Cell;
+package cell;
 
-import Cell.*;
-import Item.HealingVial;
 import java.util.*;
-import Player.Player;
+
+import actor.player.Player;
+import cell.*;
+import item.HealingVial;
 
 public class DrugStore extends Room {
 	private List<HealingVial> healingVials;

@@ -1,5 +1,5 @@
-package Board;
-import Cell.*;
+package board;
+import cell.*;
 public class Board {
 
 	private Cell[][] board;

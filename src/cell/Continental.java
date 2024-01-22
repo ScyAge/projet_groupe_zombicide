@@ -1,6 +1,6 @@
-package Cell;
+package cell;
 
-import Cell.Room;
+import cell.Room;
 
 public class Continental extends Room {
 
