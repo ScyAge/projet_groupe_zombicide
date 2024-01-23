@@ -120,7 +120,9 @@ public abstract class Cell {
 		return true;
 	}
 	@Override 
-	public abstract String toString();
+	public  String toString() {
+		return "c";
+	}
 	
 	
 	

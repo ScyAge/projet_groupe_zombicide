@@ -12,9 +12,9 @@ public class Board {
 	private void initBoard(int xd,int xf,int yd,int yf) {
 		if (isSplitable(xd, xf, yd, yf)) {
 			Random random = new Random();
-			int x1= random.nextInt(xf-xd-4)+2;
+			int x1= random.nextInt((xf-2)-(xd+2))+xd+2;
 			HStreet(yf-yd, x1);
-			int y1= random.nextInt(yf-yd-4)+2;
+			int y1= random.nextInt((yf-2)-(yd+2))+yd+2;
 			VStreet(y1,xf-xd);
 			initBoard(0,x1,0,y1);
 			initBoard(x1+1,xf,0,y1);
@@ -43,7 +43,7 @@ public class Board {
 		}
 	}
 	private boolean isSplitable(int xd, int xf, int yd, int yf) {
-		return xf -xd+1>=5 && yf-yd+1>=5;
+		return (xf -xd)>=5 && (yf-yd)>=5;
 	}
 	public void Display() {
 		for(int i =0;i<this.board[0].length;i++) {
@@ -52,9 +52,10 @@ public class Board {
 			}
 			System.out.println("|");
 			for(int j =0;j<this.board.length;j++) {
-				System.out.print("――");
+				System.out.print(" ―");
 			}
 			System.out.println("");
 		}
 	}
 }
+
