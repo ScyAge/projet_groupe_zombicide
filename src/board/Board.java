@@ -1,5 +1,6 @@
 package board;
 import java.util.Random;
+import java.lang.Math;
 import cell.*;
 public class Board {
 
@@ -30,9 +31,9 @@ public class Board {
 			int y1= random.nextInt((yf-2)-(yd+2))+(yd+2);
 			VStreet(y1,xf-xd);
 			// on fait la meme chose dans les sous board
-			initBoard(0,x1,0,y1);
-			initBoard(x1+1,xf,0,y1);
-			initBoard(0,x1,y1+1,yf);
+			initBoard(0,x1-1,0,y1-1);
+			initBoard(x1+1,xf,0,y1-1);
+			initBoard(0,x1-1,y1+1,yf);
 			initBoard(x1+1,xf,y1+1,yf);
 		}
 		else {
