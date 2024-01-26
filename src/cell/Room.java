@@ -1,7 +1,7 @@
 package cell;
 import java.util.*;
-
-import item.Item;
+import util.*;
+import item.*;
 
 public class Room extends Cell {
 	private List<Item> items;
