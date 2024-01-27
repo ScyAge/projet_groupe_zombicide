@@ -22,23 +22,19 @@ public class Board {
 	 * @param yf final height
 	 */
 	private void initBoard(int xd,int xf,int yd,int yf) {
-		if (isSplitable(xd, xf, yd, yf)) {
-			Random random = new Random();
-			// placement random de la route horizontal (erreur)
-			int x1= random.nextInt((xf-2)-(xd+2))+(xd+2);
-			HStreet(yf-yd, x1);
-			// placement random de la route vertical (erreur)
-			int y1= random.nextInt((yf-2)-(yd+2))+(yd+2);
-			VStreet(y1,xf-xd);
-			// on fait la meme chose dans les sous board
-			initBoard(0,x1-1,0,y1-1);
-			initBoard(x1+1,xf,0,y1-1);
-			initBoard(0,x1-1,y1+1,yf);
-			initBoard(x1+1,xf,y1+1,yf);
+		if(!isSplitable(xd, xf, yd, yf)){
+			Building(xf, xd, yf, yd);
 		}
-		else {
-			// si on peut pas mettre de route on met des room
-			Building(xf,xd,yf,yd);
+		else{
+			Random random = new Random();
+			int Y = random.nextInt((yf-2) -(yd+2))+(yd+2);
+			int X = random.nextInt((xf-2) -(xd+2))+(xd+2);
+			VStreet(Y,xf,xd);
+			HStreet(yd,yf, X);
+			initBoard(xd, X, yd, Y);
+			initBoard(X+1, xf, yd, Y);
+			initBoard(xd, X, Y+1, yf);
+			initBoard(X+1, xf, Y+1, yf);
 		}
 	}
 	
@@ -50,9 +46,9 @@ public class Board {
 	 * @param yf final height
 	 */
 	private void Building(int xf,int xd , int yf,int yd) {
-		for(int i =0;i<(xf-xd);i++) {
-			for(int j =0;j<(yf-yd);j++) {
-				this.board[xd+i][yd+j] = new Room(i,j,"tropico");
+		for(int i =xd;i<(xf);i++) {
+			for(int j =yd;j<(yf);j++) {
+				this.board[i][j] = new Room(i,j,"tropico");
 			}
 		}
 	}
@@ -61,8 +57,8 @@ public class Board {
 	 * @param y1 height of the street
 	 * @param x  the size of the street
 	 */
-	private void VStreet(int y1,int x) {
-		for(int i = 0;i<x;i++) {
+	private void VStreet(int y1,int xf, int xd) {
+		for(int i = xd;i<xf;i++) {
 			this.board[i][y1] = new Street(i,y1,"ananas");
 		}
 	}
@@ -71,13 +67,13 @@ public class Board {
 	 * @param y the size of the street
 	 * @param x1 width of the street
 	 */
-	private void HStreet(int y, int x1) {
-		for(int i = 0;i<y;i++) {
+	private void HStreet(int yd,int yf, int x1) {
+		for(int i = yd;i<yf;i++) {
 			this.board[x1][i] = new Street(x1,i,"ananas");
 		}
 	}
 	private boolean isSplitable(int xd, int xf, int yd, int yf) {
-		return xf -xd+1>=5 && yf-yd+1>=5;
+		return (xf -xd)>=5 && (yf-yd)>=5;
 	}
 
 	/**
