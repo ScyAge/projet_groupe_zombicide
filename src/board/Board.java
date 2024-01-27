@@ -42,11 +42,13 @@ public class Board {
 				this.board[X][yd] = new Sewer(xd, Y);
 				this.board[X][yf-1] = new Sewer(xd, Y);
 			}
+			this.addUniqueDrugStore();
+			this.addUniqueContinental();
 		}
 	}
 	
 	/**
-	 *  Creat Room
+	 *  Create Room
 	 * @param xd start width
 	 * @param xf final width
 	 * @param yd start height
@@ -83,7 +85,7 @@ public class Board {
 		}
 	}
 	/**
-	 * Creat vertical Street
+	 * Create vertical Street
 	 * @param y1 height of the street
 	 * @param x  the size of the street
 	 */
@@ -104,6 +106,60 @@ public class Board {
 	}
 	private boolean isSplitable(int xd, int xf, int yd, int yf) {
 		return (xf -xd)>=5 && (yf-yd)>=5;
+	}
+	
+	/** 
+	 * adds a unique drugstore to the board
+	 * */
+	private void addUniqueDrugStore() {
+		Random random = new Random();
+		boolean drugStorePresent= false;
+		int i =0;
+		while(i<this.board.length && !drugStorePresent) {
+			int j=0;
+			while(j<this.board[0].length && !drugStorePresent) {
+				if(board[i][j] instanceof DrugStore) {
+					drugStorePresent= true;
+				}
+				j++;
+			}
+			i++;
+		}
+		if(!drugStorePresent) {
+			int x= random.nextInt(board.length);
+			int y = random.nextInt(board[0].length);
+		
+			DrugStore drugStore = new DrugStore(x,y);
+			board[x][y] = drugStore;
+		}
+		
+	}
+	
+	/** 
+	 * adds a unique continental to the board
+	 * */
+	private void addUniqueContinental() {
+		Random random = new Random();
+		boolean continentalPresent= false;
+		int i =0;
+		while(i<this.board.length && !continentalPresent) {
+			int j=0;
+			while(j<this.board[0].length && !continentalPresent) {
+				if(board[i][j] instanceof Continental) {
+					continentalPresent= true;
+				}
+				j++;
+			}
+			i++;
+		}
+		if(!continentalPresent) {
+			int x= random.nextInt(board.length);
+			int y = random.nextInt(board[0].length);
+		
+			Continental continental = new Continental(x,y);
+			board[x][y] = continental;
+		}
+		
 	}
 
 	/**
