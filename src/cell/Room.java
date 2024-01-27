@@ -5,6 +5,7 @@ import item.*;
 
 public class Room extends Cell {
 	private List<Item> items;
+	private Map<Direction, door> doors;
 	
 	/** Constructor of the class Room
 	 * @param x coordinates of the cell
@@ -14,7 +15,20 @@ public class Room extends Cell {
 	public Room(int x, int y) {
 		super(x, y);
 		this.items = new ArrayList<>();
+		this.doors = new HashMap<>();
+		for (Direction direction : Direction.values()) {
+            doors.put(direction, null);
+        }
 	}
+	
+	/**
+	 * set a door with a direction
+	 * @param direction
+	 * @param door
+	 */
+	public void setDirection(Direction direction, door door) {
+        doors.put(direction, door);
+    }
 	
 	/**
 	 * Return the list of all the items in the room
