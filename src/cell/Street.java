@@ -7,8 +7,8 @@ public class Street extends Cell{
 	 * @param y coordinates of the cell
 	 * @param type the type of the cell 
 	 */
-	public Street(int x, int y, String type) {
-		super(x, y, type);
+	public Street(int x, int y) {
+		super(x, y);
 	}
 
 	@Override

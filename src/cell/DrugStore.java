@@ -13,8 +13,8 @@ public class DrugStore extends Room {
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
 	 * @param type the type of the cell */
-	public DrugStore(int x, int y, String type) {
-		super(x, y, type);
+	public DrugStore(int x, int y) {
+		super(x, y);
 		this.healingVials= new ArrayList<>();
 	}
 	

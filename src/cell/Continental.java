@@ -4,8 +4,8 @@ import cell.Room;
 
 public class Continental extends Room {
 
-	public Continental(int x, int y, String type) {
-		super(x, y, type);
+	public Continental(int x, int y) {
+		super(x, y);
 	}
 	
 	@Override

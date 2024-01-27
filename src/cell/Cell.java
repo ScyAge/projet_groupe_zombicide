@@ -15,7 +15,6 @@ public abstract class Cell {
 	private Map<Direction,door> direction;
 	private int x;
 	private int y;
-	private String type;
 	
 	/**
 	 * Constructor of the class Cell 
@@ -23,10 +22,9 @@ public abstract class Cell {
 	 * @param y coordinates of the cell
 	 * @param type the type of the cell 
 	 */
-	public Cell(int x , int y , String type) {
+	public Cell(int x , int y) {
 		this.x = x;
 		this.y = y;
-		this.type=type;
 		this.players = new ArrayList<>();
 		this.zombies = new ArrayList<>();
 		this.direction = new HashMap<>();
@@ -45,9 +43,7 @@ public abstract class Cell {
 		return this.players;
 	}
 	
-	public String getType() {
-		return this .type;
-	}
+
 //	public Player getPlayers(Player p) throw ActorDoesNotExistExeption {
 //		if(this.players.indexOf(p) ==-1) {
 //			throws new ActorDoesNotExistExeption();

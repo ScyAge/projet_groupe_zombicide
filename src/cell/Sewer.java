@@ -9,8 +9,8 @@ public class Sewer extends Street{
 	 * @param y coordinates of the cell
 	 * @param type the type of the cell 
 	 */
-	public Sewer(int x, int y, String type) {
-		super(x, y, type);
+	public Sewer(int x, int y) {
+		super(x, y);
 	}
 	
 	/**

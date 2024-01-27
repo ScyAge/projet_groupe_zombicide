@@ -11,8 +11,8 @@ public class Room extends Cell {
 	 * @param y coordinates of the cell
 	 * @param type the type of the cell 
 	 */
-	public Room(int x, int y, String type) {
-		super(x, y, type);
+	public Room(int x, int y) {
+		super(x, y);
 		this.items = new ArrayList<>();
 	}
 	
