@@ -36,10 +36,10 @@ public class Board {
 			initBoard(xd, X, Y+1, yf,false);
 			initBoard(X+1, xf, Y+1, yf,false);
 			if (sewer){
-				this.board[xd][Y] = new Sewer(xd, Y,"totolastico");
-				this.board[xf-1][Y] = new Sewer(xd, Y,"totolastico");
-				this.board[X][yd] = new Sewer(xd, Y,"totolastico");
-				this.board[X][yf-1] = new Sewer(xd, Y,"totolastico");
+				this.board[xd][Y] = new Sewer(xd, Y);
+				this.board[xf-1][Y] = new Sewer(xd, Y);
+				this.board[X][yd] = new Sewer(xd, Y);
+				this.board[X][yf-1] = new Sewer(xd, Y);
 			}
 		}
 	}
@@ -54,7 +54,7 @@ public class Board {
 	private void Building(int xf,int xd , int yf,int yd) {
 		for(int i =xd;i<(xf);i++) {
 			for(int j =yd;j<(yf);j++) {
-				this.board[i][j] = new Room(i,j,"tropico");
+				this.board[i][j] = new Room(i,j);
 			}
 		}
 	}
@@ -65,7 +65,7 @@ public class Board {
 	 */
 	private void VStreet(int y1,int xf, int xd) {
 		for(int i = xd;i<xf;i++) {
-			this.board[i][y1] = new Street(i,y1,"ananas");
+			this.board[i][y1] = new Street(i,y1);
 		}
 	}
 	/**
@@ -75,7 +75,7 @@ public class Board {
 	 */
 	private void HStreet(int yd,int yf, int x1) {
 		for(int i = yd;i<yf;i++) {
-			this.board[x1][i] = new Street(x1,i,"ananas");
+			this.board[x1][i] = new Street(x1,i);
 		}
 	}
 	private boolean isSplitable(int xd, int xf, int yd, int yf) {
