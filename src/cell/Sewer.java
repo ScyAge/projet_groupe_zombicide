@@ -26,7 +26,7 @@ public class Sewer extends Street{
 	
 	@Override
 	public String toString() {
-		return "this cell contains a sewer drain ";
+		return "Se";
 	}
 
 }

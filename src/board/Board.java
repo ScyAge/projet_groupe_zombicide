@@ -12,7 +12,7 @@ public class Board {
 	 */
 	public Board(int height, int width) {
 		this.board = new Cell[width][height];
-		initBoard(0,width,0,height);
+		initBoard(0,width,0,height,true);
 	}
 	/**
 	 * init the Board
@@ -21,7 +21,7 @@ public class Board {
 	 * @param yd start height
 	 * @param yf final height
 	 */
-	private void initBoard(int xd,int xf,int yd,int yf) {
+	private void initBoard(int xd,int xf,int yd,int yf,boolean sewer) {
 		if(!isSplitable(xd, xf, yd, yf)){
 			Building(xf, xd, yf, yd);
 		}
@@ -31,10 +31,16 @@ public class Board {
 			int X = random.nextInt((xf-2) -(xd+2))+(xd+2);
 			VStreet(Y,xf,xd);
 			HStreet(yd,yf, X);
-			initBoard(xd, X, yd, Y);
-			initBoard(X+1, xf, yd, Y);
-			initBoard(xd, X, Y+1, yf);
-			initBoard(X+1, xf, Y+1, yf);
+			initBoard(xd, X, yd, Y,false);
+			initBoard(X+1, xf, yd, Y,false);
+			initBoard(xd, X, Y+1, yf,false);
+			initBoard(X+1, xf, Y+1, yf,false);
+			if (sewer){
+				this.board[xd][Y] = new Sewer(xd, Y,"totolastico");
+				this.board[xf-1][Y] = new Sewer(xd, Y,"totolastico");
+				this.board[X][yd] = new Sewer(xd, Y,"totolastico");
+				this.board[X][yf-1] = new Sewer(xd, Y,"totolastico");
+			}
 		}
 	}
 	
