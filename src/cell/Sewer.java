@@ -26,7 +26,7 @@ public class Sewer extends Street{
 	
 	@Override
 	public String toString() {
-		return "Se";
+		return "\u001B[33m" + "S" + "\u001B[0m";
 	}
 
 }

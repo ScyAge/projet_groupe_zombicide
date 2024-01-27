@@ -13,7 +13,7 @@ public class Street extends Cell{
 
 	@Override
 	public String toString() {
-		return "S"; 
+		return "\u001B[33m" + "S" + "\u001B[0m"; 
 		
 	}
 }
