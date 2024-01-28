@@ -92,8 +92,19 @@ Diagramme UML Semaine 1 : [https://nextcloud.univ-lille.fr/index.php/s/jBCi5HAjN
 ## Semaine 2
 Objectif de la séance : Concevoir l'algorithme de création du plateau  
 
-Après avoir créé les différents éléments qui constitue le plateau de jeu, nous nous sommes penché sur le comment contruire le plateau.
+Après avoir créé les différents éléments qui constituent le plateau de jeu, nous nous sommes penchés sur la manière de construire le plateau.  
 
+Nous avons créé, dans la méthode initBoard() de la classe Board, un algorithme qui permet de créer un plateau d'une taille demandée. Cet algorithme place la rue principale de manière aléatoire sur le plateau et, si les conditions le permettent, utilise la récursivité pour créer plusieurs autres rues.  
+
+À la création de chaque salle, les portes sont placées sur les 4 côtés de la salle, définis comme breakables, c'est-à-dire qu'il est possible de les ouvrir, sauf si elles se trouvent à l'extrémité du plateau, auquel cas elles sont définies comme unbreakables.  
+
+De plus, les salles spéciales (drug store et continental) sont également placées de manière aléatoire sur le plateau.  
+
+**Répartition du travail :**  
+Evan Joly : Assistance à Gabriel + correction des bugs de l'algorithme du plateau  
+Gabriel Kreutser : Création de l'algorithme du plateau (placement des salles et des rues)  
+Théo Nave : Création des portes autour des salles à la création du plateau + rédaction du compte rendu Semaine 2  
+Wissal-Asma Harrat : Création des méthodes addUniqueDrugStore et addUniqueContinental + implémentation de ces dernières dans l'algorithme  
 ## Semaine 3
 
 ## Semaine 4
