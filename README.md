@@ -90,6 +90,9 @@ Wissal-Asma Harrat : Création et écriture des classes Room, DrugStore, Contine
 Diagramme UML Semaine 1 : [https://nextcloud.univ-lille.fr/index.php/s/jBCi5HAjN92PnnY](https://nextcloud.univ-lille.fr/index.php/s/jBCi5HAjN92PnnY)
 
 ## Semaine 2
+Objectif de la séance : Concevoir l'algorithme de création du plateau  
+
+Après avoir créé les différents éléments qui constitue le plateau de jeu, nous nous sommes penché sur le comment contruire le plateau.
 
 ## Semaine 3
 
