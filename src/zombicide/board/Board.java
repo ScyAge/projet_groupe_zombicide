@@ -5,8 +5,12 @@ import zombicide.cell.*;
 import zombicide.util.Direction;
 import zombicide.util.Door;
 public class Board {
-
+	
 	private Cell[][] board;
+	private boolean drugStoreExist;
+	private boolean continentalExist;
+    private int xr;
+    private int yr;
 	/**
 	 * Builder of Board
 	 * @param height of the board
@@ -14,6 +18,10 @@ public class Board {
 	 */
 	public Board(int height, int width) {
 		this.board = new Cell[width][height];
+		this.drugStoreExist=false;
+		this.continentalExist=false;
+        this.xr=this.board.length;
+        this.yr=this.board[0].length;
 		initBoard(0,width,0,height,true);
 	}
 	/**
@@ -43,8 +51,7 @@ public class Board {
 				this.board[X][yd] = new Sewer(xd, Y);
 				this.board[X][yf-1] = new Sewer(xd, Y);
 			}
-			this.addUniqueDrugStore();
-			this.addUniqueContinental();
+			
 		}
 	}
 	
@@ -82,6 +89,25 @@ public class Board {
 	            } else {
 	                room.setDirection(Direction.South, new Door(false)); 
 	            }
+	            int X= random.nextInt(xr);
+	            int Y= random.nextInt(yr);
+	            if(!continentalExist && X==1){
+	                Continental continental = new Continental(i,j);
+	                this.board[i][j]=continental;
+	                continentalExist=true;
+	            }
+	            else {
+	            	xr--;
+	            }
+	            
+				if(!drugStoreExist && Y==1){
+	                DrugStore drugstore = new DrugStore(i,j);
+	                this.board[i][j]=drugstore;
+	                drugStoreExist=true;
+	            }
+				else {
+					yr--;
+				}
 			}
 		}
 	}
@@ -109,59 +135,7 @@ public class Board {
 		return (xf -xd)>=5 && (yf-yd)>=5;
 	}
 	
-	/** 
-	 * adds a unique drugstore to the board
-	 * */
-	private void addUniqueDrugStore() {
-		Random random = new Random();
-		boolean drugStorePresent= false;
-		int i =0;
-		while(i<this.board.length && !drugStorePresent) {
-			int j=0;
-			while(j<this.board[0].length && !drugStorePresent) {
-				if(board[i][j] instanceof DrugStore) {
-					drugStorePresent= true;
-				}
-				j++;
-			}
-			i++;
-		}
-		if(!drugStorePresent) {
-			int x= random.nextInt(board.length);
-			int y = random.nextInt(board[0].length);
-		
-			DrugStore drugStore = new DrugStore(x,y);
-			board[x][y] = drugStore;
-		}
-		
-	}
 	
-	/** 
-	 * adds a unique continental to the board
-	 * */
-	private void addUniqueContinental() {
-		Random random = new Random();
-		boolean continentalPresent= false;
-		int i =0;
-		while(i<this.board.length && !continentalPresent) {
-			int j=0;
-			while(j<this.board[0].length && !continentalPresent) {
-				if(board[i][j] instanceof Continental) {
-					continentalPresent= true;
-				}
-				j++;
-			}
-			i++;
-		}
-		if(!continentalPresent) {
-			int x= random.nextInt(board.length);
-			int y = random.nextInt(board[0].length);
-		
-			Continental continental = new Continental(x,y);
-			board[x][y] = continental;
-		}
-		
-	}
 
 	/**
 	 * Print the Board
