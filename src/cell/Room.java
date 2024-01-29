@@ -5,7 +5,7 @@ import item.*;
 
 public class Room extends Cell {
 	private List<Item> items;
-	private Map<Direction, door> doors;
+	private Map<Direction, Door> doors;
 	
 	/** Constructor of the class Room
 	 * @param x coordinates of the cell
@@ -26,7 +26,7 @@ public class Room extends Cell {
 	 * @param direction
 	 * @param door
 	 */
-	public void setDirection(Direction direction, door door) {
+	public void setDirection(Direction direction, Door door) {
         doors.put(direction, door);
     }
 	

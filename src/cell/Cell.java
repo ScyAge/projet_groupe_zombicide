@@ -12,7 +12,7 @@ import util.*;
 public abstract class Cell {
 	private List<Player> players;
 	private List<Zombies> zombies;
-	private Map<Direction,door> direction;
+	private Map<Direction,Door> direction;
 	private int x;
 	private int y;
 	

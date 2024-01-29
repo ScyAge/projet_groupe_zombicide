@@ -2,7 +2,7 @@ package board;
 import java.util.Random;
 import cell.*;
 import util.Direction;
-import util.door;
+import util.Door;
 public class Board {
 
 	private Cell[][] board;
@@ -61,25 +61,25 @@ public class Board {
 				this.board[i][j] = room;
 				
 				if (i > xd) {
-	                room.setDirection(Direction.West, new door(true));
+	                room.setDirection(Direction.West, new Door(true));
 	            } else {
-	                room.setDirection(Direction.West, new door(false)); 
+	                room.setDirection(Direction.West, new Door(false)); 
 	            }
 				if (i < xf - 1) {
-	                room.setDirection(Direction.East, new door(true));
+	                room.setDirection(Direction.East, new Door(true));
 	            } else {
-	                room.setDirection(Direction.East, new door(false)); 
+	                room.setDirection(Direction.East, new Door(false)); 
 	            }
 				if (j > yd) {
-	                room.setDirection(Direction.North, new door(true));
+	                room.setDirection(Direction.North, new Door(true));
 	            } else {
-	                room.setDirection(Direction.North, new door(false)); 
+	                room.setDirection(Direction.North, new Door(false)); 
 	            }
 
 	            if (j < yf - 1) {
-	                room.setDirection(Direction.South, new door(true));
+	                room.setDirection(Direction.South, new Door(true));
 	            } else {
-	                room.setDirection(Direction.South, new door(false)); 
+	                room.setDirection(Direction.South, new Door(false)); 
 	            }
 			}
 		}

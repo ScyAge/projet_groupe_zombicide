@@ -1,6 +1,6 @@
 package util;
 
-public class door {
+public class Door {
 
 	private boolean Breakable;
 	
@@ -10,7 +10,7 @@ public class door {
 	 * Door Builder
 	 * @param Breakable if a door is unbreakable or not 
 	 */
-	public door(boolean Breakable) {
+	public Door(boolean Breakable) {
 		this.Break = false;
 		this.Breakable = Breakable;
 		
