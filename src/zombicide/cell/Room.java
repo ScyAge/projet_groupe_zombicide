@@ -32,6 +32,14 @@ public class Room extends Cell {
     }
 	
 	/**
+	 * return the door
+	 * @return the door
+	 */
+	public Map<Direction, Door> getDoors() {
+	    return this.doors;
+	}
+	
+	/**
 	 * Return the list of all the items in the room
 	 * @return List of items
 	 */

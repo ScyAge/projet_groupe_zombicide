@@ -88,7 +88,7 @@ public abstract class Cell {
 	 * remove the specified zombie from the list of zombie
 	 * @param z the zombie
 	 */
-	public void RemovePlayer(Zombies z ) {
+	public void RemoveZombie(Zombies z ) {
 		this.zombies.remove(z);
 	}
 	
