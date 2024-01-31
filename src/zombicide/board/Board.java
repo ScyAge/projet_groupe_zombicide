@@ -89,6 +89,7 @@ public class Board {
 	            } else {
 	                room.setDirection(Direction.South, new Door(false)); 
 	            }
+	            Random random = new Random();
 	            int X= random.nextInt(xr);
 	            int Y= random.nextInt(yr);
 	            if(!continentalExist && X==1){
