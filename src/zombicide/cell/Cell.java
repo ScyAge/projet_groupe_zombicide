@@ -116,6 +116,11 @@ public abstract class Cell {
 		return true;
 	}
 	 
+	
+	/**
+	 * gives a recap of the number of actors in the cell
+	 * @return a description of the cell 
+	 */
 	public  String description() {
 		String cellName= this.getClass().getSimpleName();
 		int nbPlayers= players.size();
