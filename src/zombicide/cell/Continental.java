@@ -15,7 +15,7 @@ public class Continental extends Room {
 
 	@Override
 	public String toString() {
-		return "players are in a rest, there are no attacks";
+		return "C";
 	}
 	
 	

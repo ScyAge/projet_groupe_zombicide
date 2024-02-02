@@ -45,7 +45,7 @@ public class DrugStore extends Room {
 
 	@Override
 	public String toString() {
-		return "DrugStore [healingVials=" + this.healingVials + "]";
+		return "D";
 	}
 	
 	
