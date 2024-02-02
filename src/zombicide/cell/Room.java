@@ -64,11 +64,14 @@ public class Room extends Cell {
 		this.items.remove(i);
 		return i;
 	}
+	public Door getDoor(Direction direction) {
+		return this.doors.get(direction);
+	}
 	
 	
 	@Override
 	public String toString() {
-		return "R"; 
+		return this.doors.get(Direction.West).toString()+"R"+this.doors.get(Direction.East).toString(); 
 		
 	}
 

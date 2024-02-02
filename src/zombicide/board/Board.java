@@ -69,25 +69,25 @@ public class Board {
 				this.board[i][j] = room;
 				
 				if (i > xd) {
-	                room.setDirection(Direction.West, new Door(true));
+	                room.setDirection(Direction.West, new Door(true,Direction.West));
 	            } else {
-	                room.setDirection(Direction.West, new Door(false)); 
+	                room.setDirection(Direction.West, new Door(false,Direction.West)); 
 	            }
 				if (i < xf - 1) {
-	                room.setDirection(Direction.East, new Door(true));
+	                room.setDirection(Direction.East, new Door(true,Direction.East));
 	            } else {
-	                room.setDirection(Direction.East, new Door(false)); 
+	                room.setDirection(Direction.East, new Door(false,Direction.East)); 
 	            }
 				if (j > yd) {
-	                room.setDirection(Direction.North, new Door(true));
+	                room.setDirection(Direction.North, new Door(true,Direction.North));
 	            } else {
-	                room.setDirection(Direction.North, new Door(false)); 
+	                room.setDirection(Direction.North, new Door(false,Direction.North)); 
 	            }
 
 	            if (j < yf - 1) {
-	                room.setDirection(Direction.South, new Door(true));
+	                room.setDirection(Direction.South, new Door(true,Direction.South));
 	            } else {
-	                room.setDirection(Direction.South, new Door(false)); 
+	                room.setDirection(Direction.South, new Door(false,Direction.South)); 
 	            }
 	            Random random = new Random();
 				if(!continentalExist){
