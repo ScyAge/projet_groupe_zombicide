@@ -46,6 +46,15 @@ public class Door {
 			Break = true;
 		}
 	}
+
+	@Override
+	public String toString() {
+		if(this.isBreak()) {
+			return "";
+		}
+		return this.direction_affichage.get(this.direction_door);
+	}
+	
 	
 } 
 
