@@ -117,7 +117,10 @@ public abstract class Cell {
 	}
 	@Override 
 	public  String toString() {
-		return "c";
+		String cellName= this.getClass().getSimpleName();
+		int nbPlayers= players.size();
+		int nbZombies= zombies.size();
+		return "("+ this.getX() +","+ this.getY() + ") " + cellName + " [ Players : " + nbPlayers+ " ; Zombies : " + nbZombies + "]";
 	}
 	
 	
