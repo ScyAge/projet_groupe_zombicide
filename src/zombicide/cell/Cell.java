@@ -115,12 +115,17 @@ public abstract class Cell {
 	public boolean canLook() {
 		return true;
 	}
-	@Override 
-	public  String toString() {
+	 
+	public  String description() {
 		String cellName= this.getClass().getSimpleName();
 		int nbPlayers= players.size();
 		int nbZombies= zombies.size();
 		return "("+ this.getX() +","+ this.getY() + ") " + cellName + " [ Players : " + nbPlayers+ " ; Zombies : " + nbZombies + "]";
+	}
+	
+	@Override
+	public String toString() {
+		return 'c';
 	}
 	
 	
