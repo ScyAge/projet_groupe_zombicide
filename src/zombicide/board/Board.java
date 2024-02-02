@@ -90,24 +90,27 @@ public class Board {
 	                room.setDirection(Direction.South, new Door(false)); 
 	            }
 	            Random random = new Random();
-	            int X= random.nextInt(xr);
-	            int Y= random.nextInt(yr);
-	            if(!continentalExist && X==1){
-	                Continental continental = new Continental(i,j);
-	                this.board[i][j]=continental;
-	                continentalExist=true;
-	            }
-	            else {
-	            	xr--;
-	            }
-	            
-				if(!drugStoreExist && Y==1){
-	                DrugStore drugstore = new DrugStore(i,j);
-	                this.board[i][j]=drugstore;
-	                drugStoreExist=true;
-	            }
-				else {
-					yr--;
+				if(!continentalExist){
+	            	int X= random.nextInt(xr);
+					if(X==1){
+						Continental continental = new Continental(i,j);
+						this.board[i][j]=continental;
+						continentalExist=true;
+					}
+					else {
+						xr--;
+					}
+				}
+	            if(!drugStoreExist){
+					int Y= random.nextInt(yr);
+					if(Y==1){
+						DrugStore drugstore = new DrugStore(i,j);
+						this.board[i][j]=drugstore;
+						drugStoreExist=true;
+					}
+					else {
+						yr--;
+					}
 				}
 			}
 		}
