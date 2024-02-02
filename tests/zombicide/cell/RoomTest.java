@@ -33,6 +33,35 @@ class RoomTest {
         room.setDirection(Direction.North, door);
         assertEquals(door, room.getDoors().get(Direction.North));
     }
+    
+    @Test
+    void testGetAllsItems() {
+    	Item item2 = new Item();
+    	Item item3 = new Item();
+    	room.addItem(item);
+    	room.addItem(item2);
+    	room.addItem(item3);
+    	assertEquals(3, room.getAllItems().size());
+    	assertTrue(room.getAllItems().contains(item));
+    	assertTrue(room.getAllItems().contains(item2));
+    	assertTrue(room.getAllItems().contains(item3));
+    }
 
-
+    @Test
+    void testGetDoors() {
+    	room.setDirection(Direction.North, door);
+    	assertEquals(door, room.getDoors().get(Direction.North));
+    }
+    
+    @Test
+    void testRemoveItem() {
+    	Item item2 = new Item(); 
+    	room.addItem(item);
+    	room.addItem(item2);
+    	assertTrue(room.getAllItems().contains(item));
+    	assertTrue(room.getAllItems().contains(item2));
+    	room.removeItem(item);
+    	assertFalse(room.getAllItems().contains(item));
+    	assertTrue(room.getAllItems().contains(item2));
+    }
 }
