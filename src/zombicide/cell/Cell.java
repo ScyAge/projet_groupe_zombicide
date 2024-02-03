@@ -12,7 +12,6 @@ import zombicide.util.*;
 public abstract class Cell {
 	private List<Player> players;
 	private List<Zombies> zombies;
-	private Map<Direction,Door> direction;
 	private int x;
 	private int y;
 	
@@ -27,11 +26,7 @@ public abstract class Cell {
 		this.y = y;
 		this.players = new ArrayList<>();
 		this.zombies = new ArrayList<>();
-		this.direction = new HashMap<>();
-		this.direction.put(Direction.North, null);
-		this.direction.put(Direction.South, null);
-		this.direction.put(Direction.East, null);
-		this.direction.put(Direction.West, null);
+		
 	}
 	
 	
