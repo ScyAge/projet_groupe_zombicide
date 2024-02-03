@@ -3,6 +3,7 @@ import java.util.*;
 
 import zombicide.item.*;
 import zombicide.util.*;
+import zombicide.util.door.*;
 
 public class Room extends Cell {
 	private List<Item> items;
@@ -18,7 +19,12 @@ public class Room extends Cell {
 		this.items = new ArrayList<>();
 		this.doors = new HashMap<>();
 		for (Direction direction : Direction.values()) {
-            doors.put(direction, null);
+            if(direction == Direction.East || direction == Direction.West){
+				this.doors.put(direction, new East_west_door(true));
+			}
+			else{
+				this.doors.put(direction, new North_South_door(true));
+			}
         }
 	}
 	
@@ -28,7 +34,7 @@ public class Room extends Cell {
 	 * @param door
 	 */
 	public void setDirection(Direction direction, Door door) {
-        doors.put(direction, door);
+        this.doors.put(direction, door);
     }
 	
 	/**

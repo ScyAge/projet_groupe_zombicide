@@ -4,6 +4,7 @@ import java.util.*;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.util.*;
+import zombicide.util.door.*;
 
 
 /**

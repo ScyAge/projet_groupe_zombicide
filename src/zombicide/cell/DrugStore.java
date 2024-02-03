@@ -5,6 +5,7 @@ import java.util.*;
 import zombicide.actor.player.Player;
 import zombicide.cell.*;
 import zombicide.item.HealingVial;
+import zombicide.util.Direction;
 
 public class DrugStore extends Room {
 	private List<HealingVial> healingVials;
@@ -43,7 +44,23 @@ public class DrugStore extends Room {
 		this.addHealingVial(null);
 	}
 
-	
+		public String toString(int ligne) {
+			if(ligne ==0) {
+				return this.getDoor(Direction.North).toString();
+			}
+			else if(ligne ==1){
+				return this.getDoor(Direction.East).toString()+"Dz0"+this.getDoor(Direction.West).toString();
+			}
+			else if(ligne ==2){
+				return this.getDoor(Direction.East).toString()+"s0 "+this.getDoor(Direction.West).toString();
+			}
+			else if(ligne ==3){
+				return this.getDoor(Direction.South).toString();
+			}
+			else {
+				return "";
+			}
+	}
 	
 	
 	

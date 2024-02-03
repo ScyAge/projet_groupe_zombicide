@@ -92,7 +92,7 @@ public class Board {
 	            Random random = new Random();
 				if(!continentalExist){
 	            	int X= random.nextInt(xr);
-					if(X==1){
+					if(X==0){
 						Continental continental = new Continental(i,j);
 						this.board[i][j]=continental;
 						continentalExist=true;
@@ -103,7 +103,7 @@ public class Board {
 				}
 	            if(!drugStoreExist){
 					int Y= random.nextInt(yr);
-					if(Y==1){
+					if(Y==0 ){
 						DrugStore drugstore = new DrugStore(i,j);
 						this.board[i][j]=drugstore;
 						drugStoreExist=true;
@@ -147,7 +147,7 @@ public class Board {
 	public void Display() {
 		for(int i =0;i<this.board.length;i++) {
 			for(int ligne = 0;ligne <4;ligne++) {
-				for(int j =0;i<this.board[0].length;j++) {
+				for(int j =0;j<this.board[0].length;j++) {
 					System.out.println(this.board[i][j].toString(ligne));
 				}
 				System.out.println("\n");
