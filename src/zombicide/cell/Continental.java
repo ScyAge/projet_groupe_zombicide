@@ -13,10 +13,7 @@ public class Continental extends Room {
 		return false;
 	}
 
-	@Override
-	public String toString() {
-		return "C";
-	}
+	
 	
 	
 }

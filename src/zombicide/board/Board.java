@@ -145,15 +145,14 @@ public class Board {
 	 * Print the Board
 	 */
 	public void Display() {
-		for(int i =0;i<this.board[0].length;i++) {
-			for(int j =0;j<this.board.length;j++) {
-				System.out.print("|"+this.board[j][i].toString());
+		for(int i =0;i<this.board.length;i++) {
+			for(int ligne = 0;ligne <4;ligne++) {
+				for(int j =0;i<this.board[0].length;j++) {
+					System.out.println(this.board[i][j].toString(ligne));
+				}
+				System.out.println("\n");
 			}
-			System.out.println("|");
-			for(int j =0;j<this.board.length;j++) {
-				System.out.print("――");
-			}
-			System.out.println("");
-		}
+			
+	}
 	}
 }

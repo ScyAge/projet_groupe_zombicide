@@ -43,10 +43,7 @@ public class DrugStore extends Room {
 		this.addHealingVial(null);
 	}
 
-	@Override
-	public String toString() {
-		return "D";
-	}
+	
 	
 	
 	
