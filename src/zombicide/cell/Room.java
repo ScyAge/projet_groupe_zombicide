@@ -70,9 +70,22 @@ public class Room extends Cell {
 	
 	
 	@Override
-	public String toString() {
-		return this.doors.get(Direction.West).toString()+"R"+this.doors.get(Direction.East).toString(); 
-		
+	public String toString(int ligne) {
+		if(ligne ==0) {
+			return this.getDoor(Direction.North).toString();
+		}
+		else if(ligne ==1){
+			return this.getDoor(Direction.East).toString()+"Rz0"+this.getDoor(Direction.West).toString();
+		}
+		else if(ligne ==2){
+			return this.getDoor(Direction.East).toString()+"s0 "+this.getDoor(Direction.West).toString();
+		}
+		else if(ligne ==3){
+			return this.getDoor(Direction.South).toString();
+		}
+		else {
+			return "";
+		}
 	}
 
 }

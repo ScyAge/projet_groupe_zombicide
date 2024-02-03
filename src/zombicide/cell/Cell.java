@@ -122,9 +122,12 @@ public abstract class Cell {
 		int nbZombies= zombies.size();
 		return "("+ this.getX() +","+ this.getY() + ") " + cellName + " [ Players : " + nbPlayers+ " ; Zombies : " + nbZombies + "]";
 	}
-	
-	@Override
-	public abstract String toString();
+	/**
+	 * display a line of the cell 
+	 * @param ligne
+	 * @return
+	 */
+	public abstract String toString(int ligne);
 		
 	
 	
