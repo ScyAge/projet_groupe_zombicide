@@ -129,9 +129,8 @@ public abstract class Cell {
 	}
 	
 	@Override
-	public String toString() {
-		return 'c';
-	}
+	public abstract String toString();
+		
 	
 	
 	
