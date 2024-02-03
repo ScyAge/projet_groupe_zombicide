@@ -3,7 +3,7 @@ import java.util.Random;
 
 import zombicide.cell.*;
 import zombicide.util.Direction;
-import zombicide.util.Door;
+import zombicide.util.door.*;
 public class Board {
 	
 	private Cell[][] board;
@@ -69,25 +69,25 @@ public class Board {
 				this.board[i][j] = room;
 				
 				if (i > xd) {
-	                room.setDirection(Direction.West, new Door(true,Direction.West));
+	                room.setDirection(Direction.West, new East_west_door(true));
 	            } else {
-	                room.setDirection(Direction.West, new Door(false,Direction.West)); 
+	                room.setDirection(Direction.West, new East_west_door(false)); 
 	            }
 				if (i < xf - 1) {
-	                room.setDirection(Direction.East, new Door(true,Direction.East));
+	                room.setDirection(Direction.East, new East_west_door(true));
 	            } else {
-	                room.setDirection(Direction.East, new Door(false,Direction.East)); 
+	                room.setDirection(Direction.East, new East_west_door(false)); 
 	            }
 				if (j > yd) {
-	                room.setDirection(Direction.North, new Door(true,Direction.North));
+	                room.setDirection(Direction.North, new North_South_door(true));
 	            } else {
-	                room.setDirection(Direction.North, new Door(false,Direction.North)); 
+	                room.setDirection(Direction.North, new North_South_door(false)); 
 	            }
 
 	            if (j < yf - 1) {
-	                room.setDirection(Direction.South, new Door(true,Direction.South));
+	                room.setDirection(Direction.South, new North_South_door(true));
 	            } else {
-	                room.setDirection(Direction.South, new Door(false,Direction.South)); 
+	                room.setDirection(Direction.South, new North_South_door(false)); 
 	            }
 	            Random random = new Random();
 				if(!continentalExist){
