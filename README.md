@@ -47,7 +47,7 @@ N'oubliez pas d'ajouter les autres membres de votre équipe aux membres du proje
 
 ## Semaine 1
 
-Objectif de la séance : Modéliser le plateau de jeu sous forme UML  
+Objectif de la semaine : Modéliser le plateau de jeu sous forme UML  
 
 Remarque : Toutes les informations et caractéristiques de l'UML sont susceptibles de changer par la suite pour une meilleure implémentation du jeu    
 
@@ -90,7 +90,7 @@ Wissal-Asma Harrat : Création et écriture des classes Room, DrugStore, Contine
 Diagramme UML Semaine 1 : [https://nextcloud.univ-lille.fr/index.php/s/jBCi5HAjN92PnnY](https://nextcloud.univ-lille.fr/index.php/s/jBCi5HAjN92PnnY)
 
 ## Semaine 2
-Objectif de la séance : Concevoir l'algorithme de création du plateau  
+Objectif de la semaine : Concevoir l'algorithme de création du plateau  
 
 Après avoir créé les différents éléments qui constituent le plateau de jeu, nous nous sommes penchés sur la manière de construire le plateau.  
 
@@ -106,7 +106,23 @@ Gabriel Kreutser : Création de l'algorithme du plateau (placement des salles et
 Théo Nave : Création des portes autour des salles à la création du plateau + rédaction du compte rendu Semaine 2  
 Wissal-Asma Harrat : Création des méthodes addUniqueDrugStore et addUniqueContinental + implémentation de ces dernières dans l'algorithme  
 ## Semaine 3
+Objectif de la semaine : Finaliser le plateau de jeu  
 
+L'un des premiers enjeux de la semaine était la modélisation des portes. En effet, lors de l'affichage, l'idée principale était d'utiliser une structure de données map<Direction, String> dans la classe Door. Ainsi, en fonction d'un attribut passé en paramètre lors de l'appel de la méthode toString, la porte appropriée s'afficherait. Cependant, cette modélisation était peut-être trop complexe et pouvait être simplifiée.  
+
+C'est pourquoi nous avons opté pour un héritage de la classe Door, devenue abstraite, en deux nouvelles sous-classes : NorthSouthDoor et EastWestDoor. Ces deux classes fusionnent les portes de cardinalités opposées, car elles affichent la même chose. Cette modélisation facilite l'appel des méthodes et la génération des chaînes de caractères pour les méthodes toString, rendant ainsi le code plus compréhensible.  
+
+Un autre enjeu concernait la méthode display du board. En effet, l'idée principale d'afficher des chaînes de caractères représentant les portes de la manière suivante "|\n|" ne fonctionnait pas, créant ainsi une représentation d'affichage bancale en forme d'escalier.  
+
+Pour remédier à cela, il a fallu afficher ligne par ligne en subdivisant l'affichage des cellules en quatre parties. Tout d'abord, les portes nord de la ligne de cellules, puis la première et deuxième partie du contenu des cellules avec l'initial des cellules et le nombre d'acteurs présents, ainsi que les portes Est et Ouest sur deux lignes. Enfin, la série de portes sud était affichée. Pour cela, il a été nécessaire de modifier toutes les méthodes toString des classes héritant de Cell, qui prennent maintenant en compte la ligne à afficher en tant que paramètre du toString. Cela permet, en fonction de la cellule, d'afficher une porte ou aucune, par exemple, si la cellule est une rue.  
+
+Suite à ces modifications, il a été nécessaire de mettre à jour l'UML.   
+
+**Répartition du travail :**  
+Evan Joly : Modification des doors avec la nouvelle modélisation + correction de l'affichage du plateau + rédaction du Compte Rendu Semaine 3  
+Gabriel Kreutser : Assistance à Evan sur l'affichage du plateau et la modélisation des doors.  
+Théo Nave : Création des tests des classes présentes. + assistance rédaction compte Rendu  
+Wissal-Asma Harrat : Correction du placement de DrugStore et Continental + mise à jour de l'UML  
 ## Semaine 4
 
 ## Semaine 5

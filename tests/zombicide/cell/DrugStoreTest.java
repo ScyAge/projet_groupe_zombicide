@@ -17,7 +17,6 @@ class DrugStoreTest {
     private Player player;
     private Zombies zombie;
     private Item item;
-    private Door door;
     private HealingVial healingVial;
     
     @BeforeEach
@@ -26,7 +25,6 @@ class DrugStoreTest {
         player = new Player();
         zombie = new Zombies();
         item = new Item();
-        door = new Door(true);
         healingVial = new HealingVial();
     }
     

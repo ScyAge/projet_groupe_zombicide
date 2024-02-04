@@ -4,7 +4,7 @@ import zombicide.board.*;
 public class BoardMain {
 
 	public static void main(String[] arg ) {
-		Board b = new Board(15,15);
+		Board b = new Board(5,5);
 		b.Display();
 	}
 }
