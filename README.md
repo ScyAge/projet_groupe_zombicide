@@ -123,6 +123,8 @@ Evan Joly : Modification des doors avec la nouvelle modélisation + correction d
 Gabriel Kreutser : Assistance à Evan sur l'affichage du plateau et la modélisation des doors.  
 Théo Nave : Création des tests des classes présentes. + assistance rédaction compte Rendu  
 Wissal-Asma Harrat : Correction du placement de DrugStore et Continental + mise à jour de l'UML  
+
+Diagramme UML Semaine 3 : [https://nextcloud.univ-lille.fr/index.php/s/FiRLwak7YCSiqFc](https://nextcloud.univ-lille.fr/index.php/s/FiRLwak7YCSiqFc)
 ## Semaine 4
 
 ## Semaine 5
