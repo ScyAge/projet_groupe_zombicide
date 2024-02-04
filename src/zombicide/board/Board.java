@@ -147,10 +147,11 @@ public class Board {
 	public void Display() {
 		for(int i =0;i<this.board.length;i++) {
 			for(int ligne = 0;ligne <4;ligne++) {
+				String x = "";
 				for(int j =0;j<this.board[0].length;j++) {
-					System.out.println(this.board[i][j].toString(ligne));
+					x += this.board[i][j].toString(ligne);
 				}
-				System.out.println("\n");
+				System.out.println(x);
 			}
 			
 	}

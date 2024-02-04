@@ -19,7 +19,7 @@ public class Street extends Cell{
 			return "     ";
 		}
 		else if(ligne ==1){
-			return " "+"\u001B[33m" + "R"+ "\u001B[0m"+"z0 ";
+			return " "+"\u001B[33m" + "S"+ "\u001B[0m"+"z0 ";
 		}
 		else if(ligne ==2){
 			return " s0  ";
