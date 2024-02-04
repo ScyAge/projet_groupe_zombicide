@@ -16,7 +16,6 @@ class ContinentalTest {
     private Player player;
     private Zombies zombie;
     private Item item;
-    private Door door;
     
     @BeforeEach
     void setUp() {
@@ -24,7 +23,6 @@ class ContinentalTest {
         player = new Player();
         zombie = new Zombies();
         item = new Item();
-        door = new Door(true);
     }
     
     @Test

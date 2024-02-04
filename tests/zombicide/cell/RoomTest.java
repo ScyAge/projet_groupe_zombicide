@@ -25,7 +25,6 @@ class RoomTest {
         player = new Player();
         zombie = new Zombies();
         item = new Item();
-        door = new Door(true);
     }
     
     @Test
