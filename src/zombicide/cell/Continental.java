@@ -19,7 +19,7 @@ public class Continental extends Room {
 			return this.getDoor(Direction.North).toString();
 		}
 		else if(ligne ==1){
-			return this.getDoor(Direction.East).toString()+"Cz0"+this.getDoor(Direction.West).toString();
+			return this.getDoor(Direction.East).toString()+"\u001B[32m" +"C"+ "\u001B[0m"+"z0"+this.getDoor(Direction.West).toString();
 		}
 		else if(ligne ==2){
 			return this.getDoor(Direction.East).toString()+"s0 "+this.getDoor(Direction.West).toString();

@@ -8,8 +8,8 @@ public class North_South_door extends Door{
 	
 	public String toString(){
 		if(this.isBreak()) {
-			return "   ";
+			return "     ";
 		}
-		return "---";
+		return "-----";
 	}
 }

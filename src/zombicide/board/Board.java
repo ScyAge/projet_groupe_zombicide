@@ -90,30 +90,28 @@ public class Board {
 	                room.setDirection(Direction.South, new North_South_door(false)); 
 	            }
 	            Random random = new Random();
-				if(!continentalExist){
+				if(!continentalExist || !drugStoreExist ){
 	            	int X= random.nextInt(xr);
 					if(X==0){
-						Continental continental = new Continental(i,j);
-						this.board[i][j]=continental;
-						continentalExist=true;
+						int Y= random.nextInt(2);
+						if((!continentalExist && Y == 1) || (!continentalExist && drugStoreExist)  ) {
+							Continental continental = new Continental(i,j);
+							this.board[i][j]=continental;
+							continentalExist=true;
+						}
+						else if((!drugStoreExist&& Y == 0) || (continentalExist && !drugStoreExist)){
+							DrugStore drugstore = new DrugStore(i,j);
+							this.board[i][j]=drugstore;
+							drugStoreExist=true;
+						}
+						
 					}
 					else {
 						xr--;
 					}
 				}
-	            if(!drugStoreExist){
-					int Y= random.nextInt(yr);
-					if(Y==0 ){
-						DrugStore drugstore = new DrugStore(i,j);
-						this.board[i][j]=drugstore;
-						drugStoreExist=true;
-					}
-					else {
-						yr--;
-					}
-				}
 			}
-		}
+			}
 	}
 	/**
 	 * Create vertical Street
@@ -147,10 +145,11 @@ public class Board {
 	public void Display() {
 		for(int i =0;i<this.board.length;i++) {
 			for(int ligne = 0;ligne <4;ligne++) {
+				String x = "";
 				for(int j =0;j<this.board[0].length;j++) {
-					System.out.println(this.board[i][j].toString(ligne));
+					x += this.board[i][j].toString(ligne);
 				}
-				System.out.println("\n");
+				System.out.println(x);
 			}
 			
 	}
