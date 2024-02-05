@@ -54,7 +54,7 @@ class SewerTest {
     
     void testToStringLine3SomeBodyInCell() {
     	sewer.addZombies(zombie);
-    	assertEquals(sewer.toString(2)," "+"\u001B[33m" + "E" + "\u001B[0m"+"s1 ");
+    	assertEquals(sewer.toString(2)," s1  ");
 
     }
     	

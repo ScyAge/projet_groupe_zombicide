@@ -64,4 +64,43 @@ class StreetTest {
     void testCanLook() {
     	assertTrue(street.canLook());
     }
+    
+    @Test
+    void testToStringLine1() {
+    	assertEquals(street.toString(0),"     ");
+    }
+    
+    
+
+    void testToStringLine2SomeBodyInCell() {
+    	street.addZombies(zombie);
+    	assertEquals(street.toString(1)," "+"\u001B[33m" + "S" + "\u001B[0m"+"z1 ");
+    }
+
+	
+    	
+    @Test
+    void testToStringLine2NoBodyInCell() {	
+    	assertEquals(street.toString(1)," "+"\u001B[33m" + "S" + "\u001B[0m"+"   ");
+    }
+    
+    
+    
+    void testToStringLine3SomeBodyInCell() {
+    	street.addZombies(zombie);
+    	assertEquals(street.toString(2)," s1  ");
+
+    }
+    	
+    @Test
+    void testToStringLine3NoBodyInCell() {	
+    	assertEquals(street.toString(2),"     ");
+
+    
+    }
+    
+    @Test
+    void testToStringLine4() {
+    	assertEquals(street.toString(3),"     ");
+    }
 }
