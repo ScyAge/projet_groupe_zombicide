@@ -19,10 +19,20 @@ public class Street extends Cell{
 			return "     ";
 		}
 		else if(ligne ==1){
-			return " "+"\u001B[33m" + "S"+ "\u001B[0m"+"z0 ";
+			if(this.getAllZombies().size()==0) {
+				return " "+"\u001B[33m" + "S" + "\u001B[0m"+"   ";
+			}
+			else {
+				return " "+"\u001B[33m" + "S" + "\u001B[0m"+"s"+this.getAllZombies()+"  ";
+			}
 		}
 		else if(ligne ==2){
-			return " s0  ";
+			if(this.getAllPlayers().size()==0) {
+				return "     ";
+			}
+			else {
+				return " s"+this.getAllPlayers().size()+"  ";
+			}
 		}
 		else if(ligne ==3){
 			return "     ";

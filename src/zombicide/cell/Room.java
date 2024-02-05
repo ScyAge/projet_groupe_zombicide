@@ -81,10 +81,20 @@ public class Room extends Cell {
 			return this.getDoor(Direction.North).toString();
 		}
 		else if(ligne ==1){
-			return this.getDoor(Direction.East).toString()+"Rz0"+this.getDoor(Direction.West).toString();
+			if(this.getAllZombies().size()==0) {
+				return this.getDoor(Direction.East).toString()+"R"+"  "+this.getDoor(Direction.West).toString();
+			}
+			else {
+				return this.getDoor(Direction.East).toString()+"R"+"z"+this.getAllZombies().size()+this.getDoor(Direction.West).toString();
+			}
 		}
 		else if(ligne ==2){
-			return this.getDoor(Direction.East).toString()+"s0 "+this.getDoor(Direction.West).toString();
+			if(this.getAllPlayers().size()==0) {
+				return this.getDoor(Direction.East).toString()+"   "+this.getDoor(Direction.West).toString();
+			}
+			else {
+				return this.getDoor(Direction.East).toString()+"s"+this.getAllPlayers().size()+" "+this.getDoor(Direction.West).toString();
+			}
 		}
 		else if(ligne ==3){
 			return this.getDoor(Direction.South).toString();
