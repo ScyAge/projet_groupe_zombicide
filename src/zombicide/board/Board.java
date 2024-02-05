@@ -2,11 +2,9 @@ package zombicide.board;
 import java.util.Random;
 
 import zombicide.cell.*;
-import zombicide.util.Direction;
-import zombicide.util.door.*;
 public class Board {
 	
-	private Cell[][] board;
+	protected Cell[][] board;
 	private boolean drugStoreExist;
 	private boolean continentalExist;
     private int xr;
