@@ -10,7 +10,6 @@ public class Board {
 	private boolean drugStoreExist;
 	private boolean continentalExist;
     private int xr;
-    private int yr;
 	/**
 	 * Builder of Board
 	 * @param height of the board
@@ -20,8 +19,7 @@ public class Board {
 		this.board = new Cell[width][height];
 		this.drugStoreExist=false;
 		this.continentalExist=false;
-        this.xr=this.board.length;
-        this.yr=this.board[0].length;
+        this.xr=((height-1) *(width-1))/2 ;
 		initBoard(0,width,0,height,true);
 	}
 	/**
@@ -67,28 +65,6 @@ public class Board {
 			for(int j =yd;j<(yf);j++) {
 				Room room = new Room(i,j);
 				this.board[i][j] = room;
-				
-				if (i > xd) {
-	                room.setDirection(Direction.West, new East_west_door(true));
-	            } else {
-	                room.setDirection(Direction.West, new East_west_door(false)); 
-	            }
-				if (i < xf - 1) {
-	                room.setDirection(Direction.East, new East_west_door(true));
-	            } else {
-	                room.setDirection(Direction.East, new East_west_door(false)); 
-	            }
-				if (j > yd) {
-	                room.setDirection(Direction.North, new North_South_door(true));
-	            } else {
-	                room.setDirection(Direction.North, new North_South_door(false)); 
-	            }
-
-	            if (j < yf - 1) {
-	                room.setDirection(Direction.South, new North_South_door(true));
-	            } else {
-	                room.setDirection(Direction.South, new North_South_door(false)); 
-	            }
 	            Random random = new Random();
 				if(!continentalExist || !drugStoreExist ){
 	            	int X= random.nextInt(xr);
