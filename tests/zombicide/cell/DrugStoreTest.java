@@ -14,6 +14,7 @@ import zombicide.util.Door;
 
 class DrugStoreTest {
 	
+	private static final String ColorRed = "\u001B[31m";
 	private DrugStore drugStore;
     private Player player;
     private Zombies zombie;
@@ -66,11 +67,11 @@ class DrugStoreTest {
     void testToStringLine2SomeBodyInCell() {
     	drugStore.addZombies(zombie);
     	/*Door north not break*/
-    	assertEquals(drugStore.toString(1),"|"+"\u001B[31m" +"D"+ "\u001B[0m"+"z1|");
+    	assertEquals(drugStore.toString(1),"|"+ColorRed +"D"+ "\u001B[0m"+"z1|");
     	/*Door north  break*/
     	drugStore.getDoor(Direction.East).Break();
     	drugStore.getDoor(Direction.West).Break();
-    	assertEquals(drugStore.toString(1)," "+"\u001B[31m" +"D"+ "\u001B[0m"+"z1 ");
+    	assertEquals(drugStore.toString(1)," "+ColorRed +"D"+ "\u001B[0m"+"z1 ");
     }
 
 	
@@ -78,11 +79,11 @@ class DrugStoreTest {
     @Test
     void testToStringLine2NoBodyInCell() {	
     	/*Door north not break*/
-    	assertEquals(drugStore.toString(1),"|"+"\u001B[31m" +"D"+ "\u001B[0m"+"  |");
+    	assertEquals(drugStore.toString(1),"|"+ColorRed +"D"+ "\u001B[0m"+"  |");
     	/*Door north  break*/
     	drugStore.getDoor(Direction.East).Break();
     	drugStore.getDoor(Direction.West).Break();
-    	assertEquals(drugStore.toString(1)," "+"\u001B[31m" +"D"+ "\u001B[0m"+"   ");
+    	assertEquals(drugStore.toString(1)," "+ColorRed +"D"+ "\u001B[0m"+"   ");
     
     }
     
