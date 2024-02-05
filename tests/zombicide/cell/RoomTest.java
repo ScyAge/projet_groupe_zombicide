@@ -113,4 +113,71 @@ class RoomTest {
     	assertFalse(room.getAllItems().contains(item));
     	assertTrue(room.getAllItems().contains(item2));
     }
+    
+    @Test
+    void testToStringLine1() {
+    	/*Door north not break*/
+    	assertEquals(room.toString(0),"-----");
+    	/*Door north  break*/
+    	room.getDoor(Direction.North).Break();
+    	assertEquals(room.toString(0),"     ");
+    }
+    
+    
+
+    void testToStringLine2SomeBodyInCell() {
+    	room.addZombies(zombie);
+    	/*Door north not break*/
+    	assertEquals(room.toString(1),"|R  |");
+    	/*Door north  break*/
+    	room.getDoor(Direction.East).Break();
+    	room.getDoor(Direction.West).Break();
+    	assertEquals(room.toString(1)," R   ");
+    }
+
+	
+    	
+    @Test
+    void testToStringLine2NoBodyInCell() {	
+    	/*Door north not break*/
+    	assertEquals(room.toString(1),"|R  |");
+    	/*Door north  break*/
+    	room.getDoor(Direction.East).Break();
+    	room.getDoor(Direction.West).Break();
+    	assertEquals(room.toString(1)," R   ");
+    
+    }
+    
+    
+    
+    void testToStringLine3SomeBodyInCell() {
+    	room.addZombies(zombie);
+    	/*Door north not break*/
+    	assertEquals(room.toString(2),"|s1 |");
+    	/*Door north  break*/
+    	room.getDoor(Direction.East).Break();
+    	room.getDoor(Direction.West).Break();
+    	assertEquals(room.toString(2)," s1  ");
+    }
+    	
+    @Test
+    void testToStringLine3NoBodyInCell() {	
+    	/*Door north not break*/
+    	assertEquals(room.toString(2),"|   |");
+    	/*Door north  break*/
+    	room.getDoor(Direction.East).Break();
+    	room.getDoor(Direction.West).Break();
+    	assertEquals(room.toString(2),"     ");
+    
+    }
+    
+    @Test
+    void testToStringLine4() {
+    	/*Door north not break*/
+    	assertEquals(room.toString(3),"-----");
+    	/*Door north  break*/
+    	room.getDoor(Direction.South).Break();
+    	assertEquals(room.toString(3),"     ");
+    }
+    
 }
