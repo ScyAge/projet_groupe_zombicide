@@ -21,9 +21,50 @@ N'oubliez pas d'ajouter les autres membres de votre équipe aux membres du proje
 
 ## Livrable 1
 
-### Atteinte des objectifs
+#### Description
+Pour ce livrable 1, nous allons détailler nos choix de modélisation du plateau de jeu.  
 
-### Difficultés restant à résoudre
+Tout d'abord, le plateau est composé de 'Cell' qui permettent d'accueillir les différents éléments du jeu tels que les cases de la rue, les bâtiments, la pharmacie, etc...  
+C'est pour cette raison que nous avons défini la classe Cell comme une classe abstraite.  
+Une cellule est définie par ses coordonnées et peut accueillir une liste de joueurs et de zombies (ce qui n'est pas encore pris en compte et sera abordé dans le livrable 2). La classe Cell possède différentes méthodes, notamment les getters, mais également une méthode canLook() qui sera utile pour le Continental (où il est impossible de voir les joueurs à l'intérieur) et une méthode description() qui indique les coordonnées de la cellule, ainsi que son nombre de joueurs et de zombies.  
+
+Passons maintenant aux classes qui héritent de Cell.  
+ps : Tous les fils possèdent une méthode toString spécifique permettant de les représenter sous forme graphique dans la console.  
+
+Nous avons la classe Street qui représente les cases 'rue' du plateau, qui n'ont rien de particulier excepté qu'elles ne possèdent pas de portes (nous verrons plus tard pourquoi). Il y a aussi la classe Sewer héritant de Street qui représente les bouches d'égout des cases rue, permettant la production de zombies à cet emplacement.  
+
+Nous avons également la classe Room qui représente les pièces du plateau. Une Room a, en plus d'une Cell, une liste d'objets potentiels et des portes définies par une Map qui prend en paramètre une porte et une direction. La classe Direction est une classe d'énumération qui définit les 4 points cardinaux, et la classe Door permet de représenter une porte cassable ou non.  
+
+Ensuite, nous avons la classe Continental qui hérite de Room. La spécificité de cette pièce est qu'il est impossible de voir les joueurs à l'intérieur, même avec une carte, et les acteurs ne peuvent pas s'attaquer à l'intérieur.  
+
+Pour finir, il nous reste la classe DrugStore qui représente la pharmacie. Elle a la particularité de posséder une liste de potions qui augmente quand un joueur entre dans la pièce.  
+
+Maintenant que nous avons les différents éléments constituant le plateau, intéressons-nous à l'algorithme de création du plateau.  
+
+En effet, le plateau présente certaines particularités qui nécessitent une attention spéciale.  
+Tout d'abord, le plateau est construit de manière aléatoire. Un immeuble est composé d'au moins 2 pièces en largeur et 2 en longueur. La pharmacie et le continental sont placés aléatoirement, et il y a 4 bouches d'égout aux extrémités de la rue principale.  
+
+Pour modéliser tout cela, nous avons procédé de la manière suivante :  
+
+
+**Gabriel**  
+comment t'utilise ta recursivité  
+comment les doors sont placé  
+
+pas besoin de détailler le display je pense  
+
+
+#### Etat de développement
+
+Tout ce qui concerne le plateau est opérationnelle même s'il est possible qu'on y apporte certaines modifications suite à l'ajout des prochains éléments du jeu.  
+
+La modélisation graphique du plateau peut nécessité des améliorations avec par exemple la présence des doubles portes (à l'heure actuelle, deux room collé entre elles génére deux portes)
+
+Il est désormais nécessaire de s'interreser au différents acteurs, leurs spécificités mais égalements les items.  
+
+
+
+
 
 ## Livrable 2
 
