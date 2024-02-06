@@ -1,24 +1,53 @@
 package zombicide.util;
 
-import java.beans.Transient;
+import static org.junit.jupiter.api.Assertions.*;
 
-import zombicide.util.*;
-import zombicide.util.door.East_west_door;
-import zombicide.util.door.North_South_door;;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class DoorTest {
+import zombicide.util.door.*;
 
 
-    @BeforeEach
+class DoorTest {
+	
+	private Door dew;
+	private Door dew2;
+	private Door dns;
+	private Door dns2;
+	
+	@BeforeEach
     void setUp() {
-        Door dew = new East_west_door(true);
-        Door dew2 = new East_west_door(false);
-        Door dns = new North_South_door(true);
-        Door dns2 = new North_South_door(false);
+		dew =new East_west_door(true);
+        dew2 =new East_west_door(false);
+        dns =new North_South_door(true);
+        dns2 =new North_South_door(false);
+    }
+    
+    @Test
+    public void TestBreakDoor() {
+    	// for dew
+    	assertFalse(dew.isBreak());
+    	dew.Break();
+    	assertTrue(dew.isBreak());
+    	// for dew 2
+    	assertFalse(dew2.isBreak());
+    	dew2.Break();
+    	assertFalse(dew2.isBreak());
+    	// for dns 
+    	assertFalse(dns.isBreak());
+    	dns.Break();
+    	assertTrue(dns.isBreak());
+    	//for dns 2
+    	assertFalse(dns2.isBreak());
+    	dns2.Break();
+    	assertFalse(dns2.isBreak());
+    }
+    @Test
+    public void TestIsBreakeable() {
+    	assertFalse(dew2.isBreakable());
+    	assertTrue(dew.isBreakable());
+    	assertFalse(dns2.isBreakable());
+    	assertTrue(dns.isBreakable());
     }
 
-    @Test
-    public void TestBreakDoor(){
-        assertTrue
-    }
 }
