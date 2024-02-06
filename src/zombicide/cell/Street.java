@@ -13,6 +13,10 @@ public class Street extends Cell{
 		super(x, y);
 	}
 
+	/**
+	 * @param ligne ligne to display
+	 * @return display of the Street
+	 */
 	@Override
 	public String toString(int ligne) {
 		if(ligne ==0) {

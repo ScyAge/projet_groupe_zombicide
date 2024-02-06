@@ -74,7 +74,10 @@ public class Room extends Cell {
 		return this.doors.get(direction);
 	}
 	
-	
+	/**
+	 * @param ligne ligne to display
+	 * @return display of the room
+	 */
 	@Override
 	public String toString(int ligne) {
 		if(ligne ==0) {

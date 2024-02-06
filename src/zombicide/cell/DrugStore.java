@@ -36,8 +36,9 @@ public class DrugStore extends Room {
 	}
 	
 	@Override
-	/** adds a healing vial to the drugstore whenever a player comes in
-	 *@param p the player 
+	/**
+	 * @param ligne ligne to display
+	 * @return display of the DrugStore
 	 */
 	public void addPlayers(Player p) {
 		super.addPlayers(p);

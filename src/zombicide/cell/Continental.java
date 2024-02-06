@@ -9,6 +9,10 @@ public class Continental extends Room {
 	}
 	
 	@Override
+	/**
+	 * @param ligne ligne to display
+	 * @return display of the Continental
+	 */
 	public boolean canLook() {
 		return false;
 	}
