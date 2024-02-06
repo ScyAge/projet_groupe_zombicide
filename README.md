@@ -63,8 +63,56 @@ La modélisation graphique du plateau peut nécessité des améliorations avec p
 Il est désormais nécessaire de s'interreser au différents acteurs, leurs spécificités mais égalements les items.  
 
 
+### Génération de la documentation Java
+Pour ce faire, on exécute la commande suivante :
+```
+javadoc -sourcepath src -subpackages zombicide.board zombicide.cell zombicide.exeption zombicide.util zombicide.util.door -d docs
+```
 
+### Compilation des classes
+Pour compiler les classes, on exécute la/les commande(s) :
+```
+javac -sourcepath src src/*/*.java -d classes
+```
 
+### Compilation et lancement des tests
+Pour compiler les tests, on exécute la/les commande(s) :
+```
+javac -classpath junit-console.jar:classes tests/zombicide/cell/*.java tests/zombicide/util/*.java 
+```
+Et maintenant pour les exécuter, on utilise :
+```
+java -jar junit-console.jar -classpath test:classes -scan-classpath
+```
+
+### Génération des fichiers .jar
+Pour créer le/les fichiers .jar, on exécute la/les commande(s) :
+```
+jar cvfe livrable1.jar zombicide.Livrable1 -C classes .
+```
+
+### Lancement du programme
+Ce projet permet l'utilisation d'arguments  
+
+**Pour les fichiers .jar**  
+On exécute la/les commande(s):
+```
+java -jar livrable1.jar
+```
+ou
+```
+java -jar livrable1.jar 10 10
+```
+
+**Sans .jar exécutable**  
+
+On exécute la/les commande(s):
+```
+java -classpath classes zombicide.Livrable1 
+```
+### Image UML
+
+<img src="uml/umlLivrable1.jpg"/>
 
 ## Livrable 2
 
