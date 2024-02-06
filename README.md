@@ -78,7 +78,7 @@ javac -sourcepath src src/*/*.java -d classes
 ### Compilation et lancement des tests
 Pour compiler les tests, on exécute la/les commande(s) :
 ```
-javac -classpath junit-console.jar:classes tests/zombicide/cell/*.java tests/zombicide/util/*.java 
+javac -classpath junit-console.jar:classes test/zombicide/cell/*.java test/zombicide/util/*.java 
 ```
 Et maintenant pour les exécuter, on utilise :
 ```
