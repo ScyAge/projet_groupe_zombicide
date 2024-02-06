@@ -2,23 +2,34 @@ package zombicide.cell;
 
 import zombicide.util.Direction;
 
+/**
+ * class of Continental
+ */
 public class Continental extends Room {
 
+	/**
+	 * Constructor of the class Continental
+	 * @param x the x coordinate
+	 * @param y the y coordinate
+	 */
 	public Continental(int x, int y) {
 		super(x, y);
 	}
 	
 	@Override
 	/**
-	 * @param ligne ligne to display
-	 * @return display of the Continental
+	 * method that say if a player can look in the room
+	 * @return true if a player can look in the room else false
 	 */
 	public boolean canLook() {
 		return false;
 	}
 
-	
-		public String toString(int ligne) {
+	/**
+	 * @param ligne ligne to display
+	 * @return display of the Continental
+	 */
+	public String toString(int ligne) {
 		if(ligne ==0) {
 			return this.getDoor(Direction.North).toString();
 		}

@@ -2,12 +2,14 @@ package zombicide.cell;
 
 import zombicide.actor.zombie.Zombies;
 
+/**
+ * class of Sewer
+ */
 public class Sewer extends Street{
 	
 	/** Constructor of the class Room
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
-	 * @param type the type of the cell 
 	 */
 	public Sewer(int x, int y) {
 		super(x, y);

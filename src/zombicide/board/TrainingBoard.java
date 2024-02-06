@@ -1,8 +1,14 @@
 package zombicide.board;
 import zombicide.cell.*;
 
+/**
+ * class of TrainingBoard
+ */
 public class TrainingBoard extends Board {
 
+	/**
+	 * representation of TrainingBoard
+	 */
 	public TrainingBoard() {
 		super(5,5);
 		this.changeTraining();

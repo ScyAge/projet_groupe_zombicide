@@ -5,6 +5,9 @@ import zombicide.item.*;
 import zombicide.util.*;
 import zombicide.util.door.*;
 
+/**
+ * class of Room
+ */
 public class Room extends Cell {
 	private List<Item> items;
 	private Map<Direction, Door> doors;
@@ -12,7 +15,6 @@ public class Room extends Cell {
 	/** Constructor of the class Room
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
-	 * @param type the type of the cell 
 	 */
 	public Room(int x, int y) {
 		super(x, y);
@@ -30,8 +32,8 @@ public class Room extends Cell {
 	
 	/**
 	 * set a door with a direction
-	 * @param direction
-	 * @param door
+	 * @param direction the direction of the door
+	 * @param door the door selected
 	 */
 	public void setDirection(Direction direction, Door door) {
         this.doors.put(direction, door);
@@ -70,6 +72,12 @@ public class Room extends Cell {
 		this.items.remove(i);
 		return i;
 	}
+
+	/**
+	 * return the door
+	 * @param direction direction of the door
+	 * @return the door
+	 */
 	public Door getDoor(Direction direction) {
 		return this.doors.get(direction);
 	}

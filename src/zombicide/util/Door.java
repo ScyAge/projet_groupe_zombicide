@@ -2,6 +2,9 @@ package zombicide.util;
 
 import java.util.*;
 
+/**
+ * class of Door
+ */
 public abstract class Door {
 
 	private boolean Breakable;
@@ -18,12 +21,14 @@ public abstract class Door {
 	}
 	
 	/**
+	 * return true if we can break the door and else false
 	 * @return true if we can break the door and else false
 	 */
 	public boolean isBreakable() {
 		return Breakable;
 	}
 	/**
+	 * return true if the door is break and else false
 	 * @return true if the door is break and else false
 	 */
 	public boolean isBreak() {

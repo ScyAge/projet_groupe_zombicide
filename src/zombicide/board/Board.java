@@ -2,8 +2,13 @@ package zombicide.board;
 import java.util.Random;
 
 import zombicide.cell.*;
+
+/**
+ * class of board
+ */
 public class Board {
 	
+	/** composition of board */
 	protected Cell[][] board;
 	private boolean drugStoreExist;
 	private boolean continentalExist;

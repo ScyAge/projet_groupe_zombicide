@@ -20,7 +20,6 @@ public abstract class Cell {
 	 * Constructor of the class Cell 
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
-	 * @param type the type of the cell 
 	 */
 	public Cell(int x , int y) {
 		this.x = x;
@@ -66,7 +65,7 @@ public abstract class Cell {
 	
 	/**
 	 * method that adds a zombie to the list
-	 * @param  p the player
+	 * @param  z the zombie
 	 */
 	public void addZombies(Zombies z) {
 		this.zombies.add(z);
@@ -91,12 +90,14 @@ public abstract class Cell {
 	
 
 	/**
+	 * return the x coordinates of the cell
 	 * @return the x coordinates of the cell
 	 */
 	public int getX() {
 		return x;
 	}
 	/**
+	 * return the y coordinates of the cell
 	 * @return the y coordinates of the cell
 	 */
 	public int getY() {
@@ -106,7 +107,7 @@ public abstract class Cell {
 	
 	/**
 	 * method that say if a player can look in the room
-	 * @return
+	 * @return true if a player can look in the room
 	 */
 	public boolean canLook() {
 		return true;
@@ -125,8 +126,8 @@ public abstract class Cell {
 	}
 	/**
 	 * display a line of the cell 
-	 * @param ligne
-	 * @return
+	 * @param ligne the line of the cell
+	 * @return display string
 	 */
 	public abstract String toString(int ligne);
 		
