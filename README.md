@@ -42,16 +42,15 @@ Pour finir, il nous reste la classe DrugStore qui représente la pharmacie. Elle
 Maintenant que nous avons les différents éléments constituant le plateau, intéressons-nous à l'algorithme de création du plateau.  
 
 En effet, le plateau présente certaines particularités qui nécessitent une attention spéciale.  
-Tout d'abord, le plateau est construit de manière aléatoire. Un immeuble est composé d'au moins 2 pièces en largeur et 2 en longueur. La pharmacie et le continental sont placés aléatoirement, et il y a 4 bouches d'égout aux extrémités de la rue principale.  
+Tout d'abord, le plateau est construit de manière aléatoire. Un immeuble est composé d'au moins 2 pièces en largeur et 2 en longueur. La pharmacie et le continental sont placés aléatoirement, et il y a 4 bouches d'égout aux extrémités des 2 rue principale (première créer).  
 
 Pour modéliser tout cela, nous avons procédé de la manière suivante :  
 
-
-**Gabriel**  
-comment t'utilise ta recursivité  
-comment les doors sont placé  
-
-pas besoin de détailler le display je pense  
+Nous prenons une coordonnée aléatoire de la taille de la longueur et une autre de la largeur, tout en laissant de la place pour les immeubles, soit 2 par 2 minimum. 
+Sur ces coordonnées, nous allons créer une route verticale, puis une horizontale.
+Ensuite, nous rappelons récursivement 4 fois la fonction d'initialisation sur les 4 coins séparés par les 2 routes venant d'être créées.
+S'il y a plus de 5 par 5 d'espace, alors nous refaisons une route et nous refaisons des appels récursifs. Sinon, nous construisons un immeuble.
+Cet immeuble peut posséder un drugstore ou un Continental si la valeur du random tombe sur 0, sinon il ne place rien et diminue l'intervalle du random afin d'obliger le placement du Drugstore ou du Continental sur le plateau de jeu.
 
 
 #### Etat de développement
