@@ -214,7 +214,14 @@ Wissal-Asma Harrat : Correction du placement de DrugStore et Continental + mise 
 
 Diagramme UML Semaine 3 : [https://nextcloud.univ-lille.fr/index.php/s/FiRLwak7YCSiqFc](https://nextcloud.univ-lille.fr/index.php/s/FiRLwak7YCSiqFc)
 ## Semaine 4
+Cette semaine, le travail s'est concentré sur la finalisation du premier livrable avec les tests, la documentation et la correction de bugs. Ensuite, nous avons commencé à réfléchir à la modélisation des acteurs, et nous nous concentrerons sur la création du diagramme UML des acteurs et des objets la semaine prochaine.
 
+Répartition des tâches :
+
+Evan Joly : réalisation des tests, modélisation des acteurs.
+Gabriel Kreutser : documentation des fonctions, rédaction du README pour le board, modélisation des acteurs.
+Théo Nave : documentation des fonctions, rédaction du README du livrable, modélisation des acteurs.
+Wissal : modélisation des acteurs.
 ## Semaine 5
 
 ## Semaine 6
