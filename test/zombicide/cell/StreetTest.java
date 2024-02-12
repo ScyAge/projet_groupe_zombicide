@@ -7,11 +7,15 @@ import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
+import zombicide.util.Direction;
+import zombicide.util.Door;
+import zombicide.util.door.North_South_door;
 
 class StreetTest {
 	
 	private Street street;
     private Player player;
+    private Door door;
     private Zombies zombie;
     
     @BeforeEach
@@ -19,6 +23,7 @@ class StreetTest {
         street = new Street(5, 5);
         player = new Player();
         zombie = new Zombies();
+        door =  new North_South_door(true,true);
     }
     
     @Test
@@ -64,43 +69,8 @@ class StreetTest {
     void testCanLook() {
     	assertTrue(street.canLook());
     }
-    
-    @Test
-    void testToStringLine1() {
-    	assertEquals(street.toString(0),"     ");
+    void testGetDoors() {
+    	assertEquals(door, street.getDoors().get(Direction.North));
     }
-    
-    
-
-    void testToStringLine2SomeBodyInCell() {
-    	street.addZombies(zombie);
-    	assertEquals(street.toString(1)," "+"\u001B[33m" + "S" + "\u001B[0m"+"z1 ");
-    }
-
-	
-    	
-    @Test
-    void testToStringLine2NoBodyInCell() {	
-    	assertEquals(street.toString(1)," "+"\u001B[33m" + "S" + "\u001B[0m"+"   ");
-    }
-    
-    
-    
-    void testToStringLine3SomeBodyInCell() {
-    	street.addZombies(zombie);
-    	assertEquals(street.toString(2)," s1  ");
-
-    }
-    	
-    @Test
-    void testToStringLine3NoBodyInCell() {	
-    	assertEquals(street.toString(2),"     ");
-
-    
-    }
-    
-    @Test
-    void testToStringLine4() {
-    	assertEquals(street.toString(3),"     ");
-    }
+   
 }

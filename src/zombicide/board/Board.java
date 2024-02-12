@@ -91,7 +91,7 @@ public class Board {
 					}
 				}
 			}
-			}
+		}
 	}
 	
 	
@@ -101,9 +101,9 @@ public class Board {
 	 * @param y1 height of the street
 	 * @param x  the size of the street
 	 */
-	private void VStreet(int y1,int xf, int xd) {
-		for(int i = xd;i<xf;i++) {
-			this.board[i][y1] = new Street(i,y1);
+	private void VStreet(int y1,int xf, int xd){
+		for(int i = xd;i<xf;i++){
+			this.board[i][y1] = new Street(i,y1) ;
 		}
 	}
 	/**
@@ -111,16 +111,22 @@ public class Board {
 	 * @param y the size of the street
 	 * @param x1 width of the street
 	 */
-	private void HStreet(int yd,int yf, int x1) {
-		for(int i = yd;i<yf;i++) {
-			this.board[x1][i] = new Street(x1,i);
+	private void HStreet(int yd,int yf, int x1){
+		for(int i = yd;i<yf;i++){
+			this.board[x1][i] = new Street(x1,i) ;
 		}
 	}
-	private boolean isSplitable(int xd, int xf, int yd, int yf) {
-		return (xf -xd)>=5 && (yf-yd)>=5;
+	private boolean isSplitable(int xd, int xf, int yd, int yf){
+		return (xf -xd)>=5 && (yf-yd)>=5 ;
 	}
 	
-	
+	/**
+	 * get the Board 
+	 * @return the board
+	 */
+	public Cell[][] getBoard(){
+		return this.board;
+	}
 
 	/**
 	 * Print the Board

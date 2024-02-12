@@ -132,6 +132,15 @@ public abstract class Cell {
 		return this.doors.get(direction);
 	}
 	
+	/**
+	 * return the door
+	 * @return the door
+	 */
+	public Map<Direction, Door> getDoors() {
+	    return this.doors;
+	}
+	
+	
 	
 	/**
 	 * gives a recap of the number of actors in the cell
