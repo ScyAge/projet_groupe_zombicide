@@ -11,6 +11,7 @@ import zombicide.util.door.*;
  *Class that describe how a cell work 
  */
 public abstract class Cell {
+	protected Map<Direction, Door> doors;
 	private List<Player> players;
 	private List<Zombies> zombies;
 	private int x;
@@ -26,6 +27,15 @@ public abstract class Cell {
 		this.y = y;
 		this.players = new ArrayList<>();
 		this.zombies = new ArrayList<>();
+		this.doors = new HashMap<>();
+		for (Direction direction : Direction.values()) {
+            if(direction == Direction.East || direction == Direction.West){
+				this.doors.put(direction, new East_west_door(true,false));
+			}
+			else{
+				this.doors.put(direction, new North_South_door(true,false));
+			}
+        }
 		
 	}
 	
@@ -113,6 +123,15 @@ public abstract class Cell {
 		return true;
 	}
 	 
+	/**
+	 * return the door
+	 * @param direction direction of the door
+	 * @return the door
+	 */
+	public Door getDoor(Direction direction) {
+		return this.doors.get(direction);
+	}
+	
 	
 	/**
 	 * gives a recap of the number of actors in the cell
@@ -129,7 +148,7 @@ public abstract class Cell {
 	 * @param ligne the line of the cell
 	 * @return display string
 	 */
-	public abstract String toString(int ligne);
+	public abstract String toString();
 		
 	
 	

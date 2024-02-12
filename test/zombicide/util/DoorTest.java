@@ -17,10 +17,10 @@ class DoorTest {
 	
 	@BeforeEach
     void setUp() {
-		dew =new East_west_door(true);
-        dew2 =new East_west_door(false);
-        dns =new North_South_door(true);
-        dns2 =new North_South_door(false);
+		dew =new East_west_door(true,false);
+        dew2 =new East_west_door(false,false);
+        dns =new North_South_door(true,false);
+        dns2 =new North_South_door(false,false);
     }
     
     @Test

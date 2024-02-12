@@ -31,32 +31,8 @@ public class Sewer extends Street{
 	 * @return display of the Sewer
 	 */
 	@Override
-	public String toString(int ligne) {
-		if(ligne ==0) {
-			return "     ";
-		}
-		else if(ligne ==1){
-			if(this.getAllZombies().size()==0) {
-				return " "+"\u001B[33m" + "E" + "\u001B[0m"+"   ";
-			}
-			else {
-				return " "+"\u001B[33m" + "E" + "\u001B[0m"+"s"+this.getAllZombies()+"  ";
-			}
-		}
-		else if(ligne ==2){
-			if(this.getAllPlayers().size()==0) {
-				return "     ";
-			}
-			else {
-				return " s"+this.getAllPlayers().size()+"  ";
-			}
-		}
-		else if(ligne ==3){
-			return "     ";
-		}
-		else {
-			return "";
-		}
+	public String toString() {
+		return "\u001B[33m" + "E" + "\u001B[0m";
 		
 	}
 

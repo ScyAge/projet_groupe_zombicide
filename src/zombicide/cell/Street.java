@@ -1,6 +1,8 @@
 package zombicide.cell;
 
 import zombicide.util.Direction;
+import zombicide.util.door.East_west_door;
+import zombicide.util.door.North_South_door;
 
 /**
  * class of Street
@@ -13,40 +15,24 @@ public class Street extends Cell{
 	 */
 	public Street(int x, int y) {
 		super(x, y);
-	}
+		for (Direction direction : Direction.values()) {
+	        if(direction == Direction.East || direction == Direction.West){
+				this.doors.put(direction, new East_west_door(true,true));
+			}
+			else{
+				this.doors.put(direction, new North_South_door(true,true));
+			}
+		}
+    }
 
 	/**
 	 * @param ligne ligne to display
 	 * @return display of the Street
 	 */
 	@Override
-	public String toString(int ligne) {
-		if(ligne ==0) {
-			return "     ";
-		}
-		else if(ligne ==1){
-			if(this.getAllZombies().size()==0) {
-				return " "+"\u001B[33m" + "S" + "\u001B[0m"+"   ";
-			}
-			else {
-				return " "+"\u001B[33m" + "S" + "\u001B[0m"+"s"+this.getAllZombies()+"  ";
-			}
-		}
-		else if(ligne ==2){
-			if(this.getAllPlayers().size()==0) {
-				return "     ";
-			}
-			else {
-				return " s"+this.getAllPlayers().size()+"  ";
-			}
-		}
-		else if(ligne ==3){
-			return "     ";
-		}
-		else {
-			return "";
+	public String toString() {
+		return"\u001B[33m" + "S" + "\u001B[0m";
 		}
 		
 		
-	}
 }

@@ -10,8 +10,8 @@ public class East_west_door extends Door{
 	 * Contructor of East_west_door
 	 * @param breakable true if the door is breakable
 	 */
-	public East_west_door(boolean breakable) {
-		super(breakable);
+	public East_west_door(boolean breakable, boolean Break) {
+		super(breakable,Break);
 	}
 	
 	/**

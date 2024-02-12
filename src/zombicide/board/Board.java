@@ -2,6 +2,7 @@ package zombicide.board;
 import java.util.Random;
 
 import zombicide.cell.*;
+import zombicide.util.Direction;
 
 /**
  * class of board
@@ -92,6 +93,9 @@ public class Board {
 			}
 			}
 	}
+	
+	
+	
 	/**
 	 * Create vertical Street
 	 * @param y1 height of the street
@@ -126,7 +130,28 @@ public class Board {
 			for(int ligne = 0;ligne <4;ligne++) {
 				String x = "";
 				for(int j =0;j<this.board[0].length;j++) {
-					x += this.board[i][j].toString(ligne);
+					if(ligne ==0) {
+						x += this.board[i][j].getDoor(Direction.North).toString();
+					}
+					else if(ligne ==1){
+						if(this.board[i][j].getAllZombies().size()==0) {
+							x += this.board[i][j].getDoor(Direction.East).toString()+this.board[i][j].toString()+"  "+this.board[i][j].getDoor(Direction.West).toString();
+						}
+						else {
+							x += this.board[i][j].getDoor(Direction.East).toString()+this.board[i][j].toString()+"z"+this.board[i][j].getAllZombies().size()+this.board[i][j].getDoor(Direction.West).toString();
+						}
+					}
+					else if(ligne ==2){
+						if(this.board[i][j].getAllPlayers().size()==0) {
+							x += this.board[i][j].getDoor(Direction.East).toString()+"   "+this.board[i][j].getDoor(Direction.West).toString();
+						}
+						else {
+							x += this.board[i][j].getDoor(Direction.East).toString()+"s"+this.board[i][j].getAllPlayers().size()+" "+this.board[i][j].getDoor(Direction.West).toString();
+						}
+					}
+					else if(ligne ==3){
+						x +=this.board[i][j].getDoor(Direction.South).toString();
+					}
 				}
 				System.out.println(x);
 			}

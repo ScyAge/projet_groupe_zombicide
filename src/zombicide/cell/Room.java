@@ -10,7 +10,6 @@ import zombicide.util.door.*;
  */
 public class Room extends Cell {
 	private List<Item> items;
-	private Map<Direction, Door> doors;
 	
 	/** Constructor of the class Room
 	 * @param x coordinates of the cell
@@ -19,13 +18,12 @@ public class Room extends Cell {
 	public Room(int x, int y) {
 		super(x, y);
 		this.items = new ArrayList<>();
-		this.doors = new HashMap<>();
 		for (Direction direction : Direction.values()) {
             if(direction == Direction.East || direction == Direction.West){
-				this.doors.put(direction, new East_west_door(true));
+				this.doors.put(direction, new East_west_door(true,false));
 			}
 			else{
-				this.doors.put(direction, new North_South_door(true));
+				this.doors.put(direction, new North_South_door(true,false));
 			}
         }
 	}
@@ -74,45 +72,12 @@ public class Room extends Cell {
 	}
 
 	/**
-	 * return the door
-	 * @param direction direction of the door
-	 * @return the door
-	 */
-	public Door getDoor(Direction direction) {
-		return this.doors.get(direction);
-	}
-	
-	/**
 	 * @param ligne ligne to display
 	 * @return display of the room
 	 */
 	@Override
-	public String toString(int ligne) {
-		if(ligne ==0) {
-			return this.getDoor(Direction.North).toString();
-		}
-		else if(ligne ==1){
-			if(this.getAllZombies().size()==0) {
-				return this.getDoor(Direction.East).toString()+"R"+"  "+this.getDoor(Direction.West).toString();
-			}
-			else {
-				return this.getDoor(Direction.East).toString()+"R"+"z"+this.getAllZombies().size()+this.getDoor(Direction.West).toString();
-			}
-		}
-		else if(ligne ==2){
-			if(this.getAllPlayers().size()==0) {
-				return this.getDoor(Direction.East).toString()+"   "+this.getDoor(Direction.West).toString();
-			}
-			else {
-				return this.getDoor(Direction.East).toString()+"s"+this.getAllPlayers().size()+" "+this.getDoor(Direction.West).toString();
-			}
-		}
-		else if(ligne ==3){
-			return this.getDoor(Direction.South).toString();
-		}
-		else {
-			return "";
-		}
+	public String toString() {
+		return "R";
 	}
 
 }

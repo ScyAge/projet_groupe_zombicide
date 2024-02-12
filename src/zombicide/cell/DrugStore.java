@@ -50,35 +50,10 @@ public class DrugStore extends Room {
 	}
 
 	/**
-	 * @param ligne ligne to display
 	 * @return display of the DrugStore
 	 */
-	public String toString(int ligne) {
-		if(ligne ==0) {
-			return this.getDoor(Direction.North).toString();
-		}
-		else if(ligne ==1){
-			if(this.getAllZombies().size()==0) {
-				return this.getDoor(Direction.East).toString()+"\u001B[31m" +"D"+ "\u001B[0m"+"  "+this.getDoor(Direction.West).toString();
-			}
-			else {
-				return this.getDoor(Direction.East).toString()+"\u001B[31m" +"D"+ "\u001B[0m"+"z"+this.getAllZombies().size()+this.getDoor(Direction.West).toString();
-			}
-		}
-		else if(ligne ==2){
-			if(this.getAllPlayers().size()==0) {
-				return this.getDoor(Direction.East).toString()+"   "+this.getDoor(Direction.West).toString();
-			}
-			else {
-				return this.getDoor(Direction.East).toString()+"s"+this.getAllPlayers().size()+" "+this.getDoor(Direction.West).toString();
-			}
-		}
-		else if(ligne ==3){
-			return this.getDoor(Direction.South).toString();
-		}
-		else {
-			return "";
-		}
+	public String toString() {
+		return "\u001B[31m" +"D"+ "\u001B[0m";
 	}
 	
 	
