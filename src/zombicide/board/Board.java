@@ -148,18 +148,18 @@ public class Board {
 	 * @param y indice of the cell
 	 */
 	public void BreakDoor(Direction d,int x,int y) {
-		this.board[x][y].getDoor(d).Break();
+		this.board[x][y].breakDoor(d);
 		if(d== Direction.West && y != 0) {
-			this.board[x][y-1].getDoor(Direction.oppose(d)).Break();
+			this.board[x][y-1].breakDoor(Direction.oppose(d));
 		}
 		else if(d== Direction.East && y != this.board[x].length-1) {
-			this.board[x][y+1].getDoor(Direction.oppose(d)).Break();
+			this.board[x][y+1].breakDoor(Direction.oppose(d));;
 		}
 		else if(d== Direction.North && x != 0) {
-			this.board[x-1][y].getDoor(Direction.oppose(d)).Break();
+			this.board[x-1][y].breakDoor(Direction.oppose(d));
 		}
 		else if(d== Direction.South && x != this.board.length-1) {
-			this.board[x+1][y].getDoor(Direction.oppose(d)).Break();
+			this.board[x+1][y].breakDoor(Direction.oppose(d));
 		}
 	}
 	/**

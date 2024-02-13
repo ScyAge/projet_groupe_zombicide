@@ -3,9 +3,7 @@ package zombicide.cell;
 import java.util.*;
 
 import zombicide.actor.player.Player;
-import zombicide.cell.*;
 import zombicide.item.HealingVial;
-import zombicide.util.Direction;
 
 /**
  * class of DrugStore

@@ -12,7 +12,13 @@ public enum Direction {
     East, 
     /** the west */
     West;
-    
+	
+	
+    /**
+     * Give the oppose direction 
+     * @param d the direction 
+     * @return the oppose direction 
+     */
     public static Direction oppose(Direction d) {
     	if(d ==Direction.East) {
     		return Direction.West;
