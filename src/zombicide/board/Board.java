@@ -127,7 +127,15 @@ public class Board {
 	public Cell[][] getBoard(){
 		return this.board;
 	}
-
+	
+	public void BreakDoor(Direction d,int x,int y) {
+		this.board[x][y].getDoor(d).Break();
+		if(this.board[x][y].getDoor(d).isBreak()) {
+			if(d== Direction.East) {
+				this.board[x][y-1].getDoor(Direction.oppose(d)).Break();
+			}
+		}
+	}
 	/**
 	 * Print the Board
 	 */

@@ -8,7 +8,7 @@ public class BoardMain {
 		Board b = new Board(5,5);
 		b.Display();
 		System.out.println("\n");
-		b.getBoard()[1][1].getDoor(Direction.South).Break();
+		b.BreakDoor(Direction.East, 1, 1);
 		b.Display();
 	}
 }
