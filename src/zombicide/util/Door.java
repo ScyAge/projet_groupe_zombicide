@@ -1,6 +1,5 @@
 package zombicide.util;
 
-import java.util.*;
 
 /**
  * class of Door
@@ -20,6 +19,10 @@ public abstract class Door {
 		this.Breakable = Breakable;
 	}
 	
+	
+	public void SetNotBreakble() {
+		this.Breakable = false;
+	}
 	/**
 	 * return true if we can break the door and else false
 	 * @return true if we can break the door and else false
@@ -42,6 +45,10 @@ public abstract class Door {
 		if(this.isBreakable()) {
 			Break = true;
 		}
+	}
+	
+	public void setNotBreak() {
+		this.Break = false;
 	}
 
 	@Override

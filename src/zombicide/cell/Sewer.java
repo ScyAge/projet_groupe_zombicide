@@ -27,7 +27,6 @@ public class Sewer extends Street{
 	}
 	
 	/**
-	 * @param ligne ligne to display
 	 * @return display of the Sewer
 	 */
 	@Override

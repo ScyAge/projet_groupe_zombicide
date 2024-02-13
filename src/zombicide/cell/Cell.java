@@ -30,10 +30,10 @@ public abstract class Cell {
 		this.doors = new HashMap<>();
 		for (Direction direction : Direction.values()) {
             if(direction == Direction.East || direction == Direction.West){
-				this.doors.put(direction, new East_west_door(true,false));
+				this.doors.put(direction, new East_west_door(true,true));
 			}
 			else{
-				this.doors.put(direction, new North_South_door(true,false));
+				this.doors.put(direction, new North_South_door(true,true));
 			}
         }
 		
@@ -63,6 +63,14 @@ public abstract class Cell {
 	 */
 	public void addPlayers(Player p) {
 		this.players.add(p) ;
+	}
+	
+	/**
+	 * Break the door in the cell
+	 * @param d direction to break the door
+	 */
+	public void breakDoor(Direction d) {
+		this.getDoor(d).Break();
 	}
 	
 	/**
@@ -154,7 +162,6 @@ public abstract class Cell {
 	}
 	/**
 	 * display a line of the cell 
-	 * @param ligne the line of the cell
 	 * @return display string
 	 */
 	public abstract String toString();

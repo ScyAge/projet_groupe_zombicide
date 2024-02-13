@@ -14,6 +14,8 @@ public class Board {
 	private boolean drugStoreExist;
 	private boolean continentalExist;
     private int xr;
+    
+    
 	/**
 	 * Builder of Board
 	 * @param height of the board
@@ -65,14 +67,26 @@ public class Board {
 	 * @param yf final height
 	 */
 	private void Building(int xf,int xd , int yf,int yd) {
-		for(int i =xd;i<(xf);i++) {
-			for(int j =yd;j<(yf);j++) {
-				Room room = new Room(i,j);
-				this.board[i][j] = room;
-	            Random random = new Random();
-				if(!continentalExist || !drugStoreExist ){
+		for(int i =xd;i<(xf);i++){
+			for(int j =yd;j<(yf);j++){
+				Room room = new Room(i,j) ;
+				this.board[i][j] = room  ;
+				if(i==0) {
+					this.board[i][j].getDoor(Direction.North).SetNotBreakble();
+				}
+				if(j==0) {
+					this.board[i][j].getDoor(Direction.West).SetNotBreakble();
+				}
+				if(i==this.board.length-1) {
+					this.board[i][j].getDoor(Direction.South).SetNotBreakble();
+				}
+				if(j==this.board[0].length-1) {
+					this.board[i][j].getDoor(Direction.East).SetNotBreakble();
+				}
+	            Random random = new Random() ;
+				if(!continentalExist || !drugStoreExist ) {
 	            	int X= random.nextInt(xr);
-					if(X==0){
+					if(X==0) {
 						int Y= random.nextInt(2);
 						if((!continentalExist && Y == 1) || (!continentalExist && drugStoreExist)  ) {
 							Continental continental = new Continental(i,j);
@@ -81,8 +95,8 @@ public class Board {
 						}
 						else if((!drugStoreExist&& Y == 0) || (continentalExist && !drugStoreExist)){
 							DrugStore drugstore = new DrugStore(i,j);
-							this.board[i][j]=drugstore;
-							drugStoreExist=true;
+							this.board[i][j]=drugstore ;
+							drugStoreExist=true ;
 						}
 						
 					}
@@ -127,13 +141,25 @@ public class Board {
 	public Cell[][] getBoard(){
 		return this.board;
 	}
-	
+	/**
+	 * 
+	 * @param d direction to break the door
+	 * @param x indice of the cell
+	 * @param y indice of the cell
+	 */
 	public void BreakDoor(Direction d,int x,int y) {
 		this.board[x][y].getDoor(d).Break();
-		if(this.board[x][y].getDoor(d).isBreak()) {
-			if(d== Direction.East) {
-				this.board[x][y-1].getDoor(Direction.oppose(d)).Break();
-			}
+		if(d== Direction.West && y != 0) {
+			this.board[x][y-1].getDoor(Direction.oppose(d)).Break();
+		}
+		else if(d== Direction.East && y != this.board[x].length-1) {
+			this.board[x][y+1].getDoor(Direction.oppose(d)).Break();
+		}
+		else if(d== Direction.North && x != 0) {
+			this.board[x-1][y].getDoor(Direction.oppose(d)).Break();
+		}
+		else if(d== Direction.South && x != this.board.length-1) {
+			this.board[x+1][y].getDoor(Direction.oppose(d)).Break();
 		}
 	}
 	/**
@@ -149,18 +175,18 @@ public class Board {
 					}
 					else if(ligne ==1){
 						if(this.board[i][j].getAllZombies().size()==0) {
-							x += this.board[i][j].getDoor(Direction.East).toString()+this.board[i][j].toString()+"  "+this.board[i][j].getDoor(Direction.West).toString();
+							x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"  "+this.board[i][j].getDoor(Direction.East).toString();
 						}
 						else {
-							x += this.board[i][j].getDoor(Direction.East).toString()+this.board[i][j].toString()+"z"+this.board[i][j].getAllZombies().size()+this.board[i][j].getDoor(Direction.West).toString();
+							x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"z"+this.board[i][j].getAllZombies().size()+this.board[i][j].getDoor(Direction.East).toString();
 						}
 					}
 					else if(ligne ==2){
 						if(this.board[i][j].getAllPlayers().size()==0) {
-							x += this.board[i][j].getDoor(Direction.East).toString()+"   "+this.board[i][j].getDoor(Direction.West).toString();
+							x += this.board[i][j].getDoor(Direction.West).toString()+"   "+this.board[i][j].getDoor(Direction.East).toString();
 						}
 						else {
-							x += this.board[i][j].getDoor(Direction.East).toString()+"s"+this.board[i][j].getAllPlayers().size()+" "+this.board[i][j].getDoor(Direction.West).toString();
+							x += this.board[i][j].getDoor(Direction.West).toString()+"s"+this.board[i][j].getAllPlayers().size()+" "+this.board[i][j].getDoor(Direction.East).toString();
 						}
 					}
 					else if(ligne ==3){

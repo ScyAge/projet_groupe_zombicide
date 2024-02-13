@@ -1,6 +1,5 @@
 package zombicide.cell;
 
-import zombicide.util.Direction;
 
 /**
  * class of Continental
@@ -26,7 +25,6 @@ public class Continental extends Room {
 	}
 
 	/**
-	 * @param ligne ligne to display
 	 * @return display of the Continental
 	 */
 	public String toString() {

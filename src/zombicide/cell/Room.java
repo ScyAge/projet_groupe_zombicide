@@ -72,7 +72,6 @@ public class Room extends Cell {
 	}
 
 	/**
-	 * @param ligne ligne to display
 	 * @return display of the room
 	 */
 	@Override
