@@ -18,8 +18,17 @@ public class Player extends Actor{
 		
 	}
 	
+	
 	public void heal(int heal) {
 		this.hp += heal;
+	}
+	
+	public Map<String,Item> openBagpack(){
+		return this.Bagpack;
+	}
+	
+	public Item takeItem(String name) {
+		return this.Bagpack.get(name);
 	}
 
 }
