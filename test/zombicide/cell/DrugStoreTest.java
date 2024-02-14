@@ -20,14 +20,14 @@ class DrugStoreTest {
     @BeforeEach
     void setUp() {
     	drugStore = new DrugStore(1, 1);
-        player = new Player();
+        player = new Player(8,5);
 
-        healingVial = new HealingVial();
+        healingVial = new HealingVial("potion",1);;
     }
     
     @Test
     void testAddAndGetHealingVial() {
-    	HealingVial healingVial2 = new HealingVial();
+    	HealingVial healingVial2 = new HealingVial("potion",1);
     	
     	drugStore.addHealingVial(healingVial);
     	drugStore.addHealingVial(healingVial2);
