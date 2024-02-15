@@ -21,14 +21,14 @@ class StreetTest {
     @BeforeEach
     void setUp() {
         street = new Street(5, 5);
-        player = new Player(8,5);
-        zombie = new Zombies();
+        player = new Player(8);
+        zombie = new Zombies(8,5,1);
         door =  new North_South_door(true,true);
     }
     
     @Test
     void testAddRemovePlayer() {
-    	Player player1 = new Player(8,5);
+    	Player player1 = new Player(8);
     	street.addPlayers(player);
     	street.addPlayers(player1);
     	
@@ -44,7 +44,7 @@ class StreetTest {
     
     @Test
     void testAddRemoveZombie() {
-    	Zombies zombie1 = new Zombies();
+    	Zombies zombie1 = new Zombies(8,5,1);
     	street.addZombies(zombie);
     	street.addZombies(zombie1);
     	

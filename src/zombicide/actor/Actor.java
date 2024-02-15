@@ -5,48 +5,39 @@ public abstract class Actor {
 	/**
 	 * 
 	 */
-	protected int hp;
-	protected int dgt;
+	protected int lifePoints;
 	protected int action_points; 
 	
-	public Actor(int hp, int dgt, int action_points){
-		this.hp = hp;
-		this.dgt = dgt;
+	public Actor(int lifePoints, int action_points){
+		this.lifePoints = lifePoints;
 		this.action_points = action_points;
 	}
 	
 	
 	/**
 	 * get Heal point of the actor
-	 * @return the hp
+	 * @return the lifePoints
 	 */
-	public int getHp() {
-		return hp;
+	public int getLifePoints() {
+		return lifePoints;
 	}
 	
 	/**
 	 * Set heal point to the actor
-	 * @param hp of the actor
+	 * @param lifePoints of the actor
 	 */
-	public void setHp(int hp) {
-		this.hp = hp;
+	public void setLifePoints(int lifePoints) {
+		this.lifePoints = lifePoints;
 	}
 	
 	/**
-	 *  get dommage of the actor
-	 * @return the dgt of the actor
+	 * @return true if the actor have 0 lifePoints
 	 */
-	public int getDgt() {
-		return dgt;
+	public boolean isDead() {
+		return this.lifePoints == 0;
 	}
 	
-	/**
-	 * Set Dommage to the actor
-	 * @param dgt new dgt of the cator
-	 */
-	public void setDgt(int dgt) {
-		this.dgt = dgt;
-	}
+	
 	/**
 	 * get Action point of the actor 
 	 * @return action points of the actor 

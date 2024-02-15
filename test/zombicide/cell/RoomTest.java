@@ -22,14 +22,14 @@ class RoomTest {
     @BeforeEach
     void setUp() {
         room = new Room(1, 1);
-        player = new Player(8,5);
-        zombie = new Zombies();
+        player = new Player(8);
+        zombie = new Zombies(8,5,1);
         item = new Item("pistoler", 1);
     }
     
     @Test
     void testAddRemovePlayer() {
-    	Player player1 = new Player(8,5);
+    	Player player1 = new Player(8);
     	room.addPlayers(player);
     	room.addPlayers(player1);
     	
@@ -45,7 +45,7 @@ class RoomTest {
     
     @Test
     void testAddRemoveZombie() {
-    	Zombies zombie1 = new Zombies();
+    	Zombies zombie1 = new Zombies(8,5,1);
     	room.addZombies(zombie);
     	room.addZombies(zombie1);
     	

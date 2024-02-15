@@ -14,15 +14,16 @@ public class Sewer extends Street{
 	public Sewer(int x, int y) {
 		super(x, y);
 	}
-	
-	/**
-	 * generate x zombies in this cell
-	 * @param nb the number of zombies
-	 */
-	public void ProductionZombie(int nb) {
+	 
+	/** 
+	 * generate x zombies in this cell 
+	 * @param nb the number of zombies 
+	 * @param Z type of Zombies to spawn 
+	 */ 
+	public void ProductionZombie(int nb,Zombies Z) {
 		for (int i = 0; i < nb; i++) {
-			Zombies zombie = new Zombies();
-			addZombies(zombie);
+			Zombies zombie = (Zombies) Z;
+			addZombies(zombie); 
 		}
 	}
 	
