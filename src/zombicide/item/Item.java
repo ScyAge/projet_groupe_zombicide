@@ -4,11 +4,11 @@ public class Item {
 	
 	
 	private String title ;
-	private int range ;
+	private boolean Use;
 	
-	public Item(String title, int range) {
+	public Item(String title) {
 		this.title = title;
-		this.range = range;
+		this .Use = false;
 	}
 	
 	/**
@@ -26,19 +26,17 @@ public class Item {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	/**
-	 * get the range of the Item
-	 * @return the range of the item
-	 */
-	public int getRange() {
-		return range;
+	
+	public boolean isUsed(Item item) {
+		return this.Use;
+		
 	}
-	/**
-	 * Set range to the Item
-	 * @param range of the item
-	 */
-	public void setRange(int range) {
-		this.range = range;
+	public void Used(Item item) {
+		this.Use =true;
 	}
 
+	public void NotUsed(Item item) {
+		this.Use =false;
+	}
+	
 }
