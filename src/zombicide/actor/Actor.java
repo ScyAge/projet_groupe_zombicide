@@ -1,5 +1,7 @@
 package zombicide.actor;
 
+import java.util.List;
+
 public abstract class Actor {
 	
 	/**
@@ -7,10 +9,12 @@ public abstract class Actor {
 	 */
 	protected int lifePoints;
 	protected int action_points; 
+	protected Cell cell;
 	
-	public Actor(int lifePoints, int action_points){
+	public Actor(int lifePoints, int action_points, Cell cell){
 		this.lifePoints = lifePoints;
 		this.action_points = action_points;
+		this.cell=cell;
 	}
 	
 	
@@ -51,5 +55,14 @@ public abstract class Actor {
 	 */
 	public void setAction_points(int action_points) {
 		this.action_points = action_points;
+	}
+	
+	
+	/**
+	 * gives the cell where the actor is located
+	 * @return the cell where the actor is.
+	 * */
+	public Cell getCurrentCell() {
+		return this.cell;
 	}
 }
