@@ -20,7 +20,7 @@ public class Player extends Actor{
 		this.Bagpack = new HashMap<>();
 		this.ItemInHand = null ;
 		this.expertiseLevel = 1;
-		
+		this.roles = new ArrayList<>();
 	}
 	
 	/**
@@ -57,6 +57,22 @@ public class Player extends Actor{
 		return this.ItemInHand;
 	}
 
+	/**
+	 * method for adding a role to a player
+	 * @param role the role you want to add
+	 */
+	public void setRoles(Roles role) {
+		this.roles.add(role);
+	}
+
+	/**
+	 * method that return a role in the list roles
+	 * @param index the index of the role you want
+	 * @return Roles the role returned
+	 */
+	public Roles getRoles(int index){
+		return this.roles.get(index);
+	}
 
 	/**
 	 * method that allows survivor to perform a SpecialAction related to its roles. If he has no role,
