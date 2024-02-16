@@ -2,7 +2,7 @@ package zombicide.item.equipment;
 
 import java.util.List;
 import java.util.Scanner;
-
+import zombicide.actor.*;
 import zombicide.actor.player.*;
 import zombicide.cell.*;
 
@@ -27,8 +27,9 @@ public class FirstAidKit extends Equipment {
 			Scanner scanner= new Scanner(System.in);
 			int index= scanner.nextInt();
 			if(index>0 && index<=players.size()) {
-				Player playerToHeal= players.get(index-1);
-				playerToHeal.heal(1);
+				Player target= players.get(index-1);
+				int targetLifePoints= target.getLifePoints();
+				target.setLifePoints(targetLifePoints+1);
 			}else {
 				System.out.println("invalid number");
 			}
