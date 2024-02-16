@@ -20,7 +20,7 @@ class DrugStoreTest {
     @BeforeEach
     void setUp() {
     	drugStore = new DrugStore(1, 1);
-        player = new Player(8);
+        player = new Player(8,drugStore);
 
         healingVial = new HealingVial("potion");;
     }

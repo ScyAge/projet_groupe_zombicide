@@ -1,9 +1,11 @@
 package zombicide.actor.zombie;
 
+import zombicide.cell.Cell;
+
 public class Gigantomachia extends Zombies {
 
-	public Gigantomachia() {
-		super(1000,100,1);
+	public Gigantomachia(Cell cell) {
+		super(1000,100,cell,1);
 		// TODO Auto-generated constructor stub
 	}
 

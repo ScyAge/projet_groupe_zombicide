@@ -15,7 +15,7 @@ class SewerTest {
     @BeforeEach
     void setUp() {
     	sewer = new Sewer(5, 5);
-    	z= new Gigantomachia();
+    	z= new Gigantomachia(sewer);
     }
     
     @Test

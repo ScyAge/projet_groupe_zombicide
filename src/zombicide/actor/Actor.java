@@ -2,6 +2,8 @@ package zombicide.actor;
 
 import java.util.List;
 
+import zombicide.cell.Cell;
+
 public abstract class Actor {
 	
 	/**
