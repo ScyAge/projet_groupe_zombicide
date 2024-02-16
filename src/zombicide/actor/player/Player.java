@@ -7,21 +7,28 @@ import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.*;
 import zombicide.cell.*;
 
-
 public class Player extends Actor{
 	
 	private Map<String,Item>  backpack;
 	private  Item itemInHand;
 	private int expertiseLevel;
+<<<<<<< HEAD
 	private Cell cell;
+=======
+	private List<Roles> roles;
+>>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille.fr:evan.joly.etu/l2s4-projet-2024.git
 	
 	public Player(int lifePoints, Cell cell) {
 		super(lifePoints,3, cell);
 		this.backpack = new HashMap<>();
 		this.itemInHand = null ;
 		this.expertiseLevel = 1;
+<<<<<<< HEAD
 		
 		
+=======
+		this.roles = new ArrayList<>();
+>>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille.fr:evan.joly.etu/l2s4-projet-2024.git
 	}
 	
 	/**
@@ -74,6 +81,7 @@ public class Player extends Actor{
 	public Item getItemInHand() {
 		return this.itemInHand;
 	}
+<<<<<<< HEAD
 	
 	/** gives the list of players located in the same cell
 	 * @param the cell where the players are
@@ -88,4 +96,44 @@ public class Player extends Actor{
 		return players;
 	}
 	
+=======
+
+	/**
+	 * method for adding a role to a player
+	 * @param role the role you want to add
+	 */
+	public void setRoles(Roles role) {
+		this.roles.add(role);
+	}
+
+	/**
+	 * method that return a role in the list roles
+	 * @param index the index of the role you want
+	 * @return Roles the role returned
+	 */
+	public Roles getRoles(int index){
+		return this.roles.get(index);
+	}
+
+	/**
+	 * method that allows survivor to perform a SpecialAction related to its roles. If he has no role,
+	 * he does nothing; if he has only one, he executes the action; if he has more than one,
+	 * the role_number parameter lets him choose which action to use.
+	 * @param role_number number represent which of is roles the survivor want to use
+	 * @throws IndexOutOfBoundsException if role_number is in the range 0,size of the list roles
+	 */
+	public void actionSpecial(int role_number) throws IndexOutOfBoundsException{
+
+		int size = this.roles.size();
+		if(size ==1){
+			this.roles.get(0).action(this);
+		} else if (size >1) {
+			if((role_number > size)||(role_number < 0)){
+				throw new IndexOutOfBoundsException("choose a role number between 0 and"+(size-1));
+			}
+			this.roles.get(role_number).action(this);
+		}
+	}
+
+>>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille.fr:evan.joly.etu/l2s4-projet-2024.git
 }
