@@ -12,23 +12,15 @@ public class Player extends Actor{
 	private Map<String,Item>  backpack;
 	private  Item itemInHand;
 	private int expertiseLevel;
-<<<<<<< HEAD
 	private Cell cell;
-=======
 	private List<Roles> roles;
->>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille.fr:evan.joly.etu/l2s4-projet-2024.git
 	
 	public Player(int lifePoints, Cell cell) {
 		super(lifePoints,3, cell);
 		this.backpack = new HashMap<>();
 		this.itemInHand = null ;
 		this.expertiseLevel = 1;
-<<<<<<< HEAD
-		
-		
-=======
 		this.roles = new ArrayList<>();
->>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille.fr:evan.joly.etu/l2s4-projet-2024.git
 	}
 	
 	/**
@@ -81,7 +73,7 @@ public class Player extends Actor{
 	public Item getItemInHand() {
 		return this.itemInHand;
 	}
-<<<<<<< HEAD
+
 	
 	/** gives the list of players located in the same cell
 	 * @param the cell where the players are
@@ -96,7 +88,7 @@ public class Player extends Actor{
 		return players;
 	}
 	
-=======
+
 
 	/**
 	 * method for adding a role to a player
@@ -135,5 +127,4 @@ public class Player extends Actor{
 		}
 	}
 
->>>>>>> branch 'main' of git@gitlab-etu.fil.univ-lille.fr:evan.joly.etu/l2s4-projet-2024.git
 }
