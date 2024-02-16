@@ -21,7 +21,7 @@ public class Street extends Cell{
 	 */
 	@Override
 	public String toString() {
-		return"\u001B[33m" + "S" + "\u001B[0m";
+		return colorYellow + "S" + colorWhite;
 		}
 		
 		

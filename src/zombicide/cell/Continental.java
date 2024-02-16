@@ -28,7 +28,7 @@ public class Continental extends Room {
 	 * @return display of the Continental
 	 */
 	public String toString() {
-		return "\u001B[32m" +"C"+ "\u001B[0m";
+		return colorGreen +"C"+ colorWhite;
 	}
 	
 }

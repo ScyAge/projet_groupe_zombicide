@@ -51,7 +51,7 @@ public class DrugStore extends Room {
 	 * @return display of the DrugStore
 	 */
 	public String toString() {
-		return "\u001B[31m" +"D"+ "\u001B[0m";
+		return colorRed +"D"+ colorWhite;
 	}
 	
 	

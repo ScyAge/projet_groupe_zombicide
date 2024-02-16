@@ -20,6 +20,6 @@ public class SpawnPlayers extends Street {
 
 	@Override
 	public String toString() {
-		return "\u001B[34m" +"-"+ "\u001B[0m";
+		return colorBlue +"-"+ colorWhite;
 	}
 }

@@ -32,7 +32,7 @@ public class Sewer extends Street{
 	 */
 	@Override
 	public String toString() {
-		return "\u001B[33m" + "E" + "\u001B[0m";
+		return colorYellow + "E" + colorWhite;
 		
 	}
 

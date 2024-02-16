@@ -6,16 +6,31 @@ import zombicide.actor.zombie.Zombies;
 import zombicide.util.*;
 import zombicide.util.door.*;
 
-
 /**
  *Class that describe how a cell work 
  */
 public abstract class Cell {
+	
+	
+	/**
+	 * Builder Constant
+	 */
 	protected Map<Direction, Door> doors;
 	private List<Player> players;
 	private List<Zombies> zombies;
 	private int x;
 	private int y;
+	
+	
+	/**
+	 * color constant 
+	 */
+	public static final String colorWhite = "\u001B[0m" ;
+	public static final String colorRed = "\u001B[31m" ;
+	public static final String colorGreen = "\u001B[32m" ;
+	public static final String colorYellow = "\u001B[33m" ;
+	public static final String colorBlue = "\u001B[34m" ;
+	
 	
 	/**
 	 * Constructor of the class Cell 
