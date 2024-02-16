@@ -23,14 +23,7 @@ public class Player extends Actor{
 		this.roles = new ArrayList<>();
 	}
 	
-	/**
-	 * Give life Point to the player
-	 * @param heal numbers of lifePoints add 
-	 */
-	public void heal(int heal) {
-		this.lifePoints += heal;
-	}
-	
+
 	/**
 	 * gives the Items in the player's backpack
 	 * @return Map of the items in the backpack
@@ -38,17 +31,14 @@ public class Player extends Actor{
 	public Map<String,Item> openBackpack(){
 		return this.backpack;
 	}
-	
+
 	/**
-	 * */
-	public void takeInHand(String name)throws ItemDoesNotExistExeption {
-		if(!this.backpack.containsKey(name)) {
-			throw new ItemDoesNotExistExeption("Item not fund in bagpack");
-		}
-		this.itemInHand = this.backpack.get(name);
-		this.backpack.remove(this.backpack.get(name));
+	 * method that takes an action as parameter and executes the specified action (action not implement for the moment so nothing in parametter
+	 */
+	public void action(){
+
 	}
-	
+
 	/**
 	 * gives the player's expertise level
 	 * @return expertiseLevel
@@ -59,7 +49,7 @@ public class Player extends Actor{
 
 	/**
 	 * sets the expertise level for the player
-	 * @param expertiselevel's value 
+	 * @param expertiseLevel's value
 	 *  */
 	public void setExpertiseLevel(int expertiseLevel) {
 		this.expertiseLevel = expertiseLevel;
@@ -74,9 +64,17 @@ public class Player extends Actor{
 		return this.itemInHand;
 	}
 
-	
+	/**
+	 * method for adding a weapon to a player
+	 * @param itemInHand the item you want to add
+	 */
+	public void setItemInHand(Item itemInHand) {
+		this.itemInHand = itemInHand;
+	}
+
+
 	/** gives the list of players located in the same cell
-	 * @param the cell where the players are
+	 * @param  cell where the players are
 	 * @return players in the same cell
 	 * */
 	public List<Player> getPlayersInArea(Cell cell){
