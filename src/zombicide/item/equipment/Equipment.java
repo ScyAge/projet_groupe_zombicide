@@ -1,6 +1,7 @@
 package zombicide.item.equipment;
 
 import zombicide.item.*;
+import zombicide.actor.player.*;
 
 public abstract class  Equipment extends Item {
 
@@ -8,6 +9,6 @@ public abstract class  Equipment extends Item {
 		super(title);
 	}
 	
-	public abstract void equipementEffect();
+	public abstract void equipmentEffect(Player player);
 
 }
