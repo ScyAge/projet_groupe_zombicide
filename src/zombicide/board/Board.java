@@ -91,33 +91,35 @@ public class Board {
 				if(j==this.board[0].length-1) {
 					this.board[i][j].getDoor(Direction.East).SetNotBreakble();
 				}
-	            Random random = new Random() ;
-				if(!continentalExist || !drugStoreExist ) {
-	            	int X= random.nextInt(xr);
-					if(X==0) {
-						int Y= random.nextInt(2);
-						if((!continentalExist && Y == 1) || (!continentalExist && drugStoreExist)  ) {
-							Continental continental = new Continental(i,j);
-							this.board[i][j]=continental;
-							continentalExist=true;
-						}
-						else if((!drugStoreExist&& Y == 0) || (continentalExist && !drugStoreExist)){
-							DrugStore drugstore = new DrugStore(i,j);
-							this.board[i][j]=drugstore ;
-							drugStoreExist=true ;
-						}
-						
-					}
-					else {
-						xr--;
-					}
-				}
+				this.addDrugStoreAndContinentalInBuilding(i, j);
 				
 			}
 		}
 	}
 	
-	
+	private void addDrugStoreAndContinentalInBuilding(int i , int j) {
+        Random random = new Random() ;
+		if(!continentalExist || !drugStoreExist ) {
+        	int X= random.nextInt(xr);
+			if(X==0) {
+				int Y= random.nextInt(2);
+				if((!continentalExist && Y == 1) || (!continentalExist && drugStoreExist)  ) {
+					Continental continental = new Continental(i,j);
+					this.board[i][j]=continental;
+					continentalExist=true;
+				}
+				else if((!drugStoreExist&& Y == 0) || (continentalExist && !drugStoreExist)){
+					DrugStore drugstore = new DrugStore(i,j);
+					this.board[i][j]=drugstore ;
+					drugStoreExist=true ;
+				}
+				
+			}
+			else {
+				xr--;
+			}
+		}
+	}
 	
 	/**
 	 * Create vertical Street
