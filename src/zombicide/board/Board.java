@@ -166,6 +166,12 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * return true if the actor can go in the direction he wants to go otherwise false
+	 * @param actor the actor 
+	 * @param direction the direction 
+	 * @return true if the player can go in the direction he wants to go otherwise false
+	 */
 	public boolean canMove(Actor actor, Direction direction){
 		int x = actor.getCurrentCell().getX();
 		int y = actor.getCurrentCell().getY();
@@ -181,6 +187,11 @@ public class Board {
         return door != null && door.isBreak();
 	}
 	
+	/**
+	 * move the actor in the direction
+	 * @param actor the actor
+	 * @param direction the direction
+	 */
 	public void moveActor(Actor actor, Direction direction) {
         if (canMove(actor, direction)) {
             int x = actor.getCurrentCell().getX();
