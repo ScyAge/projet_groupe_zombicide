@@ -20,7 +20,7 @@ public abstract class Cell {
 	private List<Zombies> zombies;
 	private int x;
 	private int y;
-	
+	private int noise;
 	
 	/**
 	 * color constant 
@@ -51,10 +51,26 @@ public abstract class Cell {
 				this.doors.put(direction, new North_South_door(true,true));
 			}
         }
+		this.noise = 0;
 		
 	}
 	
+	/**
+	 * return the level of noise
+	 * @return the level of noise
+	 */
+	public int getNoise() {
+		return this.noise;
+	}
 	
+	/**
+	 * set the level of noise
+	 * @param noise the level of noise
+	 */
+	
+	public void setNoise(int noise) {
+		this.noise = noise;
+	}
 	/**
 	 * Return the list of all the players in the cell
 	 * @return List of players
