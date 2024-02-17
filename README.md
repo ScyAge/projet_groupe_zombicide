@@ -268,7 +268,7 @@ Voilà globalement ce que nous avons imaginé pour l'implémentation des acteurs
 
 Répartition du travail :
 Evan Joly : écriture de la classe Player + Création/Gestion des rôles des joueurs + réparation des problèmes git (ses problèmes pour être précis) + ajout de la gestion des points d'action + ajout du spawn experimental des armes dans le Board  
-Gabriel Kreutser : Création du squelette des nouvelles classes + écriture des tests des nouvelles classes + écriture de la classe Zombie et Actor  
+Gabriel Kreutser : Création du squelette des nouvelles classes + écriture des tests des nouvelles classes + écriture de la classe Zombie et Actor  + correction du Board suivant les remarque reçu sur le livrable 1 (constante de couleur , test du Board , Display , ...)
 Théo Nave : Ajout de la méthode de déplacement d'un acteur sur le plateau + ajout de l'aspect 'bruit' pour les cellules + rédaction du compte rendu semaine 5  
 Wissal-Asma Harrat : Création de l'UML Partie Acteur/Objet + avancement des effets des équipements + assistance à la création de la classe actor
 
