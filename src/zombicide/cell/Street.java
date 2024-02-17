@@ -1,5 +1,5 @@
 package zombicide.cell;
-
+import zombicide.item.*;
 
 
 
@@ -15,6 +15,10 @@ public class Street extends Cell{
 	public Street(int x, int y) {
 		super(x, y);
     }
+
+	public void addItem(Item i){
+
+	}
 
 	/**
 	 * @return display of the Street

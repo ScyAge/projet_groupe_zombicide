@@ -5,6 +5,7 @@ import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.util.*;
 import zombicide.util.door.*;
+import zombicide.item.*;
 
 /**
  *Class that describe how a cell work 
@@ -179,7 +180,7 @@ public abstract class Cell {
 	    return this.doors;
 	}
 	
-	
+	public abstract void addItem(Item i);
 	
 	/**
 	 * gives a recap of the number of actors in the cell
