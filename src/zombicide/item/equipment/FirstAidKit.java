@@ -17,7 +17,7 @@ public class FirstAidKit extends Equipment {
 	/**
 	 * heals a player in the same area as the player  
 	 * who has the FirstAidKit
-	 * @param player who has the FirstAidKit
+	 * @param player who has the FirstAidkit
 	 * */
 	public void equipmentEffect(Player player ) {
 		Cell cell= player.getCurrentCell();
