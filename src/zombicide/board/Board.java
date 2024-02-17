@@ -5,6 +5,7 @@ import zombicide.actor.Actor;
 import zombicide.cell.*;
 import zombicide.util.Direction;
 import zombicide.util.Door;
+import zombicide.item.*;
 
 /**
  * class of board
@@ -73,6 +74,10 @@ public class Board {
 		for(int i =xd;i<(xf);i++){
 			for(int j =yd;j<(yf);j++){
 				Room room = new Room(i,j) ;
+
+				Item item = new Item("test");
+				this.placeItemAlea(i,j,item);
+
 				this.board[i][j] = room  ;
 				if(i==0) {
 					this.board[i][j].getDoor(Direction.North).SetNotBreakble();
@@ -210,6 +215,20 @@ public class Board {
             System.out.println("Impossible de se déplacer dans cette direction.");
         }
     }
+
+	/**
+	 * Place a parameter item on the board if and only if the random number drawn is 5.
+	 * @param x indice of the cell
+	 * @param y indice of the cell
+	 * @param item the item that should be place on the cell
+	 */
+	private void placeItemAlea(int x,int y,Item item){
+		Random nb_alea = new Random();
+		int nb = nb_alea.nextInt(10);
+		if(nb == 5){
+			this.board[x][y].addItem(item);
+		}
+	}
 	
 	/**
 	 * Print the Board
