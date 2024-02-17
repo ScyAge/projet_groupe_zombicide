@@ -77,4 +77,12 @@ public abstract class Actor {
 	public Cell getCurrentCell() {
 		return this.cell;
 	}
+	
+	/**
+	 * Set a cell
+	 * @param the cell
+	 */
+	public void setCell(Cell cell) {
+		this.cell = cell;
+	}
 }

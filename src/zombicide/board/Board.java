@@ -181,6 +181,25 @@ public class Board {
         return door != null && door.isBreak();
 	}
 	
+	public void moveActor(Actor actor, Direction direction) {
+        if (canMove(actor, direction)) {
+            int x = actor.getCurrentCell().getX();
+            int y = actor.getCurrentCell().getY();
+
+            if (direction == Direction.North) {
+                actor.setCell(board[x - 1][y]);
+            } else if (direction == Direction.South) {
+                actor.setCell(board[x + 1][y]);
+            } else if (direction == Direction.West) {
+                actor.setCell(board[x][y - 1]);
+            } else if (direction == Direction.East) {
+                actor.setCell(board[x][y + 1]);
+            }
+        } else {
+            System.out.println("Impossible de se déplacer dans cette direction.");
+        }
+    }
+	
 	/**
 	 * Print the Board
 	 */
