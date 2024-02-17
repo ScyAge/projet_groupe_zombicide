@@ -13,10 +13,9 @@ public class Player extends Actor{
 	private Map<String,Item>  backpack;
 	private  Item itemInHand;
 	private int expertiseLevel;
-	private Cell cell;
 	private List<RolesIntrerface> roles;
 	
-	public Player(int lifePoints, Cell cell) {
+	public Player(int lifePoints,Cell cell) {
 		super(lifePoints,3, cell);
 		this.backpack = new HashMap<>();
 		this.itemInHand = null ;
@@ -25,7 +24,6 @@ public class Player extends Actor{
 	}
 	
 
-	
 	/**
 	 * gives the Items in the player's backpack
 	 * @return Map of the items in the backpack
@@ -34,8 +32,13 @@ public class Player extends Actor{
 		return this.backpack;
 	}
 
+	/**
+	 * method that takes an action as parameter and executes the specified action (action not implement for the moment so nothing in parametter
+	 */
+	public void action(){
 
-	
+	}
+
 	/**
 	 * gives the player's expertise level
 	 * @return expertiseLevel
@@ -52,13 +55,7 @@ public class Player extends Actor{
 		this.expertiseLevel = expertiseLevel;
 	}
 
-	/**
-	 * method that takes an action as parameter and executes the specified action (action not implement for the moment so nothing in parametter
-	 */
-	public void action(){
-
-	}
-
+	
 	/**
 	 * gives the item that the player has in hand
 	 * @return the item in hand
@@ -75,8 +72,9 @@ public class Player extends Actor{
 		this.itemInHand = itemInHand;
 	}
 
+
 	/** gives the list of players located in the same cell
-	 * @param cell where the players are
+	 * @param  cell where the players are
 	 * @return players in the same cell
 	 * */
 	public List<Player> getPlayersInArea(Cell cell){
