@@ -9,11 +9,13 @@ import zombicide.cell.*;
 public  class Zombies extends Actor {
 	
 	protected int damagePoints;
+	protected boolean isDead;
 	
-	
+
 	public Zombies(int lifePoints,int action_points, Cell cell,int damagePoints) {
 		super(lifePoints, action_points, cell);
 		this.damagePoints = damagePoints ;
+		this.isDead = false;
 	}
 
 	/**
@@ -25,10 +27,30 @@ public  class Zombies extends Actor {
 	}
 	
 	/**
+	 * @return true if the zombie is dead
+	 */
+	public boolean isDead() {
+		return isDead;
+	}
+	
+	/**
 	 * set the damage points
-	 * @param damagepoints*/
+	 * @param damagepoints
+	 */
 	public void setDamagePoints(int damagePoints) {
 		this.damagePoints = damagePoints;
+	}
+	
+	
+	/**
+	 * Zombie take damage
+	 * @param damage taken by the zombie
+	 */
+	public void takeDamage(int damage) {
+		this.lifePoints -= damage;
+		if(this.getLifePoints()<=0) {
+			this.isDead =true;
+		}
 	}
 	
 	/**
