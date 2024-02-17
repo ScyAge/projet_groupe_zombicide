@@ -179,7 +179,11 @@ public abstract class Cell {
 	public Map<Direction, Door> getDoors() {
 	    return this.doors;
 	}
-	
+
+	/**
+	 * method for adding Item in the cell
+	 * @param i an Item
+	 */
 	public abstract void addItem(Item i);
 	
 	/**

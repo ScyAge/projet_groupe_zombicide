@@ -16,9 +16,11 @@ public class Street extends Cell{
 		super(x, y);
     }
 
-	public void addItem(Item i){
-
-	}
+	/**
+	 * takes an item as a parameter and deletes it, because Street has no place to place items , so the function do nothing
+	 * @param i the item you want to del
+	 */
+	public void addItem(Item i){}
 
 	/**
 	 * @return display of the Street
