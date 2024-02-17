@@ -4,6 +4,7 @@ import java.util.*;
 
 import zombicide.actor.Actor;
 import zombicide.actor.player.roles.RolesIntrerface;
+import zombicide.actor.zombie.Zombies;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.*;
 import zombicide.cell.*;
@@ -80,11 +81,25 @@ public class Player extends Actor{
 	public List<Player> getPlayersInArea(Cell cell){
 		List<Player> players= new ArrayList<>();
 		
-		if(this.getCurrentCell()==cell) {
-			players.add(this);
+		for(Player p: cell.getAllPlayers()) {
+			players.add(p);
 		}
 		return players;
 	}
+	
+	/** gives the list of zombies located in the same cell
+	 * @param  cell where the players are
+	 * @return zombies in the same cell
+	 * */
+	public List<Zombies> getZombiesInArea(Cell cell){
+		List<Zombies> zombies= new ArrayList<>();
+		
+		for(Zombies z: cell.getAllZombies()) {
+			zombies.add(z);
+		}
+		return zombies;
+	}
+	
 	
 
 
