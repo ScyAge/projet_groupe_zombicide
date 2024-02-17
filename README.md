@@ -217,12 +217,62 @@ Diagramme UML Semaine 3 : [https://nextcloud.univ-lille.fr/index.php/s/FiRLwak7Y
 Cette semaine, le travail s'est concentré sur la finalisation du premier livrable avec les tests, la documentation et la correction de bugs. Ensuite, nous avons commencé à réfléchir à la modélisation des acteurs, et nous nous concentrerons sur la création du diagramme UML des acteurs et des objets la semaine prochaine.
 
 **Répartition du travail :**  
-Evan Joly : réalisation des tests, modélisation des acteurs.
-Gabriel Kreutser : documentation des fonctions, rédaction du README pour le board, modélisation des acteurs.
-Théo Nave : documentation des fonctions, rédaction du README du livrable, modélisation des acteurs.
-Wissal-Asma Harrat : UML final livrable 1 ,modélisation des acteurs.
-## Semaine 5
+Evan Joly : réalisation des tests, modélisation des acteurs.  
+Gabriel Kreutser : documentation des fonctions, rédaction du README pour le board, modélisation des acteurs.  
+Théo Nave : documentation des fonctions, rédaction du README du livrable, modélisation des acteurs.  
+Wissal-Asma Harrat : UML final livrable 1 ,modélisation des acteurs.  
 
+## Semaine 5
+Objectif de la semaine : Modélisation des acteurs et des équipements  
+
+Pour cette semaine, l'objectif principal était de créer une base sur laquelle nous pourrions travailler et éventuellement l'améliorer au cours de la programmation.  
+Commençons tout d'abord par la modélisation des acteurs. Un acteur est un personnage du jeu, c'est-à-dire ici, les survivants qui sont les joueurs et les zombies qui sont des PNJ. C'est pourquoi nous avons créé une classe abstraite 'Actor' qui permet de représenter les deux types de personnages.  
+
+Cette classe contient différentes propriétés :  
+
+* une propriété 'lifepoints' qui, comme son nom l'indique, représente les points de vie du personnage
+* une autre propriété 'action_points' qui représente les points d'action de l'acteur
+* une propriété 'Cell' qui représente la case où se trouve l'acteur
+* et une propriété 'isDead' pour savoir si l'acteur est mort ou non
+
+En ce qui concerne les méthodes, elle possède évidemment les différents getters/setters associés, mais également une méthode 'takeDamage(int damage)' qui enlève des points de vie à l'acteur en fonction des dégâts qu'il reçoit.  
+
+Maintenant, intéressons-nous à un acteur en particulier, prenons le Zombie.  
+
+La particularité des Zombies est qu'il y en a de différentes sortes : l'abomination, le broom, le runner et le walker. Pour implémenter cela, nous créons différentes classes correspondant aux différents types de zombies qui héritent de la classe Zombie, elle-même héritant de la classe Actor.  
+La classe Zombie contient une méthode pour infliger des dégâts. La différence entre les types de zombies réside dans leurs points de vie, leurs dégâts et leurs points d'action.  
+
+Passons maintenant aux survivants, appelés les Players. Cette classe, tout comme pour les Zombies, hérite de la classe Actor.  
+
+La particularité des joueurs est qu'ils peuvent avoir des rôles : le soigneur, le chanceux, le combattant et le fouineur, qui ont tous des capacités influant sur leurs actions (qui seront définies dans le livrable 3).  
+Après mûre réflexion, pour implémenter les rôles des joueurs, nous avons décidé d'utiliser une interface que nous nommons 'RolesInterface', qui contiendra la méthode 'action()' permettant d'adapter l'action du rôle à un joueur.  
+
+Que trouve-t-on dans la classe Player :  
+
+* une propriété 'backpack' qui représente le sac à dos (nous l'avons définie comme une Map<String, Item>)
+* la propriété 'itemInHand' pour représenter l'objet dans la main
+* 'expertiseLevel', son niveau d'expertise
+* et une liste des rôles 'List<RolesInterface> roles'
+
+Comme d'habitude, la classe contient les différents setters/getters qui lui sont associés, mais il y a également des méthodes comme 'openBackpack()' qui permet de visualiser le contenu du sac à dos, 'actionSpecial()' qui permet d'effectuer une action spéciale définie avec le rôle du joueur s'il en a un.  
+
+Après avoir expliqué comment nous avons implémenté les acteurs, nous allons nous intéresser aux objets.  
+
+Il faut savoir que dans le jeu Zombicide, il y a deux types d'objets : les équipements et les armes. Ce qui signifie que comme à notre habitude, nous allons créer une classe 'Item' qui aura pour fils une classe abstraite 'Equipment' et une classe 'Weapon'. De plus, pour les armes, nous avons créé une classe énumération 'WeaponType' pour les différents noms d'armes.  
+
+En ce qui concerne les équipements, elles auront chacune une classe qui héritera de la classe Equipment, ce qui permettra de leur affecter à chacune leur effet respectif, par exemple l'équipement 'FirstAidKit' (Trousse de secours) aura pour effet de soigner un joueur au choix dans sa zone, etc.  
+
+Puis pour les armes, nous avons créé une classe 'Weapon' qui hérite de la classe Item et prend comme propriétés le type d'arme (avec la classe Enum), ses dégâts, son seuil et sa portée.  
+
+Voilà globalement ce que nous avons imaginé pour l'implémentation des acteurs et des objets pour le moment.  
+
+Répartition du travail :
+Evan Joly : écriture de la classe Player + Création/Gestion des rôles des joueurs + réparation des problèmes git (ses problèmes pour être précis)  
+Gabriel Kreutser : Création du squelette des nouvelles classes + écriture des tests des nouvelles classes + écriture de la classe Zombie et Actor  
+Théo Nave : Ajout de la méthode de déplacement d'un acteur sur le plateau + ajout de l'aspect 'bruit' pour les cellules + rédaction du compte rendu semaine 5  
+Wissal-Asma Harrat : Création de l'UML Partie Acteur/Objet + avancement des effets des équipements + assistance à la création de la classe actor
+
+Diagramme UML Semaine 5 : [https://nextcloud.univ-lille.fr/index.php/s/YqrXc9mgtBJB8or](https://nextcloud.univ-lille.fr/index.php/s/YqrXc9mgtBJB8or)
 ## Semaine 6
 
 ## Semaine 7
