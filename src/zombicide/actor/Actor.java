@@ -45,13 +45,12 @@ public abstract class Actor {
 	}
 	
 	/**
-	 * Zombie take damage
-	 * @param damage taken by the zombie
+	 * actor take damage
+	 * @param damage taken by the actor
 	 */
 	public void takeDamage(int damage) {
 		this.lifePoints -= damage;
 	}
-	
 	
 	
 	
