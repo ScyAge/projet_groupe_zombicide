@@ -49,11 +49,13 @@ public class Player extends Actor{
 	}
 
 	/**
-	 * sets the expertise level for the player
-	 * @param expertiseLevel's value
+	 * increases the survivor's level by 1 if he reaches level 3 7 or 11 his number of action points increases by 1
 	 *  */
-	public void setExpertiseLevel(int expertiseLevel) {
-		this.expertiseLevel = expertiseLevel;
+	public void UpOneExpertiseLevel() {
+		this.expertiseLevel += 1;
+		if(this.expertiseLevel == 3 ||this.expertiseLevel ==7 || this.expertiseLevel ==11){
+			this.setAction_points(this.getAction_points()+1);
+		}
 	}
 
 	
@@ -139,5 +141,7 @@ public class Player extends Actor{
 			this.roles.get(role_number).action(this);
 		}
 	}
+
+
 
 }
