@@ -1,8 +1,10 @@
 package zombicide.board;
 import java.util.Random;
 
+import zombicide.actor.Actor;
 import zombicide.cell.*;
 import zombicide.util.Direction;
+import zombicide.util.Door;
 
 /**
  * class of board
@@ -163,6 +165,22 @@ public class Board {
 			this.board[x+1][y].breakDoor(Direction.oppose(d));
 		}
 	}
+	
+	public boolean canMove(Actor actor, Direction direction){
+		int x = actor.getCurrentCell().getX();
+		int y = actor.getCurrentCell().getY();
+
+		if ((direction == Direction.North && x == 0) ||
+            (direction == Direction.South && x == board.length - 1) ||
+            (direction == Direction.West && y == 0) ||
+            (direction == Direction.East && y == board[0].length - 1)) {
+            return false;
+        }
+		
+		Door door = board[x][y].getDoor(direction);
+        return door != null && door.isBreak();
+	}
+	
 	/**
 	 * Print the Board
 	 */
