@@ -76,9 +76,9 @@ public class Board {
 				Room room = new Room(i,j) ;
 
 				Item item = new Item("test");
-				this.placeItemAlea(i,j,item);
 
 				this.board[i][j] = room  ;
+				this.placeItemAlea(i,j,item);
 				if(i==0) {
 					this.board[i][j].getDoor(Direction.North).SetNotBreakble();
 				}
@@ -112,6 +112,7 @@ public class Board {
 						xr--;
 					}
 				}
+				
 			}
 		}
 	}
@@ -149,6 +150,8 @@ public class Board {
 	public Cell[][] getBoard(){
 		return this.board;
 	}
+	
+	
 	/**
 	 * 
 	 * @param d direction to break the door
