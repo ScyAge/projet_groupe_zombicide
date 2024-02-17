@@ -179,7 +179,8 @@ public class Board {
 							x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"  "+this.board[i][j].getDoor(Direction.East).toString();
 						}
 						else {
-							x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"z"+this.board[i][j].getAllZombies().size()+this.board[i][j].getDoor(Direction.East).toString();
+							int NbZombie = this.board[i][j].getAllZombies().size();
+							x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie) + this.board[i][j].getAllZombies().size()+this.board[i][j].getDoor(Direction.East).toString();
 						}
 					}
 					else if(ligne ==2){
@@ -187,7 +188,8 @@ public class Board {
 							x += this.board[i][j].getDoor(Direction.West).toString()+"   "+this.board[i][j].getDoor(Direction.East).toString();
 						}
 						else {
-							x += this.board[i][j].getDoor(Direction.West).toString()+"s"+this.board[i][j].getAllPlayers().size()+" "+this.board[i][j].getDoor(Direction.East).toString();
+							int NbPlayer = this.board[i][j].getAllPlayers().size();
+							x += this.board[i][j].getDoor(Direction.West).toString()+"s"+ (NbPlayer > 9 ? "+" : NbPlayer) + this.board[i][j].getAllPlayers().size()+" "+this.board[i][j].getDoor(Direction.East).toString();
 						}
 					}
 					else if(ligne ==3){
@@ -197,6 +199,6 @@ public class Board {
 				System.out.println(x);
 			}
 			
-	}
+		}
 	}
 }
