@@ -1,6 +1,5 @@
 package zombicide.actor;
 
-import java.util.List;
 
 import zombicide.cell.Cell;
 
@@ -12,11 +11,13 @@ public abstract class Actor {
 	protected int lifePoints;
 	protected int action_points; 
 	protected Cell cell;
+	protected boolean isDead;
 	
 	public Actor(int lifePoints, int action_points, Cell cell){
 		this.lifePoints = lifePoints;
 		this.action_points = action_points;
 		this.cell=cell;
+		this.isDead =false;
 	}
 	
 	
@@ -25,7 +26,7 @@ public abstract class Actor {
 	 * @return the lifePoints
 	 */
 	public int getLifePoints() {
-		return lifePoints;
+		return this.lifePoints;
 	}
 	
 	/**
@@ -42,6 +43,16 @@ public abstract class Actor {
 	public boolean isDead() {
 		return this.lifePoints == 0;
 	}
+	
+	/**
+	 * Zombie take damage
+	 * @param damage taken by the zombie
+	 */
+	public void takeDamage(int damage) {
+		this.lifePoints -= damage;
+	}
+	
+	
 	
 	
 	/**
