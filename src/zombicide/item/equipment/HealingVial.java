@@ -1,6 +1,7 @@
-package zombicide.item;
+package zombicide.item.equipment;
 
 import zombicide.actor.player.Player;
+import zombicide.item.Item;
 
 public class HealingVial extends Item {
 
@@ -9,7 +10,8 @@ public class HealingVial extends Item {
 	}
 	
 	/**
-	 * */
+	 * adds one lifepoint to the players who uses it 
+	 */
 	public void equipmentEfffect(Player player) {
 		int lifepoints= player.getLifePoints();
 		player.setLifePoints(lifepoints+1);

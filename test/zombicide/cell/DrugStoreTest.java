@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
-import zombicide.item.HealingVial;
+import zombicide.item.equipment.HealingVial;
 
 
 
