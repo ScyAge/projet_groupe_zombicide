@@ -9,6 +9,10 @@ public abstract class  Equipment extends Item {
 		super(title);
 	}
 	
+	/**
+	 * realizes the equipment effect 
+	 * @param player who uses the equipment 
+	 * */
 	public abstract void equipmentEffect(Player player);
 
 }
