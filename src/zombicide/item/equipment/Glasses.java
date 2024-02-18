@@ -17,6 +17,9 @@ public class Glasses extends Equipment {
 	}
 
 	@Override
+	/**
+	 * shows the actors that are in adjacent cells to the player's cell
+	 * */
 	public void equipmentEffect(Player player) {
 		Cell cell = player.getCurrentCell();
 		int x= cell.getX();
@@ -46,7 +49,11 @@ public class Glasses extends Equipment {
 	
 
 
-
+	/** gives the list of adjacent cells to the cell with the given coordinates
+	 * @param x the horizontal coordinate of the cell
+	 * @param the vertical coordinate of the cell
+	 * @return a list of the adjacent cells
+	 *  */
 	private List<Cell> adjacentCells(int x, int y) {
 		Room r= new Room(x,y);
 		Street s= new Street(x,y);
