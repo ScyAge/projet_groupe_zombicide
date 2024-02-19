@@ -5,13 +5,13 @@ import zombicide.item.*;
 public class Weapon extends Item {
 	
 
-	private WeaponType type;
+	private ItemType type;
 	private int threshold;
 	private int range;
 	private int damage;
 	private boolean breakDoor;
 	
-	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, WeaponType type) {
+	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, ItemType type) {
 		super(title);
 		this.damage =damage;
 		this.range =range;
@@ -56,7 +56,7 @@ public class Weapon extends Item {
 	 * gives the type of the weapon 
 	 * @return weapon's type 
 	 * */
-	public WeaponType getType() {
+	public ItemType getType() {
 		return type;
 	}
 	
