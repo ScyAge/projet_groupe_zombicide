@@ -9,12 +9,14 @@ public class Weapon extends Item {
 	private int threshold;
 	private int range;
 	private int damage;
+	private boolean breakDoor;
 	
-	public Weapon(String title,int range,int damage, int threshold,WeaponType type) {
+	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, WeaponType type) {
 		super(title);
 		this.damage =damage;
 		this.range =range;
 		this.threshold = threshold;
+		this.breakDoor= breakDoor;
 		this.type =type;
 	}
 	
@@ -43,7 +45,13 @@ public class Weapon extends Item {
 		return this.damage;
 	}
 
-	
+	/**
+	 * says whether the weapon breaks a door or not
+	 * @return boolean
+	 *   */
+	public boolean getBreakDoor() {
+		return this.breakDoor;
+	}
 	/**
 	 * gives the type of the weapon 
 	 * @return weapon's type 
