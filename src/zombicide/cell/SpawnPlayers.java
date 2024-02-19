@@ -20,7 +20,7 @@ public class SpawnPlayers extends Street {
 	 * @param players the list of players to populate on the spawn point
 	 * */
 	public void spawnPlayer(List<Player> players) {
-		Weapon gun= new Weapon("Gun",1, 1,4, false, ItemType.GUN );
+		Weapon gun= new Weapon("Gun",1, 1,4, false);
 		for(Player p : players) {
 			this.addPlayers(p);
 			p.setItemInHand(gun);
