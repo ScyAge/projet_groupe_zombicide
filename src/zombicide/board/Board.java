@@ -108,7 +108,7 @@ public class Board {
 					this.board[i][j]=continental;
 					continentalExist=true;
 				}
-				else if((!drugStoreExist&& Y == 0) || (continentalExist && !drugStoreExist)){
+				else if((!drugStoreExist)){
 					DrugStore drugstore = new DrugStore(i,j);
 					this.board[i][j]=drugstore ;
 					drugStoreExist=true ;
@@ -124,7 +124,8 @@ public class Board {
 	/**
 	 * Create vertical Street
 	 * @param y1 height of the street
-	 * @param x  the size of the street
+	 * @param xd  start index of the street
+	 * @param xf  end index of the street
 	 */
 	private void VStreet(int y1,int xf, int xd){
 		for(int i = xd;i<xf;i++){
@@ -133,7 +134,8 @@ public class Board {
 	}
 	/**
 	 * Create horizontal street
-	 * @param y the size of the street
+	 * @param yd start index of the list
+	 * @param yf end index  of the street
 	 * @param x1 width of the street
 	 */
 	private void HStreet(int yd,int yf, int x1){
@@ -166,7 +168,7 @@ public class Board {
 			this.board[x][y-1].breakDoor(Direction.oppose(d));
 		}
 		else if(d== Direction.East && y != this.board[x].length-1) {
-			this.board[x][y+1].breakDoor(Direction.oppose(d));;
+			this.board[x][y+1].breakDoor(Direction.oppose(d));
 		}
 		else if(d== Direction.North && x != 0) {
 			this.board[x-1][y].breakDoor(Direction.oppose(d));
@@ -247,30 +249,54 @@ public class Board {
 						x += this.board[i][j].getDoor(Direction.North).toString();
 					}
 					else if(ligne ==1){
-						if(this.board[i][j].getAllZombies().size()==0) {
-							x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"  "+this.board[i][j].getDoor(Direction.East).toString();
-						}
-						else {
-							int NbZombie = this.board[i][j].getAllZombies().size();
-							x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie)+this.board[i][j].getDoor(Direction.East).toString();
-						}
+						x += secondLineDisplay(i, j);
 					}
 					else if(ligne ==2){
-						if(this.board[i][j].getAllPlayers().size()==0) {
-							x += this.board[i][j].getDoor(Direction.West).toString()+"   "+this.board[i][j].getDoor(Direction.East).toString();
-						}
-						else {
-							int NbPlayer = this.board[i][j].getAllPlayers().size();
-							x += this.board[i][j].getDoor(Direction.West).toString()+"s"+ (NbPlayer > 9 ? "+" : NbPlayer) +" "+this.board[i][j].getDoor(Direction.East).toString();
-						}
+						x += ThirdLineDisplay(i, j);
 					}
-					else if(ligne ==3){
-						x +=this.board[i][j].getDoor(Direction.South).toString();
+					else{
+						x += this.board[i][j].getDoor(Direction.South).toString();
 					}
 				}
 				System.out.println(x);
 			}
 			
 		}
+	}
+
+	/**
+	 * Display the third line of the cell contain the name of the cell and the number of Survivor in
+	 * @param i horizontal index of the board
+	 * @param j vertical index of the board
+	 * @return a String of the display
+	 */
+	private String ThirdLineDisplay(int i, int j) {
+		String x ="";
+		if(this.board[i][j].getAllPlayers().isEmpty()) {
+			x += this.board[i][j].getDoor(Direction.West).toString()+"   "+this.board[i][j].getDoor(Direction.East).toString();
+		}
+		else {
+			int NbPlayer = this.board[i][j].getAllPlayers().size();
+			x += this.board[i][j].getDoor(Direction.West).toString()+"s"+ (NbPlayer > 9 ? "+" : NbPlayer) +" "+this.board[i][j].getDoor(Direction.East).toString();
+		}
+		return x;
+	}
+
+	/**
+	 * Display the second line of the cell contain the name of the cell and the number of zombie in
+	 * @param i horizontal index of the board
+	 * @param j vertical index of the board
+	 * @return a String of the display
+	 */
+	private String secondLineDisplay(int i, int j) {
+		String x="";
+		if(this.board[i][j].getAllZombies().isEmpty()) {
+			x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"  "+this.board[i][j].getDoor(Direction.East).toString();
+		}
+		else {
+			int NbZombie = this.board[i][j].getAllZombies().size();
+			x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie)+this.board[i][j].getDoor(Direction.East).toString();
+		}
+		return x;
 	}
 }
