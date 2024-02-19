@@ -28,7 +28,7 @@ public class Board {
 		this.board = new Cell[width][height];
 		this.drugStoreExist=false;
 		this.continentalExist=false;
-        this.xr=((height-1) *(width-1))/2 ;
+        this.xr=((height-(height/4)) *(width-(width/4))-1) ;
 		initBoard(0,width,0,height,true);
 	}
 	/**

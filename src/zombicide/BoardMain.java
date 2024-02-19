@@ -14,7 +14,7 @@ public class BoardMain {
 		b.BreakDoor(Direction.South, 1, 1);
 		b.getBoard()[1][1].addPlayers(p);
 		b.getBoard()[1][1].addPlayers(p2);
-		b.Display();
+
 		System.out.println(b.getBoard()[2][0].getDoor(Direction.North).isBreak());
 	}
 }
