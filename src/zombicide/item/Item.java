@@ -27,10 +27,17 @@ public class Item {
 		this.title = title;
 	}
 	
+	/**
+	 * says whether the item is used or not 
+	 * @param item to check if it's used or not
+	 * @return true if the item is used, false if not
+	 * */
 	public boolean isUsed(Item item) {
 		return this.Use;
 		
 	}
+	
+	
 	public void Used(Item item) {
 		this.Use =true;
 	}
