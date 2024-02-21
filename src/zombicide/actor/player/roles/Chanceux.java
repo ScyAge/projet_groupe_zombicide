@@ -8,6 +8,6 @@ import zombicide.actor.player.Player;
 public class Chanceux implements RolesIntrerface {
     @Override
     public void action(Player p) {
-    /*test2*/
+    /*test*/
     }
 }
