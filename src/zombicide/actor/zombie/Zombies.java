@@ -11,8 +11,8 @@ public  class Zombies extends Actor {
 	protected int damagePoints;
 	
 
-	public Zombies(int lifePoints,int action_points, Cell cell,int damagePoints) {
-		super(lifePoints, action_points, cell);
+	public Zombies(int lifePoints,int action_points, Cell cell, int id, int damagePoints) {
+		super(lifePoints, action_points, cell, id);
 		this.damagePoints = damagePoints ;
 	}
 

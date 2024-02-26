@@ -16,8 +16,8 @@ public class Player extends Actor{
 	private int expertiseLevel;
 	private List<RolesIntrerface> roles;
 	
-	public Player(int lifePoints,Cell cell) {
-		super(lifePoints,3, cell);
+	public Player(int lifePoints,Cell cell, int id) {
+		super(lifePoints,3, cell, id);
 		this.backpack = new HashMap<>();
 		this.itemInHand = null ;
 		this.expertiseLevel = 1;

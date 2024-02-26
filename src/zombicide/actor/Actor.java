@@ -12,12 +12,14 @@ public abstract class Actor {
 	protected int action_points; 
 	protected Cell cell;
 	protected boolean isDead;
+	protected int id;
 	
-	public Actor(int lifePoints, int action_points, Cell cell){
+	public Actor(int lifePoints, int action_points, Cell cell, int id){
 		this.lifePoints = lifePoints;
 		this.action_points = action_points;
 		this.cell=cell;
 		this.isDead =false;
+		this.id = id;
 	}
 	
 	
@@ -84,5 +86,12 @@ public abstract class Actor {
 	 */
 	public void setCell(Cell cell) {
 		this.cell = cell;
+	}
+	
+	/**
+	 * gets the identificator of the actor
+	 * @return id */
+	public int getId() {
+		return this.id;
 	}
 }
