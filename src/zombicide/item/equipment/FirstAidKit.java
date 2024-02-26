@@ -25,6 +25,7 @@ public class FirstAidKit extends Equipment {
 		if(!players.isEmpty()) {
 			ListChooser<Player> listChooser = new InteractiveListChooser<>();
 			Player target = listChooser.choose("choose a player to heal: ", players );
+			
 			int targetLifePoints= target.getLifePoints();
 			target.setLifePoints(targetLifePoints+1);
 			System.out.println("the player "+ target.getId()+ "is healed" );
