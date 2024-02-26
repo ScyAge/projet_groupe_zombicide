@@ -4,8 +4,8 @@ import zombicide.cell.Cell;
 
 public class Broom extends Zombies {
 
-	public Broom(Cell cell) {
-		super(4,2,cell,1);
+	public Broom(Cell cell, int id) {
+		super(4,2,cell,id, 1);
 	}
 
 }

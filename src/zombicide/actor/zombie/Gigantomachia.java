@@ -4,8 +4,8 @@ import zombicide.cell.Cell;
 
 public class Gigantomachia extends Zombies {
 
-	public Gigantomachia(Cell cell) {
-		super(1000,100,cell,1);
+	public Gigantomachia(Cell cell,int id) {
+		super(1000,100,cell,id, 1);
 
 	}
 

@@ -4,8 +4,8 @@ import zombicide.cell.Cell;
 
 public class Abominations extends Zombies {
 
-	public Abominations(Cell cell) {
-		super(6, 3,cell,1);
+	public Abominations(Cell cell, int id) {
+		super(6, 3,cell,id, 1);
 	}
 
 }
