@@ -18,7 +18,7 @@ public class ZombiesTest {
     @BeforeEach
     void setUp() {
     	SpawnPlayers = new SpawnPlayers(1, 1);
-        z = new Gigantomachia(SpawnPlayers);
+        z = new Gigantomachia(SpawnPlayers,1);
 
     }
     
