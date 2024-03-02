@@ -26,10 +26,15 @@ public abstract class Cell {
 	/**
 	 * color constant 
 	 */
+		/**color white*/
 	public static final String colorWhite = "\u001B[0m" ;
+		/**color red*/
 	public static final String colorRed = "\u001B[31m" ;
+		/**color green*/
 	public static final String colorGreen = "\u001B[32m" ;
+		/**color yellow*/
 	public static final String colorYellow = "\u001B[33m" ;
+		/**color blue*/
 	public static final String colorBlue = "\u001B[34m" ;
 	
 	

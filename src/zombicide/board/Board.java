@@ -157,7 +157,7 @@ public class Board {
 	
 	
 	/**
-	 * 
+	 * Break the door in the cell
 	 * @param d direction to break the door
 	 * @param x indice of the cell
 	 * @param y indice of the cell

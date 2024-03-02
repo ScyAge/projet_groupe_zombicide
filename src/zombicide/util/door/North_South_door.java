@@ -6,9 +6,10 @@ import zombicide.util.Door;
 public class North_South_door extends Door{
 	
 	/**
-	 * Contructor of North_South_door
-	 * @param breakable true if the door is breakable
-	 */
+	* Contructor of North_South_door
+	* @param breakable true if the door is breakable
+	* @param Break if it's break or not
+	*/
 	public North_South_door(boolean breakable, boolean Break) {
 		super(breakable,Break);
 	}

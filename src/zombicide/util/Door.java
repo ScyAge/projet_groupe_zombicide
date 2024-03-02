@@ -13,13 +13,16 @@ public abstract class Door {
 	/**
 	 * Door Builder
 	 * @param Breakable if a door is unbreakable or not 
+	 * @param Break if it's break or not
 	 */
 	public Door(boolean Breakable,boolean Break){
 		this.Break = Break;
 		this.Breakable = Breakable;
 	}
 	
-	
+	/**
+	 * set door unbreakble
+	 */
 	public void SetNotBreakble() {
 		this.Breakable = false;
 	}
@@ -46,7 +49,9 @@ public abstract class Door {
 			Break = true;
 		}
 	}
-	
+	/**
+	 * Close the door
+	 */
 	public void setNotBreak() {
 		this.Break = false;
 	}
