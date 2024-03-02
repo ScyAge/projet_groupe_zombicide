@@ -102,8 +102,22 @@ public class Player extends Actor{
 		return zombies;
 	}
 	
+	/**
+	 * Take item in the cell
+	 * @param i item to take
+	 */
+	public void takeItem(Item  i) {
+		this.backpack.put(i.getTitle(),i);
+		i.setPlayer(this);
+	}
 	
-
+	/**
+	 * destroy item
+	 * @param i item to destroy
+	 */
+	public void destroyItem(Item i) {
+		this.backpack.remove(i.getTitle());
+	}
 
 	/**
 	 * method for adding a role to a player
