@@ -3,6 +3,9 @@ package zombicide.item.equipment;
 import zombicide.item.*;
 import zombicide.actor.player.*;
 
+/**
+ * class Equipment
+ */
 public abstract class  Equipment extends Item {
 
 	/**

@@ -9,8 +9,15 @@ import zombicide.cell.Cell;
 import zombicide.cell.Room;
 import zombicide.cell.Street;
 
+/**
+ * class Glasses
+ */
 public class Glasses extends Equipment {
-
+	
+	/**
+	 * Builder of Glasses
+	 * @param title of the item
+	 */
 	public Glasses(String title) {
 		super(title);
 		
@@ -19,6 +26,7 @@ public class Glasses extends Equipment {
 	@Override
 	/**
 	 * shows the actors that are in adjacent cells to the player's cell
+	 * @param Player 
 	 * */
 	public void equipmentEffect(Player player) {
 		Cell cell = player.getCurrentCell();

@@ -4,19 +4,36 @@ import zombicide.item.equipment.Equipment;
 import zombicide.item.weapons.Weapon;
 
 
+/**
+ * enum  ItemType
+ */
 public enum ItemType {
+	/** Weapons*/
+		/** Crowbar */
 	CROWBAR,
+		/** AXE */
 	AXE,
+		/** CHAINSAW */
 	CHAINSAW,
+		/** GUN */
 	GUN,
+		/** CARABINE */
 	CARABINE,
+	
+	/** Equipment*/
+		/** FIRST_AID_KIT */
 	FIRST_AID_KIT,
+		/** GLASSES */
 	GLASSES,
+		/** MAP_CARD */
 	MAP_CARD,
+		/** MASTER_KEY */
 	MASTER_KEY,
+		/** HEALINGVIAL */
 	HEALINGVIAL;
 	
 	/**
+	 * Create Item
 	 * @param type of the item to initialize 
 	 * @return weapon 
 	 *  */

@@ -9,13 +9,24 @@ import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.*;
 import zombicide.cell.*;
 
+/**
+ * Class Player 
+ */
 public class Player extends Actor{
 	
+	
+	/** Param of Player */
 	private Map<String,Item>  backpack;
 	private  Item itemInHand;
 	private int expertiseLevel;
 	private List<RolesIntrerface> roles;
 	
+	/**
+	 * Builder of Player class
+	 * @param lifePoints life of the player
+	 * @param cell cell where the player is
+	 * @param id of the player
+	 */
 	public Player(int lifePoints,Cell cell, int id) {
 		super(lifePoints,3, cell, id);
 		this.backpack = new HashMap<>();

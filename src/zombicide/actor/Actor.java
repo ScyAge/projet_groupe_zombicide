@@ -3,17 +3,32 @@ package zombicide.actor;
 
 import zombicide.cell.Cell;
 
+/**
+ * abstrac class actor
+ */
 public abstract class Actor {
 	
 	/**
-	 * 
+	 * Param of Actor
 	 */
+		/** lifePoint of the Actor*/
 	protected int lifePoints;
+		/**action_point of the Actor */
 	protected int action_points; 
+		/** cell where the Actor is*/
 	protected Cell cell;
+		/** if the Actor is dead or not*/
 	protected boolean isDead;
+		/** id of the Actor*/
 	protected int id;
 	
+	/**
+	 * Builder of Actor
+	 * @param lifePoints of the Actor
+	 * @param action_points of the Actor
+	 * @param cell where the Actor is
+	 * @param id of the Actor
+	 */
 	public Actor(int lifePoints, int action_points, Cell cell, int id){
 		this.lifePoints = lifePoints;
 		this.action_points = action_points;
@@ -40,7 +55,8 @@ public abstract class Actor {
 	}
 	
 	/**
-	 * @return true if the actor have 0 lifePoints
+	 * Get if the Player is dead or not
+	 *@return true if the actor have 0 lifePoints
 	 */
 	public boolean isDead() {
 		return this.lifePoints == 0;
@@ -65,7 +81,7 @@ public abstract class Actor {
 	}
 	/**
 	 * Set action point to the actor
-	 * @param action_point of the actor
+	 * @param action_points of the actor
 	 */
 	public void setAction_points(int action_points) {
 		this.action_points = action_points;
@@ -81,8 +97,8 @@ public abstract class Actor {
 	}
 	
 	/**
-	 * Set a cell
-	 * @param the cell
+	 *Set a cell
+	 *@param cell where the Actor is
 	 */
 	public void setCell(Cell cell) {
 		this.cell = cell;

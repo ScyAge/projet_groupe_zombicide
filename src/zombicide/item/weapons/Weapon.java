@@ -2,15 +2,28 @@ package zombicide.item.weapons;
 
 import zombicide.item.*;
 
+/**
+ * class weapons
+ */
 public class Weapon extends Item {
 	
 
-
+	/**
+	 * Param of weapons
+	 */
 	private int threshold;
 	private int range;
 	private int damage;
 	private boolean breakDoor;
 	
+	/**
+	 * Builder of the weapons
+	 * @param title of the item
+	 * @param range of the weapons
+	 * @param damage of the weapons
+	 * @param threshold of the weapons
+	 * @param breakDoor  can break door or not
+	 */
 	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor) {
 		super(title);
 		this.damage =damage;

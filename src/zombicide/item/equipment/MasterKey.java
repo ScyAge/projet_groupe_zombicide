@@ -6,16 +6,22 @@ import zombicide.util.Direction;
 import zombicide.util.Door;
 import java.util.*;
 
-
+/**
+ * class MasterKey
+ */
 public class MasterKey extends Equipment {
-
+	
+	/**
+	 * Builder of MasterKey
+	 * @param title of the item
+	 */
 	public MasterKey(String title) {
 		super(title);
 	}
 	
 	/**
 	 * Opens the cell's door where the player is according to the user's choice
-	 * @param: player who has the MasterKey
+	 * @param player who has the MasterKey
 	 * */
 	public void equipmentEffect(Player player) {
 		System.out.println(" Enter the direction of the door you want to open");
