@@ -7,9 +7,8 @@ public class ActorDoesNotExistExeption extends Exception{
 	
 	/**
 	 * Builder of ActorDoesNotExistExeption
-	 * @param msg report in the throw
 	 */
-	public ActorDoesNotExistExeption(String msg) {
-		super(msg);
+	public ActorDoesNotExistExeption() {
+		super();
 	}
 }
