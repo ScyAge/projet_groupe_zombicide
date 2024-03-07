@@ -9,6 +9,7 @@ import zombicide.item.equipment.HealingVial;
  * class of DrugStore
  */
 public class DrugStore extends Room {
+	
 	private List<HealingVial> healingVials;
 	
 	/** Constructor of the class DrugStore

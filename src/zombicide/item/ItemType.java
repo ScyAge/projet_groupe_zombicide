@@ -1,5 +1,7 @@
 package zombicide.item;
 
+import java.util.Map;
+
 import zombicide.item.equipment.Equipment;
 import zombicide.item.weapons.Weapon;
 
@@ -8,7 +10,9 @@ import zombicide.item.weapons.Weapon;
  * enum  ItemType
  */
 public enum ItemType {
+	
 	/** Weapons*/
+	
 		/** Crowbar */
 	CROWBAR,
 		/** AXE */
@@ -21,6 +25,7 @@ public enum ItemType {
 	CARABINE,
 	
 	/** Equipment*/
+	
 		/** FIRST_AID_KIT */
 	FIRST_AID_KIT,
 		/** GLASSES */
@@ -28,9 +33,7 @@ public enum ItemType {
 		/** MAP_CARD */
 	MAP_CARD,
 		/** MASTER_KEY */
-	MASTER_KEY,
-		/** HEALINGVIAL */
-	HEALINGVIAL;
+	MASTER_KEY;
 	
 	/**
 	 * Create Item
@@ -67,13 +70,8 @@ public enum ItemType {
 			else if (w== ItemType.MASTER_KEY) {
 				res= new Item("MasterKey");
 			}
-			else {
-				res = new Item("HealingVial");
-			}
 			
 		}
 		return res;
 	}
-	
-	
 }
