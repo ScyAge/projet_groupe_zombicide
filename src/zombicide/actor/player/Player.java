@@ -16,7 +16,7 @@ public class Player extends Actor{
 	
 	
 	/** Param of Player */
-	private Map<String,Item>  backpack;
+	private Item[] backpack;
 	private  Item itemInHand;
 	private int expertiseLevel;
 	private List<RolesIntrerface> roles;
@@ -29,19 +29,10 @@ public class Player extends Actor{
 	 */
 	public Player(int lifePoints,Cell cell, int id) {
 		super(lifePoints,3, cell, id);
-		this.backpack = new HashMap<>();
+		this.backpack = new Item[6];
 		this.itemInHand = null ;
 		this.expertiseLevel = 1;
 		this.roles = new ArrayList<>();
-	}
-	
-
-	/**
-	 * gives the Items in the player's backpack
-	 * @return Map of the items in the backpack
-	 * */
-	public Map<String,Item> openBackpack(){
-		return this.backpack;
 	}
 
 	/**
@@ -79,13 +70,56 @@ public class Player extends Actor{
 	}
 
 	/**
-	 * method for adding a weapon to a player
+	 * method for adding a weapon to a player in is hand
 	 * @param itemInHand the item you want to add
 	 */
 	public void setItemInHand(Item itemInHand) {
 		this.itemInHand = itemInHand;
 	}
 
+	/**
+	 * take a item from the backpack and place it in the hand of the player
+	 * @param index_of_item the position of the wanted item
+	 * @throws ItemDoesNotExistExeption if there is no Item at the specified position
+	 */
+	public void takeInHandFromBackPack(int index_of_item) throws ItemDoesNotExistExeption{
+		this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
+	}
+
+	/**
+	 * method that adds an object to the bag at the first free location and returns
+	 * a message confirming the operation if the bag is full returns that the bag is full
+	 * @param item the item you want to add
+	 * @return a message that confirm to you the operation
+	 */
+	public String putItemInBackPack(Item item){
+		for(int i = 0;i <this.backpack.length;i++){
+			if(this.backpack[i] == null) {
+				this.backpack[i] = item;
+				return "a bien été placé";
+			}
+		}
+		return "sac plein";
+		}
+
+	/**
+	 *method that returns the Item to the specified position
+	 * @param index the position of the wanted item
+	 * @return the item
+	 * @throws ArrayIndexOutOfBoundsException if the index give in parameter is out of bound
+	 * @throws ItemDoesNotExistExeption if there is no Item at the specified position
+	 */
+	public Item takeItemInTheBackPack(int index) throws ArrayIndexOutOfBoundsException,ItemDoesNotExistExeption{
+		if(index < 0 || index > this.backpack.length){
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		Item i = this.backpack[index];
+		if(i == null){
+			throw new ItemDoesNotExistExeption();
+		}
+		this.backpack[index] = null;
+		return i;
+	}
 
 	/** gives the list of players located in the same cell
 	 * @param  cell where the players are
@@ -113,21 +147,13 @@ public class Player extends Actor{
 		return zombies;
 	}
 	
-	/**
-	 * Take item in the cell
-	 * @param i item to take
-	 */
-	public void takeItem(Item  i) {
-		this.backpack.put(i.getTitle(),i);
-		i.setPlayer(this);
-	}
-	
+
 	/**
 	 * destroy item
 	 * @param i item to destroy
 	 */
 	public void destroyItem(Item i) {
-		this.backpack.remove(i.getTitle());
+		/*this.backpack.remove(i.getTitle());*/
 	}
 
 	/**
