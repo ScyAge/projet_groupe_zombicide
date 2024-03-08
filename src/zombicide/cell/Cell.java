@@ -23,6 +23,7 @@ public abstract class Cell {
 	private int y;
 	private int noise;
 	
+	
 	/**
 	 * color constant 
 	 */
@@ -166,6 +167,14 @@ public abstract class Cell {
 	 */
 	public boolean canLook() {
 		return true;
+	}
+	
+	/**
+	 * tells if a cell is a continental or not
+	 * @return true if the cell is a continental and false if not 
+	 * */
+	public boolean isContinental() {
+		return false;
 	}
 	 
 	/**

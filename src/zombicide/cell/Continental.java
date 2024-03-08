@@ -31,4 +31,9 @@ public class Continental extends Room {
 		return colorGreen +"C"+ colorWhite;
 	}
 	
+	@Override
+	public boolean isContinental() {
+		return true;
+	}
+	
 }
