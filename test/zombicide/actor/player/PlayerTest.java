@@ -38,7 +38,7 @@ public class PlayerTest {
     }
     @Test
     public void TestPutItemInBackPack(){
-        assertEquals(this.testP.putItemInBackPack(this.testI),"success");
+        assertTrue(this.testP.putItemInBackPack(this.testI));
         assertEquals(this.testP.getBackPack()[0],this.testI);
     }
 
@@ -47,7 +47,7 @@ public class PlayerTest {
         for(int i = 0;i<6;i++){
             this.testP.putItemInBackPack(this.testI);
         }
-        assertEquals(this.testP.putItemInBackPack(this.testI),"full");
+        assertFalse(this.testP.putItemInBackPack(this.testI));
     }
 
     @Test
