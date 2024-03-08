@@ -2,7 +2,6 @@ package zombicide;
 
 import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
-import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.actor.player.*;
 import zombicide.actor.zombie.*;
 import zombicide.actor.player.roles.*;
@@ -69,11 +68,12 @@ public class Livrable2 {
 		}
 		
 		test.Display();
+		System.out .println();
 		
-		test.moveActor(p1, Direction.North);
-		test.moveActor(p2, Direction.North);
-		test.moveActor(p3, Direction.North);
-		test.moveActor(p4, Direction.North);
+		test.movePlayer(p1, Direction.North);
+		test.movePlayer(p2, Direction.North);
+		test.movePlayer(p3, Direction.North);
+		test.movePlayer(p4, Direction.North);
 		
 		test.Display();
 		

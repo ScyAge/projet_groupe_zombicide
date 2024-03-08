@@ -2,6 +2,8 @@ package zombicide.board;
 import java.util.Random;
 
 import zombicide.actor.Actor;
+import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Zombies;
 import zombicide.cell.*;
 import zombicide.util.Direction;
 import zombicide.util.Door;
@@ -210,22 +212,63 @@ public class Board {
 	
 	/**
 	 * move the actor in the direction
+	 * @param player the player
+	 * @param direction the direction
+	 */
+	public void movePlayer(Player player, Direction direction) {
+        if (canMove(player, direction)) {
+            int x = player.getCurrentCell().getX();
+            int y = player.getCurrentCell().getY();
+
+            if (direction == Direction.North) {
+            	player.setCell(this.board[x - 1][y]);
+            	this.board[x][y].RemovePlayer(player);
+            	this.board[x - 1][y].addPlayers(player);
+            } else if (direction == Direction.South) {
+            	player.setCell(this.board[x + 1][y]);
+            	this.board[x][y].RemovePlayer(player);
+            	this.board[x+1][y].addPlayers(player);
+            } else if (direction == Direction.West) {
+            	player.setCell(this.board[x][y - 1]);
+            	this.board[x][y].RemovePlayer(player);
+            	this.board[x][y - 1].addPlayers(player);
+            } else if (direction == Direction.East) {
+            	player.setCell(this.board[x][y + 1]);
+            	this.board[x][y].RemovePlayer(player);
+            	this.board[x][y+1].addPlayers(player);
+            }
+        } else {
+            System.out.println("Impossible de se déplacer dans cette direction.");
+        }
+    }
+	
+	
+	/**
+	 * move the actor in the direction
 	 * @param actor the actor
 	 * @param direction the direction
 	 */
-	public void moveActor(Actor actor, Direction direction) {
-        if (canMove(actor, direction)) {
-            int x = actor.getCurrentCell().getX();
-            int y = actor.getCurrentCell().getY();
+	public void moveZombie(Zombies zombie, Direction direction) {
+        if (canMove(zombie, direction)) {
+            int x = zombie.getCurrentCell().getX();
+            int y = zombie.getCurrentCell().getY();
 
             if (direction == Direction.North) {
-                actor.setCell(board[x - 1][y]);
+            	zombie.setCell(board[x - 1][y]);
+            	this.board[x][y].RemoveZombie(zombie);
+            	this.board[x-1][y].addZombies(zombie);
             } else if (direction == Direction.South) {
-                actor.setCell(board[x + 1][y]);
+            	zombie.setCell(board[x + 1][y]);
+            	this.board[x][y].RemoveZombie(zombie);
+            	this.board[x+1][y].addZombies(zombie);
             } else if (direction == Direction.West) {
-                actor.setCell(board[x][y - 1]);
+            	zombie.setCell(board[x][y - 1]);
+            	this.board[x][y].RemoveZombie(zombie);
+            	this.board[x][y-1].addZombies(zombie);
             } else if (direction == Direction.East) {
-                actor.setCell(board[x][y + 1]);
+            	zombie.setCell(board[x][y + 1]);
+            	this.board[x][y].RemoveZombie(zombie);
+            	this.board[x][y+1].addZombies(zombie);
             }
         } else {
             System.out.println("Impossible de se déplacer dans cette direction.");
