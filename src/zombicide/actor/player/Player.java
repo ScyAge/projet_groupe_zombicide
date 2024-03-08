@@ -89,7 +89,31 @@ public class Player extends Actor{
 	 * @throws ItemDoesNotExistExeption if there is no Item at the specified position
 	 */
 	public void takeInHandFromBackPack(int index_of_item) throws ItemDoesNotExistExeption{
+		if(this.itemInHand != null){
+			Item temp_main = this.itemInHand;
+			this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
+			this.putItemInBackPack(temp_main);
+		}
 		this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
+	}
+
+	/**
+	 * put the item in your hand in the backpack if the backpack is full do nothing and keep the item in your hand
+	 * @return a boolean if it's a success or not
+	 */
+	public boolean PutItemInHandInBackPack(){
+			if(this.putItemInBackPack(this.itemInHand)){
+				this.itemInHand = null;
+				return true;
+			}
+			return false;
+	}
+	/**
+	 * put the item in your hand in the cell where you are
+	 */
+	public void PutItemInHandInCell(){
+		this.cell.addItem(this.itemInHand);
+		this.itemInHand = null;
 	}
 
 	/**
@@ -98,14 +122,14 @@ public class Player extends Actor{
 	 * @param item the item you want to add
 	 * @return a message that confirm to you the operation
 	 */
-	public String putItemInBackPack(Item item){
+	public boolean putItemInBackPack(Item item){
 		for(int i = 0;i <this.backpack.length;i++){
 			if(this.backpack[i] == null) {
 				this.backpack[i] = item;
-				return "success";
+				return true;
 			}
 		}
-		return "full";
+		return false;
 		}
 
 	/**
