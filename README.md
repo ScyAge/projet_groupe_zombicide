@@ -274,11 +274,30 @@ Wissal-Asma Harrat : Création de l'UML Partie Acteur/Objet + avancement des eff
 
 Diagramme UML Semaine 5 : [https://nextcloud.univ-lille.fr/index.php/s/YqrXc9mgtBJB8or](https://nextcloud.univ-lille.fr/index.php/s/YqrXc9mgtBJB8or)
 ## Semaine 6
+Debut de vacance, on a juste apporté des corrections + des petits ajouts.  
 
+gabriel : correction spawn du drugstore et continental, ajout documentation  
+wissal : creation methode createWeapon  
+evan : apprends a bien se servir de git  
 ## Semaine 7
+Vacance  
 
+gabriel : ajout + modif de documentation  
+wissal : ajout de la classe InteractiveListChooser + modif constructeur Player  
 ## Semaine 8
+Après cette dure semaine d'examens, nous nous sommes remis activement sur le projet. Après analyse du projet, nous nous sommes rendu compte que le sac à dos défini avec une HashMap n'était pas aussi pertinent que ce que nous avions imaginé, notamment en raison de l'impossibilité de définir la taille de la HashMap de manière fixe. Nous l'avons donc remplacé par une liste de taille fixe (nous avons choisi 6 pour l'instant).  
+De plus, nous devions ajouter certaines méthodes permettant aux joueurs de prendre un objet qui provient de leur sac, mettre un objet de leur main dans leur sac et poser un objet par terre.  
+Nous avons également revu l'implémentation des armes qui ne fonctionnait pas. Nous avons décidé d'utiliser un héritage simple avec les différentes armes du jeu.  
+Comme d'habitude, nous avons créé les tests nécessaires pour les nouvelles méthodes créées.
 
+Il nous faut également commencer à préparer le livrable 2  
+
+Répartition du travail :
+
+Evan Joly : Ajout des méthodes concernant les items et les sacs à dos (traiter les cas où le sac à dos est vide, etc...).  
+Gabriel Kreutser : Réalisation du Livrable 2 + modifications à apporter.  
+Théo Nave : Création de la nouvelle implémentation des armes + rédaction des comptes rendus.  
+Wissal-Asma Harrat : Ajout de la méthode display() pour l'équipement de Carte.  
 ## Semaine 9
 
 ## Semaine 10
