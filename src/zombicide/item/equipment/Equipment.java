@@ -8,6 +8,7 @@ import zombicide.actor.player.*;
  */
 public abstract class  Equipment extends Item {
 
+	
 	/**
 	 * Builder of Equipment
 	 * @param title of the item
@@ -17,16 +18,7 @@ public abstract class  Equipment extends Item {
 	}
 	
 	
-	/**
-	 * use the item
-	 */
-	public void Used() {
-		this.removeItem();
-	}
-	
-	private void removeItem() {
-		this.getPlayer().destroyItem(this);
-	}
+
 	
 	
 	/**
