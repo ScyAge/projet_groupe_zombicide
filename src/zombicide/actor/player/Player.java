@@ -128,14 +128,6 @@ public class Player extends Actor{
 	}
 
 	/**
-	 * destroy item
-	 * @param i item to destroy
-	 */
-	public void destroyItem(Item i) {
-		/*this.backpack.remove(i.getTitle());*/
-	}
-
-	/**
 	 * method for adding a role to a player
 	 * @param role the role you want to add
 	 */
