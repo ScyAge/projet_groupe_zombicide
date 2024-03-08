@@ -78,6 +78,12 @@ public class Player extends Actor{
 	}
 
 	/**
+	 * method that return the backPack of the player
+	 * @return backpack
+	 */
+	public Item[] getBackPack(){return this.backpack;}
+
+	/**
 	 * take a item from the backpack and place it in the hand of the player
 	 * @param index_of_item the position of the wanted item
 	 * @throws ItemDoesNotExistExeption if there is no Item at the specified position
@@ -96,10 +102,10 @@ public class Player extends Actor{
 		for(int i = 0;i <this.backpack.length;i++){
 			if(this.backpack[i] == null) {
 				this.backpack[i] = item;
-				return "a bien été placé";
+				return "success";
 			}
 		}
-		return "sac plein";
+		return "full";
 		}
 
 	/**
