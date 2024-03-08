@@ -155,6 +155,15 @@ public class Board {
 		return this.board;
 	}
 	
+	/**
+	 * get the cell x y of the board
+	 * @param x index of the cell
+	 * @param y index of the cell
+	 * @return the cell
+	 */
+	public Cell getCellBoard(int x , int y) {
+		return  this.board[x][y];
+	}
 	
 	/**
 	 * Break the door in the cell
