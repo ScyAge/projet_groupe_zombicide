@@ -127,33 +127,6 @@ public class Player extends Actor{
 		return i;
 	}
 
-	/** gives the list of players located in the same cell
-	 * @param  cell where the players are
-	 * @return players in the same cell
-	 * */
-	public List<Player> getPlayersInArea(Cell cell){
-		List<Player> players= new ArrayList<>();
-		
-		for(Player p: cell.getAllPlayers()) {
-			players.add(p);
-		}
-		return players;
-	}
-	
-	/** gives the list of zombies located in the same cell
-	 * @param  cell where the players are
-	 * @return zombies in the same cell
-	 * */
-	public List<Zombies> getZombiesInArea(Cell cell){
-		List<Zombies> zombies= new ArrayList<>();
-		
-		for(Zombies z: cell.getAllZombies()) {
-			zombies.add(z);
-		}
-		return zombies;
-	}
-	
-
 	/**
 	 * destroy item
 	 * @param i item to destroy
