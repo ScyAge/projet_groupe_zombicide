@@ -3,7 +3,6 @@ package zombicide.cell;
 
 import java.util.*;
 import zombicide.actor.player.*;
-import zombicide.item.ItemType;
 import zombicide.item.weapons.*;
 
 
