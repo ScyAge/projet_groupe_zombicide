@@ -1,4 +1,6 @@
 package zombicide.board;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import zombicide.actor.Actor;
@@ -19,6 +21,7 @@ public class Board {
 	private boolean drugStoreExist;
 	private boolean continentalExist;
     private int xr;
+    private List<Item> items;
     
     
 	/**
@@ -27,12 +30,24 @@ public class Board {
 	 * @param width of the board
 	 */
 	public Board(int height, int width) {
+		this(height,width,new ArrayList<Item>() );
+	}
+	
+	/**
+	 * Builder of Board
+	 * @param height of the board
+	 * @param width of the board
+	 * @param items list of all items in the board
+	 */
+	public Board(int height, int width,List<Item> items) {
 		this.board = new Cell[width][height];
 		this.drugStoreExist=false;
 		this.continentalExist=false;
         this.xr=((height-(height/4)) *(width-(width/4))-1) ;
+		this.items = items;
 		initBoard(0,width,0,height,true);
 	}
+	
 	/**
 	 * init the Board
 	 * @param xd start width
@@ -76,11 +91,8 @@ public class Board {
 		for(int i =xd;i<(xf);i++){
 			for(int j =yd;j<(yf);j++){
 				Room room = new Room(i,j) ;
-
-				Item item = new Item("test");
-
 				this.board[i][j] = room  ;
-				this.placeItemAlea(i,j,item);
+				this.placeItemAlea(i,j);
 				if(i==0) {
 					this.board[i][j].getDoor(Direction.North).SetNotBreakble();
 				}
@@ -274,18 +286,36 @@ public class Board {
             System.out.println("Impossible de se déplacer dans cette direction.");
         }
     }
-
+	
 	/**
-	 * Place a parameter item on the board if and only if the random number drawn is 5.
+	 * get the list item
+	 * @return the list of items
+	 */
+	public List<Item> getItem(){
+		return this.items;
+	}
+	
+	/**
+	 * add item in the list Items
+	 * @param i item to add on the list
+	 */
+	public void addItem(Item i ) {
+		this.items.add(i);
+	}
+	
+	/**
+	 * Place item on the board if and only if the random number drawn is 5.
 	 * @param x indice of the cell
 	 * @param y indice of the cell
-	 * @param item the item that should be place on the cell
 	 */
-	private void placeItemAlea(int x,int y,Item item){
+	private void placeItemAlea(int x,int y){
+		int nb;
 		Random nb_alea = new Random();
-		int nb = nb_alea.nextInt(10);
-		if(nb == 5){
-			this.board[x][y].addItem(item);
+		for( Item item : this.getItem()) {
+			nb = nb_alea.nextInt((this.getItem().size()*5)+1);
+			if(nb == 5){
+				this.board[x][y].addItem(item);
+			}
 		}
 	}
 	
