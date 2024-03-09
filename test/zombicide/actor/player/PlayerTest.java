@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import zombicide.actor.player.roles.Combattant;
 import zombicide.actor.player.roles.RolesIntrerface;
 import zombicide.cell.Cell;
+import zombicide.cell.Room;
 import zombicide.cell.Street;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.Item;
@@ -16,7 +17,7 @@ public class PlayerTest {
     private Cell testCell;
     @BeforeEach
     public void initAtt(){
-        this.testCell = new Street(5,5);
+        this.testCell = new Room(5,5);
         this.testP = new Player(5,this.testCell,1);
         this.testCell.addPlayers(this.testP);
         this.testI = new Item("Test");
@@ -88,6 +89,53 @@ public class PlayerTest {
         this.testP.setRoles(this.r1);
         assertEquals(this.testP.getRoles(0),this.r1);
     }
+
+    @Test
+    public  void TestTakeInHandFromBackPack() throws ItemDoesNotExistExeption{
+        this.testP.putItemInBackPack(this.testI);
+        this.testP.takeInHandFromBackPack(0);
+        assertEquals(this.testP.getItemInHand(),this.testI);
+
+    }
+
+    @Test
+    public  void TestTakeInHandFromBackPackIfAnItemIsAlreadyInYourHand() throws ItemDoesNotExistExeption{
+        Item testI2 = new Item("Test2");
+        this.testP.setItemInHand(testI2);
+        this.testP.putItemInBackPack(this.testI);
+        this.testP.takeInHandFromBackPack(0);
+        assertEquals(this.testP.getBackPack()[0],testI2);
+        assertEquals(this.testP.getItemInHand(),this.testI);
+
+    }
+
+    @Test
+    public void testPutItemInHandInBackPackSucces(){
+        this.testP.setItemInHand(this.testI);
+        assertTrue(this.testP.PutItemInHandInBackPack());
+        assertNull(this.testP.getItemInHand());
+
+    }
+    @Test
+    public void testPutItemInHandInBackPackFull(){
+        //on remplit le sac
+        for(int i = 0;i<6;i++){
+            this.testP.putItemInBackPack(this.testI);
+        }
+        this.testP.setItemInHand(this.testI);
+        assertFalse(this.testP.PutItemInHandInBackPack());
+        assertEquals(this.testP.getItemInHand(),this.testI);
+
+    }
+
+    @Test
+    public void testPutItemInHandInCell(){
+        this.testP.setItemInHand(this.testI);
+        this.testP.PutItemInHandInCell();
+        assertNull(this.testP.getItemInHand());
+
+    }
+
 
 
 
