@@ -94,7 +94,9 @@ public class Player extends Actor{
 			this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
 			this.putItemInBackPack(temp_main);
 		}
-		this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
+		else{
+			this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
+		}
 	}
 
 	/**
