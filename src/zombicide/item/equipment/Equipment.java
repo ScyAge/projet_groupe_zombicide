@@ -25,7 +25,7 @@ public abstract class  Equipment extends Item {
 	}
 	
 	private void removeItem() {
-		this.getPlayer().destroyItem(this);
+		//this.getPlayer().destroyItem(this);
 	}
 	
 	
