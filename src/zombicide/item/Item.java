@@ -10,7 +10,6 @@ public class Item {
 	/** Param of item */
 	private String title ;
 	private boolean Use;
-	private Player player;
 	
 	/**
 	 * Builder of Item
@@ -19,7 +18,6 @@ public class Item {
 	public Item(String title) {
 		this.title = title;
 		this .Use = false;
-		this.player = null ;
 	}
 	
 	/**
@@ -38,21 +36,6 @@ public class Item {
 		this.title = title;
 	}
 	
-	/**
-	 * Set a item on player
-	 * @param p player who take item
-	 */
-	public void setPlayer(Player p) {
-		this.player = p;
-	}
-	
-	/**
-	 * Get the player
-	 * @return the player who take the item
-	 */
-	public Player getPlayer() {
-		return this.player;
-	}
 	
 	/**
 	 * says whether the item is used or not 
