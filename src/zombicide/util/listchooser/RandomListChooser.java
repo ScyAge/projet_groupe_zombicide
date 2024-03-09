@@ -3,6 +3,10 @@ package zombicide.util.listchooser;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * class RandomListChooser
+ * @param <T>  element to choose
+ */
 public class RandomListChooser<T> implements ListChooser<T> {
 	
 	private Random random = new Random();	

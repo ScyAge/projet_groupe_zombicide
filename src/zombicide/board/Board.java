@@ -257,7 +257,7 @@ public class Board {
 	
 	/**
 	 * move the actor in the direction
-	 * @param actor the actor
+	 * @param zombie the zombie
 	 * @param direction the direction
 	 */
 	public void moveZombie(Zombies zombie, Direction direction) {

@@ -5,9 +5,17 @@ import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
 
+/**
+ *  class MapCard
+*/
 public class MapCard extends Equipment{
 	private Board board;
 
+	/**
+	 * Create MapCard
+	 * @param title of the MapCard
+	 * @param board of the card
+	 */
 	public MapCard(String title,Board board) {
 		super(title);
 		this.board=board;
@@ -15,7 +23,9 @@ public class MapCard extends Equipment{
 
 	
 	/**
-	 * displays the board */
+	 * displays the board 
+	 * @param player player who use the effect
+	 */
 	public void equipmentEffect(Player player) {
 		this.display();
 		
