@@ -133,6 +133,18 @@ public class PlayerTest {
         this.testP.setItemInHand(this.testI);
         this.testP.PutItemInHandInCell();
         assertNull(this.testP.getItemInHand());
+        assertTrue(this.testCell.getAllItems().contains(this.testI));
+
+    }
+
+    @Test
+    public void testPutItemInHandInCellIfItsAStreet(){
+        this.testP.setItemInHand(this.testI);
+        Street s1 = new Street(5,5);
+        Player p2 = new Player(3,s1,4);
+        p2.PutItemInHandInCell();
+        assertNull(p2.getItemInHand());
+        assertFalse(s1.getAllItems().contains(this.testI));
 
     }
 
