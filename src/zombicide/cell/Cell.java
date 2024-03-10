@@ -22,6 +22,7 @@ public abstract class Cell {
 	private int x;
 	private int y;
 	private int noise;
+	protected List<Item> items;
 	
 	
 	/**
@@ -50,6 +51,7 @@ public abstract class Cell {
 		this.players = new ArrayList<>();
 		this.zombies = new ArrayList<>();
 		this.doors = new HashMap<>();
+		this.items = new ArrayList<>();
 		for (Direction direction : Direction.values()) {
             if(direction == Direction.East || direction == Direction.West){
 				this.doors.put(direction, new East_west_door(true,true));
@@ -192,6 +194,14 @@ public abstract class Cell {
 	 * @param i an Item
 	 */
 	public abstract void addItem(Item i);
+
+	/**
+	 * Return the list of all the items in the room
+	 * @return List of items
+	 */
+	public List<Item> getAllItems() {
+		return this.items;
+	}
 	
 	/**
 	 * gives a recap of the number of actors in the cell

@@ -9,7 +9,6 @@ import zombicide.util.door.*;
  * class of Room
  */
 public class Room extends Cell {
-	private List<Item> items;
 	
 	/** Constructor of the class Room
 	 * @param x coordinates of the cell
@@ -17,7 +16,6 @@ public class Room extends Cell {
 	 */
 	public Room(int x, int y) {
 		super(x, y);
-		this.items = new ArrayList<>();
 		for (Direction direction : Direction.values()) {
             if(direction == Direction.East || direction == Direction.West){
 				this.doors.put(direction, new East_west_door(true,false));
@@ -44,15 +42,7 @@ public class Room extends Cell {
 	public Map<Direction, Door> getDoors() {
 	    return this.doors;
 	}
-	
-	/**
-	 * Return the list of all the items in the room
-	 * @return List of items
-	 */
-	public List<Item> getAllItems() {
-		return this.items;
-	}
-	
+
 	/**
 	 * adds an item to the list
 	 * @param  i Item,
