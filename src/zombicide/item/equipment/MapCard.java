@@ -41,28 +41,63 @@ public class MapCard extends Equipment{
 			for(int ligne = 0;ligne <4;ligne++) {
 				String x = "";
 				for(int j =0;j<b[0].length;j++) {
-					if(b[i][j].canLook()){
-						if(ligne ==0) {
-							x += b[i][j].getDoor(Direction.North).toString();
-						}
-						else if(ligne ==1) {
-							x += this.board.secondLineDisplay(i, j);
-						}
-						else if(ligne ==2){
-							x += this.board.ThirdLineDisplay(i, j);
-						}
-						else{
-							x +=b[i][j].getDoor(Direction.South).toString();
-						}
-					}else {
-						if(ligne==0|| ligne==3) {
-							x+= b[i][j].getDoor(Direction.West).toString() + b[i][j].getDoor(Direction.East).toString();
-						}
+					if(ligne ==0) {
+						x += b[i][j].getDoor(Direction.North).toString();
+					}
+					else if(ligne ==1) {
+						x += this.secondLineDisplay(i, j,b[i][j].canLook());
+					}
+					else if(ligne ==2){
+						x += this.ThirdLineDisplay(i, j,b[i][j].canLook());
+					}
+					else{
+						x +=b[i][j].getDoor(Direction.South).toString();
 					}
 				}
 				System.out.println(x);
 			}
-			
 		}
+
+			
 	}
+		
+		
+	/**
+	 * Display the third line of the cell contain the name of the cell and the number of Survivor in
+	 * @param i horizontal index of the board
+	 * @param j vertical index of the board
+	 * @param canLook boolean that tells whether we can see the actors inside a cell or not
+	 * @return a String of the display
+	 */
+	private String ThirdLineDisplay(int i, int j,boolean canLook) {
+		String x ="";
+		if(this.board.getBoard()[i][j].getAllPlayers().isEmpty() || !canLook) {
+			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+"   "+this.board.getBoard()[i][j].getDoor(Direction.East).toString();
+		}
+		else {
+			int NbPlayer = this.board.getBoard()[i][j].getAllPlayers().size();
+			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+"s"+ (NbPlayer > 9 ? "+" : NbPlayer) +" "+this.board.getBoard()[i][j].getDoor(Direction.East).toString();
+		}
+		return x;
+	}
+
+	/**
+	 * Display the second line of the cell contain the name of the cell and the number of zombie in
+	 * @param i horizontal index of the board
+	 * @param j vertical index of the board
+	 * @param canLook boolean that tells whether we can see the actors inside a cell or not
+	 * @return a String of the display
+	 */
+	private String secondLineDisplay(int i, int j,boolean canLook) {
+		String x="";
+		if(this.board.getBoard()[i][j].getAllZombies().isEmpty()|| !canLook) {
+			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+this.board.getBoard()[i][j].toString()+"  "+this.board.getBoard()[i][j].getDoor(Direction.East).toString();
+		}
+		else {
+			int NbZombie = this.board.getBoard()[i][j].getAllZombies().size();
+			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+this.board.getBoard()[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie)+this.board.getBoard()[i][j].getDoor(Direction.East).toString();
+		}
+		return x;
+	}
+	
 }
