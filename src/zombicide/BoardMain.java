@@ -1,6 +1,8 @@
 package zombicide;
 import zombicide.actor.player.Player;
 import zombicide.board.*;
+import zombicide.item.Item;
+import zombicide.item.equipment.MapCard;
 import zombicide.util.Direction;
 
 public class BoardMain {
@@ -16,5 +18,8 @@ public class BoardMain {
 		b.getBoard()[1][1].addPlayers(p2);
 		b.Display();
 		System.out.println(b.getBoard()[2][0].getDoor(Direction.North).isBreak());
+		Item MapCard1 = new MapCard("MC",b);
+		MapCard1.Used();
+		
 	}
 }

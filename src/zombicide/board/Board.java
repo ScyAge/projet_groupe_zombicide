@@ -352,7 +352,7 @@ public class Board {
 	 * @param j vertical index of the board
 	 * @return a String of the display
 	 */
-	public String ThirdLineDisplay(int i, int j) {
+	private String ThirdLineDisplay(int i, int j) {
 		String x ="";
 		if(this.board[i][j].getAllPlayers().isEmpty()) {
 			x += this.board[i][j].getDoor(Direction.West).toString()+"   "+this.board[i][j].getDoor(Direction.East).toString();
@@ -370,7 +370,7 @@ public class Board {
 	 * @param j vertical index of the board
 	 * @return a String of the display
 	 */
-	public String secondLineDisplay(int i, int j) {
+	private String secondLineDisplay(int i, int j) {
 		String x="";
 		if(this.board[i][j].getAllZombies().isEmpty()) {
 			x += this.board[i][j].getDoor(Direction.West).toString()+this.board[i][j].toString()+"  "+this.board[i][j].getDoor(Direction.East).toString();
