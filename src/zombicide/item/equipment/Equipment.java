@@ -17,7 +17,10 @@ public abstract class  Equipment extends Item {
 		super(title);
 	}
 	
-	
+	public void Used() {
+		this.Use =true;
+		this.equipmentEffect(null);
+	}
 
 	
 	

@@ -169,13 +169,6 @@ public abstract class Cell {
 		return true;
 	}
 	
-	/**
-	 * tells if a cell is a continental or not
-	 * @return true if the cell is a continental and false if not 
-	 * */
-	public boolean isContinental() {
-		return false;
-	}
 	 
 	/**
 	 * return the door

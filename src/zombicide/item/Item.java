@@ -9,7 +9,7 @@ public class Item {
 	
 	/** Param of item */
 	private String title ;
-	private boolean Use;
+	protected boolean Use;
 	
 	/**
 	 * Builder of Item

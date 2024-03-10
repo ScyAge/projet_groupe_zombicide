@@ -41,7 +41,7 @@ public class MapCard extends Equipment{
 			for(int ligne = 0;ligne <4;ligne++) {
 				String x = "";
 				for(int j =0;j<b[0].length;j++) {
-					if(!b[i][j].isContinental()){
+					if(b[i][j].canLook()){
 						if(ligne ==0) {
 							x += b[i][j].getDoor(Direction.North).toString();
 						}
