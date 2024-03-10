@@ -78,12 +78,44 @@ public class Player extends Actor{
 	}
 
 	/**
+	 * method that return the backPack of the player
+	 * @return backpack
+	 */
+	public Item[] getBackPack(){return this.backpack;}
+
+	/**
 	 * take a item from the backpack and place it in the hand of the player
 	 * @param index_of_item the position of the wanted item
 	 * @throws ItemDoesNotExistExeption if there is no Item at the specified position
 	 */
 	public void takeInHandFromBackPack(int index_of_item) throws ItemDoesNotExistExeption{
-		this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
+		if(this.itemInHand != null){
+			Item temp_main = this.itemInHand;
+			this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
+			this.putItemInBackPack(temp_main);
+		}
+		else{
+			this.setItemInHand(this.takeItemInTheBackPack(index_of_item));
+		}
+	}
+
+	/**
+	 * put the item in your hand in the backpack if the backpack is full do nothing and keep the item in your hand
+	 * @return a boolean if it's a success or not
+	 */
+	public boolean PutItemInHandInBackPack(){
+			if(this.putItemInBackPack(this.itemInHand)){
+				this.itemInHand = null;
+				return true;
+			}
+			return false;
+	}
+	/**
+	 * put the item in your hand in the cell where you are
+	 */
+	public void PutItemInHandInCell(){
+		this.cell.addItem(this.itemInHand);
+		this.itemInHand = null;
 	}
 
 	/**
@@ -92,14 +124,14 @@ public class Player extends Actor{
 	 * @param item the item you want to add
 	 * @return a message that confirm to you the operation
 	 */
-	public String putItemInBackPack(Item item){
+	public boolean putItemInBackPack(Item item){
 		for(int i = 0;i <this.backpack.length;i++){
 			if(this.backpack[i] == null) {
 				this.backpack[i] = item;
-				return "a bien été placé";
+				return true;
 			}
 		}
-		return "sac plein";
+		return false;
 		}
 
 	/**
@@ -119,41 +151,6 @@ public class Player extends Actor{
 		}
 		this.backpack[index] = null;
 		return i;
-	}
-
-	/** gives the list of players located in the same cell
-	 * @param  cell where the players are
-	 * @return players in the same cell
-	 * */
-	public List<Player> getPlayersInArea(Cell cell){
-		List<Player> players= new ArrayList<>();
-		
-		for(Player p: cell.getAllPlayers()) {
-			players.add(p);
-		}
-		return players;
-	}
-	
-	/** gives the list of zombies located in the same cell
-	 * @param  cell where the players are
-	 * @return zombies in the same cell
-	 * */
-	public List<Zombies> getZombiesInArea(Cell cell){
-		List<Zombies> zombies= new ArrayList<>();
-		
-		for(Zombies z: cell.getAllZombies()) {
-			zombies.add(z);
-		}
-		return zombies;
-	}
-	
-
-	/**
-	 * destroy item
-	 * @param i item to destroy
-	 */
-	public void destroyItem(Item i) {
-		/*this.backpack.remove(i.getTitle());*/
 	}
 
 	/**

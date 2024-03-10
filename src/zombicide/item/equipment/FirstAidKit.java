@@ -26,7 +26,7 @@ public class FirstAidKit extends Equipment {
 	 * */
 	public void equipmentEffect(Player player ) {
 		Cell cell= player.getCurrentCell();
-		List<Player> players= player.getPlayersInArea(cell);
+		List<Player> players= player.getCurrentCell().getAllPlayers();
 		
 		if(!players.isEmpty()) {
 			ListChooser<Player> listChooser = new InteractiveListChooser<>();

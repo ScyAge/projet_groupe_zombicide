@@ -52,19 +52,6 @@ public  class Zombies extends Actor {
 	public String toString() {
 		return "Zombie have " + this.damagePoints+"damage Points";
 	}
-	
-	
-	/** gives the list of zombies located in the same cell
-	 * @param cell where the zombies are
-	 * @return Zombies in the same cell
-	 * */
-	public List<Zombies> getZombiesInArea(Cell cell){
-		List<Zombies> zombies= new ArrayList<>();
-		
-		if(this.getCurrentCell()==cell) {
-			zombies.add(this);
-		}
-		return zombies;
-	}
+
 	
 }
