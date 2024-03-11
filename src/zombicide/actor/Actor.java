@@ -69,7 +69,11 @@ public abstract class Actor {
 	 * @param damage taken by the actor
 	 */
 	public void takeDamage(int damage) {
+
 		this.lifePoints -= damage;
+		if(this.lifePoints < 0){
+			this.isDead = true;
+		}
 	}
 	
 	
