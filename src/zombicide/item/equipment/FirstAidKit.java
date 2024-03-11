@@ -25,6 +25,7 @@ public class FirstAidKit extends Equipment {
 	 * @param player who has the FirstAidkit
 	 * */
 	public void equipmentEffect(Player player ) {
+		super.equipmentEffect(player);
 		Cell cell= player.getCurrentCell();
 		List<Player> players= player.getCurrentCell().getAllPlayers();
 		

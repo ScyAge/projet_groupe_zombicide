@@ -6,7 +6,7 @@ import zombicide.item.Item;
 /**
  * class HealingVial
  */
-public class HealingVial extends Item {
+public class HealingVial extends Equipment{
 
 	/**
 	 * Builder of HealingVial
@@ -21,6 +21,7 @@ public class HealingVial extends Item {
 	 * @param player to give lifePoints
 	 */
 	public void equipmentEfffect(Player player) {
+		super.equipmentEffect(player);
 		int lifepoints= player.getLifePoints();
 		player.setLifePoints(lifepoints+1);
 	}
