@@ -38,11 +38,10 @@ public class Item {
 	
 	
 	/**
-	 * says whether the item is used or not 
-	 * @param item to check if it's used or not
+	 * says whether the item is used or not
 	 * @return true if the item is used, false if not
 	 * */
-	public boolean isUsed(Item item) {
+	public boolean isUsed() {
 		return this.Use;
 		
 	}
