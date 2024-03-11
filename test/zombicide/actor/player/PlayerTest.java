@@ -148,6 +148,22 @@ public class PlayerTest {
 
     }
 
+    @Test
+    public void TestplayerTakeDamage(){
+        this.testP.takeDamage(1);
+        assertEquals(this.testP.getLifePoints(),4);
+    }
+
+    @Test
+    public void TestPlayerTakeDamageHpBelow0(){
+        //on remplit le sac
+        for(int i = 0;i<6;i++){
+            this.testP.putItemInBackPack(this.testI);
+        }
+        this.testP.setItemInHand(this.testI);
+        this.testP.takeDamage(1000);
+        assertTrue(this.testCell.getAllItems().size()>=7);
+    }
 
 
 

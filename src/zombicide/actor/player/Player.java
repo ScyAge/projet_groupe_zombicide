@@ -190,6 +190,19 @@ public class Player extends Actor{
 		}
 	}
 
-
-
+	/**
+	 * player take damage if is hp are below 0 so if is dead all is item in the backpack and in is hand drop in the cell
+	 * @param damage taken by the actor
+	 */
+	public void takeDamage(int damage) {
+		super.takeDamage(damage);
+		if(this.lifePoints <=0){
+			for(Item i :this.backpack){
+				this.cell.addItem(i);
+				if(this.itemInHand != null){
+					this.PutItemInHandInCell();
+				}
+			}
+		}
+	}
 }
