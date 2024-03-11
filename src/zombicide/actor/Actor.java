@@ -11,6 +11,8 @@ public abstract class Actor {
 	/**
 	 * Param of Actor
 	 */
+	/** maxLifePoint of the Actor*/
+	protected  int maxLifePoint;
 		/** lifePoint of the Actor*/
 	protected int lifePoints;
 		/**action_point of the Actor */
@@ -31,6 +33,7 @@ public abstract class Actor {
 	 */
 	public Actor(int lifePoints, int action_points, Cell cell, int id){
 		this.lifePoints = lifePoints;
+		this.maxLifePoint = lifePoints;
 		this.action_points = action_points;
 		this.cell=cell;
 		this.isDead =false;
@@ -45,13 +48,26 @@ public abstract class Actor {
 	public int getLifePoints() {
 		return this.lifePoints;
 	}
+
+	/**
+	 * get max life point of the actor
+	 * @return max life point of the actor
+	 */
+	public int getMaxLifePoint(){
+		return this.maxLifePoint;
+	}
 	
 	/**
 	 * Set heal point to the actor
 	 * @param lifePoints of the actor
 	 */
 	public void setLifePoints(int lifePoints) {
-		if(lifePoints > 0) {
+		if(lifePoints > this.maxLifePoint){
+			this.lifePoints = this.maxLifePoint;
+		}
+		else if(lifePoints < 0) {
+			this.lifePoints = 0;
+		} else {
 			this.lifePoints = lifePoints;
 		}
 	}
