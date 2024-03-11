@@ -24,6 +24,7 @@ public class MasterKey extends Equipment {
 	 * @param player who has the MasterKey
 	 * */
 	public void equipmentEffect(Player player) {
+		super.equipmentEffect(player);
 		System.out.println(" Enter the direction of the door you want to open");
 		System.out.println("choose between North, South, East, West:");
 		Scanner scanner= new Scanner(System.in);

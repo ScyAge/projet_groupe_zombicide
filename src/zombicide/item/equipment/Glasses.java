@@ -29,6 +29,7 @@ public class Glasses extends Equipment {
 	 * @param Player 
 	 * */
 	public void equipmentEffect(Player player) {
+		super.equipmentEffect(player);
 		Cell cell = player.getCurrentCell();
 		int x= cell.getX();
 		int y = cell.getY();

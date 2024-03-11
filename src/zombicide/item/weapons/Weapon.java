@@ -66,5 +66,10 @@ public class Weapon extends Item {
 		return this.breakDoor;
 	}
 	
+	/**
+	 * */
+	public void Used() {
+		this.Use=false;
+	}
 	
 }

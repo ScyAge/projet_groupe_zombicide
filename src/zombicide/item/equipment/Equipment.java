@@ -22,7 +22,7 @@ public abstract class  Equipment extends Item {
 	 */
 	public void Used() {
 		this.Use =true;
-		this.equipmentEffect(null);
+		
 	}
 
 	
@@ -31,6 +31,8 @@ public abstract class  Equipment extends Item {
 	 * realizes the equipment effect 
 	 * @param player who uses the equipment 
 	 * */
-	public abstract void equipmentEffect(Player player);
+	public void equipmentEffect(Player player) {
+		this.Used();
+	}
 
 }

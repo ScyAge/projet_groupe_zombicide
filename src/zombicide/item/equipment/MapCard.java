@@ -100,4 +100,11 @@ public class MapCard extends Equipment{
 		return x;
 	}
 	
+	
+	/**
+	 * */
+	public void Used() {
+		this.Use=false;
+	}
+	
 }
