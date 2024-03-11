@@ -66,9 +66,9 @@ public class Livrable2 {
 		}catch(Exception e) {
 			System.out .println(e.getMessage());
 		}
-		
+		System.out .println("First display ");
 		test.Display();
-		System.out .println();
+		System.out .println("\n Second display ");
 		
 		test.movePlayer(p1, Direction.North);
 		test.movePlayer(p2, Direction.North);
