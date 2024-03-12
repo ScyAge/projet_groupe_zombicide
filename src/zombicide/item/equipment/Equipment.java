@@ -16,17 +16,7 @@ public abstract class  Equipment extends Item {
 	public Equipment(String title) {
 		super(title);
 	}
-	
-	/**
-	 * use the equipment
-	 */
-	public void Used() {
-		this.Use =true;
-		
-	}
 
-	
-	
 	/**
 	 * realizes the equipment effect 
 	 * @param player who uses the equipment 
