@@ -67,6 +67,7 @@ public abstract class Actor {
 		}
 		else if(lifePoints < 0) {
 			this.lifePoints = 0;
+			this.isDead = true;
 		} else {
 			this.lifePoints = lifePoints;
 		}
@@ -77,7 +78,7 @@ public abstract class Actor {
 	 *@return true if the actor have 0 lifePoints
 	 */
 	public boolean isDead() {
-		return this.lifePoints == 0;
+		return this.isDead;
 	}
 	
 	/**
