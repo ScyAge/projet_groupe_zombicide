@@ -178,6 +178,8 @@ On exécute la/les commande(s):
 ```
 java -classpath classes zombicide.Livrable2
 ```
+### Image UML
+<img src="uml/umlLivrable2.png"/>
 
 ## Livrable 3
 
