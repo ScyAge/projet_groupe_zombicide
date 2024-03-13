@@ -114,10 +114,70 @@ java -classpath classes zombicide.Livrable1
 <img src="uml/umlLivrable1.jpg"/>
 
 ## Livrable 2
+Pour ce livrable 2, on va détailler la contribution de chaque membre du groupe dans la modélisation des acteurs, armes et equipements .
 
-### Atteinte des objectifs
+Evan: Pour ce livrable, j'ai concentré mes efforts sur la modélisation générale du joueur, en particulier sur la gestion de ses rôles multiples et sur le comportement de son sac à dos lors des différentes actions. J'ai également apporté un soutien à mes collègues en effectuant des relectures de code et en fournissant des feedbacks constructifs.
 
-### Difficultés restant à résoudre
+Notre première étape a été de définir comment attribuer des rôles à un joueur. Nous avons opté pour une approche utilisant une interface, RolesInterface, implémentant une méthode action. Chaque rôle implémente cette interface, ce qui permet de définir son comportement lorsqu'il est associé à un joueur. Étant donné qu'un joueur peut avoir plusieurs rôles, l'héritage des rôles ne convenait pas à cette situation. Nous avons donc utilisé une liste dans notre joueur pour contenir ses différents rôles, accompagnée d'une méthode actionSpécial pour appliquer les capacités des rôles aux joueurs lors des actions.
+
+Notre deuxième défi a été la gestion du sac à dos et de la main du joueur. Nous avons initialement utilisé une hashmap pour modéliser le sac à dos, mais cela posait des problèmes de conception car le sac doit avoir un nombre limité d'emplacements. Nous avons donc opté pour un tableau d'objets, plus adapté. Ensuite, nous avons mis en place des méthodes pour ajouter des objets dans le sac, vérifier s'il était plein, échanger des objets entre le sac et la main, etc. Nous avons également ajouté la possibilité, non prévue initialement, de jeter un objet de la main sur la cellule où se trouve le joueur.
+
+Nous avons également pris en compte la gestion de la mort du joueur. Lorsqu'il meurt, tous les objets de son sac et celui tenu en main sont placés au sol de sa cellule actuelle, ainsi que son niveau d'expertise, qui influe sur ses points d'action.
+
+Gabriel: Pour ma part, j'ai été impliqué sur plusieurs aspects du projet. J'ai commencé par créer les squelettes des différentes classes nécessaires à notre application. Ensuite, j'ai travaillé en profondeur sur les classes Actor et Zombie, en rédigeant également les tests associés pour garantir leur bon fonctionnement. J'ai également adapté le plateau de jeu pour répondre aux nouvelles exigences, en incluant les tests nécessaires pour vérifier son bon fonctionnement. Parallèlement, j'ai pris en charge la documentation et la préparation du livrable 2. Bien que la majeure partie de mon temps ait été consacrée à ces tâches, j'ai également contribué de manière mineure au développement des objets.
+
+Théo: Pour ce livrable, ma contribution a été plutôt passive. J'ai ajouté le concept de 'bruit' dans le jeu, élément que nous avions oublié dans le livrable précédent. De plus, j'ai développé les méthodes permettant aux acteurs (joueurs comme zombies) de se déplacer sur le plateau. J'ai également effectué divers tests pour les objets. J'ai également revu notre implémentation des armes pour utiliser l'héritage classique. Néanmoins, cela ne m'a pas empêché d'apporter quelques modifications mineures à certaines parties du code. Enfin, j'ai été responsable de la rédaction de la plupart des comptes rendus.
+
+Wissal: Pour ma part, j'ai pris en charge la modélisation initiale de la partie des acteurs et des objets en créant un diagramme UML. J'ai principalement travaillé sur la modélisation des équipements et des armes. J'ai commencé à définir les effets des équipements en utilisant des inputs, notamment pour les kits de premiers secours, où j'ai ajouté l'attribut "id" à la classe Actor pour faciliter l'affichage des joueurs dans le plateau de jeu. J'ai également utilisé les classes listChooser et InteractivelistChooser fournies pour implémenter les méthodes equipmenteffect de FirstAidKit et masterKey. J'ai rencontré des difficultés pour modéliser l'effet de la MapCard, en raison de la nécessité de respecter les contraintes du projet. J'ai exploré plusieurs approches pour modéliser les armes, avant d'opter pour un modèle plus simple utilisant l'héritage. J'ai également attribué un pistolet à chaque nouveau joueur dans la classe spawnPlayers. Enfin, j'ai mis à jour le diagramme UML et je suis en charge de la rédaction du livrable 2. Chaque membre de l'équipe a rédigé sa propre partie pour fournir le maximum de détails sur sa contribution.
+
+### Etat de développement:
+Maintenant qu'on a modélisé les players et les zombies, les armes et les equipements, on peut gérer ce qu'un joueur a dans son sac a dos, qu'il puisse ajouter ou enlever un item, qu'un acteur puisse se déplacer.
+Par la suite, on va pouvoir attaquer la partie des actions et se focaliser encore plus sur les roles des joueurs et les actions que permettent les utilisations des différents items, et meme l'effet du bruit sur certains aspects.
+
+
+### Génération de la documentation Java
+Pour ce faire, on exécute la commande suivante :
+```
+javadoc -sourcepath src -subpackages zombicide.board zombicide.cell zombicide.exeption zombicide.util zombicide.util.door  zombicide.item.weapons  zombicide.item.equipment zombicide.item zombicide.actor.player.roles zombicide.actor.player zombicide.actor.zombie zombicide.actor -d docs
+```
+
+### Compilation des classes
+Pour compiler les classes, on exécute la/les commande(s) :
+```
+javac -sourcepath src src/*/*.java -d classes
+```
+
+### Compilation et lancement des tests
+Pour compiler les tests, on exécute la/les commande(s) :
+```
+javac -classpath junit-console.jar:classes test/zombicide/cell/*.java test/zombicide/util/*.java test/zombicide/item/*.java test/zombicide/actor/player/*.java test/zombicide/actor/zombie/*.java test/zombicide/board/*.java test/zombicide/item/equipment/*.java
+```
+ pour les exécuter, on utilise :
+```
+java -jar junit-console.jar -classpath test:classes -scan-classpath
+```
+
+### Génération des fichiers .jar
+Pour créer le/les fichiers .jar, on exécute la/les commande(s) :
+```
+jar cvfe livrable2.jar zombicide.Livrable2 -C classes .
+```
+
+### Lancement du programme
+Ce projet permet l'utilisation d'arguments  
+
+**Pour les fichiers .jar**  
+On exécute la/les commande(s):
+```
+java -jar livrable2.jar
+```
+
+**Sans .jar exécutable**  
+
+On exécute la/les commande(s):
+```
+java -classpath classes zombicide.Livrable2
+```
 
 ## Livrable 3
 
