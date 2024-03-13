@@ -13,17 +13,22 @@ import zombicide.item.*;
 public abstract class Cell {
 	
 	
-	/**
-	 * Builder Constant
-	 */
-	protected Map<Direction, Door> doors;
+	
 	private List<Player> players;
 	private List<Zombies> zombies;
 	private int x;
 	private int y;
 	private int noise;
+	
+	/**
+	 * List of Items put in the cell
+	 */
 	protected List<Item> items;
 	
+	/**
+	 * Builder Constant
+	 */
+	protected Map<Direction, Door> doors;
 	
 	/**
 	 * color constant 

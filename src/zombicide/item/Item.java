@@ -9,6 +9,10 @@ public class Item {
 	
 	/** Param of item */
 	private String title ;
+	
+	/**
+	 * the Item is use or not 
+	 */
 	protected boolean Use;
 	
 	/**
