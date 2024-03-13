@@ -1,10 +1,11 @@
 package zombicide.item.equipment;
 
 import zombicide.actor.player.*;
-import zombicide.cell.Cell;
-import zombicide.util.Direction;
-import zombicide.util.Door;
+import zombicide.cell.*;
+import zombicide.util.*;
 import java.util.*;
+import zombicide.util.listchooser.InteractiveListChooser;
+import zombicide.util.listchooser.ListChooser;
 
 /**
  * class MasterKey
@@ -25,16 +26,27 @@ public class MasterKey extends Equipment {
 	 * */
 	public void equipmentEffect(Player player) {
 		super.equipmentEffect(player);
-		System.out.println(" Enter the direction of the door you want to open");
-		System.out.println("choose between North, South, East, West:");
-		Scanner scanner= new Scanner(System.in);
-		String d = scanner.nextLine();
-		
-		Direction direction= Direction.valueOf(d);
 		Cell cell= player.getCurrentCell();
-		Door doorToOpen= cell.getDoor(direction);
-		doorToOpen.Break();
+		System.out.println("enter the Direction of the door you want to open");
+		
+		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
+		ListChooser<Direction> listChooser = new InteractiveListChooser<>();
+		Direction targetD= listChooser.choose("choose a direction: ", directions);
+		
+		if(targetD != null) {
+			Door doorToOpen= cell.getDoor(targetD);
+			if(doorToOpen!=null) {
+				doorToOpen.Break();
+				System.out.println("Door opened in the "+ targetD + " direction");
+			}else {
+				System.out.println("No door found in the "+ targetD+ " direction ");
+			}
+		}else {
+			System.out.println("No direction chosen");
+		}
 			
 	}
+	
+	
 
 }
