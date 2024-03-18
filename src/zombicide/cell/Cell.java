@@ -138,7 +138,7 @@ public abstract class Cell {
 	 * remove the specified player from the list of player
 	 * @param p the player
 	 */
-	public void RemovePlayer(Player p ) {
+	public void remove(Player p ) {
 		this.players.remove(p);
 	}
 	
@@ -146,7 +146,7 @@ public abstract class Cell {
 	 * remove the specified zombie from the list of zombie
 	 * @param z the zombie
 	 */
-	public void RemoveZombie(Zombies z ) {
+	public void remove(Zombies z ) {
 		this.zombies.remove(z);
 	}
 	
