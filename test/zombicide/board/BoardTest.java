@@ -28,8 +28,8 @@ public class BoardTest {
     	board = new Board(5,5);
     	i = new MapCard("mp",board);
     	d = Direction.North;
-    	p1 = new Player(5,board.getCellBoard(0, 0),5);
-    	p2 = new Player(5,board.getCellBoard(2, 2),5);
+    	p1 = new Player(5,board.getCellBoard(0, 0),5,6);
+    	p2 = new Player(5,board.getCellBoard(2, 2),5,6);
     	z1 = new Zombies(5,2,board.getCellBoard(0, 0),5,5);
     	z2 = new Zombies(5,2,board.getCellBoard(2, 2),5,5);
     }

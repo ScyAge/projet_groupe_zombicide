@@ -24,10 +24,10 @@ public class Livrable2 {
 		test.getCellBoard(0, 4).addZombies(z2);
 		test.getCellBoard(4, 4).addZombies(z3);
 		
-		Player p1 = new Player(5,test.getCellBoard(2, 2),1);
-		Player p2 = new Player(5,test.getCellBoard(2, 2),2);
-		Player p3 = new Player(5,test.getCellBoard(2, 2),3);
-		Player p4 = new Player(5,test.getCellBoard(2, 2),4);
+		Player p1 = new Player(5,test.getCellBoard(2, 2),1,6);
+		Player p2 = new Player(5,test.getCellBoard(2, 2),2,6);
+		Player p3 = new Player(5,test.getCellBoard(2, 2),3,6);
+		Player p4 = new Player(5,test.getCellBoard(2, 2),4,6);
 		RolesIntrerface Chanceux = new Chanceux();
 		RolesIntrerface Combattant = new Combattant();
 		RolesIntrerface Fouineur = new Fouineur();
