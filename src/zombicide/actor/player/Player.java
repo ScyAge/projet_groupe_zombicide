@@ -16,23 +16,25 @@ public class Player extends Actor{
 	
 	
 	/** Param of Player */
-	private Item[] backpack;
+	private List<Item> backpack;
+	private int backPackSize;
 	private  Item itemInHand;
 	private int expertiseLevel;
 	private List<RolesIntrerface> roles;
-	
+
 	/**
 	 * Builder of Player class
 	 * @param lifePoints life of the player
 	 * @param cell cell where the player is
 	 * @param id of the player
 	 */
-	public Player(int lifePoints,Cell cell, int id) {
+	public Player(int lifePoints,Cell cell, int id,int taille_sac) {
 		super(lifePoints,3, cell, id);
-		this.backpack = new Item[6];
+		this.backpack = new ArrayList<>(taille_sac);
 		this.itemInHand = null ;
 		this.expertiseLevel = 1;
 		this.roles = new ArrayList<>();
+		this.backPackSize = taille_sac;
 	}
 
 	/**
@@ -81,7 +83,13 @@ public class Player extends Actor{
 	 * method that return the backPack of the player
 	 * @return backpack
 	 */
-	public Item[] getBackPack(){return this.backpack;}
+	public List<Item> getBackPack(){return this.backpack;}
+
+	/**
+	 * Test if the backpack is full
+	 * @return
+	 */
+	public boolean IsBackPackFull(){return this.backpack.size() >= this.backPackSize;}
 
 	/**
 	 * take a item from the backpack and place it in the hand of the player
@@ -124,14 +132,9 @@ public class Player extends Actor{
 	 * @param item the item you want to add
 	 * @return a message that confirm to you the operation
 	 */
-	public boolean putItemInBackPack(Item item){
-		for(int i = 0;i <this.backpack.length;i++){
-			if(this.backpack[i] == null) {
-				this.backpack[i] = item;
-				return true;
-			}
-		}
-		return false;
+	public void putItemInBackPack(Item item){
+		if(!this.IsBackPackFull()){
+			this.backpack.add(item);
 		}
 
 	/**
