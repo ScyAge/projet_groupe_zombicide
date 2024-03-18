@@ -6,6 +6,20 @@ import zombicide.cell.Cell;
  * class walker
  */
 public class Walker extends Zombies {
+	/**
+	 * Constant lifepoint of walker 
+	 * */
+	private final static int LIFEPOINT=1;
+	
+	/**
+	 * Constant action point of walker
+	 * */
+	private final static int ACTION_POINT=1;
+	
+	/**
+	 * Constant damage point of walker 
+	 * */
+	private final static int DAMAGE_POINT=1;
 	
 	/**
 	 * Builder of the walker 
@@ -13,7 +27,7 @@ public class Walker extends Zombies {
 	 * @param id of the walker
 	 */
 	public Walker(Cell cell, int id) {
-		super(1, 1,cell, id ,1);
+		super(LIFEPOINT, ACTION_POINT,cell, id ,DAMAGE_POINT);
 	}
 	
 

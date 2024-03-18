@@ -6,14 +6,28 @@ import zombicide.cell.Cell;
  * class Gigantomachia
  */
 public class Gigantomachia extends Zombies {
-
+	/**
+	 * constant lifepoint of Gigantomachia
+	 * */
+	private final static int LIFEPOINT=1000;
+	
+	/**
+	 * constant action point of Gigantomachia
+	 * */
+	private final static int ACTION_POINT=100;
+	
+	/**
+	 * constant damage point of Gigantomachia
+	 * */
+	private final static int DAMAGE_POINT=1;
+	
 	/**
 	 * Builder of the Gigantomachia 
 	 * @param cell where the Gigantomachia is
 	 * @param id of the Gigantomachia
 	 */
 	public Gigantomachia(Cell cell,int id) {
-		super(1000,100,cell,id, 1);
+		super(LIFEPOINT, ACTION_POINT,cell,id, DAMAGE_POINT);
 
 	}
 

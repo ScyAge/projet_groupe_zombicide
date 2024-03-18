@@ -6,14 +6,28 @@ import zombicide.cell.Cell;
  * class Abominations
  */
 public class Abominations extends Zombies {
-
+	/**
+	 * constant lifepoint of Abominations
+	 * */
+	private final static int LIFEPOINT=6;
+	
+	/**
+	 * constant action point of Abominations 
+	 * */
+	private final static int ACTION_POINT=3;
+	
+	/**
+	 * constant damage point of Abominations 
+	 * */
+	private final static int DAMAGE_POINT=1;
+	
 	/**
 	 * Builder of the Abominations 
 	 * @param cell where the Abominations is
 	 * @param id of the Abominations
 	 */
 	public Abominations(Cell cell, int id) {
-		super(6, 3,cell,id, 1);
+		super(LIFEPOINT, ACTION_POINT,cell,id, DAMAGE_POINT);
 	}
 
 }
