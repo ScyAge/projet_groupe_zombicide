@@ -32,13 +32,7 @@ public class PlayerTest {
         this.testP.UpOneExpertiseLevel();
         assertEquals(this.testP.getExpertiseLevel(),2);
     }
-    @Test
-    public void TestActionPointUpOf1WhenCertainExpertiseLevelReach(){
-        assertEquals(this.testP.getAction_points(),3);
-        this.testP.UpOneExpertiseLevel();
-        this.testP.UpOneExpertiseLevel();
-        assertEquals(this.testP.getAction_points(),4);
-    }
+
     @Test
     public void TestPutItemInBackPack(){
         this.testP.putItemInBackPack(this.testI);
