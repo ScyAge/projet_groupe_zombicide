@@ -18,7 +18,7 @@ class SpawnPlayersTest {
     @BeforeEach
     void setUp() {
     	SpawnPlayers = new SpawnPlayers(1, 1);
-        player = new Player(8,SpawnPlayers,1);
+        player = new Player(8,SpawnPlayers,1,6);
 
     }
     

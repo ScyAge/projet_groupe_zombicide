@@ -4,7 +4,6 @@ import java.util.*;
 
 import zombicide.actor.Actor;
 import zombicide.actor.player.roles.RolesIntrerface;
-import zombicide.actor.zombie.Zombies;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.*;
 import zombicide.cell.*;
@@ -87,9 +86,9 @@ public class Player extends Actor{
 
 	/**
 	 * Test if the backpack is full
-	 * @return
+	 * @return the results of the test
 	 */
-	public boolean IsBackPackFull(){return this.backpack.size() >= this.backPackSize;}
+	public boolean IsBackPackFull(){return this.backpack.size() < this.backPackSize;}
 
 	/**
 	 * take a item from the backpack and place it in the hand of the player
@@ -111,12 +110,11 @@ public class Player extends Actor{
 	 * put the item in your hand in the backpack if the backpack is full do nothing and keep the item in your hand
 	 * @return a boolean if it's a success or not
 	 */
-	public boolean PutItemInHandInBackPack(){
-			if(this.putItemInBackPack(this.itemInHand)){
+	public void PutItemInHandInBackPack(){
+			if(this.IsBackPackFull()){
+				this.putItemInBackPack(this.itemInHand);
 				this.itemInHand = null;
-				return true;
 			}
-			return false;
 	}
 	/**
 	 * put the item in your hand in the cell where you are
@@ -132,27 +130,24 @@ public class Player extends Actor{
 	 * @param item the item you want to add
 	 * @return a message that confirm to you the operation
 	 */
-	public void putItemInBackPack(Item item){
-		if(!this.IsBackPackFull()){
+	public void putItemInBackPack(Item item) {
+		if (this.IsBackPackFull()){
 			this.backpack.add(item);
 		}
+	}
 
 	/**
 	 *method that returns the Item to the specified position
 	 * @param index the position of the wanted item
 	 * @return the item
 	 * @throws ArrayIndexOutOfBoundsException if the index give in parameter is out of bound
-	 * @throws ItemDoesNotExistExeption if there is no Item at the specified position
 	 */
-	public Item takeItemInTheBackPack(int index) throws ArrayIndexOutOfBoundsException,ItemDoesNotExistExeption{
-		if(index < 0 || index > this.backpack.length){
+	public Item takeItemInTheBackPack(int index)throws ArrayIndexOutOfBoundsException{
+		if(index < 0 || index > this.backpack.size()){
 			throw new ArrayIndexOutOfBoundsException();
 		}
-		Item i = this.backpack[index];
-		if(i == null){
-			throw new ItemDoesNotExistExeption();
-		}
-		this.backpack[index] = null;
+		Item i = this.backpack.get(index);
+		this.backpack.remove(index);
 		return i;
 	}
 
