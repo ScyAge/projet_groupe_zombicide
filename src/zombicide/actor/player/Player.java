@@ -56,9 +56,6 @@ public class Player extends Actor{
 	 *  */
 	public void UpOneExpertiseLevel() {
 		this.expertiseLevel += 1;
-		if(this.expertiseLevel == 3 ||this.expertiseLevel ==7 || this.expertiseLevel ==11){
-			this.setAction_points(this.getAction_points()+1);
-		}
 	}
 
 	
