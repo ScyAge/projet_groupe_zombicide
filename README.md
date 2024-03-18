@@ -362,7 +362,8 @@ Gabriel Kreutser : Réalisation du Livrable 2 + modifications à apporter.
 Théo Nave : Création de la nouvelle implémentation des armes + rédaction des comptes rendus.  
 Wissal-Asma Harrat : Ajout de la méthode display() pour l'équipement de Carte.  
 ## Semaine 9
-
+Pour cette semaine, on s'est principalement occupé de finaliser de compte rendu du livrable 2. C'est-à-dire qu'on a réalisé les commandes permettant de générer le fichier .jar du livrable 2  
+On a également commencé à réfléchir à l'implémentation des actions, plus précisément sur l'utilisation des ListChooser et dans l'affichage du choix des actions en fontion de la situation du joueur.  
 ## Semaine 10
 
 ## Semaine 11
