@@ -15,7 +15,7 @@ class HealingVialTest {
     @BeforeEach
     public void init(){
         this.testCell = new Room(5,5);
-        this.testP = new Player(5,this.testCell,1);
+        this.testP = new Player(5,this.testCell,1,6);
         this.testCell.addPlayers(this.testP);
         this.testHV = new HealingVial("HealingVial1");
     }

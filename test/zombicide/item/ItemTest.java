@@ -17,7 +17,7 @@ class ItemTest {
     public void TestUseItem(){
         Item item = new Item("test1");
         Room room = new Room(5,5);
-        Player player = new Player(5,room,1);
+        Player player = new Player(5,room,1,6);
 
         assertFalse(item.isUsed());
         item.Used();

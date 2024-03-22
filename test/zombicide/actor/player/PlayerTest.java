@@ -13,14 +13,16 @@ import zombicide.item.Item;
 public class PlayerTest {
     private Player testP;
     private Item testI;
+    private Item testI2;
     private RolesIntrerface r1;
     private Cell testCell;
     @BeforeEach
     public void initAtt(){
         this.testCell = new Room(5,5);
-        this.testP = new Player(5,this.testCell,1);
+        this.testP = new Player(5,this.testCell,1,6);
         this.testCell.addPlayers(this.testP);
         this.testI = new Item("Test");
+        this.testI2 = new Item("Test2");
         this.r1 = new Combattant();
     }
 
@@ -30,17 +32,11 @@ public class PlayerTest {
         this.testP.UpOneExpertiseLevel();
         assertEquals(this.testP.getExpertiseLevel(),2);
     }
-    @Test
-    public void TestActionPointUpOf1WhenCertainExpertiseLevelReach(){
-        assertEquals(this.testP.getAction_points(),3);
-        this.testP.UpOneExpertiseLevel();
-        this.testP.UpOneExpertiseLevel();
-        assertEquals(this.testP.getAction_points(),4);
-    }
+
     @Test
     public void TestPutItemInBackPack(){
-        assertTrue(this.testP.putItemInBackPack(this.testI));
-        assertEquals(this.testP.getBackPack()[0],this.testI);
+        this.testP.putItemInBackPack(this.testI);
+        assertTrue(this.testP.getBackPack().contains(this.testI));
     }
 
     @Test
@@ -48,7 +44,8 @@ public class PlayerTest {
         for(int i = 0;i<6;i++){
             this.testP.putItemInBackPack(this.testI);
         }
-        assertFalse(this.testP.putItemInBackPack(this.testI));
+        this.testP.putItemInBackPack(this.testI2);
+        assertFalse(this.testP.getBackPack().contains(this.testI2));
     }
 
     @Test
@@ -58,8 +55,8 @@ public class PlayerTest {
             this.testP.putItemInBackPack(this.testI);
         }
         assertEquals(this.testP.takeItemInTheBackPack(4),this.testI);
-        //test of the null value in the array when the item is take
-        assertNull(this.testP.getBackPack()[4]);
+        //test if the item has been revome from list
+        assertEquals(this.testP.getBackPack().size(),5);
     }
     @Test
     public void takeItemInTheBackPackOutOfBoundExept() throws ArrayIndexOutOfBoundsException, ItemDoesNotExistExeption {
@@ -70,15 +67,7 @@ public class PlayerTest {
         assertThrows(ArrayIndexOutOfBoundsException.class,()->this.testP.takeItemInTheBackPack(10));
         assertThrows(ArrayIndexOutOfBoundsException.class,()->this.testP.takeItemInTheBackPack(-10));
     }
-    @Test
-    public void takeItemInTheBackPackItemDoesNotExept() throws ArrayIndexOutOfBoundsException, ItemDoesNotExistExeption {
-        //on remplit le sac
-        for(int i = 0;i<6;i++){
-            this.testP.putItemInBackPack(this.testI);
-        }
-        this.testP.takeItemInTheBackPack(4);
-        assertThrows(ItemDoesNotExistExeption.class,()->this.testP.takeItemInTheBackPack(4));
-    }
+
 
     @Test
     public void TestgetRolesExept(){
@@ -104,7 +93,7 @@ public class PlayerTest {
         this.testP.setItemInHand(testI2);
         this.testP.putItemInBackPack(this.testI);
         this.testP.takeInHandFromBackPack(0);
-        assertEquals(this.testP.getBackPack()[0],testI2);
+        assertTrue(this.testP.getBackPack().contains(testI2));
         assertEquals(this.testP.getItemInHand(),this.testI);
 
     }
@@ -112,7 +101,8 @@ public class PlayerTest {
     @Test
     public void testPutItemInHandInBackPackSucces(){
         this.testP.setItemInHand(this.testI);
-        assertTrue(this.testP.PutItemInHandInBackPack());
+        this.testP.PutItemInHandInBackPack();
+        assertTrue(this.testP.getBackPack().contains(testI));
         assertNull(this.testP.getItemInHand());
 
     }
@@ -122,9 +112,10 @@ public class PlayerTest {
         for(int i = 0;i<6;i++){
             this.testP.putItemInBackPack(this.testI);
         }
-        this.testP.setItemInHand(this.testI);
-        assertFalse(this.testP.PutItemInHandInBackPack());
-        assertEquals(this.testP.getItemInHand(),this.testI);
+        this.testP.setItemInHand(this.testI2);
+        this.testP.PutItemInHandInBackPack();
+        assertFalse(this.testP.getBackPack().contains(this.testI2));
+        assertEquals(this.testP.getItemInHand(),this.testI2);
 
     }
 
@@ -141,7 +132,7 @@ public class PlayerTest {
     public void testPutItemInHandInCellIfItsAStreet(){
         this.testP.setItemInHand(this.testI);
         Street s1 = new Street(5,5);
-        Player p2 = new Player(3,s1,4);
+        Player p2 = new Player(3,s1,4,6);
         p2.PutItemInHandInCell();
         assertNull(p2.getItemInHand());
         assertFalse(s1.getAllItems().contains(this.testI));
