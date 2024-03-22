@@ -37,7 +37,7 @@ class RoomTest {
     	assertTrue(room.getAllPlayers().contains(player));
     	assertTrue(room.getAllPlayers().contains(player1));
     	
-    	room.RemovePlayer(player1);
+    	room.remove(player1);
     	assertEquals(1, room.getAllPlayers().size());
     	assertFalse(room.getAllPlayers().contains(player1));
     	
@@ -53,7 +53,7 @@ class RoomTest {
     	assertTrue(room.getAllZombies().contains(zombie));
     	assertTrue(room.getAllZombies().contains(zombie1));
     	
-    	room.RemoveZombie(zombie1);
+    	room.remove(zombie1);
     	assertEquals(1, room.getAllZombies().size());
     	assertFalse(room.getAllZombies().contains(zombie1));
     	

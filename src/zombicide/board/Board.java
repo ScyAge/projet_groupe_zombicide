@@ -234,19 +234,19 @@ public class Board {
 
             if (direction == Direction.North) {
             	player.setCell(this.board[x - 1][y]);
-            	this.board[x][y].RemovePlayer(player);
+            	this.board[x][y].remove(player);
             	this.board[x - 1][y].addPlayers(player);
             } else if (direction == Direction.South) {
             	player.setCell(this.board[x + 1][y]);
-            	this.board[x][y].RemovePlayer(player);
+            	this.board[x][y].remove(player);
             	this.board[x+1][y].addPlayers(player);
             } else if (direction == Direction.West) {
             	player.setCell(this.board[x][y - 1]);
-            	this.board[x][y].RemovePlayer(player);
+            	this.board[x][y].remove(player);
             	this.board[x][y - 1].addPlayers(player);
             } else if (direction == Direction.East) {
             	player.setCell(this.board[x][y + 1]);
-            	this.board[x][y].RemovePlayer(player);
+            	this.board[x][y].remove(player);
             	this.board[x][y+1].addPlayers(player);
             }
         } else {
@@ -267,19 +267,19 @@ public class Board {
 
             if (direction == Direction.North) {
             	zombie.setCell(board[x - 1][y]);
-            	this.board[x][y].RemoveZombie(zombie);
+            	this.board[x][y].remove(zombie);
             	this.board[x-1][y].addZombies(zombie);
             } else if (direction == Direction.South) {
             	zombie.setCell(board[x + 1][y]);
-            	this.board[x][y].RemoveZombie(zombie);
+            	this.board[x][y].remove(zombie);
             	this.board[x+1][y].addZombies(zombie);
             } else if (direction == Direction.West) {
             	zombie.setCell(board[x][y - 1]);
-            	this.board[x][y].RemoveZombie(zombie);
+            	this.board[x][y].remove(zombie);
             	this.board[x][y-1].addZombies(zombie);
             } else if (direction == Direction.East) {
             	zombie.setCell(board[x][y + 1]);
-            	this.board[x][y].RemoveZombie(zombie);
+            	this.board[x][y].remove(zombie);
             	this.board[x][y+1].addZombies(zombie);
             }
         } else {

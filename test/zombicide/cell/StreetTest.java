@@ -36,7 +36,7 @@ class StreetTest {
     	assertTrue(street.getAllPlayers().contains(player));
     	assertTrue(street.getAllPlayers().contains(player1));
     	
-    	street.RemovePlayer(player1);
+    	street.remove(player1);
     	assertEquals(1, street.getAllPlayers().size());
     	assertFalse(street.getAllPlayers().contains(player1));
     	
@@ -52,7 +52,7 @@ class StreetTest {
     	assertTrue(street.getAllZombies().contains(zombie));
     	assertTrue(street.getAllZombies().contains(zombie1));
     	
-    	street.RemoveZombie(zombie1);
+    	street.remove(zombie1);
     	assertEquals(1, street.getAllZombies().size());
     	assertFalse(street.getAllZombies().contains(zombie1));
     	
