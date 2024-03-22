@@ -1,7 +1,5 @@
 package zombicide.item;
 
-import zombicide.actor.player.Player;
-
 /**
  * Class Item
  */
