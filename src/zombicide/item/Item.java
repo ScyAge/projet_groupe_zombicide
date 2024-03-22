@@ -61,5 +61,9 @@ public class Item {
 	public void NotUsed() {
 		this.Use =false;
 	}
-	
+
+	@Override
+	public String toString() {
+		return this.title;
+	}
 }
