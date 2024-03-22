@@ -5,6 +5,7 @@ import java.util.List;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
+import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.cell.Room;
 import zombicide.cell.Street;
@@ -13,14 +14,15 @@ import zombicide.cell.Street;
  * class Glasses
  */
 public class Glasses extends Equipment {
+	private Board board;
 	
 	/**
 	 * Builder of Glasses
 	 * @param title of the item
 	 */
-	public Glasses(String title) {
+	public Glasses(String title, Board board) {
 		super(title);
-		
+		this.board=board;
 	}
 
 	@Override
@@ -34,12 +36,8 @@ public class Glasses extends Equipment {
 		int x= cell.getX();
 		int y = cell.getY();
 		
-		List<Cell> adjCell= new ArrayList<>();
+		List<Cell> adjCell= adjacentCells(x,y);
 		
-		adjCell.addAll(adjacentCells(x+1,y));
-		adjCell.addAll(adjacentCells(x-1,y));
-		adjCell.addAll(adjacentCells(x,y+1));
-		adjCell.addAll(adjacentCells(x,y-1));
 		
 		for(Cell c : adjCell) {
 			if (c!=null && c.canLook()) {
@@ -64,12 +62,13 @@ public class Glasses extends Equipment {
 	 * @return a list of the adjacent cells
 	 *  */
 	private List<Cell> adjacentCells(int x, int y) {
-		Room r= new Room(x,y);
-		Street s= new Street(x,y);
-		
 		List<Cell> cells= new ArrayList<Cell>();
-		cells.add(r);
-		cells.add(s);
+		
+		cells.add(this.board.getBoard()[x-1][y]);
+		cells.add(this.board.getBoard()[x+1][y]);
+		cells.add(this.board.getBoard()[x][y-1]);
+		cells.add(this.board.getBoard()[x][y+1]);
+		
 		return cells;
 		
 	}
