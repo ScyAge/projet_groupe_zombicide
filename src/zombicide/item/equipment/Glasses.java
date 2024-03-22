@@ -64,11 +64,28 @@ public class Glasses extends Equipment {
 	private List<Cell> getAdjacentCells(int x, int y) {
 		List<Cell> cells= new ArrayList<Cell>();
 		
-		cells.add(this.board.getBoard()[x-1][y]);
-		cells.add(this.board.getBoard()[x+1][y]);
-		cells.add(this.board.getBoard()[x][y-1]);
-		cells.add(this.board.getBoard()[x][y+1]);
+		if(isValidCell(x-1, y)) {
+			cells.add(this.board.getBoard()[x-1][y]);
+		}
+		if(isValidCell(x+1,y)) {
+			cells.add(this.board.getBoard()[x+1][y]);
+		}
+		if(isValidCell(x,y-1)) {
+			cells.add(this.board.getBoard()[x][y-1]);
+		}
+		if(isValidCell(x,y+1)) {
+			cells.add(this.board.getBoard()[x][y+1]);
+		}
 		
 		return cells;
+	}
+	
+	/**
+	 * tells whether the cell with the given coordinates is valid or not
+	 * @param x the horitontal coordinate of the cell
+	 * @param y the vertical coordinate of the cell
+	 * @return true if the coordinates are valid, and false if not*/
+	private boolean isValidCell(int x, int y) {
+		return x>=0 && x<this.board.getBoard().length && y>=0 && y< this.board.getBoard()[0].length;
 	}
 }
