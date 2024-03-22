@@ -36,7 +36,7 @@ public class Glasses extends Equipment {
 		int x= cell.getX();
 		int y = cell.getY();
 		
-		List<Cell> adjCell= adjacentCells(x,y);
+		List<Cell> adjCell= getAdjacentCells(x,y);
 		
 		
 		for(Cell c : adjCell) {
@@ -61,7 +61,7 @@ public class Glasses extends Equipment {
 	 * @param the vertical coordinate of the cell
 	 * @return a list of the adjacent cells
 	 *  */
-	private List<Cell> adjacentCells(int x, int y) {
+	private List<Cell> getAdjacentCells(int x, int y) {
 		List<Cell> cells= new ArrayList<Cell>();
 		
 		cells.add(this.board.getBoard()[x-1][y]);
@@ -70,6 +70,5 @@ public class Glasses extends Equipment {
 		cells.add(this.board.getBoard()[x][y+1]);
 		
 		return cells;
-		
 	}
 }
