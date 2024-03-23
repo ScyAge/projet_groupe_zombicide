@@ -7,7 +7,7 @@ import zombicide.board.Board;
 public interface Actions {
 	
 	
-	public void action(Player p, Board b);
+	public void action(Player p);
 	
-	public void action(Zombies z, Board b);
+	public void action(Zombies z);
 }

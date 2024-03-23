@@ -17,30 +17,31 @@ public class Move implements Actions {
 	/**
 	 * Builder of Move
 	 */
-	public Move() {
+	private Board board;
+	public Move(Board board) {
+		this.board = board;
 	}
 	
 	/**
 	 * Move a player in a direction 
 	 * @param p Player who want to move
-	 * @param b the board of the player
 	 */
-	public void action(Player p, Board b) {
+	public void action(Player p) {
 		System.out.println("enter the Direction to move");
 		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
 		ListChooser<Direction> listChooser = new InteractiveListChooser<>();
 		Direction D= listChooser.choose("choose a direction: ", directions);
-		b.movePlayer(p, D);
+		this.board.movePlayer(p, D);
 	}
 
 
-	private Direction choiceDirectionNoise(Zombies z,Board b ) {
+	private Direction choiceDirectionNoise(Zombies z) {
 		int Noise = -1;
 		Direction res = null;
 		for(Direction D : Direction.values()) {
-			if(b.getCellDirection(D, z)!= null && b.getCellDirection(D, z).getNoise() > Noise) {
+			if(this.board.getCellDirection(D, z)!= null && this.board.getCellDirection(D, z).getNoise() > Noise) {
 				res = D;
-				Noise = b.getCellDirection(D, z).getNoise();
+				Noise = this.board.getCellDirection(D, z).getNoise();
 			}
 		}
 		return res;
@@ -48,13 +49,12 @@ public class Move implements Actions {
 	/**
 	 * Move a zombies  in a direction 
 	 * @param z zombies who want to move
-	 * @param b the board of the zombie
 	 */
 	@Override
-	public void action(Zombies z, Board b) {
-		Direction d = choiceDirectionNoise(z,b);
+	public void action(Zombies z) {
+		Direction d = choiceDirectionNoise(z);
 		if(d != null) {
-			b.moveZombie(z, choiceDirectionNoise(z,b));
+			this.board.moveZombie(z, choiceDirectionNoise(z));
 		}
 	}
 }

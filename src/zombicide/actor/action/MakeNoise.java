@@ -11,13 +11,13 @@ public class MakeNoise implements Actions{
 	}
 	
 	@Override
-	public void action(Player p, Board b ) {
+	public void action(Player p) {
 		Cell c= p.getCurrentCell();
 		c.setNoise(c.getNoise()+1);
 	}
 
 	@Override
-	public void action(Zombies z, Board b) {
+	public void action(Zombies z) {
 		Cell c= z.getCurrentCell();
 		c.setNoise(c.getNoise()+1);
 		

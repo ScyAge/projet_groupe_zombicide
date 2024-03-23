@@ -15,7 +15,7 @@ public class LookAround implements Actions {
 	}
 	
 	@Override
-	public void action(Player p, Board b) {
+	public void action(Player p) {
 		Cell c= p.getCurrentCell();
 		System.out.println("Description of the area : "+ c.description());
 		
@@ -45,6 +45,6 @@ public class LookAround implements Actions {
 	}
 
 	@Override
-	public void action(Zombies z, Board b) {
+	public void action(Zombies z) {
 	}
 }

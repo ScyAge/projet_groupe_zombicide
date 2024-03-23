@@ -9,7 +9,7 @@ import zombicide.util.listchooser.ListChooser;
 
 public class SearchInTRoomAction implements Actions{
     @Override
-    public void action(Player p, Board b) {
+    public void action(Player p) {
         ListChooser<Item> listChoose= new InteractiveListChooser<>();
         Item item =listChoose.choose("veuiller choisir un item a recuperer dans la piece",p.getCurrentCell().getAllItems());
         if(!p.IsBackPackFull()){
@@ -24,6 +24,6 @@ public class SearchInTRoomAction implements Actions{
     }
 
 	@Override
-	public void action(Zombies z, Board b) {
+	public void action(Zombies z) {
 	}
 }

@@ -10,7 +10,7 @@ public class TakeInHandAction implements Actions{
     @Override
 
 
-    public void action(Player p, Board b) {
+    public void action(Player p) {
         ListChooser<Item> ItemChooser = new InteractiveListChooser<>();
          Item item = ItemChooser.choose("\"Choose the object you want to take from your bag\"",p.getBackPack());
          int index = p.getBackPack().indexOf(item);
@@ -23,7 +23,7 @@ public class TakeInHandAction implements Actions{
     }
 
 	@Override
-	public void action(Zombies z, Board b) {
+	public void action(Zombies z) {
 		
 	}
 }
