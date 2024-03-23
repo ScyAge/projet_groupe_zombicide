@@ -25,7 +25,7 @@ public class TakeInHandActionTest {
 
     @Test
     public void TestTakeInHandAction(){
-        this.action.action(this.p,null);
+        this.action.action(this.p);
     }
 
 }

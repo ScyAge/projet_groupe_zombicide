@@ -12,6 +12,7 @@ public class SearchInTRoomAction implements Actions{
     public void action(Player p) {
         ListChooser<Item> listChoose= new InteractiveListChooser<>();
         Item item =listChoose.choose("veuiller choisir un item a recuperer dans la piece",p.getCurrentCell().getAllItems());
+        p.getCurrentCell().removeItem(item);
         if(!p.IsBackPackFull()){
             p.putItemInBackPack(item);
         }
