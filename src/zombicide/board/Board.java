@@ -303,6 +303,24 @@ public class Board {
 		this.items.add(i);
 	}
 	
+	public Cell getCellDirection(Direction d,Zombies z) {
+		Cell c = z.getCurrentCell();
+		if(canMove(z,d))
+			if(d == Direction.North) {
+				return this.board[c.getX()-1][c.getY()];
+			}
+			else if(d == Direction.East) {
+				return this.board[c.getX()][c.getY()+1];
+			}
+			else if(d == Direction.South) {
+				return this.board[c.getX()+1][c.getY()];
+			}
+			else {
+				return this.board[c.getX()][c.getY()-1];
+			}
+		return null;
+	}
+	
 	/**
 	 * Place item on the board if and only if the random number drawn is 5.
 	 * @param x indice of the cell

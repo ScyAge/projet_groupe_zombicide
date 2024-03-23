@@ -43,4 +43,8 @@ public class LookAround implements Actions {
 			}
 		}
 	}
+
+	@Override
+	public void action(Zombies z, Board b) {
+	}
 }

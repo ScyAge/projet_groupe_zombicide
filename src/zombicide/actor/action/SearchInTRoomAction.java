@@ -1,6 +1,7 @@
 package zombicide.actor.action;
 
 import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.item.Item;
 import zombicide.util.listchooser.InteractiveListChooser;
@@ -21,4 +22,8 @@ public class SearchInTRoomAction implements Actions{
             p.putItemInBackPack(item);
         }
     }
+
+	@Override
+	public void action(Zombies z, Board b) {
+	}
 }

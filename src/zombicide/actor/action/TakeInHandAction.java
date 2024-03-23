@@ -1,6 +1,7 @@
 package zombicide.actor.action;
 
 import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.util.listchooser.*;
@@ -20,4 +21,9 @@ public class TakeInHandAction implements Actions{
              System.out.println("error item does not exist");
          }
     }
+
+	@Override
+	public void action(Zombies z, Board b) {
+		
+	}
 }
