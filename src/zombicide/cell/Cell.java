@@ -201,6 +201,12 @@ public abstract class Cell {
 	public abstract void addItem(Item i);
 
 	/**
+	 * removes the given item from the list of items
+	 * @param i Item
+	 */
+	public abstract Item removeItem(Item i);
+
+	/**
 	 * Return the list of all the items in the room
 	 * @return List of items
 	 */

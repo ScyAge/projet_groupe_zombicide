@@ -22,6 +22,11 @@ public class Street extends Cell{
 	 */
 	public void addItem(Item i){}
 
+	@Override
+	public Item removeItem(Item i) {
+		return null;
+	}
+
 	/**
 	 * @return display of the Street
 	 */
