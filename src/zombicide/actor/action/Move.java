@@ -20,7 +20,11 @@ public class Move implements Actions {
 	public Move() {
 	}
 	
-	
+	/**
+	 * Move a player in a direction 
+	 * @param p Player who want to move
+	 * @param b the board of the player
+	 */
 	public void action(Player p, Board b) {
 		System.out.println("enter the Direction to move");
 		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
@@ -41,6 +45,11 @@ public class Move implements Actions {
 		}
 		return res;
 	}
+	/**
+	 * Move a zombies  in a direction 
+	 * @param z zombies who want to move
+	 * @param b the board of the zombie
+	 */
 	@Override
 	public void action(Zombies z, Board b) {
 		Direction d = choiceDirectionNoise(z,b);
