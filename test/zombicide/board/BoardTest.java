@@ -77,5 +77,11 @@ public class BoardTest {
     	assertEquals(true,board.getCellBoard(2, 2).getDoor(d).isBreak());
     }
     
+    @Test
+    public void testGetCellWithDirection() {
+    	assertEquals(board.getCellBoard(1, 2),board.getCellDirection(d, p2));
+    	assertEquals(null,board.getCellDirection(d, p1));
+    }
+    
 
 }

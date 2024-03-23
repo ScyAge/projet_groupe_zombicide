@@ -21,7 +21,6 @@ public class Move implements Actions {
 	}
 	
 	
-	
 	public void action(Player p, Board b) {
 		System.out.println("enter the Direction to move");
 		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);

@@ -302,10 +302,15 @@ public class Board {
 	public void addItem(Item i ) {
 		this.items.add(i);
 	}
-	
-	public Cell getCellDirection(Direction d,Zombies z) {
-		Cell c = z.getCurrentCell();
-		if(canMove(z,d))
+	/**
+	 * get the cell with the direction 
+	 * @param d direction of cell the next cell
+	 * @param a  Actor who is on the cell
+	 * @return the cell 
+	 */
+	public Cell getCellDirection(Direction d,Actor a) {
+		Cell c = a.getCurrentCell();
+		if(canMove(a,d))
 			if(d == Direction.North) {
 				return this.board[c.getX()-1][c.getY()];
 			}
