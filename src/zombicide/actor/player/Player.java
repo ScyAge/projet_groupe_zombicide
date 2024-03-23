@@ -85,7 +85,7 @@ public class Player extends Actor{
 	 * Test if the backpack is full
 	 * @return the results of the test
 	 */
-	public boolean IsBackPackFull(){return this.backpack.size() < this.backPackSize;}
+	public boolean IsBackPackFull(){return this.backpack.size() >= this.backPackSize;}
 
 	/**
 	 * take a item from the backpack and place it in the hand of the player
@@ -108,7 +108,7 @@ public class Player extends Actor{
 	 * @return a boolean if it's a success or not
 	 */
 	public void PutItemInHandInBackPack(){
-			if(this.IsBackPackFull()){
+			if(!this.IsBackPackFull()){
 				this.putItemInBackPack(this.itemInHand);
 				this.itemInHand = null;
 			}
@@ -128,7 +128,7 @@ public class Player extends Actor{
 	 * @return a message that confirm to you the operation
 	 */
 	public void putItemInBackPack(Item item) {
-		if (this.IsBackPackFull()){
+		if (!this.IsBackPackFull()){
 			this.backpack.add(item);
 		}
 	}
