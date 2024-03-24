@@ -26,4 +26,12 @@ public class HealingVial extends Equipment{
 		player.setLifePoints(lifepoints+1);
 	}
 
+	/**
+	 * return true if the equipment is noisy else false
+	 * @return true if the equipment is noisy else false
+	 */
+	public boolean isNoisy() {
+		return false;
+	}
+
 }

@@ -41,4 +41,12 @@ public class FirstAidKit extends Equipment {
 			System.out.println("No player in the same area");
 		}
 	}
+
+	/**
+	 * return true if the equipment is noisy else false
+	 * @return true if the equipment is noisy else false
+	 */
+	public boolean isNoisy() {
+		return false;
+	}
 }

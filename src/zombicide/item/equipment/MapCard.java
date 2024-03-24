@@ -31,8 +31,15 @@ public class MapCard extends Equipment{
 		Cell c = player.getCurrentCell();
 		c.setNoise(c.getNoise()+1);
 	}
-	
-	
+
+	/**
+	 * return true if the equipment is noisy else false
+	 * @return true if the equipment is noisy else false
+	 */
+	public boolean isNoisy() {
+		return true;
+	}
+
 	/**
 	 * displays the board without showing what's inside the continental
 	 * */

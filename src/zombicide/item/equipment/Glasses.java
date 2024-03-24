@@ -51,9 +51,15 @@ public class Glasses extends Equipment {
 				}
 			}
 		}
-	}	
-		
-	
+	}
+
+	/**
+	 * return true if the equipment is noisy else false
+	 * @return true if the equipment is noisy else false
+	 */
+	public boolean isNoisy() {
+		return false;
+	}
 
 
 	/** gives the list of adjacent cells to the cell with the given coordinates

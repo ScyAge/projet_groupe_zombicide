@@ -46,6 +46,14 @@ public class MasterKey extends Equipment {
 		}
 			
 	}
+
+	/**
+	 * return true if the equipment is noisy else false
+	 * @return true if the equipment is noisy else false
+	 */
+	public boolean isNoisy() {
+		return false;
+	}
 	
 	
 
