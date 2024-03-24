@@ -19,7 +19,7 @@ public class Item {
 	 */
 	public Item(String title) {
 		this.title = title;
-		this .Use = false;
+		this.Use = false;
 	}
 	
 	/**

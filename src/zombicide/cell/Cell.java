@@ -85,6 +85,13 @@ public abstract class Cell {
 	public void setNoise(int noise) {
 		this.noise = noise;
 	}
+
+	/**
+	 * reset the noise of the cell to 0
+	 */
+	public void resetNoise(){
+		this.noise = 0;
+	}
 	/**
 	 * Return the list of all the players in the cell
 	 * @return List of players
