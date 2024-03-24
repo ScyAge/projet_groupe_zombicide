@@ -21,9 +21,17 @@ public class Axe extends Weapon{
      */
     private final static int Threshold_Axe = 4;
     /**
+     * constant breakDoor of axe
+     */
+    private final static boolean BreakDoor_Axe = true;
+    /**
+     * constant noisy of axe
+     */
+    private final static boolean Noisy_Axe = false;
+    /**
      * Builder of Axe
      */
     public Axe(){
-        super(Name_Axe, Range_Axe, Damage_Axe, Threshold_Axe, true);
+        super(Name_Axe, Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe);
     }
 }

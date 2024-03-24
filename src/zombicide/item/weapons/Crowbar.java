@@ -21,9 +21,17 @@ public class Crowbar extends Weapon{
      */
     private final static int Threshold_Crowbar = 4;
     /**
+     * constant breakDoor of axe
+     */
+    private final static boolean BreakDoor_Crowbar = true;
+    /**
+     * constant noisy of axe
+     */
+    private final static boolean Noisy_Crowbar = false;
+    /**
      * Builder of Crowbar
      */
     public Crowbar(){
-        super(Name_Crowbar, Range_Crowbar, Damage_Crowbar, Threshold_Crowbar, true);
+        super(Name_Crowbar, Range_Crowbar, Damage_Crowbar, Threshold_Crowbar, BreakDoor_Crowbar, Noisy_Crowbar);
     }
 }

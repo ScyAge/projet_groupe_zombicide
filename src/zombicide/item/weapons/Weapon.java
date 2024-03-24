@@ -15,6 +15,7 @@ public class Weapon extends Item {
 	private int range;
 	private int damage;
 	private boolean breakDoor;
+	private boolean noisy;
 	
 	/**
 	 * Builder of the weapons
@@ -24,13 +25,13 @@ public class Weapon extends Item {
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not
 	 */
-	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor) {
+	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy) {
 		super(title);
 		this.damage =damage;
 		this.range =range;
 		this.threshold = threshold;
 		this.breakDoor= breakDoor;
-		
+		this.noisy = noisy;
 	}
 	
 	
@@ -70,6 +71,14 @@ public class Weapon extends Item {
 	 * */
 	public void Used() {
 		this.Use=false;
+	}
+
+	/**
+	 * return true if the weapon is noisy else false (for attack)
+	 * @return true if the weapon is noisy else false (for attack)
+	 */
+	public boolean isNoisy(){
+		return this.noisy;
 	}
 	
 }
