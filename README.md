@@ -365,6 +365,20 @@ Wissal-Asma Harrat : Ajout de la méthode display() pour l'équipement de Carte.
 Pour cette semaine, on s'est principalement occupé de finaliser de compte rendu du livrable 2. C'est-à-dire qu'on a réalisé les commandes permettant de générer le fichier .jar du livrable 2  
 On a également commencé à réfléchir à l'implémentation des actions, plus précisément sur l'utilisation des ListChooser et dans l'affichage du choix des actions en fontion de la situation du joueur.  
 ## Semaine 10
+Pendant cette semaine, nous avons commencé par régler les différentes remarques que le professeur nous a indiquées après la remise du livrable 2.  
+Ces remarques se sont résumées à l'ajout de constantes pour les armes et l'équipement, à l'ajustement de différents aspects du sac à dos, à la suppression de code concernant les règles du jeu dans certaines méthodes,  
+à la "fusion" des méthodes de déplacement des acteurs, car il y en avait deux distinctes avec pratiquement le même code (une pour les joueurs et une pour les zombies), et à la complétion des tests.  
+
+Ensuite, nous nous sommes concentrés sur l'implémentation des actions.  
+Nous avons défini les actions comme une interface contenant deux méthodes : une action prenant en paramètre un joueur et une action prenant en paramètre un zombie.  
+Les classes qui implémentent actuellement l'interface Action sont LookAround, MakeNoise, Move, SearchInRoomAction et TakeInHandAction.  
+Nous avons également apporté des changements/ajouts concernant la gestion du bruit pour les équipements et les armes.  
+
+Répartition du travail :
+Evan Joly : Correction/changement concernant le sac à dos des joueurs + Création de la classe TakeInHandAction et SearchInTRommAction qui implémentes l'interface Actions + tests suite à ces changements  
+Gabriel Kreutser : Correction de la méthode move() + création de la classe Move qui implémente l'interface Actions + tests  
+Théo Nave : Ajout constante armes + Gestion du bruit pour les equipements et des armes (attaque uniquement) + rédaction compte rendu semaine 10   
+Wissal-Asma Harrat : Ajout constante equipement + Création de l'interface Actions et des classes LookAround et MakeNoise  
 
 ## Semaine 11
 
