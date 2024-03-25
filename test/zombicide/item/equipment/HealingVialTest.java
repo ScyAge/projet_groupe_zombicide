@@ -22,14 +22,14 @@ class HealingVialTest {
 
     @Test
     public void TestEffectHealingVialMaxPv(){
-        testHV.equipmentEffect(this.testP);
+        testHV.ItemEffect(this.testP);
         assertEquals(5, this.testP.getLifePoints()); // ne peut pas dépassé ses pv max
     }
 
     @Test
     public void TestEffectHealingVial(){
         this.testP.takeDamage(2);
-        testHV.equipmentEffect(this.testP);
+        testHV.ItemEffect(this.testP);
         assertEquals(4, this.testP.getLifePoints()); // ne peut pas dépassé ses pv max
     }
 }

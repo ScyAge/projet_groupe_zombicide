@@ -26,7 +26,7 @@ public class MapCard extends Equipment{
 	 * displays the board 
 	 * @param player player who use the effect
 	 */
-	public void equipmentEffect(Player player) {
+	public void ItemEffect(Player player) {
 		this.display();
 		Cell c = player.getCurrentCell();
 		c.setNoise(c.getNoise()+1);

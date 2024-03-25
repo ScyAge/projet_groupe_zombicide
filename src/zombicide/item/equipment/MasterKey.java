@@ -24,8 +24,8 @@ public class MasterKey extends Equipment {
 	 * Opens the cell's door where the player is according to the user's choice
 	 * @param player who has the MasterKey
 	 * */
-	public void equipmentEffect(Player player) {
-		super.equipmentEffect(player);
+	public void ItemEffect(Player player) {
+		super.ItemEffect(player);
 		Cell cell= player.getCurrentCell();
 		System.out.println("enter the Direction of the door you want to open");
 		

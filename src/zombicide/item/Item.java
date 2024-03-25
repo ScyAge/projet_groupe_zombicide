@@ -1,5 +1,8 @@
 package zombicide.item;
 
+import zombicide.actor.player.Player;
+import zombicide.cell.Cell;
+
 /**
  * Class Item
  */
@@ -46,6 +49,14 @@ public class Item {
 	public boolean isUsed() {
 		return this.Use;
 		
+	}
+	
+	/**
+	 * realizes the item effect 
+	 * @param player who uses the equipment 
+	 * */
+	public void ItemEffect(Player player) {
+		this.Used();
 	}
 	
 	/**

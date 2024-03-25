@@ -1,6 +1,13 @@
 package zombicide.item.weapons;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Zombies;
+import zombicide.cell.Cell;
 import zombicide.item.*;
+import zombicide.util.Direction;
 
 /**
  * class weapons
@@ -79,6 +86,29 @@ public class Weapon extends Item {
 	 */
 	public boolean isNoisy(){
 		return this.noisy;
+	}
+	
+	
+	private List<Zombies> WhoCanAttack(Player player){
+		List<Zombies> z = new ArrayList<>();
+		Cell c;
+		int i;
+		for(Direction D : Direction.values()) {
+			c = player.getCurrentCell();
+			i=0;
+			while(c.getDoor(D).isBreak() && i < this.range) {
+				z.addAll(c.getAllZombies());
+			}
+		}
+		return z;
+	}
+	
+	/**
+	 * realizes the equipment effect 
+	 * @param player who uses the equipment 
+	 * */
+	public void ItemEffect(Player player) {
+		
 	}
 	
 }

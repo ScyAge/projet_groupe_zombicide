@@ -20,8 +20,8 @@ public class HealingVial extends Equipment{
 	 * adds one lifepoint to the players who uses it 
 	 * @param player to give lifePoints
 	 */
-	public void equipmentEffect(Player player) {
-		super.equipmentEffect(player);
+	public void ItemEffect(Player player) {
+		super.ItemEffect(player);
 		int lifepoints= player.getLifePoints();
 		player.setLifePoints(lifepoints+1);
 	}

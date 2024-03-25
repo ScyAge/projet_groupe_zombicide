@@ -30,8 +30,8 @@ public class Glasses extends Equipment {
 	 * shows the actors that are in adjacent cells to the player's cell
 	 * @param Player 
 	 * */
-	public void equipmentEffect(Player player) {
-		super.equipmentEffect(player);
+	public void ItemEffect(Player player) {
+		super.ItemEffect(player);
 		Cell cell = player.getCurrentCell();
 		int x= cell.getX();
 		int y = cell.getY();

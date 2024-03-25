@@ -22,7 +22,7 @@ public abstract class  Equipment extends Item {
 	 * realizes the equipment effect 
 	 * @param player who uses the equipment 
 	 * */
-	public void equipmentEffect(Player player) {
+	public void ItemEffect(Player player) {
 		this.Used();
 		if(this.isNoisy()){
 			Cell c = player.getCurrentCell();
