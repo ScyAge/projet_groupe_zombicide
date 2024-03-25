@@ -18,8 +18,16 @@ public class Move implements Actions {
 	 * Builder of Move
 	 */
 	private Board board;
-	public Move(Board board) {
+	private ListChooser<Direction> chooser;
+
+	public Move(Board board,ListChooser<Direction> chooser) {
+
 		this.board = board;
+		this.chooser = chooser;
+	}
+	public Move(Board board){
+		this.board = board;
+		this.chooser = new InteractiveListChooser<>();
 	}
 	
 	/**
@@ -27,10 +35,8 @@ public class Move implements Actions {
 	 * @param p Player who want to move
 	 */
 	public void action(Player p) {
-		System.out.println("enter the Direction to move");
 		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
-		ListChooser<Direction> listChooser = new InteractiveListChooser<>();
-		Direction D= listChooser.choose("choose a direction: ", directions);
+		Direction D= this.chooser.choose("choose a direction: ", directions);
 		this.board.movePlayer(p, D);
 	}
 
