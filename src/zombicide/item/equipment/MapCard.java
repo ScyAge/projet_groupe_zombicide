@@ -16,8 +16,8 @@ public class MapCard extends Equipment{
 	 * @param title of the MapCard
 	 * @param board of the card
 	 */
-	public MapCard(String title,Board board) {
-		super(title);
+	public MapCard(String title,boolean breakDoor, Board board) {
+		super(title, breakDoor);
 		this.board=board;
 	}
 

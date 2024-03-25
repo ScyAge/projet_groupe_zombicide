@@ -16,13 +16,15 @@ public class Item {
 	 */
 	protected boolean Use;
 	
+	protected boolean breakDoor;
 	/**
 	 * Builder of Item
 	 * @param title of the item
 	 */
-	public Item(String title) {
+	public Item(String title, boolean breakDoor) {
 		this.title = title;
 		this.Use = false;
+		this.breakDoor= breakDoor;
 	}
 	
 	/**
@@ -50,6 +52,15 @@ public class Item {
 		return this.Use;
 		
 	}
+	
+	/**
+	 * says whether the weapon breaks a door or not
+	 * @return boolean
+	 *   */
+	public boolean getBreakDoor() {
+		return this.breakDoor;
+	}
+	
 	
 	/**
 	 * realizes the item effect 

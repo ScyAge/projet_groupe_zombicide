@@ -41,19 +41,19 @@ public class Livrable2 {
 		test.getCellBoard(2, 2).addPlayers(p3);
 		test.getCellBoard(2, 2).addPlayers(p4);
 		
-		Item MapCard1 = new MapCard("MC",test);
-		Item MapCard2 = new MapCard("MC",test);
-		Item MapCard3 = new MapCard("MC",test);
-		Item MapCard4 = new MapCard("MC",test);
+		Item MapCard1 = new MapCard("MC",false, test);
+		Item MapCard2 = new MapCard("MC",false, test);
+		Item MapCard3 = new MapCard("MC",false, test);
+		Item MapCard4 = new MapCard("MC",false, test);
 		p1.putItemInBackPack(MapCard1);
 		p2.putItemInBackPack(MapCard2);
 		p3.putItemInBackPack(MapCard3);
 		p4.putItemInBackPack(MapCard4);
 		
-		Item HealingVial1 = new HealingVial("HV");
-		Item HealingVial2 = new HealingVial("HV");
-		Item HealingVial3 = new HealingVial("HV");
-		Item HealingVial4 = new HealingVial("HV");
+		Item HealingVial1 = new HealingVial("HV", false);
+		Item HealingVial2 = new HealingVial("HV", false);
+		Item HealingVial3 = new HealingVial("HV", false);
+		Item HealingVial4 = new HealingVial("HV", false);
 		p1.putItemInBackPack(HealingVial1);
 		p2.putItemInBackPack(HealingVial2);
 		p3.putItemInBackPack(HealingVial3);

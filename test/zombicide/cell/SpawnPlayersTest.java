@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
+import zombicide.board.Board;
 
 class SpawnPlayersTest {
 
@@ -17,7 +18,8 @@ class SpawnPlayersTest {
 	
     @BeforeEach
     void setUp() {
-    	SpawnPlayers = new SpawnPlayers(1, 1);
+    	Board board = new Board(5,5);
+    	SpawnPlayers = new SpawnPlayers(1, 1,board);
         player = new Player(8,SpawnPlayers,1,6);
 
     }
