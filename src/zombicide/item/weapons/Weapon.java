@@ -5,6 +5,7 @@ import java.util.List;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
+import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.item.*;
 import zombicide.util.Direction;
@@ -25,6 +26,7 @@ public class Weapon extends Item {
 	private int damage;
 	private boolean breakDoor;
 	private boolean noisy;
+	private Board board;
 	
 	/**
 	 * Builder of the weapons
@@ -34,13 +36,14 @@ public class Weapon extends Item {
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not
 	 */
-	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy) {
+	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy ,Board bord) {
 		super(title);
 		this.damage =damage;
 		this.range =range;
 		this.threshold = threshold;
 		this.breakDoor= breakDoor;
 		this.noisy = noisy;
+		this.board =board ;
 	}
 	
 	
@@ -99,6 +102,7 @@ public class Weapon extends Item {
 			c = player.getCurrentCell();
 			i=0;
 			while(c.getDoor(D).isBreak() && i < this.range) {
+				
 				z.addAll(c.getAllZombies());
 			}
 		}

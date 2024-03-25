@@ -6,19 +6,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
+import zombicide.cell.Room;
 import zombicide.cell.SpawnPlayers;
 
 public class ZombiesTest {
 	
-	private SpawnPlayers SpawnPlayers;
+	private Room room;
 	private Zombies z;
 	
 	
     @BeforeEach
     void setUp() {
-    	SpawnPlayers = new SpawnPlayers(1, 1);
-        z = new Gigantomachia(SpawnPlayers,1);
+    	room = new Room(1, 1 );
+        z = new Gigantomachia(room,1);
 
     }
     

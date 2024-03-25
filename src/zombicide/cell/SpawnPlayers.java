@@ -3,6 +3,7 @@ package zombicide.cell;
 
 import java.util.*;
 import zombicide.actor.player.*;
+import zombicide.board.Board;
 import zombicide.item.weapons.*;
 
 
@@ -11,12 +12,15 @@ import zombicide.item.weapons.*;
  */
 public class SpawnPlayers extends Street {
 	
+	private Board board;
+	
 	/** Constructor of the class SpawnPlayers
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
 	 */
-	public SpawnPlayers(int x, int y) {
+	public SpawnPlayers(int x, int y, Board board) {
 		super(x, y);
+		this.board =board;
 	}
 	
 	/** populates the spawn point with players 
@@ -25,7 +29,7 @@ public class SpawnPlayers extends Street {
 	 * @param players the list of players to populate on the spawn point
 	 * */
 	public void spawnPlayer(List<Player> players) {
-		Weapon gun= new Gun();
+		Weapon gun= new Gun(this.board);
 		for(Player p : players) {
 			this.addPlayers(p);
 			p.setItemInHand(gun);

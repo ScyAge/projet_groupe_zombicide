@@ -2,6 +2,8 @@ package zombicide.item.weapons;
 
 import javax.naming.Name;
 
+import zombicide.board.Board;
+
 /**
  * class Gun
  */
@@ -33,7 +35,7 @@ public class Carabine extends Weapon{
     /**
      * Builder of Carabine
      */
-    public Carabine(){
-        super(Name_Carabine, Range_Carabine, Damage_Carabine, Threshold_Carabine, BreakDoor_Carabine, Noisy_Carabine);
+    public Carabine(Board board){
+        super(Name_Carabine, Range_Carabine, Damage_Carabine, Threshold_Carabine, BreakDoor_Carabine, Noisy_Carabine, board);
     }
 }

@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
+import zombicide.board.Board;
 import zombicide.cell.*;
 import zombicide.item.weapons.Axe;
 import zombicide.item.weapons.Carabine;
@@ -15,11 +16,12 @@ public class TakeInHandActionTest {
 
     @BeforeEach
     public void init(){
+    	Board board = new Board(5,5);
         this.testCell = new Room(3,3);
         this.action = new TakeInHandAction(new RandomListChooser<>());
         this.p = new Player(3,this.testCell,1,6);
-        this.p.putItemInBackPack(new Carabine());
-        this.p.putItemInBackPack(new Axe());
+        this.p.putItemInBackPack(new Carabine(board));
+        this.p.putItemInBackPack(new Axe(board));
 
     }
 
