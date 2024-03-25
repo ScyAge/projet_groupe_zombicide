@@ -74,7 +74,14 @@ public class Player extends Actor{
 	public void setItemInHand(Item itemInHand) {
 		this.itemInHand = itemInHand;
 	}
-
+	
+	/**
+	 * remove the Player to the cell
+	 */
+	public void Dead() {
+		this.cell.remove(this);
+	}
+	
 	/**
 	 * method that return the backPack of the player
 	 * @return backpack
@@ -198,6 +205,8 @@ public class Player extends Actor{
 					this.PutItemInHandInCell();
 				}
 			}
+			this.Dead();
 		}
+		
 	}
 }

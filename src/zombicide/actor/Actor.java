@@ -68,11 +68,13 @@ public abstract class Actor {
 		else if(lifePoints < 0) {
 			this.lifePoints = 0;
 			this.isDead = true;
+			this.Dead();
 		} else {
 			this.lifePoints = lifePoints;
 		}
 	}
 	
+	abstract public void Dead();
 	/**
 	 * Get if the Player is dead or not
 	 *@return true if the actor have 0 lifePoints

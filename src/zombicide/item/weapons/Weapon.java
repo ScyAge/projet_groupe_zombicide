@@ -8,6 +8,8 @@ import zombicide.actor.zombie.Zombies;
 import zombicide.cell.Cell;
 import zombicide.item.*;
 import zombicide.util.Direction;
+import zombicide.util.listchooser.InteractiveListChooser;
+import zombicide.util.listchooser.ListChooser;
 
 /**
  * class weapons
@@ -108,7 +110,11 @@ public class Weapon extends Item {
 	 * @param player who uses the equipment 
 	 * */
 	public void ItemEffect(Player player) {
-		
+		List<Zombies> zombies= WhoCanAttack(player);
+		ListChooser<Zombies> listChooser = new InteractiveListChooser<>();
+		Zombies targetZ= listChooser.choose("choose the zombie: ", zombies);
+		targetZ.getCurrentCell().setNoise(2);
+		targetZ.setLifePoints(targetZ.getLifePoints()- this.damage);
 	}
 	
 }

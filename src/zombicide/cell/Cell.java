@@ -1,6 +1,7 @@
 package zombicide.cell;
 import java.util.*;
 
+import zombicide.actor.Actor;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.util.*;
@@ -143,10 +144,10 @@ public abstract class Cell {
 	
 	/**
 	 * remove the specified player from the list of player
-	 * @param p the player
+	 * @param actor the player
 	 */
-	public void remove(Player p ) {
-		this.players.remove(p);
+	public void remove(Player player) {
+		this.players.remove(player);
 	}
 	
 	/**

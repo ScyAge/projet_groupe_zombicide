@@ -26,6 +26,13 @@ public  class Zombies extends Actor {
 		super(lifePoints, action_points, cell, id);
 		this.damagePoints = damagePoints ;
 	}
+	
+	/**
+	 * remove the zombie to the cell
+	 */
+	public void Dead() {
+		this.cell.remove(this);
+	}
 
 	/**
 	 * gives the damagePoints of the Zombies
