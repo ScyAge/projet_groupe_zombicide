@@ -30,6 +30,8 @@ public class SearchInTRoomAction implements Actions{
             p.getCurrentCell().addItem(p.takeItemInTheBackPack(index));
             p.putItemInBackPack(item);
         }
+        int actionPoints= p.getAction_points();
+		p.setAction_points(actionPoints-1);
     }
 
 	@Override

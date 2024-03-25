@@ -25,6 +25,8 @@ public class TakeInHandAction implements Actions{
          catch (ItemDoesNotExistExeption error){
              System.out.println("error item does not exist");
          }
+         int actionPoints= p.getAction_points();
+ 		 p.setAction_points(actionPoints-1);
     }
 
 	@Override
