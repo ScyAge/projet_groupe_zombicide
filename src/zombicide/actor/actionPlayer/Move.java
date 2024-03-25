@@ -41,31 +41,5 @@ public class Move implements ActionsPlayer {
 		int actionPoints= p.getAction_points();
 		p.setAction_points(actionPoints-1);
 	}
-
-
-	private Direction choiceDirectionNoise(Zombies z) {
-		int Noise = -1;
-		Direction res = null;
-		for(Direction D : Direction.values()) {
-			if(this.board.getCellDirection(D, z)!= null && this.board.getCellDirection(D, z).getNoise() > Noise) {
-				res = D;
-				Noise = this.board.getCellDirection(D, z).getNoise();
-			}
-		}
-		return res;
-	}
-	/**
-	 * Move a zombies  in a direction 
-	 * @param z zombies who want to move
-	 */
-	
-	public void action(Zombies z) {
-		Direction d = choiceDirectionNoise(z);
-		if(d != null) {
-			this.board.moveZombie(z, choiceDirectionNoise(z));
-		}
-		int actionPoints= z.getAction_points();
-		z.setAction_points(actionPoints-1);
-	}
 }
 
