@@ -7,6 +7,7 @@ import zombicide.cell.*;
 import zombicide.item.equipment.MapCard;
 import zombicide.item.weapons.Axe;
 import zombicide.item.weapons.Carabine;
+import zombicide.util.listchooser.RandomListChooser;
 
 public class TakeInHandActionTest {
     private Actions action;
@@ -16,7 +17,7 @@ public class TakeInHandActionTest {
     @BeforeEach
     public void init(){
         this.testCell = new Room(3,3);
-        this.action = new TakeInHandAction();
+        this.action = new TakeInHandAction(new RandomListChooser<>());
         this.p = new Player(3,this.testCell,1,6);
         this.p.putItemInBackPack(new Carabine());
         this.p.putItemInBackPack(new Axe());
@@ -25,7 +26,11 @@ public class TakeInHandActionTest {
 
     @Test
     public void TestTakeInHandAction(){
+        assertNull(this.p.getItemInHand());
         this.action.action(this.p);
+        assertNotNull(this.p.getItemInHand());
+        //before backpack size was 2
+        assertEquals(1, this.p.getBackPack().size());
     }
 
 }
