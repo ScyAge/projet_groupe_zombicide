@@ -92,10 +92,27 @@ public class Weapon extends Item {
 		for(Direction D : Direction.values()) {
 			c = player.getCurrentCell();
 			i=0;
-			while(c.getDoor(D).isBreak() && i < this.range) {
-				
-				z.addAll(c.getAllZombies());
+			if( D == Direction.South) {
+				while(c.getDoor(D).isBreak() && i< this.board.getBoard().length&&i < this.range) {
+					z.addAll(c.getAllZombies());
+				}
 			}
+			if( D == Direction.South) {
+				while(c.getDoor(D).isBreak() && i< this.board.getBoard().length&&i < this.range) {
+					z.addAll(c.getAllZombies());
+				}
+			}
+			if( D == Direction.South) {
+				while(c.getDoor(D).isBreak() && i+c.getX()< this.board.getBoard().length&&i < this.range) {
+					z.addAll(c.getAllZombies());
+				}
+			}
+			if( D == Direction.North) {
+				while(c.getDoor(D).isBreak() && c.getX()-i> 0 && i < this.range) {
+					z.addAll(c.getAllZombies());
+				}
+			}
+			
 		}
 		return z;
 	}
