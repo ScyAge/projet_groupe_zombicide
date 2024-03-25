@@ -41,7 +41,7 @@ public class TakeInHandActionTest {
 
     @Test
     public void TestTakeInHandActionItemInHand(){
-        Item i = new Chainsaw();
+        Item i = new Chainsaw(null);
         this.p.setItemInHand(i);
         List<Item> test= new ArrayList<>();
         test.add(i);
