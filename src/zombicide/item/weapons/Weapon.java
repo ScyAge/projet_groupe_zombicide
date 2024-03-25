@@ -95,11 +95,13 @@ public class Weapon extends Item {
 			if( D == Direction.West) {
 				while(c.getDoor(D).isBreak() && c.getY() - i>0&&i < this.range) {
 					z.addAll(c.getAllZombies());
+					c = this.board.getCellBoard(c.getX(), c.getY()-1);
 				}
 			}
 			if( D == Direction.East) {
 				while(c.getDoor(D).isBreak() && c.getY()+i< this.board.getBoard()[0].length &&i < this.range) {
 					z.addAll(c.getAllZombies());
+					c = this.board.getCellBoard(c.getX(), c.getY()+1);
 				}
 			}
 			if( D == Direction.South) {
@@ -111,6 +113,7 @@ public class Weapon extends Item {
 			if( D == Direction.North) {
 				while(c.getDoor(D).isBreak() && c.getX()-i> 0 && i < this.range) {
 					z.addAll(c.getAllZombies());
+					c = this.board.getCellBoard(c.getX()-1, c.getY());
 				}
 			}
 			
