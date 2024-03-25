@@ -1,13 +1,12 @@
-package zombicide.actor.action;
+package zombicide.actor.actionPlayer;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
-import zombicide.board.Board;
 import zombicide.item.Item;
 import zombicide.util.listchooser.InteractiveListChooser;
 import zombicide.util.listchooser.ListChooser;
 
-public class SearchInTRoomAction implements Actions{
+public class SearchInTRoomAction implements ActionsPlayer {
 
     private ListChooser<Item> chooser;
     public SearchInTRoomAction(ListChooser<Item> chooser){

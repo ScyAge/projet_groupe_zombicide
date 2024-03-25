@@ -1,12 +1,11 @@
-package zombicide.actor.action;
+package zombicide.actor.actionPlayer;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
-import zombicide.board.Board;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.util.listchooser.*;
 import zombicide.item.*;
-public class TakeInHandAction implements Actions{
+public class TakeInHandAction implements ActionsPlayer {
 
     private ListChooser<Item> chooser;
     public TakeInHandAction(ListChooser<Item> chooser){

@@ -1,16 +1,15 @@
-package zombicide.actor.action;
+package zombicide.actor.actionPlayer;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
 import zombicide.cell.*;
-import zombicide.item.equipment.MapCard;
 import zombicide.item.weapons.Axe;
 import zombicide.item.weapons.Carabine;
 import zombicide.util.listchooser.RandomListChooser;
 
 public class TakeInHandActionTest {
-    private Actions action;
+    private ActionsPlayer action;
     private Player p;
     private Cell testCell;
 

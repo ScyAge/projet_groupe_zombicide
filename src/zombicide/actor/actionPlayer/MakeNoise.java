@@ -1,11 +1,10 @@
-package zombicide.actor.action;
+package zombicide.actor.actionPlayer;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
-import zombicide.board.Board;
 import zombicide.cell.Cell;
 
-public class MakeNoise implements Actions{
+public class MakeNoise implements ActionsPlayer {
 	
 	public MakeNoise() {	
 	}

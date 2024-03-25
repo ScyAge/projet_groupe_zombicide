@@ -1,9 +1,9 @@
-package zombicide.actor.action;
+package zombicide.actor.actionPlayer;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 
-public class OpenDoor implements Actions {
+public class OpenDoor implements ActionsPlayer {
 	
 	public OpenDoor() {
 	}

@@ -1,16 +1,15 @@
-package zombicide.actor.action;
+package zombicide.actor.actionPlayer;
 
 import java.util.List;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
-import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
 import zombicide.util.Door;
 
-public class LookAround implements Actions {
-	
+public class LookAround implements ActionsPlayer {
+
 	public LookAround() {
 	}
 	

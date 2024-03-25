@@ -1,4 +1,4 @@
-package zombicide.actor.action;
+package zombicide.actor.actionPlayer;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import zombicide.util.listchooser.ListChooser;
 /**
  * Class Move
  */
-public class Move implements Actions {
+public class Move implements ActionsPlayer {
 	
 	/**
 	 * Builder of Move
