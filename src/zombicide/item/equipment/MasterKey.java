@@ -16,8 +16,8 @@ public class MasterKey extends Equipment {
 	 * Builder of MasterKey
 	 * @param title of the item
 	 */
-	public MasterKey(String title) {
-		super(title);
+	public MasterKey(String title, boolean breakDoor) {
+		super(title, breakDoor);
 	}
 	
 	/**

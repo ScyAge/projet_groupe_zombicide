@@ -15,8 +15,8 @@ public class FirstAidKit extends Equipment {
 	 * Builder of FirstAidKit
 	 * @param title of the item
 	 */
-	public FirstAidKit( String title) {
-		super(title);
+	public FirstAidKit( String title, boolean breakDoor) {
+		super(title, breakDoor);
 	}
 	
 	/**

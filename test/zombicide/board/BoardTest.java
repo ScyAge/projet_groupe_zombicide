@@ -26,7 +26,7 @@ public class BoardTest {
     @BeforeEach
     void setUp() {
     	board = new Board(5,5);
-    	i = new MapCard("mp",board);
+    	i = new MapCard("mp",false, board);
     	d = Direction.North;
     	p1 = new Player(5,board.getCellBoard(0, 0),5,6);
     	p2 = new Player(5,board.getCellBoard(2, 2),5,6);
