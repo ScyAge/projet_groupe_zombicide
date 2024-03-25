@@ -32,6 +32,8 @@ public class Move implements Actions {
 		ListChooser<Direction> listChooser = new InteractiveListChooser<>();
 		Direction D= listChooser.choose("choose a direction: ", directions);
 		this.board.movePlayer(p, D);
+		int actionPoints= p.getAction_points();
+		p.setAction_points(actionPoints-1);
 	}
 
 
@@ -56,6 +58,8 @@ public class Move implements Actions {
 		if(d != null) {
 			this.board.moveZombie(z, choiceDirectionNoise(z));
 		}
+		int actionPoints= z.getAction_points();
+		z.setAction_points(actionPoints-1);
 	}
 }
 
