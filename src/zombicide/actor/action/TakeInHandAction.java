@@ -29,8 +29,5 @@ public class TakeInHandAction implements Actions{
  		 p.setAction_points(actionPoints-1);
     }
 
-	@Override
-	public void action(Zombies z) {
-		
-	}
+	
 }

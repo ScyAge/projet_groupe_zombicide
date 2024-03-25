@@ -58,7 +58,7 @@ public class Move implements Actions {
 	 * Move a zombies  in a direction 
 	 * @param z zombies who want to move
 	 */
-	@Override
+	
 	public void action(Zombies z) {
 		Direction d = choiceDirectionNoise(z);
 		if(d != null) {

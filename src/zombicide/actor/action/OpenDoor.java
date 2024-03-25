@@ -13,9 +13,6 @@ public class OpenDoor implements Actions {
 		
 	}
 	
-	@Override
-	public void action(Zombies z) {
-		
-	}
+	
 
 }

@@ -9,5 +9,5 @@ public interface Actions {
 	
 	public void action(Player p);
 	
-	public void action(Zombies z);
+	
 }
