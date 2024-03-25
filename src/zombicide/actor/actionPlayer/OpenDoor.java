@@ -2,6 +2,7 @@ package zombicide.actor.actionPlayer;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
+import zombicide.item.Item;
 
 public class OpenDoor implements ActionsPlayer {
 	
@@ -10,7 +11,8 @@ public class OpenDoor implements ActionsPlayer {
 	
 	@Override 
 	public void action(Player p) {
-		
+		Item item= p.getItemInHand();
+		if(item)
 	}
 	
 	

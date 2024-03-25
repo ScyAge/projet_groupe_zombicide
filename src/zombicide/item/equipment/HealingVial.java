@@ -12,8 +12,8 @@ public class HealingVial extends Equipment{
 	 * Builder of HealingVial
 	 * @param title of the item
 	 */
-	public HealingVial(String title) {
-		super(title);
+	public HealingVial(String title, boolean breakDoor) {
+		super(title, breakDoor);
 	}
 	
 	/**
