@@ -30,6 +30,7 @@ public class Gun extends Weapon{
      * constant noisy of axe
      */
     private final static boolean Noisy_Gun = true;
+    
     /**
      * Builder of Gun
      */
