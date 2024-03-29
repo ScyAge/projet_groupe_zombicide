@@ -62,15 +62,11 @@ public abstract class Actor {
 	 * @param lifePoints of the actor
 	 */
 	public void setLifePoints(int lifePoints) {
-		if(lifePoints > this.maxLifePoint){
+		if(this.lifePoints + lifePoints > this.maxLifePoint){
 			this.lifePoints = this.maxLifePoint;
 		}
-		else if(lifePoints < 0) {
-			this.lifePoints = 0;
-			this.isDead = true;
-			this.Dead();
-		} else {
-			this.lifePoints = lifePoints;
+		else {
+			this.lifePoints += lifePoints;
 		}
 	}
 	
