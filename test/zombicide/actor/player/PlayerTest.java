@@ -156,6 +156,10 @@ public class PlayerTest {
         this.testP.takeDamage(1000);
         assertTrue(this.testCell.getAllItems().size()>=7);
     }
+    @Test
+    public void TestGetIdf(){
+        assertEquals(this.testP.getId(),1);
+    }
 
 
 

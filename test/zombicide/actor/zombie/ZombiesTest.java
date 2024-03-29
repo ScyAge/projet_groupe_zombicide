@@ -2,53 +2,68 @@ package zombicide.actor.zombie;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.cell.Room;
-import zombicide.cell.SpawnPlayers;
 
 public class ZombiesTest {
 	
 	private Room room;
-	private Zombies z;
-	
+	private Zombies z1;
+	private Zombies z2;
+	private Zombies z3;
+	private Zombies z4;
+	private Zombies z5;
+
 	
     @BeforeEach
     void setUp() {
     	room = new Room(1, 1 );
-        z = new Gigantomachia(room,1);
+        z1 = new Gigantomachia(room,1);
+		z2 = new Walker(room,2);
+		z3 = new Runner(room,3);
+		z4 = new Broom(room,4);
+		z5 = new Abominations(room,5);
 
     }
     
     @Test
     void testTakeDommage() {
-    	assertEquals(1000, z.getLifePoints());
-    	z.takeDamage(100);
-    	assertEquals(900, z.getLifePoints());
+    	assertEquals(1000, z1.getLifePoints());
+    	z1.takeDamage(100);
+    	assertEquals(900, z1.getLifePoints());
     }
     
     @Test
     void testIsDead() {
-    	assertEquals(1000, z.getLifePoints());
-    	z.takeDamage(1000);
-    	assertTrue(z.isDead());
+    	assertEquals(1, z2.getLifePoints());
+    	z2.takeDamage(1000);
+    	assertTrue(z2.isDead());
     }
     
     @Test
     void testSetHP() {
-    	assertEquals(1000, z.getLifePoints());
-    	z.takeDamage(100);
-    	assertEquals(900, z.getLifePoints());
-    	z.setLifePoints(10);
-    	assertEquals(910, z.getLifePoints());
-    	z.setLifePoints(91);
-    	assertEquals(1000, z.getLifePoints());
-    	z.takeDamage(1000);
-    	assertEquals(0, z.getLifePoints());
-    	assertTrue(z.isDead());
+    	assertEquals(2, z3.getLifePoints());
+    	z3.takeDamage(1);
+    	assertEquals(1, z3.getLifePoints());
+		z3.setLifePoints(1);
+    	assertEquals(2, z3.getLifePoints());
+		z3.setLifePoints(91);
+    	assertEquals(2, z3.getLifePoints());
+		z3.takeDamage(1000);
+    	assertEquals(-998, z3.getLifePoints());
+    	assertTrue(z3.isDead());
     }
+	@Test
+	public void TestGetdamagePoint(){
+		assertEquals(z4.getDamagePoints(),1);
+	}
+	@Test
+	public void  TestSetDamagePoint(){
+		z5.setDamagePoints(100);
+		assertEquals(z5.getDamagePoints(),100);
+	}
     
     
     
