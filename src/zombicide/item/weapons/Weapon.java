@@ -2,6 +2,7 @@ package zombicide.item.weapons;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
@@ -27,6 +28,8 @@ public class Weapon extends Item {
 	private boolean noisy;
 	private Board board;
 	private ListChooser<Zombies> chooser;
+	
+	
 	
 	/**
 	 * Builder of the weapons
@@ -106,38 +109,42 @@ public class Weapon extends Item {
 	}
 	
 	
-	private List<Zombies> WhoCanAttack(Player player){
+	public List<Zombies> WhoCanAttack(Player player){
 		List<Zombies> z = new ArrayList<>();
 		Cell c;
 		int i;
+		z.addAll(player.getCurrentCell().getAllZombies());
 		for(Direction D : Direction.values()) {
 			c = player.getCurrentCell();
 			i=0;
 			if( D == Direction.West) {
-				while(c.getDoor(D).isBreak() && c.getY() - i>0&&i < this.range) {
-					z.addAll(c.getAllZombies());
+				while(c.getDoor(D).isBreak() && c.getY() - i>0 && i < this.range) {
 					c = this.board.getCellBoard(c.getX(), c.getY()-1);
+					z.addAll(c.getAllZombies());
+					i+=1;
 				}
 			}
 			if( D == Direction.East) {
-				while(c.getDoor(D).isBreak() && c.getY()+i< this.board.getBoard()[0].length &&i < this.range) {
-					z.addAll(c.getAllZombies());
+				while(c.getDoor(D).isBreak() && c.getY()+i< this.board.getBoard()[0].length && i < this.range) {
 					c = this.board.getCellBoard(c.getX(), c.getY()+1);
+					z.addAll(c.getAllZombies());
+					i+=1;
 				}
 			}
 			if( D == Direction.South) {
 				while(c.getDoor(D).isBreak() && i+c.getX()< this.board.getBoard().length&&i < this.range) {
-					z.addAll(c.getAllZombies());
 					c = this.board.getCellBoard(c.getX()+1, c.getY());
+					z.addAll(c.getAllZombies());
+					i+=1;
 				}
 			}
 			if( D == Direction.North) {
 				while(c.getDoor(D).isBreak() && c.getX()-i> 0 && i < this.range) {
-					z.addAll(c.getAllZombies());
 					c = this.board.getCellBoard(c.getX()-1, c.getY());
+					z.addAll(c.getAllZombies());
+					i+=1;
 				}
 			}
-			
 		}
 		return z;
 	}
@@ -149,8 +156,14 @@ public class Weapon extends Item {
 	public void ItemEffect(Player player) {
 		List<Zombies> zombies= WhoCanAttack(player);
 		Zombies targetZ= this.chooser.choose("choose the zombie: ", zombies);
-		targetZ.getCurrentCell().setNoise(2);
-		targetZ.setLifePoints(targetZ.getLifePoints()- this.damage);
+		Random random = new Random() ;
+		int X= random.nextInt(6);
+		if(X>= this.threshold) {
+			if(this.noisy) {
+				targetZ.getCurrentCell().setNoise(2);
+			}
+			targetZ.takeDamage(this.getDamage());;
+		}
 	}
 	
 }
