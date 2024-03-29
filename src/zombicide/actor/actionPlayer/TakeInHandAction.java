@@ -5,15 +5,33 @@ import zombicide.actor.zombie.Zombies;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.util.listchooser.*;
 import zombicide.item.*;
-public class TakeInHandAction implements ActionsPlayer {
 
+/**
+ * Class TakeInHandAction implementation  of ActionsPlayer
+ */
+public class TakeInHandAction implements ActionsPlayer {
+	
+	/**
+	 * Param
+	 */
     private ListChooser<Item> chooser;
+    
+    /**
+     * Builder of TakeInHandAction with ListChooser to test
+     * @param chooser ListChooser of the Action
+     */
     public TakeInHandAction(ListChooser<Item> chooser){
         this.chooser = chooser;
     }
+    
+    /**
+     * Builder of TakeInHandAction
+     */
     public TakeInHandAction(){
         this.chooser = new InteractiveListChooser<>();
     }
+    
+    
     @Override
     public void action(Player p) {
          Item item = this.chooser.choose("\"Choose the object you want to take from your bag\"",p.getBackPack());

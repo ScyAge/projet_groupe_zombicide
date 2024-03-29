@@ -6,12 +6,26 @@ import zombicide.item.Item;
 import zombicide.util.listchooser.InteractiveListChooser;
 import zombicide.util.listchooser.ListChooser;
 
+/**
+ * Class SearchInTRoomAction implementation  of ActionsPlayer
+ */
 public class SearchInTRoomAction implements ActionsPlayer {
-
+	
+	/**
+	 * Param
+	 */
     private ListChooser<Item> chooser;
+    
+    /**
+     * Builder of SearchIntRoomAction with ListChooser to test
+     * @param chooser ListChooser of the Action
+     */
     public SearchInTRoomAction(ListChooser<Item> chooser){
         this.chooser = chooser;
     }
+    /**
+     * Builder of SearchInTRoomAction 
+     */
     public SearchInTRoomAction(){
         this.chooser = new InteractiveListChooser<>();
     }

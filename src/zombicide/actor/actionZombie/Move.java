@@ -10,7 +10,7 @@ import zombicide.util.listchooser.InteractiveListChooser;
 import zombicide.util.listchooser.ListChooser;
 
 /**
- * Class Move
+ * Class Move implementation  of ActionZombie
  */
 public class Move implements ActionZombie{
 	

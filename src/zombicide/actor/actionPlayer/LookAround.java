@@ -8,11 +8,18 @@ import zombicide.cell.Cell;
 import zombicide.util.Direction;
 import zombicide.util.Door;
 
+/**
+ * Class LookAround implementation  of ActionsPlayer
+ */
 public class LookAround implements ActionsPlayer {
-
+	
+	/**
+	 * Builder of LookAround
+	 */
 	public LookAround() {
 	}
 	
+
 	@Override
 	public void action(Player p) {
 		Cell c= p.getCurrentCell();

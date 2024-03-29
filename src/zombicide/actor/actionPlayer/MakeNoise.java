@@ -4,8 +4,14 @@ import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.cell.Cell;
 
+/**
+ * Class MakeNoise implementation  of ActionsPlayer
+ */
 public class MakeNoise implements ActionsPlayer {
 	
+	/**
+	 * Builder of MakeNoise
+	 */
 	public MakeNoise() {	
 	}
 	
