@@ -1,11 +1,10 @@
 package zombicide.actor.actionZombie;
 
 
-import java.util.List;
 
-import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
+import zombicide.cell.Cell;
 import zombicide.util.Direction;
 import zombicide.util.listchooser.InteractiveListChooser;
 import zombicide.util.listchooser.ListChooser;
@@ -33,17 +32,38 @@ public class Move implements ActionZombie{
 	
 
 
-	private Direction choiceDirectionNoise(Zombies z) {
-		int Noise = -1;
-		Direction res = null;
-		for(Direction D : Direction.values()) {
-			if(this.board.getCellDirection(D, z)!= null && this.board.getCellDirection(D, z).getNoise() > Noise) {
-				res = D;
-				Noise = this.board.getCellDirection(D, z).getNoise();
+	private Cell choiceCellNoise() {
+		int NoiseMax = -1 ;
+		Cell res =null;
+		for(int i = 0;i<this.board.getBoard().length;i++) {
+			for(int j =0 ; j< this.board.getBoard()[0].length;j++) {
+				if(this.board.getBoard()[i][j].getNoise() > NoiseMax) {
+					NoiseMax = this.board.getBoard()[i][j].getNoise();
+					res = this.board.getBoard()[i][j];
+				}
 			}
 		}
 		return res;
 	}
+	
+	private Direction choiceDirectionNoise(Zombies z) {
+		Direction d = null;
+		Cell c = choiceCellNoise(); // to find the cell with the most Noise
+		if(z.getCurrentCell().getX()> c.getX()) {
+			d = Direction.North;
+		}
+		else if(z.getCurrentCell().getX()< c.getX()) {
+			d = Direction.South;
+		}
+		else if(z.getCurrentCell().getY()< c.getY()) {
+			d = Direction.East;
+		}
+		else if(z.getCurrentCell().getY()> c.getY()) {
+			d = Direction.West;
+		}
+		return d;
+	}
+	
 	/**
 	 * Move a zombies  in a direction 
 	 * @param z zombies who want to move
