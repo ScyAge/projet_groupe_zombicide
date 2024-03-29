@@ -19,6 +19,8 @@ public class TakeInHandActionTest {
     private Player p;
     private Cell testCell;
 
+
+
     @BeforeEach
     public void init(){
     	Board board = new Board(5,5);
@@ -43,14 +45,23 @@ public class TakeInHandActionTest {
     public void TestTakeInHandActionItemInHand(){
         Item i = new Chainsaw(null);
         this.p.setItemInHand(i);
+        //test de la coherence des item present dans la main et dans le sac
         List<Item> test= new ArrayList<>();
         test.add(i);
         test.addAll(this.p.getBackPack());
+
+
         assertNotNull(this.p.getItemInHand());
         this.action.action(this.p);
         assertTrue(this.p.getBackPack().contains(i));
         assertEquals(2, this.p.getBackPack().size());
         assertNotNull(this.p.getItemInHand());
+        //test de la coherence des item present dans la main et dans le sac
+        List<Item> testbis = new ArrayList<>();
+        testbis.add(this.p.getItemInHand());
+        testbis.addAll(this.p.getBackPack());
+        assertTrue(test.containsAll(testbis));
+
     }
 
 }
