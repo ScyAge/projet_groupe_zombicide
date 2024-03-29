@@ -1,16 +1,17 @@
-package zombicide.actor.player.roles;
+package zombicide.actor.actionPlayer.roles;
 
+import zombicide.actor.actionPlayer.ActionsPlayer;
 import zombicide.actor.player.Player;
 
 /**
- * class for Chanceux
+ * Class Combattant
  */
-public class Chanceux implements RolesIntrerface {
+public class Combattant implements ActionsPlayer {
 	
 	/**
-	 * Builder of Chanceux
+	 * Builder of Combattant
 	 */
-	public Chanceux() {
+	public Combattant() {
 		
 	}
 	
@@ -20,6 +21,6 @@ public class Chanceux implements RolesIntrerface {
      */
     @Override
     public void action(Player p) {
-    /*test*/
+
     }
 }

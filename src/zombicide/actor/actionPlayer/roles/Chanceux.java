@@ -1,23 +1,26 @@
-package zombicide.actor.player.roles;
+package zombicide.actor.actionPlayer.roles;
 
+import zombicide.actor.actionPlayer.ActionsPlayer;
 import zombicide.actor.player.Player;
 
 /**
- * class Soigneur
+ * class for Chanceux
  */
-public class Soigneur implements RolesIntrerface {
-
+public class Chanceux implements ActionsPlayer {
+	
 	/**
-	 * Builder of Soigneur
+	 * Builder of Chanceux
 	 */
-	public Soigneur() {
+	public Chanceux() {
 		
 	}
+	
     /**
      * method that allows a survivor to perform the special action related to its roles
      * @param p the survivor who use the action
      */
+    @Override
     public void action(Player p) {
-
+    /*test*/
     }
 }

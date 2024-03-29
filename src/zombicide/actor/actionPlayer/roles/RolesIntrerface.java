@@ -1,4 +1,4 @@
-package zombicide.actor.player.roles;
+package zombicide.actor.actionPlayer.roles;
 
 import zombicide.actor.player.Player;
 /**

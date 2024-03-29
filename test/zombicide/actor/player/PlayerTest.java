@@ -2,8 +2,9 @@ package zombicide.actor.player;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import zombicide.actor.player.roles.Combattant;
-import zombicide.actor.player.roles.RolesIntrerface;
+import zombicide.actor.actionPlayer.ActionsPlayer;
+import zombicide.actor.actionPlayer.roles.Combattant;
+import zombicide.actor.actionPlayer.roles.RolesIntrerface;
 import zombicide.cell.Cell;
 import zombicide.cell.Room;
 import zombicide.cell.Street;
@@ -14,7 +15,7 @@ public class PlayerTest {
     private Player testP;
     private Item testI;
     private Item testI2;
-    private RolesIntrerface r1;
+    private ActionsPlayer r1;
     private Cell testCell;
     @BeforeEach
     public void initAtt(){
