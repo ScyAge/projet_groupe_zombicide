@@ -160,9 +160,12 @@ public class Weapon extends Item {
 		int X= random.nextInt(6);
 		if(X>= this.threshold) {
 			if(this.noisy) {
-				targetZ.getCurrentCell().setNoise(2);
+				player.getCurrentCell().setNoise(player.getCurrentCell().getNoise()+1);
 			}
-			targetZ.takeDamage(this.getDamage());;
+			targetZ.takeDamage(this.getDamage());
+			if(targetZ.isDead()) {
+				player.UpOneExpertiseLevel();
+			}
 		}
 	}
 	
