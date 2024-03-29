@@ -210,4 +210,9 @@ public class Player extends Actor{
 		}
 		
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Player : %d",this.id);
+	}
 }
