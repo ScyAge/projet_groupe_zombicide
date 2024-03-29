@@ -38,13 +38,6 @@ public class Player extends Actor{
 	}
 
 	/**
-	 * method that takes an action as parameter and executes the specified action (action not implement for the moment so nothing in parametter
-	 */
-	public void action(){
-
-	}
-
-	/**
 	 * gives the player's expertise level
 	 * @return expertiseLevel
 	 * */
@@ -173,25 +166,7 @@ public class Player extends Actor{
 		return this.roles.get(index);
 	}
 
-	/**
-	 * method that allows survivor to perform a SpecialAction related to its roles. If he has no role,
-	 * he does nothing; if he has only one, he executes the action; if he has more than one,
-	 * the role_number parameter lets him choose which action to use.
-	 * @param role_number number represent which of is roles the survivor want to use
-	 * @throws IndexOutOfBoundsException if role_number is in the range 0,size of the list roles
-	 */
-	public void actionSpecial(int role_number) throws IndexOutOfBoundsException{
 
-		int size = this.roles.size();
-		if(size ==1){
-			this.roles.get(0).action(this);
-		} else if (size >1) {
-			if((role_number > size)||(role_number < 0)){
-				throw new IndexOutOfBoundsException("choose a role number between 0 and"+(size-1));
-			}
-			this.roles.get(role_number).action(this);
-		}
-	}
 
 	/**
 	 * player take damage if is hp are below 0 so if is dead all is item in the backpack and in is hand drop in the cell
@@ -209,5 +184,10 @@ public class Player extends Actor{
 			this.Dead();
 		}
 		
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Player : %d",this.id);
 	}
 }

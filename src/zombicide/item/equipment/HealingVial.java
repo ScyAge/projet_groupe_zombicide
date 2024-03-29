@@ -22,8 +22,7 @@ public class HealingVial extends Equipment{
 	 */
 	public void ItemEffect(Player player) {
 		super.ItemEffect(player);
-		int lifepoints= player.getLifePoints();
-		player.setLifePoints(lifepoints+1);
+		player.setLifePoints(1);
 	}
 
 	/**
