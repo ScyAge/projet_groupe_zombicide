@@ -1,8 +1,8 @@
 package zombicide.actor.zombie;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -41,11 +41,11 @@ public class ZombiesTest {
     	assertEquals(1000, z.getLifePoints());
     	z.takeDamage(100);
     	assertEquals(900, z.getLifePoints());
-    	z.setLifePoints(910);
+    	z.setLifePoints(10);
     	assertEquals(910, z.getLifePoints());
-    	z.setLifePoints(1001);
+    	z.setLifePoints(91);
     	assertEquals(1000, z.getLifePoints());
-    	z.setLifePoints(-8);
+    	z.takeDamage(1000);
     	assertEquals(0, z.getLifePoints());
     	assertTrue(z.isDead());
     }
