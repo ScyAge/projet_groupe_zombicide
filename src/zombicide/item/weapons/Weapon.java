@@ -26,6 +26,7 @@ public class Weapon extends Item {
 	private int damage;
 	private boolean noisy;
 	private Board board;
+	private ListChooser<Zombies> chooser;
 	
 	/**
 	 * Builder of the weapons
@@ -42,6 +43,26 @@ public class Weapon extends Item {
 		this.threshold = threshold;
 		this.noisy = noisy;
 		this.board =board ;
+		this.chooser = new InteractiveListChooser<>();
+	}
+	
+	/**
+	 * Builder of the weapons
+	 * @param title of the item
+	 * @param range of the weapons
+	 * @param damage of the weapons
+	 * @param threshold of the weapons
+	 * @param breakDoor  can break door or not
+	 * @param chooser the listchooser to choose the zombies who you want
+	 */
+	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy,Board board,ListChooser<Zombies> chooser) {
+		super(title, breakDoor);
+		this.damage =damage;
+		this.range =range;
+		this.threshold = threshold;
+		this.noisy = noisy;
+		this.board =board ;
+		this.chooser = chooser;
 	}
 	
 	
@@ -127,8 +148,7 @@ public class Weapon extends Item {
 	 * */
 	public void ItemEffect(Player player) {
 		List<Zombies> zombies= WhoCanAttack(player);
-		ListChooser<Zombies> listChooser = new InteractiveListChooser<>();
-		Zombies targetZ= listChooser.choose("choose the zombie: ", zombies);
+		Zombies targetZ= this.chooser.choose("choose the zombie: ", zombies);
 		targetZ.getCurrentCell().setNoise(2);
 		targetZ.setLifePoints(targetZ.getLifePoints()- this.damage);
 	}
