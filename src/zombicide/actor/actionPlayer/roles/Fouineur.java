@@ -1,11 +1,12 @@
-package zombicide.actor.player.roles;
+package zombicide.actor.actionPlayer.roles;
 
+import zombicide.actor.actionPlayer.ActionsPlayer;
 import zombicide.actor.player.Player;
 
 /**
  * Class Fouineur
  */
-public class Fouineur implements RolesIntrerface {
+public class Fouineur implements ActionsPlayer {
 	
 	/**
 	 * Builder of Fouineur

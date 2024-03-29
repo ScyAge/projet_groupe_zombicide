@@ -3,7 +3,8 @@ package zombicide.actor.player;
 import java.util.*;
 
 import zombicide.actor.Actor;
-import zombicide.actor.player.roles.RolesIntrerface;
+import zombicide.actor.actionPlayer.ActionsPlayer;
+import zombicide.actor.actionPlayer.roles.RolesIntrerface;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.*;
 import zombicide.cell.*;
@@ -19,7 +20,7 @@ public class Player extends Actor{
 	private int backPackSize;
 	private  Item itemInHand;
 	private int expertiseLevel;
-	private List<RolesIntrerface> roles;
+	private List<ActionsPlayer> roles;
 
 	/**
 	 * Builder of Player class
@@ -159,7 +160,7 @@ public class Player extends Actor{
 	 * method for adding a role to a player
 	 * @param role the role you want to add
 	 */
-	public void setRoles(RolesIntrerface role) {
+	public void setRoles(ActionsPlayer role) {
 		this.roles.add(role);
 	}
 
@@ -168,7 +169,7 @@ public class Player extends Actor{
 	 * @param index the index of the role you want
 	 * @return Roles the role returned
 	 */
-	public RolesIntrerface getRoles(int index){
+	public ActionsPlayer getRoles(int index){
 		return this.roles.get(index);
 	}
 

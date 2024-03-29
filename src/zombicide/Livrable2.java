@@ -1,10 +1,12 @@
 package zombicide;
 
+import zombicide.actor.actionPlayer.ActionsPlayer;
+import zombicide.actor.actionPlayer.roles.*;
 import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.actor.player.*;
 import zombicide.actor.zombie.*;
-import zombicide.actor.player.roles.*;
+import zombicide.actor.actionPlayer.roles.*;
 import zombicide.item.*;
 import zombicide.item.equipment.*;
 import zombicide.util.Direction;
@@ -28,10 +30,10 @@ public class Livrable2 {
 		Player p2 = new Player(5,test.getCellBoard(2, 2),2,6);
 		Player p3 = new Player(5,test.getCellBoard(2, 2),3,6);
 		Player p4 = new Player(5,test.getCellBoard(2, 2),4,6);
-		RolesIntrerface Chanceux = new Chanceux();
-		RolesIntrerface Combattant = new Combattant();
-		RolesIntrerface Fouineur = new Fouineur();
-		RolesIntrerface Soigneur = new Soigneur();
+		ActionsPlayer Chanceux = new Chanceux();
+		ActionsPlayer Combattant = new Combattant();
+		ActionsPlayer Fouineur = new Fouineur();
+		ActionsPlayer Soigneur = new Soigneur();
 		p1.setRoles(Chanceux);
 		p2.setRoles(Combattant);
 		p3.setRoles(Fouineur);
