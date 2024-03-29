@@ -137,7 +137,6 @@ public class Weapon extends Item {
 					c = this.board.getCellBoard(c.getX()-1, c.getY());
 				}
 			}
-			
 		}
 		return z;
 	}
