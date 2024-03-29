@@ -159,8 +159,10 @@ public class Weapon extends Item {
 		Random random = new Random() ;
 		int X= random.nextInt(6);
 		if(X>= this.threshold) {
-			targetZ.getCurrentCell().setNoise(2);
-			targetZ.setLifePoints(targetZ.getLifePoints()- this.damage);
+			if(this.noisy) {
+				targetZ.getCurrentCell().setNoise(2);
+			}
+			targetZ.takeDamage(this.getDamage());;
 		}
 	}
 	

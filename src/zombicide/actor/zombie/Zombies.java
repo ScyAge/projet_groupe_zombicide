@@ -28,6 +28,18 @@ public  class Zombies extends Actor {
 	}
 	
 	/**
+	 * actor take damage
+	 * @param damage taken by the actor
+	 */
+	public void takeDamage(int damage) {
+
+		this.lifePoints -= damage;
+		if(this.lifePoints <= 0){
+			this.isDead = true;
+			this.Dead();
+		}
+	}
+	/**
 	 * remove the zombie to the cell
 	 */
 	public void Dead() {
