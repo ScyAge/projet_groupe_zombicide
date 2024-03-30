@@ -27,6 +27,7 @@ public class Weapon extends Item {
 	private int damage;
 	private boolean noisy;
 	private Board board;
+	private int nbDice;
 	private ListChooser<Zombies> chooser;
 	
 	
@@ -39,13 +40,14 @@ public class Weapon extends Item {
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not
 	 */
-	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy,Board board) {
+	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy,Board board, int nbDice) {
 		super(title, breakDoor);
 		this.damage =damage;
 		this.range =range;
 		this.threshold = threshold;
 		this.noisy = noisy;
 		this.board =board ;
+		this.nbDice= nbDice;
 		this.chooser = new InteractiveListChooser<>();
 	}
 	
@@ -58,13 +60,14 @@ public class Weapon extends Item {
 	 * @param breakDoor  can break door or not
 	 * @param chooser the listchooser to choose the zombies who you want
 	 */
-	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy,Board board,ListChooser<Zombies> chooser) {
+	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy,Board board, int nbDice,ListChooser<Zombies> chooser) {
 		super(title, breakDoor);
 		this.damage =damage;
 		this.range =range;
 		this.threshold = threshold;
 		this.noisy = noisy;
 		this.board =board ;
+		this.nbDice= nbDice;
 		this.chooser = chooser;
 	}
 	
@@ -93,7 +96,12 @@ public class Weapon extends Item {
 		return this.damage;
 	}
 
-	
+	/**
+	 * gives the number of dices 
+	 * @return nbDice number of dices that a weapon allows to do */
+	public int getNbDice() {
+		return this.nbDice;
+	}
 	/**
 	 * */
 	public void Used() {
