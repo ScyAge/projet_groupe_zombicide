@@ -70,5 +70,9 @@ public class Chanceux implements ActionsPlayer {
 				System.out.println("attack failed");
 			}
 		}
+		if(w.isNoisy()){
+			Cell c = p.getCurrentCell();
+			c.setNoise(c.getNoise() + 1);
+		}
 	}
 }
