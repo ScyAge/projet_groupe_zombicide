@@ -34,11 +34,14 @@ public class Weapon extends Item {
 	
 	/**
 	 * Builder of the weapons
-	 * @param title of the item
+	 * @param title of the weapons
 	 * @param range of the weapons
 	 * @param damage of the weapons
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not
+	 * @param noisy if the weapon is noisy
+	 * @param board of the weapons
+	 * @param nbDice of the weapon
 	 */
 	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy,Board board, int nbDice) {
 		super(title, breakDoor);
@@ -58,6 +61,9 @@ public class Weapon extends Item {
 	 * @param damage of the weapons
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not
+	 * @param noisy if the weapon is noisy
+	 * @param board of the weapons
+	 * @param nbDice of the weapon
 	 * @param chooser the listchooser to choose the zombies who you want
 	 */
 	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy,Board board, int nbDice,ListChooser<Zombies> chooser) {

@@ -23,18 +23,22 @@ public class Gun extends Weapon{
      */
     private final static int Threshold_Gun = 4;
     /**
-     * constant breakDoor of axe
+     * constant breakDoor of Gun
      */
     private final static boolean BreakDoor_Gun = false;
     /**
-     * constant noisy of axe
+     * constant noisy of Gun
      */
     private final static boolean Noisy_Gun = true;
+    /**
+     * constant nbDice of Gun
+     */
+    private final static int nbDice_Gun = 1;
     
     /**
      * Builder of Gun
      */
     public Gun(Board board){
-        super(Name_Gun, Range_Gun, Damage_Gun, Threshold_Gun, BreakDoor_Gun, Noisy_Gun, board);
+        super(Name_Gun, Range_Gun, Damage_Gun, Threshold_Gun, BreakDoor_Gun, Noisy_Gun, board, nbDice_Gun);
     }
 }

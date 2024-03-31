@@ -31,9 +31,13 @@ public class Axe extends Weapon{
      */
     private final static boolean Noisy_Axe = false;
     /**
+     * constant nbDice of axe
+     */
+    private final static int nbDice_Axe = 1;
+    /**
      * Builder of Axe
      */
     public Axe(Board board){
-        super(Name_Axe, Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, board);
+        super(Name_Axe, Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, board, nbDice_Axe);
     }
 }

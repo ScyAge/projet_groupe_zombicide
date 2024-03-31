@@ -25,17 +25,21 @@ public class Carabine extends Weapon{
      */
     private final static int Threshold_Carabine = 4;
     /**
-     * constant breakDoor of axe
+     * constant breakDoor of Carabine
      */
     private final static boolean BreakDoor_Carabine = false;
     /**
-     * constant noisy of axe
+     * constant noisy of Carabine
      */
     private final static boolean Noisy_Carabine = true;
+    /**
+     * constant nbDice of Carabine
+     */
+    private final static int nbDice_Carabine = 2;
     /**
      * Builder of Carabine
      */
     public Carabine(Board board){
-        super(Name_Carabine, Range_Carabine, Damage_Carabine, Threshold_Carabine, BreakDoor_Carabine, Noisy_Carabine, board);
+        super(Name_Carabine, Range_Carabine, Damage_Carabine, Threshold_Carabine, BreakDoor_Carabine, Noisy_Carabine, board, nbDice_Carabine);
     }
 }

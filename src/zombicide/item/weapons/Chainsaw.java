@@ -23,17 +23,21 @@ public class Chainsaw extends Weapon{
      */
     private final static int Threshold_Chainsaw = 5;
     /**
-     * constant breakDoor of axe
+     * constant breakDoor of chainsaw
      */
     private final static boolean BreakDoor_Chainsaw = true;
     /**
-     * constant noisy of axe
+     * constant noisy of chainsaw
      */
     private final static boolean Noisy_Chainsaw = true;
+    /**
+     * constant nbDice of chainsaw
+     */
+    private final static int nbDice_Chainsaw = 2;
     /**
      * Builder of Chainsaw
      */
     public Chainsaw(Board board){
-        super(Name_Chainsaw, Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, board);
+        super(Name_Chainsaw, Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, board, nbDice_Chainsaw);
     }
 }
