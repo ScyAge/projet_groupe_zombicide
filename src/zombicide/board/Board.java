@@ -404,4 +404,46 @@ public class Board {
 		}
 		return x;
 	}
+
+	/**
+	 * return true if the zombie is on the same line that the player
+	 * @param player the player
+	 * @param zombie the zombie
+	 * @return true if the zombie is on the same line that the player
+	 */
+	public boolean zombieIsOnSameLine(Player player, Zombies zombie){
+		Cell playerCell = player.getCurrentCell();
+		Cell zombieCell = zombie.getCurrentCell();
+		int playerX = playerCell.getX();
+		int playerY = playerCell.getY();
+		int zombieX = zombieCell.getX();
+		int zombieY = zombieCell.getY();
+
+		if (playerX == zombieX || playerY == zombieY){
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * return the direction between two cells
+	 * @param cell1 cell1
+	 * @param cell2 cell2
+	 * @return the direction between two cells
+	 */
+	private Direction getDirectionBetweenCells(Cell cell1, Cell cell2) {
+		int dx = cell2.getX() - cell1.getX();
+		int dy = cell2.getY() - cell1.getY();
+
+		if (dx > 0) {
+			return Direction.East;
+		} else if (dx < 0) {
+			return Direction.West;
+		} else if (dy > 0) {
+			return Direction.South;
+		} else {
+			return Direction.North;
+		}
+	}
+
 }
