@@ -446,4 +446,63 @@ public class Board {
 		}
 	}
 
+	/**
+	 * return true if the doors are open between two cell
+	 * @param cell1 cell 1
+	 * @param cell2 cell 2
+	 * @return true if the doors are open between two cell
+	 */
+	public boolean checkOpenDoorsBetweenCells(Cell cell1, Cell cell2) {
+		int playerX = cell1.getX();
+		int playerY = cell1.getY();
+		int zombieX = cell2.getX();
+		int zombieY = cell2.getY();
+
+		Direction direction = getDirectionBetweenCells(cell1, cell2);
+		int minY = Math.min(playerY, zombieY);
+		int maxY = Math.max(playerY, zombieY);
+		int minX = Math.min(playerX, zombieX);
+		int maxX = Math.max(playerX, zombieX);
+
+
+		if (direction == Direction.North) {
+			for (int y = maxY; y > minY; y--) {
+				Door door = this.board[playerX][y].getDoor(Direction.North);
+				if (door != null && !door.isBreak()) {
+					return false;
+				}
+			}
+			return true;
+		}
+		else if (direction == Direction.South) {
+			for (int y = minY; y < maxY; y++) {
+				Door door = this.board[playerX][y].getDoor(Direction.South);
+				if (door != null && !door.isBreak()) {
+					return false;
+				}
+			}
+			return true;
+
+		} else if (direction == Direction.East) {
+			for (int x = minX; x < maxX; x++) {
+				Door door = this.board[x][playerY].getDoor(Direction.East);
+				if (door != null && !door.isBreak()) {
+					return false;
+				}
+			}
+			return true;
+
+		} else if (direction == Direction.West) {
+			for (int x = maxX; x > minX; x--) {
+				Door door = this.board[x][playerY].getDoor(Direction.South);
+				if (door != null && !door.isBreak()) {
+					return false;
+				}
+			}
+			return true;
+
+		} else {
+			return false;
+		}
+	}
 }
