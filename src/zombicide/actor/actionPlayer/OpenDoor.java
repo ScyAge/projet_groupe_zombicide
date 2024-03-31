@@ -8,6 +8,7 @@ import zombicide.actor.player.Player;
 import zombicide.actor.zombie.*;
 import zombicide.cell.Cell;
 import zombicide.item.Item;
+import zombicide.item.weapons.Weapon;
 import zombicide.util.Direction;
 import zombicide.util.Door;
 import zombicide.util.listchooser.*;
@@ -40,7 +41,7 @@ public class OpenDoor implements ActionsPlayer {
 	public void action(Player p) {
 		Item item= p.getItemInHand();
 		Cell c= p.getCurrentCell();
-		if( item.getBreakDoor()) {
+		if(item != null && item.getBreakDoor()) {
 			System.out.println("enter the Direction of the door you want to open");
 			
 			List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
@@ -51,6 +52,9 @@ public class OpenDoor implements ActionsPlayer {
 				Door doorToOpen= c.getDoor(targetD);
 				if(doorToOpen!=null) {
 					doorToOpen.SetNotBreakble();
+					if (item instanceof Weapon) {
+						c.setNoise(c.getNoise() + 1);
+					}
 					generateZombies(p);
 					System.out.println("Door opened in the "+ targetD + " direction");
 				}else {
