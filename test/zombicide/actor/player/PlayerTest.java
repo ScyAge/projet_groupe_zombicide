@@ -2,14 +2,22 @@ package zombicide.actor.player;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import zombicide.actor.actionPlayer.ActionsPlayer;
+import zombicide.actor.actionPlayer.*;
 import zombicide.actor.actionPlayer.roles.Combattant;
-import zombicide.actor.actionPlayer.roles.RolesIntrerface;
+import zombicide.actor.actionPlayer.roles.Fouineur;
+import zombicide.actor.zombie.Broom;
+import zombicide.actor.zombie.Zombies;
+import zombicide.board.Board;
+import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
 import zombicide.cell.Room;
 import zombicide.cell.Street;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.Item;
+import zombicide.item.weapons.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerTest {
     private Player testP;
@@ -24,7 +32,7 @@ public class PlayerTest {
         this.testCell.addPlayers(this.testP);
         this.testI = new Item("Test", true);
         this.testI2 = new Item("Test2", true);
-        this.r1 = new Combattant();
+        this.r1 = new Fouineur();
     }
 
     @Test
@@ -160,6 +168,49 @@ public class PlayerTest {
     public void TestGetIdf(){
         assertEquals(this.testP.getId(),1);
     }
+
+    @Test
+    public void TestgetActionOfThePlayer(){
+        //creation of a board
+        Board b = new TrainingBoard();
+        //creation of a list with all the Actions
+        List<ActionsPlayer> actions = new ArrayList<>();
+        ActionsPlayer a1 =new Move(b);
+        ActionsPlayer a2 =new TakeInHandAction();
+        ActionsPlayer a3 =new SearchInTRoomAction();
+        ActionsPlayer a4 =new OpenDoor();
+        ActionsPlayer a5 = new LookAround();
+        ActionsPlayer a6 =new MakeNoise();
+        ActionsPlayer a7 =new Attack(b);
+
+        actions.add(a1);
+        actions.add(a2);
+        actions.add(a3);
+        actions.add(a4);
+        actions.add(a5);
+        actions.add(a6);
+        actions.add(a7);
+
+        //creation of a player
+        Player p = new Player(3,b.getCellBoard(1,1),3,5,actions);
+
+        //no item in room no zombie no item in backpack and no door are break so these action can't be in the list and its a room
+        List<ActionsPlayer> actionsPlayers = p.getActionOfThePlayer();
+        assertFalse(actionsPlayers.contains(a1));
+        assertFalse(actionsPlayers.contains(a2));
+        assertFalse(actionsPlayers.contains(a3));
+        assertFalse(actionsPlayers.contains(a7));
+
+        //if the room contain a zombie and an item the actione SearchInRoom and attack are here
+        b.getCellBoard(1,1).addZombies(new Broom(b.getCellBoard(1,1),1));
+        b.getCellBoard(1,1).addItem(new Axe(b));
+        List<ActionsPlayer> actionsPlayers2 = p.getActionOfThePlayer();
+        assertTrue(actionsPlayers2.contains(a3));
+        assertTrue(actionsPlayers2.contains(a7));
+
+    }
+
+
 
 
 
