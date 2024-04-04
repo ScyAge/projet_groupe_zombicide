@@ -71,7 +71,7 @@ public class OpenDoor implements ActionsPlayer {
 	
 	/**
 	 * generates randomly zombies and special zombies 
-	 * @param player who's opening the door*/
+	 * @param p player who's opening the door*/
 	private void generateZombies(Player p) {
 		Cell c= p.getCurrentCell();
 		Random random= new Random();
@@ -94,8 +94,10 @@ public class OpenDoor implements ActionsPlayer {
 				break;
 		}
 	}
-	
-	
-	
 
+	@Override
+	public boolean IsActionPlayable(Player p) {
+		Cell c = p.getCurrentCell();
+		return p.getItemInHand().getBreakDoor() && (!c.getDoor(Direction.North).isBreak() ||!c.getDoor(Direction.South).isBreak() ||!c.getDoor(Direction.East).isBreak() ||!c.getDoor(Direction.West).isBreak());
+	}
 }
