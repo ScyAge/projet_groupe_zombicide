@@ -7,7 +7,7 @@ import zombicide.cell.Cell;
 /**
  * class Equipment
  */
-public abstract class  Equipment extends Item {
+public class  Equipment extends Item {
 
 	
 	/**
@@ -29,12 +29,13 @@ public abstract class  Equipment extends Item {
 			c.setNoise(c.getNoise()+1);
 		}
 	}
+	
+	@Override
+	public boolean isNoisy() {
+		return false;
+	}
 
-	/**
-	 * return true if the equipment is noisy else false
-	 * @return true if the equipment is noisy else false
-	 */
-	public abstract boolean isNoisy();
+
 
 
 }

@@ -6,7 +6,7 @@ import zombicide.cell.Cell;
 /**
  * Class Item
  */
-public class Item {
+public abstract class Item {
 	
 	/** Param of item */
 	private String title ;
@@ -92,6 +92,13 @@ public class Item {
 	public void NotUsed() {
 		this.Use =false;
 	}
+	
+	/**
+	 * return true if the equipment is noisy else false
+	 * @return true if the equipment is noisy else false
+	 */
+	public abstract boolean isNoisy();
+	
 
 	@Override
 	public String toString() {
