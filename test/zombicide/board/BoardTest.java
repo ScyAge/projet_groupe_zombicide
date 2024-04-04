@@ -98,5 +98,13 @@ public class BoardTest {
 
 	}
     
+    @Test
+	public void testGetDirectionBetweenCells() {
+		assertEquals(Direction.South, board.getDirectionBetweenCells(board.getCellBoard(1,1), board.getCellBoard(1,4)));
+		assertEquals(Direction.East, board.getDirectionBetweenCells(board.getCellBoard(1,1), board.getCellBoard(4,1)));
+		assertEquals(Direction.West, board.getDirectionBetweenCells(board.getCellBoard(3,1), board.getCellBoard(0,1)));
+		assertEquals(Direction.North, board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(3,1)));
+	}
+    
 
 }

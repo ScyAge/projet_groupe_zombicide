@@ -431,7 +431,7 @@ public class Board {
 	 * @param cell2 cell2
 	 * @return the direction between two cells
 	 */
-	private Direction getDirectionBetweenCells(Cell cell1, Cell cell2) {
+	public Direction getDirectionBetweenCells(Cell cell1, Cell cell2) {
 		int dx = cell2.getX() - cell1.getX();
 		int dy = cell2.getY() - cell1.getY();
 
