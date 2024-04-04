@@ -34,12 +34,13 @@ public class AttackTest {
 	@Test
 	public void testAction() {
 		a.action(p);
+		int noise = p.getCurrentCell().getNoise();
 		assertEquals(z.getLifePoints() ,1000);
 		p.putItemInBackPack(w);
 		t.action(p);
 		a.action(p);
 		assertEquals(z.getLifePoints(),998);
-		assertEquals(p.getCurrentCell().getNoise(),2);
+		assertEquals(noise+1,p.getCurrentCell().getNoise());
 	}
     @Test
     public void testWhoCanAttack() {
