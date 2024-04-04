@@ -38,6 +38,6 @@ public class Axe extends Weapon{
      * Builder of Axe
      */
     public Axe(Board board){
-        super(Name_Axe, Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, board, nbDice_Axe);
+        super(Name_Axe, Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, nbDice_Axe);
     }
 }

@@ -38,6 +38,6 @@ public class Chainsaw extends Weapon{
      * Builder of Chainsaw
      */
     public Chainsaw(Board board){
-        super(Name_Chainsaw, Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, board, nbDice_Chainsaw);
+        super(Name_Chainsaw, Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, nbDice_Chainsaw);
     }
 }

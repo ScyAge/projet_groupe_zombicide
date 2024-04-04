@@ -20,71 +20,101 @@ public class Attack implements ActionsPlayer{
 	 * param 
 	 */
 	private ListChooser<Zombies> chooser;
-	
+	private Board board;
 	/**
 	 * Builder of Attack with ListChooser in param to test
 	 * @param chooser the listchooser of the action
 	 */
-	public Attack(ListChooser<Zombies> chooser) {
+	public Attack(ListChooser<Zombies> chooser,Board board) {
 		this.chooser = chooser;
+		this.board = board ;
 	}
 	
 	
 	/**
 	 * Builder of Attack
 	 */
-	public Attack() {
+	public Attack(Board board) {
 		this.chooser = new InteractiveListChooser<>();
+		this.board = board ;
 	}
 	
+	/**
+	 * take zombie who can attack
+	 * @param player
+	 * @param w
+	 * @return list of zombie who can attack
+	 */
+	public List<Zombies> WhoCanAttack(Player player,Weapon w){
+		List<Zombies> z = new ArrayList<>();
+		Cell c;
+		int i;
+		z.addAll(player.getCurrentCell().getAllZombies());
+		for(Direction D : Direction.values()) {
+			c = player.getCurrentCell();
+			i=0;
+			if( D == Direction.West) {
+				while(c.getDoor(D).isBreak() && c.getY() - i>0 && i < w.getRange()) {
+					c = this.board.getCellBoard(c.getX(), c.getY()-1);
+					z.addAll(c.getAllZombies());
+					i+=1;
+				}
+			}
+			if( D == Direction.East) {
+				while(c.getDoor(D).isBreak() && c.getY()+i< this.board.getBoard()[0].length && i < w.getRange()) {
+					c = this.board.getCellBoard(c.getX(), c.getY()+1);
+					z.addAll(c.getAllZombies());
+					i+=1;
+				}
+			}
+			if( D == Direction.South) {
+				while(c.getDoor(D).isBreak() && i+c.getX()< this.board.getBoard().length&&i < w.getRange()) {
+					c = this.board.getCellBoard(c.getX()+1, c.getY());
+					z.addAll(c.getAllZombies());
+					i+=1;
+				}
+			}
+			if( D == Direction.North) {
+				while(c.getDoor(D).isBreak() && c.getX()-i> 0 && i < w.getRange()) {
+					c = this.board.getCellBoard(c.getX()-1, c.getY());
+					z.addAll(c.getAllZombies());
+					i+=1;
+				}
+			}
+		}
+		return z;
+	}
 	
 	/**
 	 * player attack zombies
 	 * @param p player who attack a zombie
 	 */
 	public void action(Player p) {
-		Cell c= p.getCurrentCell();
-		Zombies z= chooser.choose("pick a zombie to attack : ", c.getAllZombies());
-		attackZombie(p,z);
-	}
-	
-	/*private List<Zombies> zombiesInTheCell(Cell c) {
-		List<Zombies> zombiesId= new ArrayList<>();
- 		if( c.getAllZombies()!=null) {
-			for(Zombies z: c.getAllZombies()) {
-				zombiesId.add(z.getId());
-			}
-		}
-		return zombiesId;
-	}
-	*/
-	
-	/**
-	 * attacks the zombie by the given player
-	 * @param p player that's going to attack
-	 * @param z the zombie that's being attacked
-	 * */
-	private void attackZombie(Player p, Zombies z) {
-		Weapon w= (Weapon) p.getItemInHand();
-		
-		Random random= new Random();
-		for(int i=0; i<w.getNbDice(); i++) {
-			int dice= random.nextInt(6)+1;
-			
-			if(dice>=w.getThreshold()) {
-				z.takeDamage(w.getDamage());
-				
-				if(z.isDead()) {
-					p.UpOneExpertiseLevel();
+		if(p.getItemInHand() != null) {
+			if(p.getItemInHand().cantAttack()) {
+				Weapon w = (Weapon) p.getItemInHand();
+				int nbDice = w.getNbDice();
+				List<Zombies> zombies= WhoCanAttack(p,w);
+				Zombies targetZ= this.chooser.choose("choose the zombie: ", zombies);
+				Random random = new Random() ;
+				int X= random.nextInt(6);
+				while(X< w.getThreshold()&& nbDice-->1  ) {
+					X= random.nextInt(6);
 				}
-			}else {
-				System.out.println("attack failed");
+				if(X>= w.getThreshold()) {
+					if(w.isNoisy()) {
+						p.getCurrentCell().setNoise(p.getCurrentCell().getNoise()+1);
+					}
+					targetZ.takeDamage(w.getDamage());
+					if(targetZ.isDead()) {
+						p.UpOneExpertiseLevel();
+					}
+				}
 			}
 		}
-		if(w.isNoisy()){
-			Cell c = p.getCurrentCell();
-			c.setNoise(c.getNoise() + 1);
-		}
+		Cell c= p.getCurrentCell();
+		
 	}
+
 	
 }

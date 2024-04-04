@@ -54,6 +54,15 @@ public class Item {
 	}
 	
 	/**
+	 * Item can attack or not
+	 * @return if it can attack
+	 */
+	public boolean cantAttack(){
+		return false;
+	}
+	
+	
+	/**
 	 * says whether the weapon breaks a door or not
 	 * @return boolean
 	 *   */

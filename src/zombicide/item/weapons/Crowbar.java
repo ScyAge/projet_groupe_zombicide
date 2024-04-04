@@ -38,6 +38,6 @@ public class Crowbar extends Weapon{
      * Builder of Crowbar
      */
     public Crowbar(Board board){
-        super(Name_Crowbar, Range_Crowbar, Damage_Crowbar, Threshold_Crowbar, BreakDoor_Crowbar, Noisy_Crowbar, board, nbDice_Crowbar);
+        super(Name_Crowbar, Range_Crowbar, Damage_Crowbar, Threshold_Crowbar, BreakDoor_Crowbar, Noisy_Crowbar, nbDice_Crowbar);
     }
 }

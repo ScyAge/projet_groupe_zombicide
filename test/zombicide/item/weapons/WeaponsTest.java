@@ -24,12 +24,12 @@ public class WeaponsTest {
 	@BeforeEach
     void setUp() {
     	b= new Board(5,5);
-		w = new Weapon("gun",1,1,4,false,true,b,2);
+		w = new Weapon("gun",1,1,4,false,true,2);
 		z = new Gigantomachia(b.getCellBoard(2, 2),1);
 		p= new Player(5,b.getCellBoard(2, 2),1,1);
 		b.getCellBoard(2, 2).addZombies(z);
 		b.getCellBoard(2, 2).addPlayers(p);
-		wTest = new Weapon("gun",4,2,0,false,true,b,2,new RandomListChooser<>());
+
     }
     
     @Test
@@ -41,21 +41,7 @@ public class WeaponsTest {
         assertFalse(w.getBreakDoor());
         assertFalse(w.isUsed());
     }
-    
-    @Test
-    public void testWhoCanAttack() {
-        assertSame(w.WhoCanAttack(p).get(0), z);
-        assertEquals(1, w.WhoCanAttack(p).size());
-    }
-    
-    @Test
-    public void testItemEffect() {
-		int noise = p.getCurrentCell().getNoise();
-        assertEquals(1000, z.getLifePoints());
-    	wTest.ItemEffect(p);
-        assertEquals(998, z.getLifePoints());
-        assertEquals(noise+1, p.getCurrentCell().getNoise());
-    }
+
     
     
 }
