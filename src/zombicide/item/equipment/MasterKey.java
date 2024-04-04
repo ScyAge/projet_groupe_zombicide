@@ -50,8 +50,7 @@ public class MasterKey extends Equipment {
 		System.out.println("enter the Direction of the door you want to open");
 		
 		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
-		ListChooser<Direction> listChooser = new InteractiveListChooser<>();
-		Direction targetD= listChooser.choose("choose a direction: ", directions);
+		Direction targetD= chooser.choose("choose a direction: ", directions);
 		
 		if(targetD != null) {
 			Door doorToOpen= cell.getDoor(targetD);
