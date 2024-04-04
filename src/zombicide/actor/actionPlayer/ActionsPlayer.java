@@ -13,6 +13,7 @@ public interface ActionsPlayer {
 	 * @param p player who use  the action
 	 */
 	public void action(Player p);
-	
+
+	public boolean IsActionPlayable(Player p);
 	
 }

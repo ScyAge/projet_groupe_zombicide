@@ -46,5 +46,8 @@ public class TakeInHandAction implements ActionsPlayer {
  		 p.setAction_points(actionPoints-1);
     }
 
-	
+    @Override
+    public boolean IsActionPlayable(Player p) {
+        return  !p.getBackPack().isEmpty();
+    }
 }

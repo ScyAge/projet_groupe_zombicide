@@ -41,4 +41,16 @@ public class Soigneur implements ActionsPlayer {
 		Player pToHeal = this.chooser.choose("Choose a player to heal",playersToHeal);
 		pToHeal.setLifePoints(1);
     }
+
+	@Override
+	public boolean IsActionPlayable(Player p) {
+		List<Player> playersToHeal = new ArrayList<>();
+		for(Player pl :p.getCurrentCell().getAllPlayers()) {
+			if (pl.getLifePoints() < pl.getMaxLifePoint()) {
+				playersToHeal.add(pl);
+			}
+		}
+		return !playersToHeal.isEmpty();
+	}
+
 }

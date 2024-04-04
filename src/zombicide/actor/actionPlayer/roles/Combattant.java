@@ -3,8 +3,10 @@ package zombicide.actor.actionPlayer.roles;
 import java.util.Random;
 
 import zombicide.actor.actionPlayer.ActionsPlayer;
+import zombicide.actor.actionPlayer.Attack;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
+import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.item.weapons.Weapon;
 import zombicide.util.listchooser.InteractiveListChooser;
@@ -13,7 +15,7 @@ import zombicide.util.listchooser.ListChooser;
 /**
  * Class Combattant
  */
-public class Combattant implements ActionsPlayer {
+public class Combattant extends Attack implements ActionsPlayer {
 	
 	/**
 	 * param 
@@ -24,16 +26,16 @@ public class Combattant implements ActionsPlayer {
 	 * Builder of Combattant with ListChooser in param to test
 	 * @param chooser the listchooser of the action
 	 */
-	public Combattant(ListChooser<Zombies> chooser) {
-		this.chooser = chooser;
+	public Combattant(ListChooser<Zombies> chooser, Board b) {
+		super(chooser,b);
 	}
 	
 	
 	/**
 	 * Builder of Combattant
 	 */
-	public Combattant() {
-		this.chooser = new InteractiveListChooser<>();
+	public Combattant(Board b) {
+		super(b);
 	}
 	
     /**
@@ -74,4 +76,5 @@ public class Combattant implements ActionsPlayer {
 			c.setNoise(c.getNoise() + 1);
 		}
 	}
+
 }

@@ -47,5 +47,8 @@ public class SearchInTRoomAction implements ActionsPlayer {
 		p.setAction_points(actionPoints-1);
     }
 
-	
+    @Override
+    public boolean IsActionPlayable(Player p) {
+        return !p.getCurrentCell().getAllItems().isEmpty();
+    }
 }
