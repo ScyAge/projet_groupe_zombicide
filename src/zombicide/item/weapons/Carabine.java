@@ -15,10 +15,14 @@ public class Carabine extends Weapon{
     private final static String Name_Carabine = "carabine";
     
     /**
-     * constant range of Carabine
+     * constant range max of Carabine
      */
-    private final static int Range_Carabine = 3;
+    private final static int Max_Range_Carabine = 3;
     
+    /**
+     * constant range min of Carabine
+     */
+    private final static int Min_Range_Carabine = 1;
     /**
      * constant damage of Carabine
      */
@@ -48,6 +52,6 @@ public class Carabine extends Weapon{
      * Builder of Carabine
      */
     public Carabine(Board board){
-        super(Name_Carabine, Range_Carabine, Damage_Carabine, Threshold_Carabine, BreakDoor_Carabine, Noisy_Carabine, nbDice_Carabine);
+        super(Name_Carabine, Max_Range_Carabine,Min_Range_Carabine, Damage_Carabine, Threshold_Carabine, BreakDoor_Carabine, Noisy_Carabine, nbDice_Carabine);
     }
 }

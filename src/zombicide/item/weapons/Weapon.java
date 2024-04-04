@@ -23,10 +23,10 @@ public class Weapon extends Item {
 	 * Param of weapons
 	 */
 	private int threshold;
-	private int range;
+	private int rangeMax;
+	private int rangeMin;
 	private int damage;
 	private boolean noisy;
-	private Board board;
 	private int nbDice;
 	private ListChooser<Zombies> chooser;
 	
@@ -35,7 +35,7 @@ public class Weapon extends Item {
 	/**
 	 * Builder of the weapons
 	 * @param title of the weapons
-	 * @param range of the weapons
+	 * @param rangeMax of the weapons
 	 * @param damage of the weapons
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not
@@ -43,13 +43,13 @@ public class Weapon extends Item {
 	 * @param board of the weapons
 	 * @param nbDice of the weapon
 	 */
-	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice) {
+	public Weapon(String title,int rangeMax,int rangeMin,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice) {
 		super(title, breakDoor);
 		this.damage =damage;
-		this.range =range;
+		this.rangeMax =rangeMax;
+		this.rangeMin =rangeMin;
 		this.threshold = threshold;
 		this.noisy = noisy;
-		this.board =board ;
 		this.nbDice= nbDice;
 		this.chooser = new InteractiveListChooser<>();
 	}
@@ -66,13 +66,13 @@ public class Weapon extends Item {
 	 * @param nbDice of the weapon
 	 * @param chooser the listchooser to choose the zombies who you want
 	 */
-	public Weapon(String title,int range,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice,ListChooser<Zombies> chooser) {
+	public Weapon(String title,int rangeMax,int rangeMin,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice,ListChooser<Zombies> chooser) {
 		super(title, breakDoor);
 		this.damage =damage;
-		this.range =range;
+		this.rangeMax =rangeMax;
+		this.rangeMin =rangeMin;
 		this.threshold = threshold;
 		this.noisy = noisy;
-		this.board =board ;
 		this.nbDice= nbDice;
 		this.chooser = chooser;
 	}
@@ -97,7 +97,13 @@ public class Weapon extends Item {
 	 * @return range of the weapon 
 	 * */
 	public int getRange() {
-		return this.range;
+		return this.rangeMax;
+	}
+	/**gives the min range of the given weapon
+	 * @return min range of the weapon 
+	 * */
+	public int getMinRange() {
+		return this.rangeMin;
 	}
 
 	
@@ -136,12 +142,5 @@ public class Weapon extends Item {
 	
 	
 	
-	/**
-	 * realizes the item effect 
-	 * @param player who uses the equipment 
-	 * */
-	public void ItemEffect(Player player) {
-		
-	}
 	
 }

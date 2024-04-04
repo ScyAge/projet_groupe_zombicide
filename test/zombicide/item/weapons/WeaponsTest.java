@@ -24,7 +24,7 @@ public class WeaponsTest {
 	@BeforeEach
     void setUp() {
     	b= new Board(5,5);
-		w = new Weapon("gun",1,1,4,false,true,2);
+		w = new Weapon("gun",1,0,1,4,false,true,2);
 		z = new Gigantomachia(b.getCellBoard(2, 2),1);
 		p= new Player(5,b.getCellBoard(2, 2),1,1);
 		b.getCellBoard(2, 2).addZombies(z);

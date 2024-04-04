@@ -11,9 +11,13 @@ public class Axe extends Weapon{
      */
     private final static String Name_Axe = "axe";
     /**
-     * constant range of axe
+     * constant range max of axe
      */
-    private final static int Range_Axe = 0;
+    private final static int Max_Range_Axe = 0;
+    /**
+     * constant range max of axe
+     */
+    private final static int Min_Range_Axe = 0;
     /**
      * constant damage of axe
      */
@@ -38,6 +42,6 @@ public class Axe extends Weapon{
      * Builder of Axe
      */
     public Axe(Board board){
-        super(Name_Axe, Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, nbDice_Axe);
+        super(Name_Axe, Max_Range_Axe,Min_Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, nbDice_Axe);
     }
 }

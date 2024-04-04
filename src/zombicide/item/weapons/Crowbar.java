@@ -11,9 +11,13 @@ public class Crowbar extends Weapon{
      */
     private final static String Name_Crowbar = "crowbar";
     /**
-     * constant range of Chainsaw
+     * constant range max of Crowbar
      */
-    private final static int Range_Crowbar = 0;
+    private final static int Max_Range_Crowbar = 0;
+    /**
+     * constant range min of Crowbar
+     */
+    private final static int Min_Range_Crowbar = 0;
     /**
      * constant damage of Crowbar
      */
@@ -38,6 +42,6 @@ public class Crowbar extends Weapon{
      * Builder of Crowbar
      */
     public Crowbar(Board board){
-        super(Name_Crowbar, Range_Crowbar, Damage_Crowbar, Threshold_Crowbar, BreakDoor_Crowbar, Noisy_Crowbar, nbDice_Crowbar);
+        super(Name_Crowbar, Max_Range_Crowbar,Min_Range_Crowbar, Damage_Crowbar, Threshold_Crowbar, BreakDoor_Crowbar, Noisy_Crowbar, nbDice_Crowbar);
     }
 }

@@ -21,6 +21,8 @@ public class Attack implements ActionsPlayer{
 	 */
 	private ListChooser<Zombies> chooser;
 	private Board board;
+	
+	
 	/**
 	 * Builder of Attack with ListChooser in param to test
 	 * @param chooser the listchooser of the action
@@ -68,7 +70,7 @@ public class Attack implements ActionsPlayer{
 				}
 			}
 			if( D == Direction.South) {
-				while(c.getDoor(D).isBreak() && i+c.getX()< this.board.getBoard().length&&i < w.getRange()) {
+				while(c.getDoor(D).isBreak() && i+c.getX()< this.board.getBoard().length &&i < w.getRange()) {
 					c = this.board.getCellBoard(c.getX()+1, c.getY());
 					z.addAll(c.getAllZombies());
 					i+=1;
@@ -103,13 +105,15 @@ public class Attack implements ActionsPlayer{
 				}
 				if(X>= w.getThreshold()) {
 					if(w.isNoisy()) {
-						p.getCurrentCell().setNoise(p.getCurrentCell().getNoise()+1);
+						ActionsPlayer a = new MakeNoise();
+						a.action(p);
 					}
 					targetZ.takeDamage(w.getDamage());
 					if(targetZ.isDead()) {
 						p.UpOneExpertiseLevel();
 					}
 				}
+				p.setAction_points(p.getAction_points()-1);
 			}
 		}
 		Cell c= p.getCurrentCell();
