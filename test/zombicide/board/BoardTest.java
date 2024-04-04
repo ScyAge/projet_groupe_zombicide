@@ -82,6 +82,21 @@ public class BoardTest {
     	assertEquals(board.getCellBoard(1, 2),board.getCellDirection(d, p2));
     	assertEquals(null,board.getCellDirection(d, p1));
     }
+
+    @Test
+	public void testZombieIsOnSameLine() {
+		Player player1 = new Player(5,board.getCellBoard(0, 4),5,6);
+		Player player2 = new Player(5,board.getCellBoard(2, 1),5,6);
+		Zombies zombie1 = new Zombies(5,2,board.getCellBoard(0, 1),5,5);
+		Zombies zombie2 = new Zombies(5,2,board.getCellBoard(3, 2),5,5);
+
+		assertEquals(true, board.zombieIsOnSameLine(player1, zombie1));
+		assertEquals(true, board.zombieIsOnSameLine(player2, zombie1));
+
+		assertEquals(false, board.zombieIsOnSameLine(player1, zombie2));
+		assertEquals(false, board.zombieIsOnSameLine(player2, zombie2));
+
+	}
     
 
 }
