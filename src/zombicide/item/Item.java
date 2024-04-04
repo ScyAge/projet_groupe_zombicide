@@ -6,7 +6,7 @@ import zombicide.cell.Cell;
 /**
  * Class Item
  */
-public abstract class Item {
+public class Item {
 	
 	/** Param of item */
 	private String title ;
@@ -97,7 +97,9 @@ public abstract class Item {
 	 * return true if the equipment is noisy else false
 	 * @return true if the equipment is noisy else false
 	 */
-	public abstract boolean isNoisy();
+	public boolean isNoisy() {
+		return false;
+	}
 	
 
 	@Override
