@@ -4,12 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
-import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.cell.Room;
-import zombicide.item.weapons.Axe;
-import zombicide.item.weapons.Carabine;
-import zombicide.util.listchooser.RandomListChooser;
+
 
 
 public class MakeNoiseTest {
@@ -19,7 +16,7 @@ public class MakeNoiseTest {
     
     @BeforeEach
     public void init(){
-    	Board board = new Board(5,5);
+    	
         this.cell = new Room(3,3);
         this.p = new Player(3,this.cell,1,6);
         this.action=new MakeNoise();
