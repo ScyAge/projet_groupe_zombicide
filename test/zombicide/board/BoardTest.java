@@ -84,17 +84,12 @@ public class BoardTest {
     }
 
     @Test
-	public void testZombieIsOnSameLine() {
-		Player player1 = new Player(5,board.getCellBoard(0, 4),5,6);
-		Player player2 = new Player(5,board.getCellBoard(2, 1),5,6);
-		Zombies zombie1 = new Zombies(5,2,board.getCellBoard(0, 1),5,5);
-		Zombies zombie2 = new Zombies(5,2,board.getCellBoard(3, 2),5,5);
+	public void testCellIsOnSameLineOrColumn() {
+		assertEquals(true, board.cellIsOnSameLineOrColumn(board.getCellBoard(0, 4), board.getCellBoard(0, 1)));
+		assertEquals(true, board.cellIsOnSameLineOrColumn(board.getCellBoard(2, 1), board.getCellBoard(0, 1)));
 
-		assertEquals(true, board.zombieIsOnSameLine(player1, zombie1));
-		assertEquals(true, board.zombieIsOnSameLine(player2, zombie1));
-
-		assertEquals(false, board.zombieIsOnSameLine(player1, zombie2));
-		assertEquals(false, board.zombieIsOnSameLine(player2, zombie2));
+		assertEquals(false, board.cellIsOnSameLineOrColumn(board.getCellBoard(0, 4), board.getCellBoard(3, 2)));
+		assertEquals(false, board.cellIsOnSameLineOrColumn(board.getCellBoard(2, 1), board.getCellBoard(3, 2)));
 
 	}
     
@@ -104,6 +99,7 @@ public class BoardTest {
 		assertEquals(Direction.East, board.getDirectionBetweenCells(board.getCellBoard(1,1), board.getCellBoard(4,1)));
 		assertEquals(Direction.West, board.getDirectionBetweenCells(board.getCellBoard(3,1), board.getCellBoard(0,1)));
 		assertEquals(Direction.North, board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(3,1)));
+		assertEquals(null, board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(2,1)));
 	}
     
     @Test

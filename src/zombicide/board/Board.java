@@ -411,15 +411,13 @@ public class Board {
 	 * @param zombie the zombie
 	 * @return true if the zombie is on the same line that the player
 	 */
-	public boolean zombieIsOnSameLine(Player player, Zombies zombie){
-		Cell playerCell = player.getCurrentCell();
-		Cell zombieCell = zombie.getCurrentCell();
-		int playerX = playerCell.getX();
-		int playerY = playerCell.getY();
-		int zombieX = zombieCell.getX();
-		int zombieY = zombieCell.getY();
+	public boolean cellIsOnSameLineOrColumn(Cell cell1, Cell cell2){
+		int C1x = cell1.getX();
+		int C1y = cell1.getY();
+		int C2x = cell2.getX();
+		int C2y = cell2.getY();
 
-		if (playerX == zombieX || playerY == zombieY){
+		if (C1x == C2x || C1y == C2y){
 			return true;
 		}
 		return false;
@@ -432,18 +430,21 @@ public class Board {
 	 * @return the direction between two cells
 	 */
 	public Direction getDirectionBetweenCells(Cell cell1, Cell cell2) {
-		int dx = cell2.getX() - cell1.getX();
-		int dy = cell2.getY() - cell1.getY();
+		if(cellIsOnSameLineOrColumn(cell1, cell2)) {
+			int dx = cell2.getX() - cell1.getX();
+			int dy = cell2.getY() - cell1.getY();
 
-		if (dx > 0) {
-			return Direction.East;
-		} else if (dx < 0) {
-			return Direction.West;
-		} else if (dy > 0) {
-			return Direction.South;
-		} else {
-			return Direction.North;
+			if (dx > 0) {
+				return Direction.East;
+			} else if (dx < 0) {
+				return Direction.West;
+			} else if (dy > 0) {
+				return Direction.South;
+			} else {
+				return Direction.North;
+			}
 		}
+		return null;
 	}
 
 	/**
