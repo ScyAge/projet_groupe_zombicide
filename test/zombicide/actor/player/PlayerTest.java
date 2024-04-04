@@ -194,6 +194,8 @@ public class PlayerTest {
         //creation of a player
         Player p = new Player(3,b.getCellBoard(1,1),3,5,actions);
 
+        assertEquals(p.getAllAction(),actions);
+
         //no item in room no zombie no item in backpack and no door are break so these action can't be in the list and its a room
         List<ActionsPlayer> actionsPlayers = p.getActionOfThePlayer();
         assertFalse(actionsPlayers.contains(a1));
