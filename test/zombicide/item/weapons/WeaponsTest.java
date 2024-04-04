@@ -24,36 +24,37 @@ public class WeaponsTest {
 	@BeforeEach
     void setUp() {
     	b= new Board(5,5);
-		w = new Weapon("gun",1,1,4,false,true,b);
+		w = new Weapon("gun",1,1,4,false,true,b,2);
 		z = new Gigantomachia(b.getCellBoard(2, 2),1);
 		p= new Player(5,b.getCellBoard(2, 2),1,1);
 		b.getCellBoard(2, 2).addZombies(z);
 		b.getCellBoard(2, 2).addPlayers(p);
-		wTest = new Weapon("gun",4,2,0,false,true,b,new RandomListChooser<>());
+		wTest = new Weapon("gun",4,2,0,false,true,b,2,new RandomListChooser<>());
     }
     
     @Test
     public void testGetter() {
-    	assertTrue(w.getDamage()==1) ;
-    	assertTrue(w.getRange()==1) ;
-    	assertTrue(w.getTitle()=="gun") ;
-    	assertTrue(w.getThreshold()==4) ;
-    	assertTrue(w.getBreakDoor()==false) ;
-    	assertTrue(w.isUsed()==false) ;
+        assertEquals(1, w.getDamage());
+        assertEquals(1, w.getRange());
+        assertSame("gun", w.getTitle());
+        assertEquals(4, w.getThreshold());
+        assertFalse(w.getBreakDoor());
+        assertFalse(w.isUsed());
     }
     
     @Test
     public void testWhoCanAttack() {
-    	assertTrue(w.WhoCanAttack(p).get(0)==z);
-    	assertTrue(w.WhoCanAttack(p).size() == 1);
+        assertSame(w.WhoCanAttack(p).get(0), z);
+        assertEquals(1, w.WhoCanAttack(p).size());
     }
     
     @Test
     public void testItemEffect() {
-    	assertTrue(z.getLifePoints() == 1000);
+		int noise = p.getCurrentCell().getNoise();
+        assertEquals(1000, z.getLifePoints());
     	wTest.ItemEffect(p);
-		assertTrue(z.getLifePoints()==998);
-		assertTrue(p.getCurrentCell().getNoise() == 2);
+        assertEquals(998, z.getLifePoints());
+        assertEquals(noise+1, p.getCurrentCell().getNoise());
     }
     
     

@@ -24,7 +24,7 @@ public class AttackTest {
 		b = new Board(5,5);
 		z = new Gigantomachia(b.getCellBoard(0, 0),1);
 		p = new Player(5,b.getCellBoard(0, 0),1,1);
-		w = new Weapon("gun",4,2,0,false,true,b,new RandomListChooser<>());
+		w = new Weapon("gun",4,2,0,false,true,b,1,new RandomListChooser<>());
 		a = new Attack(new RandomListChooser<>());
 		b.getCellBoard(0, 0).addPlayers(p);
 		b.getCellBoard(0, 0).addZombies(z);
