@@ -30,8 +30,8 @@ public class Livrable2 {
 		Player p2 = new Player(5,test.getCellBoard(2, 2),2,6);
 		Player p3 = new Player(5,test.getCellBoard(2, 2),3,6);
 		Player p4 = new Player(5,test.getCellBoard(2, 2),4,6);
-		ActionsPlayer Chanceux = new Chanceux();
-		ActionsPlayer Combattant = new Combattant();
+		ActionsPlayer Chanceux = new Chanceux(test);
+		ActionsPlayer Combattant = new Combattant(test);
 		ActionsPlayer Fouineur = new Fouineur();
 		ActionsPlayer Soigneur = new Soigneur();
 		p1.setRoles(Chanceux);
