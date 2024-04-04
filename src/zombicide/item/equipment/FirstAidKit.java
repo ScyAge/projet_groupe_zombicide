@@ -12,11 +12,29 @@ import zombicide.util.listchooser.*;
 public class FirstAidKit extends Equipment {
 	
 	/**
+	 * Param
+	 */
+	private ListChooser<Player> chooser;
+	
+	/**
 	 * Builder of FirstAidKit
 	 * @param title of the item
+	 * @param breakDoor false the firstAidKit can't break a door 
+	 * @param chooser ListChooser of the masterkey
 	 */
-	public FirstAidKit( String title, boolean breakDoor) {
-		super(title, breakDoor);
+	public FirstAidKit( String title, boolean breakDoor, ListChooser<Player> chooser) {
+		super(title, false);
+		this.chooser=chooser;
+	}
+	
+	/**
+	 * Builder of FirstAidKit
+	 * @param title of the item
+	 * @param breakDoor false the firstAidKit can't break a door
+	 */
+	public FirstAidKit( String title, boolean breakDoor ) {
+		super(title, false);
+		this.chooser= new InteractiveListChooser<>();
 	}
 	
 	/**
@@ -30,8 +48,7 @@ public class FirstAidKit extends Equipment {
 		List<Player> players= player.getCurrentCell().getAllPlayers();
 		
 		if(!players.isEmpty()) {
-			ListChooser<Player> listChooser = new InteractiveListChooser<>();
-			Player target = listChooser.choose("choose a player to heal: ", players );
+			Player target = chooser.choose("choose a player to heal: ", players );
 			
 			int targetLifePoints= target.getLifePoints();
 			target.setLifePoints(targetLifePoints+1);
