@@ -4,7 +4,6 @@ import java.util.*;
 
 import zombicide.actor.Actor;
 import zombicide.actor.actionPlayer.ActionsPlayer;
-import zombicide.actor.actionPlayer.roles.RolesIntrerface;
 import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.*;
 import zombicide.cell.*;
@@ -21,12 +20,14 @@ public class Player extends Actor{
 	private  Item itemInHand;
 	private int expertiseLevel;
 	private List<ActionsPlayer> roles;
+	private List<ActionsPlayer> AllAction;
 
 	/**
-	 * Builder of Player class
+	 * Test Builder of Player class
 	 * @param lifePoints life of the player
 	 * @param cell cell where the player is
 	 * @param id of the player
+	 * @param taille_sac the number max of item that can be hold in the backpack
 	 */
 	public Player(int lifePoints,Cell cell, int id,int taille_sac) {
 		super(lifePoints,3, cell, id);
@@ -35,6 +36,25 @@ public class Player extends Actor{
 		this.expertiseLevel = 1;
 		this.roles = new ArrayList<>();
 		this.backPackSize = taille_sac;
+		this.AllAction = new ArrayList<>();
+	}
+
+	/**
+	 * Builder of Player class
+	 * @param lifePoints life of the player
+	 * @param cell cell where the player is
+	 * @param id of the player
+	 * @param taille_sac the number max of item that can be hold in the backpack
+	 * @param actions the list of all the actions
+	 */
+	public Player(int lifePoints,Cell cell, int id,int taille_sac,List<ActionsPlayer> actions) {
+		super(lifePoints,3, cell, id);
+		this.backpack = new ArrayList<>(taille_sac);
+		this.itemInHand = null ;
+		this.expertiseLevel = 1;
+		this.roles = new ArrayList<>();
+		this.backPackSize = taille_sac;
+		this.AllAction = actions;
 	}
 
 	/**
@@ -189,5 +209,26 @@ public class Player extends Actor{
 	@Override
 	public String toString() {
 		return String.format("Player : %d",this.id);
+	}
+
+	/**
+	 * method that return the list of all the actions
+	 * @return List<ActionsPlayer>
+	 */
+	public List<ActionsPlayer> getAllAction(){return this.AllAction;}
+
+	/**
+	 * Return the list of all the actions a player can do at T moment
+	 * @return List<ActionsPlayer>
+	 */
+	public List<ActionsPlayer> getActionOfThePlayer(){
+		List<ActionsPlayer> res = new ArrayList<>();
+		for(ActionsPlayer a:this.AllAction){
+			if(a.IsActionPlayable(this)){
+				res.add(a);
+			}
+		}
+		res.addAll(this.roles);
+		return res;
 	}
 }
