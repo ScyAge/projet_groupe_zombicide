@@ -6,6 +6,7 @@ import java.util.Random;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.*;
+import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.item.Item;
 import zombicide.item.weapons.Weapon;
@@ -22,6 +23,7 @@ public class OpenDoor implements ActionsPlayer {
 	 * Param
 	 */
     private ListChooser<Direction> chooser;
+    private Board board;
     
     /**
      * Builder of SearchIntRoomAction with ListChooser to test
@@ -49,17 +51,12 @@ public class OpenDoor implements ActionsPlayer {
 			Direction targetD= listChooser.choose("choose a direction: ", directions);
 			
 			if(targetD != null) {
-				Door doorToOpen= c.getDoor(targetD);
-				if(doorToOpen!=null) {
-					doorToOpen.SetNotBreakble();
-					if (item instanceof Weapon) {
-						c.setNoise(c.getNoise() + 1);
-					}
-					generateZombies(p);
-					System.out.println("Door opened in the "+ targetD + " direction");
-				}else {
-					System.out.println("No door found in the "+ targetD+ " direction ");
+				this.board.BreakDoor(targetD, c.getX(), c.getY());
+				if (item.isNoisy()) {
+					c.setNoise(c.getNoise() + 1);
 				}
+				generateZombies(p);
+				
 			}else {
 				System.out.println("No direction chosen");
 			}
