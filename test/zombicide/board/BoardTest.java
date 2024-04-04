@@ -99,19 +99,28 @@ public class BoardTest {
 		assertEquals(Direction.East, board.getDirectionBetweenCells(board.getCellBoard(1,1), board.getCellBoard(4,1)));
 		assertEquals(Direction.West, board.getDirectionBetweenCells(board.getCellBoard(3,1), board.getCellBoard(0,1)));
 		assertEquals(Direction.North, board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(3,1)));
-		assertEquals(null, board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(2,1)));
-	}
+		
+		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+	        board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(2,1));
+	    });
+	    assertEquals("Cells are not on the same line or column", exception.getMessage());	}
     
     @Test
     public void testCheckOpenDoorsBetweenCells() {
-    	for(int i=4; i>=2; i--) {
-    		board.BreakDoor(d, 1, i);  
-    	}
-    	assertEquals(true, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 1)));  
-    	assertEquals(true, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 2))); 
-    	assertEquals(false, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 3), board.getCellBoard(1, 0))); 
-    	assertEquals(false, board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 0), board.getCellBoard(0, 3))); 
+        for(int i=4; i>=2; i--) {
+            board.BreakDoor(d, 1, i);  
+        }
+        assertEquals(true, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 1)));  
+        assertEquals(true, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 2))); 
+        assertEquals(false, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 3), board.getCellBoard(1, 0))); 
+        assertEquals(false, board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 0), board.getCellBoard(0, 3)));
+        
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            board.checkOpenDoorsBetweenCells(board.getCellBoard(3, 2), board.getCellBoard(1, 4));
+        });
+        assertEquals("Direction cannot be determined", exception.getMessage());    	
     }
+
     
 
 }
