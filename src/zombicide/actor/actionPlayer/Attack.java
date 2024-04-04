@@ -51,33 +51,35 @@ public class Attack implements ActionsPlayer{
 		List<Zombies> z = new ArrayList<>();
 		Cell c;
 		int i;
-		z.addAll(player.getCurrentCell().getAllZombies());
+		if(0>= w.getMinRange()) {
+			z.addAll(player.getCurrentCell().getAllZombies());
+		}
 		for(Direction D : Direction.values()) {
 			c = player.getCurrentCell();
 			i=0;
 			if( D == Direction.West) {
-				while(c.getDoor(D).isBreak() && c.getY() - i>0 && i < w.getRange()) {
+				while(c.getDoor(D).isBreak() && c.getY() - i>0 && i < w.getRange() &&i>=w.getMinRange()) {
 					c = this.board.getCellBoard(c.getX(), c.getY()-1);
 					z.addAll(c.getAllZombies());
 					i+=1;
 				}
 			}
 			if( D == Direction.East) {
-				while(c.getDoor(D).isBreak() && c.getY()+i< this.board.getBoard()[0].length && i < w.getRange()) {
+				while(c.getDoor(D).isBreak() && c.getY()+i< this.board.getBoard()[0].length && i < w.getRange()&&i>=w.getMinRange()) {
 					c = this.board.getCellBoard(c.getX(), c.getY()+1);
 					z.addAll(c.getAllZombies());
 					i+=1;
 				}
 			}
 			if( D == Direction.South) {
-				while(c.getDoor(D).isBreak() && i+c.getX()< this.board.getBoard().length &&i < w.getRange()) {
+				while(c.getDoor(D).isBreak() && i+c.getX()< this.board.getBoard().length &&i < w.getRange()&&i>=w.getMinRange()) {
 					c = this.board.getCellBoard(c.getX()+1, c.getY());
 					z.addAll(c.getAllZombies());
 					i+=1;
 				}
 			}
 			if( D == Direction.North) {
-				while(c.getDoor(D).isBreak() && c.getX()-i> 0 && i < w.getRange()) {
+				while(c.getDoor(D).isBreak() && c.getX()-i> 0 && i < w.getRange()&&i>=w.getMinRange()) {
 					c = this.board.getCellBoard(c.getX()-1, c.getY());
 					z.addAll(c.getAllZombies());
 					i+=1;
