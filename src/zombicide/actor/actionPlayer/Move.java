@@ -5,6 +5,7 @@ import java.util.List;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
+import zombicide.cell.Cell;
 import zombicide.util.Direction;
 import zombicide.util.listchooser.InteractiveListChooser;
 import zombicide.util.listchooser.ListChooser;
@@ -40,6 +41,12 @@ public class Move implements ActionsPlayer {
 		this.board.movePlayer(p, D);
 		int actionPoints= p.getAction_points();
 		p.setAction_points(actionPoints-1);
+	}
+
+	@Override
+	public boolean IsActionPlayable(Player p) {
+		Cell c = p.getCurrentCell();
+		return (c.getDoor(Direction.North).isBreak() ||c.getDoor(Direction.South).isBreak() ||c.getDoor(Direction.East).isBreak() ||c.getDoor(Direction.West).isBreak());
 	}
 }
 

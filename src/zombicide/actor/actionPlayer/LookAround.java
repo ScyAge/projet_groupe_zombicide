@@ -57,5 +57,8 @@ public class LookAround implements ActionsPlayer {
 		return res;
 	}
 
-	
+	@Override
+	public boolean IsActionPlayable(Player p) {
+		return true;
+	}
 }

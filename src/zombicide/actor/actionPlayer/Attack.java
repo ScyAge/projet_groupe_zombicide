@@ -120,5 +120,8 @@ public class Attack implements ActionsPlayer{
 		
 	}
 
-	
+	@Override
+	public boolean IsActionPlayable(Player p) {
+		return !p.getCurrentCell().getAllZombies().isEmpty();
+	}
 }

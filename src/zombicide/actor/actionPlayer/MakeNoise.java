@@ -23,6 +23,8 @@ public class MakeNoise implements ActionsPlayer {
 		p.setAction_points(actionP-1);
 	}
 
-	
-	
+	@Override
+	public boolean IsActionPlayable(Player p) {
+		return true;
+	}
 }
