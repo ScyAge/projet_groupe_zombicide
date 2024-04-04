@@ -106,5 +106,16 @@ public class BoardTest {
 		assertEquals(Direction.North, board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(3,1)));
 	}
     
+    @Test
+    public void testCheckOpenDoorsBetweenCells() {
+    	for(int i=4; i>=2; i--) {
+    		board.BreakDoor(d, 1, i);  
+    	}
+    	assertEquals(true, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 1)));  
+    	assertEquals(true, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 2))); 
+    	assertEquals(false, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 3), board.getCellBoard(1, 0))); 
+    	assertEquals(false, board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 0), board.getCellBoard(0, 3))); 
+    }
+    
 
 }
