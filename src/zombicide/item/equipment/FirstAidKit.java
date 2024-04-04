@@ -45,7 +45,7 @@ public class FirstAidKit extends Equipment {
 	public void ItemEffect(Player player ) {
 		super.ItemEffect(player);
 		Cell cell= player.getCurrentCell();
-		List<Player> players= player.getCurrentCell().getAllPlayers();
+		List<Player> players= cell.getAllPlayers();
 		
 		if(!players.isEmpty()) {
 			Player target = chooser.choose("choose a player to heal: ", players );
