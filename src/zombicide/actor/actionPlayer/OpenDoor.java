@@ -98,6 +98,6 @@ public class OpenDoor implements ActionsPlayer {
 	@Override
 	public boolean IsActionPlayable(Player p) {
 		Cell c = p.getCurrentCell();
-		return p.getItemInHand().getBreakDoor() && (!c.getDoor(Direction.North).isBreak() ||!c.getDoor(Direction.South).isBreak() ||!c.getDoor(Direction.East).isBreak() ||!c.getDoor(Direction.West).isBreak());
+		return (p.getItemInHand() != null && p.getItemInHand().getBreakDoor()) && (!c.getDoor(Direction.North).isBreak() ||!c.getDoor(Direction.South).isBreak() ||!c.getDoor(Direction.East).isBreak() ||!c.getDoor(Direction.West).isBreak());
 	}
 }
