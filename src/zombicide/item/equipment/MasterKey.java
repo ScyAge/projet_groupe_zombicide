@@ -13,11 +13,31 @@ import zombicide.util.listchooser.ListChooser;
 public class MasterKey extends Equipment {
 	
 	/**
+	 * Param
+	 */
+	private ListChooser<Direction> chooser;
+	
+	
+	/**
 	 * Builder of MasterKey
 	 * @param title of the item
+	 * @param breakDoor true if masterkey can break a door, else return false
 	 */
 	public MasterKey(String title, boolean breakDoor) {
 		super(title, breakDoor);
+		this.chooser = new InteractiveListChooser<>();
+	}
+	
+	
+	/**
+	 * Builder of MasterKey
+	 * @param title of the item
+	 * @param breakDoor true if masterkey can break a door, else return false
+	 * @param chooser ListChooser of the masterkey
+	 */
+	public MasterKey(String title, boolean breakDoor, ListChooser<Direction> chooser) {
+		super(title, breakDoor);
+		this.chooser=chooser;
 	}
 	
 	/**
