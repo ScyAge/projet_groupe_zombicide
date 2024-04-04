@@ -11,9 +11,13 @@ public class Gun extends Weapon{
      */
     private final static String Name_Gun = "gun";
     /**
-     * constant range of Gun
+     * constant range min of Gun
      */
-    private final static int Range_Gun = 1;
+    private final static int Max_Range_Gun = 1;
+    /**
+     * constant range max of Gun
+     */
+    private final static int Min_Range_Gun = 0;
     /**
      * constant damage of Gun
      */
@@ -39,6 +43,6 @@ public class Gun extends Weapon{
      * Builder of Gun
      */
     public Gun(Board board){
-        super(Name_Gun, Range_Gun, Damage_Gun, Threshold_Gun, BreakDoor_Gun, Noisy_Gun, nbDice_Gun);
+        super(Name_Gun, Max_Range_Gun,Min_Range_Gun, Damage_Gun, Threshold_Gun, BreakDoor_Gun, Noisy_Gun, nbDice_Gun);
     }
 }

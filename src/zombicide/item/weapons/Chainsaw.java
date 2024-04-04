@@ -11,9 +11,13 @@ public class Chainsaw extends Weapon{
      */
     private final static String Name_Chainsaw = "chainsaw";
     /**
-     * constant range of Chainsaw
+     * constant range max of  Chainsaw
      */
-    private final static int Range_Chainsaw = 0;
+    private final static int Max_Range_Chainsaw = 0;
+    /**
+     * constant range Min of  Chainsaw
+     */
+    private final static int Min_Range_Chainsaw = 0;
     /**
      * constant damage of Chainsaw
      */
@@ -38,6 +42,6 @@ public class Chainsaw extends Weapon{
      * Builder of Chainsaw
      */
     public Chainsaw(Board board){
-        super(Name_Chainsaw, Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, nbDice_Chainsaw);
+        super(Name_Chainsaw,Max_Range_Chainsaw,Min_Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, nbDice_Chainsaw);
     }
 }
