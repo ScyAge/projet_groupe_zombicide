@@ -31,4 +31,9 @@ public class Gigantomachia extends Zombies {
 
 	}
 
+	@Override
+	public String toString() {
+		return String.format("Gigantomachia have %d damage Points",this.damagePoints);
+	}
+
 }

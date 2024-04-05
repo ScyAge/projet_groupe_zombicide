@@ -19,7 +19,7 @@ public class Abominations extends Zombies {
 	/**
 	 * constant damage point of Abominations 
 	 * */
-	private final static int DAMAGE_POINT=1;
+	private final static int DAMAGE_POINT=3;
 	
 	/**
 	 * Builder of the Abominations 
@@ -30,4 +30,8 @@ public class Abominations extends Zombies {
 		super(LIFEPOINT, ACTION_POINT,cell,id, DAMAGE_POINT);
 	}
 
+	@Override
+	public String toString() {
+		return String.format("Abominations have %d damage Points",this.damagePoints);
+	}
 }

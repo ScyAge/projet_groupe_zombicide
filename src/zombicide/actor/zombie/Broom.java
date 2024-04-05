@@ -19,7 +19,7 @@ public class Broom extends Zombies {
 	/**
 	 * constant damage point of the Broom
 	 * */
-	private final static int DAMAGE_POINT=1;
+	private final static int DAMAGE_POINT=2;
 	
 	/**
 	 * Builder of the Broom 
@@ -28,6 +28,11 @@ public class Broom extends Zombies {
 	 */
 	public Broom(Cell cell, int id) {
 		super(LIFEPOINT, ACTION_POINT,cell,id, DAMAGE_POINT);
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Broom have %d damage Points",this.damagePoints);
 	}
 
 }
