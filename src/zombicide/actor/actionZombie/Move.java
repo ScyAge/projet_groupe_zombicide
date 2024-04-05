@@ -2,6 +2,7 @@ package zombicide.actor.actionZombie;
 
 
 
+import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
@@ -76,6 +77,12 @@ public class Move implements ActionZombie{
 		}
 		int actionPoints= z.getAction_points();
 		z.setAction_points(actionPoints-1);
+	}
+
+	@Override
+	public boolean IsActionPlayable(Zombies z) {
+		Cell c = z.getCurrentCell();
+		return (c.getDoor(Direction.North).isBreak() ||c.getDoor(Direction.South).isBreak() ||c.getDoor(Direction.East).isBreak() ||c.getDoor(Direction.West).isBreak());
 	}
 }
 
