@@ -29,14 +29,16 @@ public class OpenDoor implements ActionsPlayer {
      * Builder of SearchIntRoomAction with ListChooser to test
      * @param chooser ListChooser of the Action
      */
-    public OpenDoor(ListChooser<Direction> chooser){
+    public OpenDoor(ListChooser<Direction> chooser,Board b){
         this.chooser = chooser;
+		this.board = b;
     }
     /**
      * Builder of SearchInTRoomAction 
      */
-    public OpenDoor(){
-        this.chooser = new InteractiveListChooser<>();
+    public OpenDoor(Board b){
+		this.chooser = new InteractiveListChooser<>();
+		this.board = b;
     }
 	
 	@Override 
@@ -47,12 +49,11 @@ public class OpenDoor implements ActionsPlayer {
 			System.out.println("enter the Direction of the door you want to open");
 			
 			List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
-			ListChooser<Direction> listChooser = new InteractiveListChooser<>();
-			Direction targetD= listChooser.choose("choose a direction: ", directions);
+			Direction targetD= this.chooser.choose("choose a direction: ", directions);
 			
 			if(targetD != null) {
 				this.board.BreakDoor(targetD, c.getX(), c.getY());
-				if (item.isNoisy()) {
+				if (item.cantAttack()) {
 					c.setNoise(c.getNoise() + 1);
 				}
 				generateZombies(p);
