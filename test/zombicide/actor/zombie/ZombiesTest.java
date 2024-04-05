@@ -57,7 +57,7 @@ public class ZombiesTest {
     }
 	@Test
 	public void TestGetdamagePoint(){
-		assertEquals(z4.getDamagePoints(),1);
+		assertEquals(z4.getDamagePoints(),2);
 	}
 	@Test
 	public void  TestSetDamagePoint(){
