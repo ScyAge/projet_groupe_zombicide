@@ -47,6 +47,18 @@ public class MasterKey extends Equipment {
 	public void ItemEffect(Player player) {
 		super.ItemEffect(player);
 		Cell cell= player.getCurrentCell();
+		
+		boolean doorsOpen=true;
+		for(Direction d : Direction.values()) {
+			if(!cell.getDoor(d).isBreak()){
+				doorsOpen=false;
+				break;
+			}
+		}
+		if(doorsOpen) {
+			this.Use = false;
+			return;
+		}
 		System.out.println("enter the Direction of the door you want to open");
 		
 		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
@@ -63,7 +75,7 @@ public class MasterKey extends Equipment {
 		}else {
 			System.out.println("No direction chosen");
 		}
-			
+		
 	}
 
 	/**
