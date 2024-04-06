@@ -14,7 +14,7 @@ public class FirstAidKit extends Equipment {
 	/**
 	 * Param
 	 */
-	private ListChooser<Player> chooser;
+	private final ListChooser<Player> chooser;
 	
 	/**
 	 * Builder of FirstAidKit
