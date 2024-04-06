@@ -24,4 +24,11 @@ class ItemTest {
         assertTrue(item.isUsed());
     }
 
+    @Test
+    public void TestSetTitle(){
+        Item item = new Item("test1", false);
+        item.setTitle("newTitle");
+        assertEquals("newTitle", item.getTitle());
+    }
+
 }
