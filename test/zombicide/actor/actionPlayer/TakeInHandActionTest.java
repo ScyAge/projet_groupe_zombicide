@@ -23,12 +23,11 @@ public class TakeInHandActionTest {
 
     @BeforeEach
     public void init(){
-    	Board board = new Board(5,5);
         this.testCell = new Room(3,3);
         this.action = new TakeInHandAction(new RandomListChooser<>());
         this.p = new Player(3,this.testCell,1,6);
-        this.p.putItemInBackPack(new Carabine(board));
-        this.p.putItemInBackPack(new Axe(board));
+        this.p.putItemInBackPack(new Carabine());
+        this.p.putItemInBackPack(new Axe());
 
     }
 
@@ -43,7 +42,7 @@ public class TakeInHandActionTest {
 
     @Test
     public void TestTakeInHandActionItemInHand(){
-        Item i = new Chainsaw(null);
+        Item i = new Chainsaw();
         this.p.setItemInHand(i);
         //test de la coherence des item present dans la main et dans le sac
         List<Item> test= new ArrayList<>();

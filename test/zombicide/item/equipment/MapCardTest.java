@@ -45,4 +45,5 @@ public class MapCardTest {
     public void testIsNoisy(){
         assertTrue(this.i.isNoisy());
     }
+
 }

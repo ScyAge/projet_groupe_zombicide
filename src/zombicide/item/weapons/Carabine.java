@@ -51,7 +51,7 @@ public class Carabine extends Weapon{
     /**
      * Builder of Carabine
      */
-    public Carabine(Board board){
+    public Carabine(){
         super(Name_Carabine, Max_Range_Carabine,Min_Range_Carabine, Damage_Carabine, Threshold_Carabine, BreakDoor_Carabine, Noisy_Carabine, nbDice_Carabine);
     }
 }

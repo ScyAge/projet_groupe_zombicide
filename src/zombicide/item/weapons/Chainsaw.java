@@ -41,7 +41,7 @@ public class Chainsaw extends Weapon{
     /**
      * Builder of Chainsaw
      */
-    public Chainsaw(Board board){
+    public Chainsaw(){
         super(Name_Chainsaw,Max_Range_Chainsaw,Min_Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, nbDice_Chainsaw);
     }
 }

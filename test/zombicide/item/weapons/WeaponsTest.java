@@ -43,7 +43,7 @@ public class WeaponsTest {
     
     @Test
     public void testGun() {
-        wTest = new Gun(b);
+        wTest = new Gun();
         assertEquals("gun", wTest.getTitle());
         assertEquals(1, wTest.getRange());
         assertEquals(0, wTest.getMinRange());
@@ -56,7 +56,7 @@ public class WeaponsTest {
     
     @Test
     public void testCrowbar() {
-        wTest = new Crowbar(b);
+        wTest = new Crowbar();
         assertEquals("crowbar", wTest.getTitle());
         assertEquals(0, wTest.getRange());
         assertEquals(0, wTest.getMinRange());
@@ -69,7 +69,7 @@ public class WeaponsTest {
     
     @Test
     public void testChainsaw() {
-        wTest = new Chainsaw(b);
+        wTest = new Chainsaw();
         assertEquals("chainsaw", wTest.getTitle());
         assertEquals(0, wTest.getRange());
         assertEquals(0, wTest.getMinRange());
@@ -82,7 +82,7 @@ public class WeaponsTest {
     
     @Test
     public void testCarabine() {
-        wTest = new Carabine(b);
+        wTest = new Carabine();
         assertEquals("carabine", wTest.getTitle());
         assertEquals(3, wTest.getRange());
         assertEquals(1, wTest.getMinRange());
@@ -95,7 +95,7 @@ public class WeaponsTest {
     
     @Test
     public void testAxe() {
-        wTest = new Axe(b);
+        wTest = new Axe();
         assertEquals("axe", wTest.getTitle());
         assertEquals(0, wTest.getRange());
         assertEquals(0, wTest.getMinRange());

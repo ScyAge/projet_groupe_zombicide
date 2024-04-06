@@ -34,12 +34,12 @@ public class SearchInTRoomActionTest {
         this.p = new Player(3,this.cell,1,5);
         this.cell.addPlayers(this.p);
         this.act = new SearchInTRoomAction(this.chooser);
-        this.wp1 = new Carabine(this.board);
-        this.wp2 = new Chainsaw(this.board);
+        this.wp1 = new Carabine();
+        this.wp2 = new Chainsaw();
         this.cell.addItem(this.wp1);
         this.cell.addItem(this.wp2);
-        this.p.putItemInBackPack(new Carabine(board));
-        this.p.putItemInBackPack(new Axe(board));
+        this.p.putItemInBackPack(new Carabine());
+        this.p.putItemInBackPack(new Axe());
     }
 
     @Test
@@ -64,8 +64,8 @@ public class SearchInTRoomActionTest {
 
     @Test
     public  void TestSearchInRoomActionWhenBackPackFull(){
-        this.p.putItemInBackPack(new Crowbar(this.board));
-        this.p.putItemInBackPack(new Gun(this.board));
+        this.p.putItemInBackPack(new Crowbar());
+        this.p.putItemInBackPack(new Gun());
         this.p.putItemInBackPack(new FirstAidKit("TEST"));
 
         //test de la coherence des item present dans la cell et dans le sac

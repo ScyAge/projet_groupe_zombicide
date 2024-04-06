@@ -104,12 +104,4 @@ public class MapCard extends Equipment{
 			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+this.board.getBoard()[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie)+this.board.getBoard()[i][j].getDoor(Direction.East).toString();}
 		return x;
 	}
-	
-	
-	/**
-	 * */
-	public void Used() {
-		this.Use=false;
-	}
-	
 }

@@ -42,7 +42,7 @@ public class Gun extends Weapon{
     /**
      * Builder of Gun
      */
-    public Gun(Board board){
+    public Gun(){
         super(Name_Gun, Max_Range_Gun,Min_Range_Gun, Damage_Gun, Threshold_Gun, BreakDoor_Gun, Noisy_Gun, nbDice_Gun);
     }
 }

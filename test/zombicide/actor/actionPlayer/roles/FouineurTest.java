@@ -34,12 +34,12 @@ public class FouineurTest {
         this.p = new Player(3,this.cell,1,5);
         this.cell.addPlayers(this.p);
         this.act = new Fouineur(this.chooser);
-        this.wp1 = new Carabine(this.board);
-        this.wp2 = new Chainsaw(this.board);
+        this.wp1 = new Carabine();
+        this.wp2 = new Chainsaw();
         this.cell.addItem(this.wp1);
         this.cell.addItem(this.wp2);
-        this.p.putItemInBackPack(new Carabine(board));
-        this.p.putItemInBackPack(new Axe(board));
+        this.p.putItemInBackPack(new Carabine());
+        this.p.putItemInBackPack(new Axe());
     }
 
     @Test

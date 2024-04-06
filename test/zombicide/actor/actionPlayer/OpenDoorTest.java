@@ -27,7 +27,7 @@ public class OpenDoorTest {
         this.b = new TrainingBoard();
         this.p = new Player(3,b.getCellBoard(1,1),1,5);
         this.open = new OpenDoor(new RandomListChooser<>(),this.b);
-        this.cassePorte = new Axe(this.b);
+        this.cassePorte = new Axe();
         this.p.setItemInHand(this.cassePorte);
         this.b.getCellBoard(1,1).addPlayers(this.p);
     }
@@ -56,7 +56,7 @@ public class OpenDoorTest {
     }
     @Test
     public void TestOpenDoorButTheWeaponCantOpenDoor(){
-        this.p.setItemInHand(new Carabine(this.b));
+        this.p.setItemInHand(new Carabine());
         this.open.action(this.p);
         //verify if none of the 4 doors of the cell has been break;
         Collection<Door> testBis =this.p.getCurrentCell().getDoors().values();
