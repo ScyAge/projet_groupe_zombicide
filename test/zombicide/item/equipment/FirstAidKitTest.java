@@ -14,6 +14,9 @@ import zombicide.cell.Cell;
 import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.RandomListChooser;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class FirstAidKitTest {
 	private ListChooser<Player> chooser;
 	private Player player;
@@ -45,13 +48,29 @@ public class FirstAidKitTest {
 		assertTrue((LP1 +1) == p1.getLifePoints() || (LP2+1)==p2.getLifePoints());
 		
 	}
-	
+
 	@Test
 	public void TestItemEffectWhenNoPlayerInCell() {
 		int lp=this.player.getLifePoints();
 		this.firstAidKit.ItemEffect(player);
 		assertEquals(lp , this.player.getLifePoints() );
-		
+
+	}
+
+	@Test
+	public void TestNoPlayerInCell(){
+		Board b1 = new TrainingBoard();
+		Cell c1 = b1.getCellBoard(1,1);
+		Player p1 = new Player(3, c1, 0, 5);
+
+		ListChooser<Player> chooser = new RandomListChooser<>();
+		FirstAidKit firstAidKit = new FirstAidKit("FirstAidKit", false, chooser);
+		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(outContent));
+
+		firstAidKit.ItemEffect(p1);
+
+		assertEquals("No player in the same area\n", outContent.toString());
 	}
 	
 }
