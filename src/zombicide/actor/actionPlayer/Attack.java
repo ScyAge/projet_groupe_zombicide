@@ -26,6 +26,7 @@ public class Attack implements ActionsPlayer{
 	/**
 	 * Builder of Attack with ListChooser in param to test
 	 * @param chooser the listchooser of the action
+	 * @param board where attack
 	 */
 	public Attack(ListChooser<Zombies> chooser,Board board) {
 		this.chooser = chooser;
@@ -35,6 +36,7 @@ public class Attack implements ActionsPlayer{
 	
 	/**
 	 * Builder of Attack
+	 * @param board where attack
 	 */
 	public Attack(Board board) {
 		this.chooser = new InteractiveListChooser<>();

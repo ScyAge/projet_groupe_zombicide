@@ -21,11 +21,21 @@ public class Move implements ActionsPlayer {
 	private Board board;
 	private ListChooser<Direction> chooser;
 
+	/**
+	 * Builder of Move action with list chooser
+	 * @param board where move
+	 * @param chooser the listchooser of the action
+	 */
 	public Move(Board board,ListChooser<Direction> chooser) {
 
 		this.board = board;
 		this.chooser = chooser;
 	}
+	
+	/**
+	 * Builder of Move action
+	 * @param board where move
+	 */
 	public Move(Board board){
 		this.board = board;
 		this.chooser = new InteractiveListChooser<>();
