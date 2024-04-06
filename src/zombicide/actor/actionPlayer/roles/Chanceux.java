@@ -44,38 +44,9 @@ public class Chanceux extends Attack implements ActionsPlayer {
      */
     @Override
     public void action(Player p) {
-    	Cell c= p.getCurrentCell();
-		Zombies z= chooser.choose("pick a zombie to attack : ", c.getAllZombies());
-		attackZombie(p,z);
+    	super.action(p);
+		p.setAction_points(p.getAction_points()+1);
     }
     
- 
-    /**
-	 * attacks the zombie by the given player and adds a dice 
-	 * @param p player that's going to attack
-	 * @param z the zombie that's being attacked
-	 * */
-	private void attackZombie(Player p, Zombies z) {
-		Weapon w= (Weapon) p.getItemInHand();
-		
-		Random random= new Random();
-		for(int i=0; i<w.getNbDice()+1; i++) {
-			int dice= random.nextInt(6)+1;
-			
-			if(dice>=w.getThreshold()) {
-				z.takeDamage(w.getDamage());
-				
-				if(z.isDead()) {
-					p.UpOneExpertiseLevel();
-				}
-			}else {
-				System.out.println("attack failed");
-			}
-		}
-		if(w.isNoisy()){
-			Cell c = p.getCurrentCell();
-			c.setNoise(c.getNoise() + 1);
-		}
-	}
 
 }
