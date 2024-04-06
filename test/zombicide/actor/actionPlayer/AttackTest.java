@@ -61,5 +61,7 @@ public class AttackTest {
     	
         assertSame(a.WhoCanAttack(p,w).get(0), z);
         assertEquals(1, a.WhoCanAttack(p,w).size());
+        b.getCellBoard(2,3).addZombies(z);
+        assertEquals(2, a.WhoCanAttack(p,w).size());
     }
 }
