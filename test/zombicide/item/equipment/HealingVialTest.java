@@ -32,4 +32,11 @@ class HealingVialTest {
         testHV.ItemEffect(this.testP);
         assertEquals(4, this.testP.getLifePoints()); // ne peut pas dépassé ses pv max
     }
+
+    @Test
+    public void TestUsed(){
+           assertFalse(this.testHV.isUsed());
+           this.testHV.Used();
+           assertTrue(this.testHV.isUsed());
+    }
 }

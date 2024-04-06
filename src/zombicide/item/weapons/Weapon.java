@@ -1,17 +1,7 @@
 package zombicide.item.weapons;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
-import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
-import zombicide.board.Board;
-import zombicide.cell.Cell;
 import zombicide.item.*;
-import zombicide.util.Direction;
-import zombicide.util.listchooser.InteractiveListChooser;
-import zombicide.util.listchooser.ListChooser;
 
 /**
  * class weapons
@@ -22,12 +12,12 @@ public class Weapon extends Item {
 	/**
 	 * Param of weapons
 	 */
-	private int threshold;
-	private int rangeMax;
-	private int rangeMin;
-	private int damage;
-	private boolean noisy;
-	private int nbDice;
+	private final int threshold;
+	private final int rangeMax;
+	private final int rangeMin;
+	private final int damage;
+	private final boolean noisy;
+	private final int nbDice;
 	
 	
 
@@ -35,12 +25,11 @@ public class Weapon extends Item {
 	/**
 	 * Builder of the weapons
 	 * @param title of the item
-	 * @param range of the weapons
+	 * @param rangeMin of the weapons
 	 * @param damage of the weapons
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not
 	 * @param noisy if the weapon is noisy
-	 * @param board of the weapons
 	 * @param nbDice of the weapon
 	 */
 	public Weapon(String title,int rangeMax,int rangeMin,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice) {
