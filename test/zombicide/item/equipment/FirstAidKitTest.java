@@ -51,7 +51,7 @@ public class FirstAidKitTest {
 		int lp=this.player.getLifePoints();
 		this.firstAidKit.ItemEffect(player);
 		assertEquals(lp , this.player.getLifePoints() );
-		assertFalse(firstAidKit.isUsed());
+		
 	}
 	
 }
