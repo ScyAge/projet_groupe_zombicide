@@ -28,14 +28,14 @@ public class Weapon extends Item {
 	private int damage;
 	private boolean noisy;
 	private int nbDice;
-	private ListChooser<Zombies> chooser;
 	
 	
+
 	
 	/**
 	 * Builder of the weapons
-	 * @param title of the weapons
-	 * @param rangeMax of the weapons
+	 * @param title of the item
+	 * @param range of the weapons
 	 * @param damage of the weapons
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not
@@ -51,30 +51,6 @@ public class Weapon extends Item {
 		this.threshold = threshold;
 		this.noisy = noisy;
 		this.nbDice= nbDice;
-		this.chooser = new InteractiveListChooser<>();
-	}
-	
-	/**
-	 * Builder of the weapons
-	 * @param title of the item
-	 * @param range of the weapons
-	 * @param damage of the weapons
-	 * @param threshold of the weapons
-	 * @param breakDoor  can break door or not
-	 * @param noisy if the weapon is noisy
-	 * @param board of the weapons
-	 * @param nbDice of the weapon
-	 * @param chooser the listchooser to choose the zombies who you want
-	 */
-	public Weapon(String title,int rangeMax,int rangeMin,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice,ListChooser<Zombies> chooser) {
-		super(title, breakDoor);
-		this.damage =damage;
-		this.rangeMax =rangeMax;
-		this.rangeMin =rangeMin;
-		this.threshold = threshold;
-		this.noisy = noisy;
-		this.nbDice= nbDice;
-		this.chooser = chooser;
 	}
 	
 	/**
