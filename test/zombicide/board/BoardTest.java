@@ -170,18 +170,33 @@ public class BoardTest {
     }
     
     @Test
-    public void testGetCellWithDirection() {
+    public void testGetCellWithDirectionNorth() {
     	assertEquals(board.getCellBoard(1, 2),board.getCellDirection(d, p2));
-    	assertEquals(null,board.getCellDirection(d, p1));
+		//test if the player is in cell 0,0 you can't get de cell at is top because she not exists
+        assertNull(board.getCellDirection(d, p1));
     }
+	@Test
+	public void testGetCellWithDirectionSouth() {
+		assertEquals(board.getCellBoard(3, 2),board.getCellDirection(Direction.South, p2));
+	}
+	@Test
+	public void testGetCellWithDirectionWest() {
+		assertEquals(board.getCellBoard(2, 1),board.getCellDirection(Direction.West, p2));
+		//test if the player is in cell 0,0 you can't get de cell at is left because she not exists
+		assertNull(board.getCellDirection(Direction.West, p1));
+	}
+	@Test
+	public void testGetCellWithDirectionEast() {
+		assertEquals(board.getCellBoard(2, 3),board.getCellDirection(Direction.East, p2));
+	}
 
     @Test
 	public void testCellIsOnSameLineOrColumn() {
-		assertEquals(true, board.cellIsOnSameLineOrColumn(board.getCellBoard(0, 4), board.getCellBoard(0, 1)));
-		assertEquals(true, board.cellIsOnSameLineOrColumn(board.getCellBoard(2, 1), board.getCellBoard(0, 1)));
+        assertTrue(board.cellIsOnSameLineOrColumn(board.getCellBoard(0, 4), board.getCellBoard(0, 1)));
+        assertTrue(board.cellIsOnSameLineOrColumn(board.getCellBoard(2, 1), board.getCellBoard(0, 1)));
 
-		assertEquals(false, board.cellIsOnSameLineOrColumn(board.getCellBoard(0, 4), board.getCellBoard(3, 2)));
-		assertEquals(false, board.cellIsOnSameLineOrColumn(board.getCellBoard(2, 1), board.getCellBoard(3, 2)));
+        assertFalse(board.cellIsOnSameLineOrColumn(board.getCellBoard(0, 4), board.getCellBoard(3, 2)));
+        assertFalse(board.cellIsOnSameLineOrColumn(board.getCellBoard(2, 1), board.getCellBoard(3, 2)));
 
 	}
     
@@ -192,9 +207,7 @@ public class BoardTest {
 		assertEquals(Direction.West, board.getDirectionBetweenCells(board.getCellBoard(3,1), board.getCellBoard(0,1)));
 		assertEquals(Direction.North, board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(3,1)));
 		
-		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-	        board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(2,1));
-	    });
+		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> board.getDirectionBetweenCells(board.getCellBoard(3,4), board.getCellBoard(2,1)));
 	    assertEquals("Cells are not on the same line or column", exception.getMessage());	}
     
     @Test
@@ -202,14 +215,12 @@ public class BoardTest {
         for(int i=4; i>=2; i--) {
             board.BreakDoor(d, 1, i);  
         }
-        assertEquals(true, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 1)));  
-        assertEquals(true, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 2))); 
-        assertEquals(false, board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 3), board.getCellBoard(1, 0))); 
-        assertEquals(false, board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 0), board.getCellBoard(0, 3)));
+        assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 1)));
+        assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 2)));
+        assertFalse(board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 3), board.getCellBoard(1, 0)));
+        assertFalse(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 0), board.getCellBoard(0, 3)));
         
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            board.checkOpenDoorsBetweenCells(board.getCellBoard(3, 2), board.getCellBoard(1, 4));
-        });
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> board.checkOpenDoorsBetweenCells(board.getCellBoard(3, 2), board.getCellBoard(1, 4)));
         assertEquals("Direction cannot be determined", exception.getMessage());    	
     }
 
