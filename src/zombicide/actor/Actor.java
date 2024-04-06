@@ -7,11 +7,8 @@ import zombicide.cell.Cell;
  * abstrac class actor
  */
 public abstract class Actor {
-	
-	/**
-	 * Param of Actor
-	 */
-	/** maxLifePoint of the Actor*/
+
+    /** maxLifePoint of the Actor*/
 	protected  int maxLifePoint;
 		/** lifePoint of the Actor*/
 	protected int lifePoints;

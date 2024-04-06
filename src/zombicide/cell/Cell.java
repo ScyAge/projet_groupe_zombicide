@@ -1,7 +1,6 @@
 package zombicide.cell;
 import java.util.*;
 
-import zombicide.actor.Actor;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.util.*;
@@ -15,10 +14,10 @@ public abstract class Cell {
 	
 	
 	
-	private List<Player> players;
-	private List<Zombies> zombies;
-	private int x;
-	private int y;
+	private final List<Player> players;
+	private final List<Zombies> zombies;
+	private final int x;
+	private final int y;
 	private int noise;
 	
 	/**
@@ -31,9 +30,7 @@ public abstract class Cell {
 	 */
 	protected Map<Direction, Door> doors;
 	
-	/**
-	 * color constant 
-	 */
+
 		/**color white*/
 	public static final String colorWhite = "\u001B[0m" ;
 		/**color red*/
@@ -100,16 +97,7 @@ public abstract class Cell {
 	public List<Player> getAllPlayers() {
 		return this.players;
 	}
-	
 
-//	public Player getPlayers(Player p) throw ActorDoesNotExistExeption {
-//		if(this.players.indexOf(p) ==-1) {
-//			throws new ActorDoesNotExistExeption();
-//		}
-//		return players.get(players.indexOf(p));
-//		
-//	}
-	
 	/**
 	 * method that adds a player to the list
 	 * @param  p the player
@@ -144,7 +132,7 @@ public abstract class Cell {
 	
 	/**
 	 * remove the specified player from the list of player
-	 * @param actor the player
+	 * @param player the player
 	 */
 	public void remove(Player player) {
 		this.players.remove(player);

@@ -15,12 +15,12 @@ public class Player extends Actor{
 	
 	
 	/** Param of Player */
-	private List<Item> backpack;
-	private int backPackSize;
+	private final List<Item> backpack;
+	private final int backPackSize;
 	private  Item itemInHand;
 	private int expertiseLevel;
-	private List<ActionsPlayer> roles;
-	private List<ActionsPlayer> AllAction;
+	private final List<ActionsPlayer> roles;
+	private final List<ActionsPlayer> AllAction;
 
 	/**
 	 * Test Builder of Player class
@@ -107,7 +107,7 @@ public class Player extends Actor{
 	 * Test if the backpack is full
 	 * @return the results of the test
 	 */
-	public boolean IsBackPackFull(){return this.backpack.size() >= this.backPackSize;}
+	public boolean IsBackPackFull(){return this.backpack.size()>= this.backPackSize;}
 
 	/**
 	 * take a item from the backpack and place it in the hand of the player
@@ -127,7 +127,6 @@ public class Player extends Actor{
 
 	/**
 	 * put the item in your hand in the backpack if the backpack is full do nothing and keep the item in your hand
-	 * @return a boolean if it's a success or not
 	 */
 	public void PutItemInHandInBackPack(){
 			if(!this.IsBackPackFull()){
@@ -147,7 +146,6 @@ public class Player extends Actor{
 	 * method that adds an object to the bag at the first free location and returns
 	 * a message confirming the operation if the bag is full returns that the bag is full
 	 * @param item the item you want to add
-	 * @return a message that confirm to you the operation
 	 */
 	public void putItemInBackPack(Item item) {
 		if (!this.IsBackPackFull()){

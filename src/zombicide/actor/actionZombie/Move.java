@@ -18,8 +18,8 @@ public class Move implements ActionZombie{
 	/**
 	 * Builder of Move
 	 */
-	private Board board;
-	private ListChooser<Direction> chooser;
+	private final Board board;
+	private final ListChooser<Direction> chooser;
 
 	public Move(Board board,ListChooser<Direction> chooser) {
 

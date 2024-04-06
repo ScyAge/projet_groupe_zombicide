@@ -12,7 +12,7 @@ import zombicide.item.weapons.*;
  */
 public class SpawnPlayers extends Street {
 	
-	private Board board;
+	private final Board board;
 	
 	/** Constructor of the class SpawnPlayers
 	 * @param x coordinates of the cell

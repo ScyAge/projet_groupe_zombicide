@@ -10,7 +10,7 @@ import zombicide.item.equipment.HealingVial;
  */
 public class DrugStore extends Room {
 	
-	private List<HealingVial> healingVials;
+	private final List<HealingVial> healingVials;
 	
 	/** Constructor of the class DrugStore
 	 * @param x coordinates of the cell
@@ -38,7 +38,7 @@ public class DrugStore extends Room {
 		this.healingVials.add(hv);
 	}
 	
-	@Override
+
 	/**
 	 * method that adds a player to the list
 	 * @param  p the player

@@ -35,6 +35,8 @@ public class FirstAidKitTest {
 	public void TestItemEffect() {
 		Player p1= new Player(3,this.cell, 1,5);
 		Player p2= new Player(3,this.cell, 2,5);
+		p1.takeDamage(1);
+		p2.takeDamage(1);
 		int LP1= p1.getLifePoints();
 		int LP2= p2.getLifePoints();
 		this.cell.addPlayers(p1);

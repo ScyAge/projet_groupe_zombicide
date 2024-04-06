@@ -1,7 +1,7 @@
 package zombicide.item;
 
 import zombicide.actor.player.Player;
-import zombicide.cell.Cell;
+
 
 /**
  * Class Item
