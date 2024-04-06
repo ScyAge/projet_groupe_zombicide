@@ -1,6 +1,6 @@
 package zombicide.board;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,7 +50,7 @@ public class BoardTest {
     }
     
     @Test
-    public void testMovePlayer() {
+    public void testMovePlayerNorth() {
     	board.getCellBoard(0, 0).addPlayers(p1);
     	board.movePlayer(p1, d);
     	assertEquals(p1.getCurrentCell(),board.getCellBoard(0, 0));
@@ -58,6 +58,51 @@ public class BoardTest {
     	board.movePlayer(p2, d);
     	assertEquals(p2.getCurrentCell(),board.getCellBoard(1, 2));
     }
+	@Test
+	public void testMovePlayerSouth() {
+		board.getCellBoard(0, 0).addPlayers(p1);
+		board.movePlayer(p1, Direction.South);
+		//Door is not break
+		assertEquals(p1.getCurrentCell(),board.getCellBoard(0, 0));
+		//Door is Break
+		p1.getCurrentCell().breakDoor(Direction.South);
+		board.movePlayer(p1, Direction.South);
+		assertEquals(p1.getCurrentCell(),board.getCellBoard(1, 0));
+
+		//move in the street
+		board.getCellBoard(2, 2).addPlayers(p2);
+		board.movePlayer(p2, Direction.South);
+		assertEquals(p2.getCurrentCell(),board.getCellBoard(3, 2));
+	}
+	@Test
+	public void testMovePlayerEast() {
+		board.getCellBoard(0, 0).addPlayers(p1);
+		board.movePlayer(p1, Direction.East);
+		//Door is not break
+		assertEquals(p1.getCurrentCell(),board.getCellBoard(0, 0));
+		//Door is Break
+		p1.getCurrentCell().breakDoor(Direction.East);
+		board.movePlayer(p1, Direction.East);
+		assertEquals(p1.getCurrentCell(),board.getCellBoard(0, 1));
+
+
+		//move in the street
+		board.getCellBoard(2, 2).addPlayers(p2);
+		board.movePlayer(p2, Direction.East);
+		assertEquals(p2.getCurrentCell(),board.getCellBoard(2, 3));
+	}
+	@Test
+	public void testMovePlayerWest() {
+		board.getCellBoard(0, 0).addPlayers(p1);
+		board.movePlayer(p1, Direction.West);
+		//Door is Unbreakable
+		assertEquals(p1.getCurrentCell(),board.getCellBoard(0, 0));
+
+		//move in street
+		board.getCellBoard(2, 2).addPlayers(p2);
+		board.movePlayer(p2, Direction.West);
+		assertEquals(p2.getCurrentCell(),board.getCellBoard(2, 1));
+	}
     
     @Test
     public void testMoveZombie() {
