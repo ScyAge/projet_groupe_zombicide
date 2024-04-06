@@ -44,18 +44,15 @@ public class FirstAidKit extends Equipment {
 		Cell cell= player.getCurrentCell();
 		List<Player> players= cell.getAllPlayers();
 		
-		if(!players.isEmpty()) {
-			super.ItemEffect(player);
-			Player target = chooser.choose("choose a player to heal: ", players );
+		
+		super.ItemEffect(player);
+		Player target = chooser.choose("choose a player to heal: ", players );
 			
-			int targetLifePoints= target.getLifePoints();
-			target.setLifePoints(targetLifePoints+1);
-			System.out.println("the player "+ target.getId()+ " is healed" );
+		int targetLifePoints= target.getLifePoints();
+		target.setLifePoints(targetLifePoints+1);
+		System.out.println("the player "+ target.getId()+ " is healed" );
 			
-		}else {
-			System.out.println("No player in the same area");
-			
-		}
+		
 	}
 
 }
