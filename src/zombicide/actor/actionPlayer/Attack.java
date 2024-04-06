@@ -8,7 +8,6 @@ import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
-import zombicide.item.Item;
 import zombicide.item.weapons.Weapon;
 import zombicide.util.Direction;
 import zombicide.util.listchooser.InteractiveListChooser;
@@ -19,8 +18,8 @@ public class Attack implements ActionsPlayer{
 	/**
 	 * param 
 	 */
-	private ListChooser<Zombies> chooser;
-	private Board board;
+	private final ListChooser<Zombies> chooser;
+	private final Board board;
 	
 	
 	/**
@@ -43,8 +42,8 @@ public class Attack implements ActionsPlayer{
 	
 	/**
 	 * take zombie who can attack
-	 * @param player
-	 * @param w
+	 * @param player the player who will attack
+	 * @param w the weapon of the player
 	 * @return list of zombie who can attack
 	 */
 	public List<Zombies> WhoCanAttack(Player player,Weapon w){
@@ -118,7 +117,6 @@ public class Attack implements ActionsPlayer{
 				p.setAction_points(p.getAction_points()-1);
 			}
 		}
-		Cell c= p.getCurrentCell();
 		
 	}
 

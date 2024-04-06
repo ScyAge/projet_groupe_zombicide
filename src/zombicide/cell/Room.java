@@ -1,5 +1,4 @@
 package zombicide.cell;
-import java.util.*;
 
 import zombicide.item.*;
 import zombicide.util.*;
@@ -10,7 +9,7 @@ import zombicide.util.door.*;
  */
 public class Room extends Cell {
 	
-	/** Constructor of the class Room
+	/** Constructor for the Class Room
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
 	 */
@@ -34,16 +33,8 @@ public class Room extends Cell {
 	public void setDirection(Direction direction, Door door) {
         this.doors.put(direction, door);
     }
-	
-	/**
-	 * return the door
-	 * @return the door
-	 */
-	public Map<Direction, Door> getDoors() {
-	    return this.doors;
-	}
 
-	/**
+    /**
 	 * adds an item to the list
 	 * @param  i Item,
 	 */
@@ -54,7 +45,7 @@ public class Room extends Cell {
 	/** 
 	 * removes the given item from the list of items
 	 * @param i Item 
-	 * @return i the item 
+	 * @return the item
 	 */
 	public Item removeItem(Item i){
 		this.items.remove(i);

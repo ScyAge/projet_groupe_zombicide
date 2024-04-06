@@ -9,7 +9,7 @@ import zombicide.util.Direction;
  *  class MapCard
 */
 public class MapCard extends Equipment{
-	private Board board;
+	private final Board board;
 
 	/**
 	 * Create MapCard

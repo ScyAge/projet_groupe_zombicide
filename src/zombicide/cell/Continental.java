@@ -15,7 +15,7 @@ public class Continental extends Room {
 		super(x, y);
 	}
 	
-	@Override
+
 	/**
 	 * method that say if a player can look in the room
 	 * @return true if a player can look in the room else false

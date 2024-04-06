@@ -29,13 +29,6 @@ public class  Equipment extends Item {
 			c.setNoise(c.getNoise()+1);
 		}
 	}
-	
-	@Override
-	public boolean isNoisy() {
-		return false;
-	}
-
-
 
 
 }

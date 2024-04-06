@@ -21,7 +21,7 @@ public class Board {
 	private boolean drugStoreExist;
 	private boolean continentalExist;
     private int xr;
-    private List<Item> items;
+    private final List<Item> items;
     
     
 	/**
@@ -30,7 +30,7 @@ public class Board {
 	 * @param width of the board
 	 */
 	public Board(int height, int width) {
-		this(height,width,new ArrayList<Item>() );
+		this(height,width,new ArrayList<>() );
 	}
 	
 	/**
@@ -407,8 +407,6 @@ public class Board {
 
 	/**
 	 * return true if the zombie is on the same line that the player
-	 * @param player the player
-	 * @param zombie the zombie
 	 * @return true if the zombie is on the same line that the player
 	 */
 	public boolean cellIsOnSameLineOrColumn(Cell cell1, Cell cell2){
@@ -417,11 +415,8 @@ public class Board {
 		int C2x = cell2.getX();
 		int C2y = cell2.getY();
 
-		if (C1x == C2x || C1y == C2y){
-			return true;
-		}
-		return false;
-	}
+        return C1x == C2x || C1y == C2y;
+    }
 
 	/**
 	 * return the direction between two cells

@@ -3,7 +3,6 @@ package zombicide.actor.actionPlayer;
 import java.util.List;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
@@ -18,8 +17,8 @@ public class Move implements ActionsPlayer {
 	/**
 	 * Builder of Move
 	 */
-	private Board board;
-	private ListChooser<Direction> chooser;
+	private final Board board;
+	private final ListChooser<Direction> chooser;
 
 	public Move(Board board,ListChooser<Direction> chooser) {
 

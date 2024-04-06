@@ -7,7 +7,7 @@ import zombicide.actor.zombie.Zombies;
  */
 public class Sewer extends Street{
 	
-	/** Constructor of the class Room
+	/** Constructor of the class Sewer
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
 	 */
@@ -22,8 +22,7 @@ public class Sewer extends Street{
 	 */ 
 	public void ProductionZombie(int nb,Zombies Z) {
 		for (int i = 0; i < nb; i++) {
-			Zombies zombie = (Zombies) Z;
-			addZombies(zombie); 
+            addZombies(Z);
 		}
 	}
 	

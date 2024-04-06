@@ -14,7 +14,7 @@ import zombicide.cell.Street;
  * class Glasses
  */
 public class Glasses extends Equipment {
-	private Board board;
+	private final Board board;
 	
 	/**
 	 * Builder of Glasses

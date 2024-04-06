@@ -1,7 +1,6 @@
 package zombicide.item.equipment;
 
 import zombicide.actor.player.Player;
-import zombicide.item.Item;
 
 /**
  * class HealingVial
@@ -17,20 +16,12 @@ public class HealingVial extends Equipment{
 	}
 	
 	/**
-	 * adds one lifepoint to the players who uses it 
+	 * adds one lifepoint to the players who use it
 	 * @param player to give lifePoints
 	 */
 	public void ItemEffect(Player player) {
 		super.ItemEffect(player);
 		player.setLifePoints(1);
-	}
-
-	/**
-	 * return true if the equipment is noisy else false
-	 * @return true if the equipment is noisy else false
-	 */
-	public boolean isNoisy() {
-		return false;
 	}
 
 }

@@ -1,7 +1,6 @@
 package zombicide.actor.actionPlayer;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import zombicide.actor.player.Player;
@@ -9,9 +8,7 @@ import zombicide.actor.zombie.*;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.item.Item;
-import zombicide.item.weapons.Weapon;
 import zombicide.util.Direction;
-import zombicide.util.Door;
 import zombicide.util.listchooser.*;
 
 /**
@@ -22,8 +19,8 @@ public class OpenDoor implements ActionsPlayer {
 	/**
 	 * Param
 	 */
-    private ListChooser<Direction> chooser;
-    private Board board;
+    private final ListChooser<Direction> chooser;
+    private final Board board;
     
     /**
      * Builder of SearchIntRoomAction with ListChooser to test
