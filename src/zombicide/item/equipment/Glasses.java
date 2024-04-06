@@ -7,8 +7,7 @@ import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
-import zombicide.cell.Room;
-import zombicide.cell.Street;
+
 
 /**
  * class Glasses
@@ -32,25 +31,38 @@ public class Glasses extends Equipment {
 	 * */
 	public void ItemEffect(Player player) {
 		super.ItemEffect(player);
-		Cell cell = player.getCurrentCell();
+		this.printing(player);
+	}
+	
+	
+	/**
+	 *return the actors that are in adjacent cells to the player's cell
+	 * @param Player 
+	 * @return players and zombies id in the adjacent cells
+	 * */
+	
+	public String actorsAround(Player p) {
+		Cell cell = p.getCurrentCell();
 		int x= cell.getX();
 		int y = cell.getY();
+		String res="";
 		
 		List<Cell> adjCell= getAdjacentCells(x,y);
 		
 		
 		for(Cell c : adjCell) {
 			if (c!=null && c.canLook()) {
-				System.out.println("Players in cell (" + c.getX() + ", " + c.getY() + "):");
-				for (Player p : c.getAllPlayers()) {
-				    System.out.println("Player: " + p);
+				res+=("Players in cell (" + c.getX() + ", " + c.getY() + "): \n" );
+				for (Player player : c.getAllPlayers()) {
+				    res+=("P" + player.getId()+ "\n");
 				}
-				System.out.println("Zombies in cell (" + c.getX() + ", " + c.getY() + "):");
+				res+=("Zombies in cell (" + c.getX() + ", " + c.getY() + "): \n");
 				for(Zombies z: c.getAllZombies()) {
-					System.out.println("Zombie: "+ z);
+					res+=("Z"+ z.getId()+"\n");
 				}
 			}
 		}
+		return res;
 	}
 
 	/**
