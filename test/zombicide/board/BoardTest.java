@@ -219,7 +219,7 @@ public class BoardTest {
         }
         assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 1)));
         assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 4), board.getCellBoard(1, 2)));
-        assertFalse(board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 3), board.getCellBoard(1, 0)));
+		assertFalse(board.checkOpenDoorsBetweenCells(board.getCellBoard(1, 3), board.getCellBoard(1, 0)));
         assertFalse(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 0), board.getCellBoard(0, 3)));
         
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> board.checkOpenDoorsBetweenCells(board.getCellBoard(3, 2), board.getCellBoard(1, 4)));
@@ -234,6 +234,8 @@ public class BoardTest {
 		assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 2), board.getCellBoard(3, 2)));
 		assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 2), board.getCellBoard(2, 2)));
 		assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(3, 2), board.getCellBoard(0, 2)));
+		assertFalse(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 0), board.getCellBoard(4, 0)));
+		assertFalse(board.checkOpenDoorsBetweenCells(board.getCellBoard(4, 0), board.getCellBoard(0, 0)));
 
 	}
 
