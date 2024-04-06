@@ -92,7 +92,7 @@ public class Weapon extends Item {
 	 * the weapon is used 
 	 * */
 	public void Used() {
-		this.Use=false;
+		this.Use=true;
 	}
 	
 	

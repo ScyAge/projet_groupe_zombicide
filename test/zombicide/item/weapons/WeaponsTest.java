@@ -106,6 +106,13 @@ public class WeaponsTest {
         assertEquals(1, wTest.getNbDice());
     }
 
+    @Test
+    public void TestUsed(){
+        assertFalse(this.w.isUsed());
+        this.w.Used();
+        assertTrue(this.w.isUsed());
+    }
+
     
     
 }
