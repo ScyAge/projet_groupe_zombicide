@@ -28,8 +28,6 @@ public class MapCard extends Equipment{
 	 */
 	public void ItemEffect(Player player) {
 		this.display();
-		Cell c = player.getCurrentCell();
-		c.setNoise(c.getNoise()+1);
 	}
 
 	/**
