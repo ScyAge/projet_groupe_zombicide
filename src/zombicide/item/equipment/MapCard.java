@@ -28,8 +28,7 @@ public class MapCard extends Equipment{
 	 */
 	public void ItemEffect(Player player) {
 		this.display();
-		Cell c = player.getCurrentCell();
-		c.setNoise(c.getNoise()+1);
+		super.ItemEffect(player);
 	}
 
 	/**
@@ -102,8 +101,7 @@ public class MapCard extends Equipment{
 		}
 		else {
 			int NbZombie = this.board.getBoard()[i][j].getAllZombies().size();
-			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+this.board.getBoard()[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie)+this.board.getBoard()[i][j].getDoor(Direction.East).toString();
-		}
+			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+this.board.getBoard()[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie)+this.board.getBoard()[i][j].getDoor(Direction.East).toString();}
 		return x;
 	}
 	
