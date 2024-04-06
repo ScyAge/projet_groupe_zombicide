@@ -15,7 +15,6 @@ class StreetTest {
 	
 	private Street street;
     private Player player;
-    private Door door;
     private Zombies zombie;
     
     @BeforeEach
@@ -23,7 +22,6 @@ class StreetTest {
         street = new Street(5, 5);
         player = new Player(8,street,1,6);
         zombie = new Zombies(8,5,street,1,1);
-        door =  new North_South_door(true,true);
     }
     
     @Test
@@ -69,8 +67,6 @@ class StreetTest {
     void testCanLook() {
     	assertTrue(street.canLook());
     }
-    void testGetDoors() {
-    	assertEquals(door, street.getDoors().get(Direction.North));
-    }
+
    
 }
