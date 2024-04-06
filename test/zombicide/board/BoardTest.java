@@ -113,13 +113,60 @@ public class BoardTest {
     	board.moveZombie(z2, d);
     	assertEquals(z2.getCurrentCell(),board.getCellBoard(1, 2));
     }
+
+	@Test
+	public void testMoveZombieSouth() {
+		board.getCellBoard(0, 0).addZombies(z1);
+		board.moveZombie(z1, Direction.South);
+		//Door is not break
+		assertEquals(z1.getCurrentCell(),board.getCellBoard(0, 0));
+		//Door is Break
+		p1.getCurrentCell().breakDoor(Direction.South);
+		board.moveZombie(z1, Direction.South);
+		assertEquals(z1.getCurrentCell(),board.getCellBoard(1, 0));
+
+		//move in the street
+		board.getCellBoard(2, 2).addZombies(z2);
+		board.moveZombie(z2, Direction.South);
+		assertEquals(z2.getCurrentCell(),board.getCellBoard(3, 2));
+	}
+	@Test
+	public void testMoveZombieEast() {
+		board.getCellBoard(0, 0).addZombies(z1);
+		board.moveZombie(z1, Direction.East);
+		//Door is not break
+		assertEquals(z1.getCurrentCell(),board.getCellBoard(0, 0));
+		//Door is Break
+		p1.getCurrentCell().breakDoor(Direction.East);
+		board.moveZombie(z1, Direction.East);
+		assertEquals(z1.getCurrentCell(),board.getCellBoard(0, 1));
+
+
+		//move in the street
+		board.getCellBoard(2, 2).addZombies(z2);
+		board.moveZombie(z2, Direction.East);
+		assertEquals(z2.getCurrentCell(),board.getCellBoard(2, 3));
+	}
+	@Test
+	public void testMoveZombieWest() {
+		board.getCellBoard(0, 0).addZombies(z1);
+		board.moveZombie(z1, Direction.West);
+		//Door is Unbreakable
+		assertEquals(z1.getCurrentCell(),board.getCellBoard(0, 0));
+
+		//move in street
+		board.getCellBoard(2, 2).addZombies(z1);
+		board.moveZombie(z2, Direction.West);
+		assertEquals(z2.getCurrentCell(),board.getCellBoard(2, 1));
+	}
+
     
     @Test
     public void testBreakDoor() {
     	board.BreakDoor(d, 0, 0);
-    	assertEquals(false,board.getCellBoard(0, 0).getDoor(d).isBreak());
+        assertFalse(board.getCellBoard(0, 0).getDoor(d).isBreak());
     	board.BreakDoor(d, 2, 2);
-    	assertEquals(true,board.getCellBoard(2, 2).getDoor(d).isBreak());
+        assertTrue(board.getCellBoard(2, 2).getDoor(d).isBreak());
     }
     
     @Test
