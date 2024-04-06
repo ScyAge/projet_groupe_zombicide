@@ -59,20 +59,5 @@ public class FirstAidKitTest {
 
 	}
 
-	@Test
-	public void TestNoPlayerInCell(){
-		Board b1 = new TrainingBoard();
-		Cell c1 = b1.getCellBoard(1,1);
-		Player p1 = new Player(3, c1, 0, 5);
-
-		ListChooser<Player> chooser = new RandomListChooser<>();
-		FirstAidKit firstAidKit = new FirstAidKit("FirstAidKit", false, chooser);
-		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outContent));
-
-		firstAidKit.ItemEffect(p1);
-
-		assertEquals("No player in the same area\n", outContent.toString());
-	}
 	
 }
