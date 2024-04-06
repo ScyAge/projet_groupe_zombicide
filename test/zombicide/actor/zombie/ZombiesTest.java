@@ -32,7 +32,15 @@ public class ZombiesTest {
     void testTakeDommage() {
     	assertEquals(1000, z1.getLifePoints());
     	z1.takeDamage(100);
+    	z4.takeDamage(1);
+    	z5.takeDamage(1);
     	assertEquals(900, z1.getLifePoints());
+    	assertEquals(4, z4.getLifePoints());
+    	assertEquals(6, z5.getLifePoints());
+    	z4.takeDamage(2);
+    	z5.takeDamage(2);
+    	assertEquals(2, z4.getLifePoints());
+    	assertEquals(4, z5.getLifePoints());
     }
     
     @Test

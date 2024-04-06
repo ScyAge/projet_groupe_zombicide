@@ -20,7 +20,6 @@ public class WeaponsTest {
 	private Player p; 
 	private Weapon wTest;
 	
-	
 	@BeforeEach
     void setUp() {
     	b= new Board(5,5);
@@ -40,6 +39,71 @@ public class WeaponsTest {
         assertEquals(4, w.getThreshold());
         assertFalse(w.getBreakDoor());
         assertFalse(w.isUsed());
+    }
+    
+    @Test
+    public void testGun() {
+        wTest = new Gun(b);
+        assertEquals("gun", wTest.getTitle());
+        assertEquals(1, wTest.getRange());
+        assertEquals(0, wTest.getMinRange());
+        assertEquals(1, wTest.getDamage());
+        assertEquals(4, wTest.getThreshold());
+        assertFalse(wTest.getBreakDoor());
+        assertTrue(wTest.isNoisy());
+        assertEquals(1, wTest.getNbDice());
+    }
+    
+    @Test
+    public void testCrowbar() {
+        wTest = new Crowbar(b);
+        assertEquals("crowbar", wTest.getTitle());
+        assertEquals(0, wTest.getRange());
+        assertEquals(0, wTest.getMinRange());
+        assertEquals(1, wTest.getDamage());
+        assertEquals(4, wTest.getThreshold());
+        assertTrue(wTest.getBreakDoor());
+        assertFalse(wTest.isNoisy());
+        assertEquals(1, wTest.getNbDice());
+    }
+    
+    @Test
+    public void testChainsaw() {
+        wTest = new Chainsaw(b);
+        assertEquals("chainsaw", wTest.getTitle());
+        assertEquals(0, wTest.getRange());
+        assertEquals(0, wTest.getMinRange());
+        assertEquals(3, wTest.getDamage());
+        assertEquals(5, wTest.getThreshold());
+        assertTrue(wTest.getBreakDoor());
+        assertTrue(wTest.isNoisy());
+        assertEquals(2, wTest.getNbDice());
+    }
+    
+    @Test
+    public void testCarabine() {
+        wTest = new Carabine(b);
+        assertEquals("carabine", wTest.getTitle());
+        assertEquals(3, wTest.getRange());
+        assertEquals(1, wTest.getMinRange());
+        assertEquals(1, wTest.getDamage());
+        assertEquals(4, wTest.getThreshold());
+        assertFalse(wTest.getBreakDoor());
+        assertTrue(wTest.isNoisy());
+        assertEquals(2, wTest.getNbDice());
+    }
+    
+    @Test
+    public void testAxe() {
+        wTest = new Axe(b);
+        assertEquals("axe", wTest.getTitle());
+        assertEquals(0, wTest.getRange());
+        assertEquals(0, wTest.getMinRange());
+        assertEquals(2, wTest.getDamage());
+        assertEquals(4, wTest.getThreshold());
+        assertTrue(wTest.getBreakDoor());
+        assertFalse(wTest.isNoisy());
+        assertEquals(1, wTest.getNbDice());
     }
 
     
