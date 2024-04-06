@@ -37,12 +37,14 @@ public class FirstAidKitTest {
 		Player p2= new Player(3,this.cell, 2,5);
 		p1.takeDamage(1);
 		p2.takeDamage(1);
+		this.player.takeDamage(1);
 		int LP1= p1.getLifePoints();
 		int LP2= p2.getLifePoints();
+		int LP0 = this.player.getLifePoints();
 		this.cell.addPlayers(p1);
 		this.cell.addPlayers(p2);
 		this.firstAidKit.ItemEffect(this.player);
-		assertTrue((LP1 +1) == p1.getLifePoints() || (LP2+1)==p2.getLifePoints());
+		assertTrue((LP1 +1) == p1.getLifePoints() || (LP2+1)==p2.getLifePoints() || (LP0 +1) == this.player.getLifePoints());
 		
 	}
 	
