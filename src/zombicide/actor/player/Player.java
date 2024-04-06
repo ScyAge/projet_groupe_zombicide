@@ -57,6 +57,7 @@ public class Player extends Actor{
 		this.AllAction = actions;
 	}
 
+	
 	/**
 	 * gives the player's expertise level
 	 * @return expertiseLevel
