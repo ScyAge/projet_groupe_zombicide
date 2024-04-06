@@ -65,7 +65,6 @@ public class MapCard extends Equipment{
 				System.out.println(x);
 			}
 		}
-
 			
 	}
 		
