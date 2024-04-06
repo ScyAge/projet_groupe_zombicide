@@ -32,6 +32,11 @@ class SpawnPlayersTest {
     	assertEquals(players,SpawnPlayers.getAllPlayers());
     	
     }
+
+	@Test
+	public void testToString(){
+		assertEquals(this.SpawnPlayers.toString(),String.format("%s-%s",Cell.colorBlue,Cell.colorWhite));
+	}
     
     
 

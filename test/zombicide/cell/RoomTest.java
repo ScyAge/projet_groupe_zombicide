@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Broom;
 import zombicide.actor.zombie.Zombies;
 import zombicide.item.Item;
 import zombicide.util.Direction;
@@ -113,5 +114,20 @@ class RoomTest {
     	assertFalse(room.getAllItems().contains(item));
     	assertTrue(room.getAllItems().contains(item2));
     }
+
+	@Test
+	public void testResetNoise(){
+		this.room.setNoise(4);
+		assertEquals(this.room.getNoise(),4);
+		this.room.resetNoise();
+		assertEquals(this.room.getNoise(),0);
+	}
+
+	@Test
+	public void testDescription(){
+		this.room.addZombies(new Broom(this.room,2));
+		String c = String.format("(%d,%d) %s [ Players : %d ; Zombies : %d]",this.room.getX(),this.room.getY(),this.room.getClass().getSimpleName(),this.room.getAllPlayers().size(),this.room.getAllZombies().size());
+		assertEquals(this.room.description(),c);
+	}
    
 }

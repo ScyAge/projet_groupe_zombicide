@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
+import zombicide.item.Item;
+import zombicide.item.weapons.Axe;
 import zombicide.util.Direction;
 import zombicide.util.Door;
 import zombicide.util.door.North_South_door;
@@ -67,6 +69,13 @@ class StreetTest {
     void testCanLook() {
     	assertTrue(street.canLook());
     }
+
+	@Test
+	public void TestRemoveItem(){
+		Item i = new Axe();
+		assertNull(this.street.removeItem(i));
+
+	}
 
    
 }
