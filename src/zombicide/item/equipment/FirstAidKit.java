@@ -56,6 +56,7 @@ public class FirstAidKit extends Equipment {
 			
 		}else {
 			System.out.println("No player in the same area");
+			this.Use=false;
 		}
 	}
 

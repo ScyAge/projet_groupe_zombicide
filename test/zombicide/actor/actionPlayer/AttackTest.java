@@ -26,8 +26,8 @@ public class AttackTest {
 		b = new Board(5,5);
 		z = new Gigantomachia(b.getCellBoard(2, 2),1);
 		p = new Player(5,b.getCellBoard(2, 2),1,1);
-		w = new Weapon("gun",4,0,2,0,false,true,1,new RandomListChooser<>());
-		w2 = new Weapon("gun",4,0,2,6,false,true,2,new RandomListChooser<>());
+		w = new Weapon("gun",4,0,2,0,false,true,1);
+		w2 = new Weapon("gun",4,0,2,6,false,true,2);
 		a = new Attack(new RandomListChooser<>(),b);
 		b.getCellBoard(2, 2).addPlayers(p);
 		b.getCellBoard(2, 2).addZombies(z);
@@ -61,5 +61,7 @@ public class AttackTest {
     	
         assertSame(a.WhoCanAttack(p,w).get(0), z);
         assertEquals(1, a.WhoCanAttack(p,w).size());
+        b.getCellBoard(2,3).addZombies(z);
+        assertEquals(2, a.WhoCanAttack(p,w).size());
     }
 }
