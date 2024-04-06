@@ -24,7 +24,7 @@ public class FirstAidKitTest {
 	@BeforeEach
 	public void init() {
 		this.chooser = new RandomListChooser<>();
-		this.firstAidKit= new FirstAidKit("FirstAidKit", false, chooser);
+		this.firstAidKit= new FirstAidKit("FirstAidKit",chooser);
         this.board = new TrainingBoard();
         this.cell = this.board.getCellBoard(1,1);
         this.player= new Player(3,cell,0,5);

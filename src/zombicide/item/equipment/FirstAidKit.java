@@ -19,10 +19,9 @@ public class FirstAidKit extends Equipment {
 	/**
 	 * Builder of FirstAidKit
 	 * @param title of the item
-	 * @param breakDoor false the firstAidKit can't break a door 
-	 * @param chooser ListChooser of the masterkey
+	 * @param chooser ListChooser of the player to heal
 	 */
-	public FirstAidKit( String title, boolean breakDoor, ListChooser<Player> chooser) {
+	public FirstAidKit( String title, ListChooser<Player> chooser) {
 		super(title, false);
 		this.chooser=chooser;
 	}
@@ -30,9 +29,8 @@ public class FirstAidKit extends Equipment {
 	/**
 	 * Builder of FirstAidKit
 	 * @param title of the item
-	 * @param breakDoor false the firstAidKit can't break a door
 	 */
-	public FirstAidKit( String title, boolean breakDoor ) {
+	public FirstAidKit( String title) {
 		super(title, false);
 		this.chooser= new InteractiveListChooser<>();
 	}
