@@ -24,20 +24,19 @@ public class Glasses extends Equipment {
 		this.board=board;
 	}
 
-	@Override
 	/**
 	 * shows the actors that are in adjacent cells to the player's cell
-	 * @param Player 
+	 * @param player the player who use the item
 	 * */
 	public void ItemEffect(Player player) {
 		super.ItemEffect(player);
-		this.printing(player);
+		this.actorsAround(player);
 	}
 	
 	
 	/**
 	 *return the actors that are in adjacent cells to the player's cell
-	 * @param Player 
+	 * @param p the player who use the item
 	 * @return players and zombies id in the adjacent cells
 	 * */
 	
@@ -65,22 +64,14 @@ public class Glasses extends Equipment {
 		return res;
 	}
 
-	/**
-	 * return true if the equipment is noisy else false
-	 * @return true if the equipment is noisy else false
-	 */
-	public boolean isNoisy() {
-		return false;
-	}
 
-
-	/** gives the list of adjacent cells to the cell with the given coordinates
+    /** gives the list of adjacent cells to the cell with the given coordinates
 	 * @param x the horizontal coordinate of the cell
-	 * @param the vertical coordinate of the cell
+	 * @param y the vertical coordinate of the cell
 	 * @return a list of the adjacent cells
 	 *  */
 	private List<Cell> getAdjacentCells(int x, int y) {
-		List<Cell> cells= new ArrayList<Cell>();
+		List<Cell> cells= new ArrayList<>();
 		
 		if(isValidCell(x-1, y)) {
 			cells.add(this.board.getBoard()[x-1][y]);
