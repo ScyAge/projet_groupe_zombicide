@@ -1,4 +1,4 @@
-package zombicide.action.actionZombie;
+package zombicide.actor.actionZombie;
 
 public class MoveTest {
 
