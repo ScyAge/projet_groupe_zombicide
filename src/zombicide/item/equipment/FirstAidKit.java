@@ -14,7 +14,7 @@ public class FirstAidKit extends Equipment {
 	/**
 	 * Param
 	 */
-	private final ListChooser<Player> chooser;
+	private ListChooser<Player> chooser;
 	
 	/**
 	 * Builder of FirstAidKit
@@ -56,7 +56,7 @@ public class FirstAidKit extends Equipment {
 			
 		}else {
 			System.out.println("No player in the same area");
-			this.Use=false;
+			
 		}
 	}
 
