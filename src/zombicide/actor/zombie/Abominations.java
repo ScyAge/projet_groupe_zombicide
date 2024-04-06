@@ -34,4 +34,10 @@ public class Abominations extends Zombies {
 	public String toString() {
 		return String.format("Abominations have %d damage Points",this.damagePoints);
 	}
+	
+	public void takeDamage(int damage) {
+		if(damage > 1) {
+			super.takeDamage(damage);
+		}
+	}
 }

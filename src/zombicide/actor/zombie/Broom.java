@@ -34,5 +34,13 @@ public class Broom extends Zombies {
 	public String toString() {
 		return String.format("Broom have %d damage Points",this.damagePoints);
 	}
+	
+	
+	public void takeDamage(int damage) {
+		if(damage > 1) {
+			super.takeDamage(damage);
+		}
+	}
+	
 
 }
