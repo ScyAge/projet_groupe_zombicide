@@ -17,6 +17,7 @@ public class BoardTest {
 	private Board board;
 	private Item i;
 	private Direction d;
+	private Direction d2;
 	private Player p1;
 	private Player p2;
 	private Zombies z1;
@@ -28,6 +29,7 @@ public class BoardTest {
     	board = new Board(5,5);
     	i = new MapCard("mp",false, board);
     	d = Direction.North;
+		d2 = Direction.East;
     	p1 = new Player(5,board.getCellBoard(0, 0),5,6);
     	p2 = new Player(5,board.getCellBoard(2, 2),5,6);
     	z1 = new Zombies(5,2,board.getCellBoard(0, 0),5,5);
@@ -221,8 +223,19 @@ public class BoardTest {
         assertFalse(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 0), board.getCellBoard(0, 3)));
         
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> board.checkOpenDoorsBetweenCells(board.getCellBoard(3, 2), board.getCellBoard(1, 4)));
-        assertEquals("Direction cannot be determined", exception.getMessage());    	
+        assertEquals("Direction cannot be determined", exception.getMessage());
     }
+
+	@Test
+	public void testCheckOpenDoorsBetweenCells2() {
+		for(int i=0; i<=3; i++) {
+			board.BreakDoor(d2, i, 2);
+		}
+		assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 2), board.getCellBoard(3, 2)));
+		assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 2), board.getCellBoard(2, 2)));
+		assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(3, 2), board.getCellBoard(0, 2)));
+
+	}
 
     
 
