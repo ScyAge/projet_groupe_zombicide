@@ -1,8 +1,6 @@
 package zombicide.item.weapons;
 
-import javax.naming.Name;
 
-import zombicide.board.Board;
 
 /**
  * class Gun

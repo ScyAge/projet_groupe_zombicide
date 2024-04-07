@@ -1,6 +1,5 @@
 package zombicide.item.weapons;
 
-import zombicide.board.Board;
 
 /**
  * class Crowbar

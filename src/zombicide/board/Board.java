@@ -347,21 +347,22 @@ public class Board {
 	 * Print the Board
 	 */
 	public void Display() {
+
 		for(int i =0;i<this.board.length;i++) {
 			for(int ligne = 0;ligne <4;ligne++) {
-				String x = "";
+				StringBuilder x = new StringBuilder();
 				for(int j =0;j<this.board[0].length;j++) {
 					if(ligne ==0) {
-						x += this.board[i][j].getDoor(Direction.North).toString();
+						x.append(this.board[i][j].getDoor(Direction.North).toString());
 					}
 					else if(ligne ==1){
-						x += secondLineDisplay(i, j);
+						x.append(secondLineDisplay(i, j));
 					}
 					else if(ligne ==2){
-						x += ThirdLineDisplay(i, j);
+						x.append(ThirdLineDisplay(i, j));
 					}
 					else{
-						x += this.board[i][j].getDoor(Direction.South).toString();
+						x.append(this.board[i][j].getDoor(Direction.South).toString());
 					}
 				}
 				System.out.println(x);
