@@ -66,7 +66,8 @@ public class SearchInTRoomActionTest {
     public  void TestSearchInRoomActionWhenBackPackFull(){
         this.p.putItemInBackPack(new Crowbar());
         this.p.putItemInBackPack(new Gun());
-        this.p.putItemInBackPack(new FirstAidKit("TEST"));
+        Item kit = new FirstAidKit("TEST");
+        this.p.putItemInBackPack(kit);
 
         //test de la coherence des item present dans la cell et dans le sac
         List<Item> testItem = new ArrayList<>();
