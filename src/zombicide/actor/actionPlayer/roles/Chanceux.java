@@ -17,10 +17,6 @@ import zombicide.util.listchooser.ListChooser;
  */
 public class Chanceux extends Attack implements ActionsPlayer {
 	
-	/**
-	 * param 
-	 */
-	private ListChooser<Zombies> chooser;
 	
 	/**
 	 * Builder of Chanceux with ListChooser in param to test
@@ -44,7 +40,7 @@ public class Chanceux extends Attack implements ActionsPlayer {
      */
     @Override
     public void action(Player p) {
-    	super.action(p);
+    	super.attack(p,1,0);
 		p.setAction_points(p.getAction_points()+1);
     }
     
