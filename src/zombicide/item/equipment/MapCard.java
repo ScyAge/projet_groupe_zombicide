@@ -46,19 +46,19 @@ public class MapCard extends Equipment{
 		Cell[][] b= this.board.getBoard();
 		for(int i =0;i<b.length;i++) {
 			for(int ligne = 0;ligne <4;ligne++) {
-				String x = "";
+				StringBuilder x = new StringBuilder();
 				for(int j =0;j<b[0].length;j++) {
 					if(ligne ==0) {
-						x += b[i][j].getDoor(Direction.North).toString();
+						x.append(b[i][j].getDoor(Direction.North).toString());
 					}
 					else if(ligne ==1) {
-						x += this.secondLineDisplay(i, j,b[i][j].canLook());
+						x.append(this.secondLineDisplay(i, j,b[i][j].canLook()));
 					}
 					else if(ligne ==2){
-						x += this.ThirdLineDisplay(i, j,b[i][j].canLook());
+						x.append(this.ThirdLineDisplay(i, j,b[i][j].canLook()));
 					}
 					else{
-						x +=b[i][j].getDoor(Direction.South).toString();
+						x.append(b[i][j].getDoor(Direction.South).toString());
 					}
 				}
 				System.out.println(x);

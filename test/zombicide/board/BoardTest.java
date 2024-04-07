@@ -43,6 +43,7 @@ public class BoardTest {
 				assertNotNull(board.getBoard()[i][j]);
 			}
 		}
+		this.board.Display();
 	}
     
     @Test

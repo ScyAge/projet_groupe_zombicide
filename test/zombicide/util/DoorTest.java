@@ -50,4 +50,12 @@ class DoorTest {
     	assertTrue(dns.isBreakable());
     }
 
+	@Test
+	public void testSetNotBreak(){
+		dew.Break();
+		assertTrue(dew.isBreak());
+		dew.setNotBreak();
+		assertFalse(dew.isBreak());
+	}
+
 }
