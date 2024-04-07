@@ -6,10 +6,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Walker;
 import zombicide.actor.zombie.Zombies;
 import zombicide.item.Item;
 import zombicide.item.equipment.*;
 import zombicide.util.Direction;
+import zombicide.item.weapons.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class BoardTest {
@@ -43,7 +47,6 @@ public class BoardTest {
 				assertNotNull(board.getBoard()[i][j]);
 			}
 		}
-		this.board.Display();
 	}
     
     @Test
@@ -236,6 +239,31 @@ public class BoardTest {
 		assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(0, 2), board.getCellBoard(2, 2)));
 		assertTrue(board.checkOpenDoorsBetweenCells(board.getCellBoard(3, 2), board.getCellBoard(0, 2)));
 
+	}
+
+	@Test
+	public void testDisplay(){
+		this.board.Display();
+		//add of a player and a zombie in each cell
+		for(int i = 0;i < this.board.getBoard().length;i++){
+			for(int j = 0 ; j < this.board.getBoard()[0].length;j++){
+				this.board.getCellBoard(i,j).addPlayers(new Player(3,this.board.getCellBoard(i,j),i*j,5));
+				this.board.getCellBoard(i,j).addZombies(new Walker(this.board.getCellBoard(i,j),i*j));
+			}
+		}
+		this.board.Display();
+
+	}
+
+	@Test
+	public void TestPlacementITem(){
+		List<Item> g = new ArrayList<>();
+		g.add(new Axe());
+		g.add(new Carabine());
+		g.add(new Gun());
+		Board b = new Board(5,5,g);
+        assertFalse(b.getItem().isEmpty());
+		b.Display();
 	}
 
     

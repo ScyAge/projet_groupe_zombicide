@@ -15,15 +15,15 @@ import zombicide.item.*;
  * class of board
  */
 public class Board {
-	
+
 	/** composition of board */
 	protected Cell[][] board;
 	private boolean drugStoreExist;
 	private boolean continentalExist;
     private int xr;
     private final List<Item> items;
-    
-    
+
+
 	/**
 	 * Builder of Board
 	 * @param height of the board
@@ -31,8 +31,9 @@ public class Board {
 	 */
 	public Board(int height, int width) {
 		this(height,width,new ArrayList<>() );
+
 	}
-	
+
 	/**
 	 * Builder of Board
 	 * @param height of the board
@@ -47,7 +48,7 @@ public class Board {
 		this.items = items;
 		initBoard(0,width,0,height,true);
 	}
-	
+
 	/**
 	 * init the Board
 	 * @param xd start width
@@ -76,10 +77,10 @@ public class Board {
 				this.board[X][yf-1] = new Sewer(xd, Y);
 				this.board[X][Y] = new SpawnPlayers(X,Y,this);
 			}
-			
+
 		}
 	}
-	
+
 	/**
 	 *  Create Room
 	 * @param xd start width
@@ -106,11 +107,11 @@ public class Board {
 				if(j==this.board[0].length-1) {
 					this.board[i][j].getDoor(Direction.East).SetNotBreakble();
 				}
-				
+
 			}
 		}
 	}
-	
+
 	private void addDrugStoreAndContinentalInBuilding(int i , int j) {
         Random random = new Random() ;
 		if(!continentalExist || !drugStoreExist ) {
@@ -128,14 +129,14 @@ public class Board {
 					this.board[i][j]=drugstore ;
 					drugStoreExist=true ;
 				}
-				
+
 			}
 			else {
 				xr--;
 			}
 		}
 	}
-	
+
 	/**
 	 * Create vertical Street
 	 * @param y1 height of the street
@@ -161,15 +162,15 @@ public class Board {
 	private boolean isSplitable(int xd, int xf, int yd, int yf){
 		return (xf -xd)>=5 && (yf-yd)>=5 ;
 	}
-	
+
 	/**
-	 * get the Board 
+	 * get the Board
 	 * @return the board
 	 */
 	public Cell[][] getBoard(){
 		return this.board;
 	}
-	
+
 	/**
 	 * get the cell x y of the board
 	 * @param x index of the cell
@@ -179,7 +180,7 @@ public class Board {
 	public Cell getCellBoard(int x , int y) {
 		return  this.board[x][y];
 	}
-	
+
 	/**
 	 * Break the door in the cell
 	 * @param d direction to break the door
@@ -201,11 +202,11 @@ public class Board {
 			this.board[x+1][y].breakDoor(Direction.oppose(d));
 		}
 	}
-	
+
 	/**
 	 * return true if the actor can go in the direction he wants to go otherwise false
-	 * @param actor the actor 
-	 * @param direction the direction 
+	 * @param actor the actor
+	 * @param direction the direction
 	 * @return true if the player can go in the direction he wants to go otherwise false
 	 */
 	private boolean canMove(Actor actor, Direction direction){
@@ -218,11 +219,11 @@ public class Board {
             (direction == Direction.East && y == board[0].length - 1)) {
             return false;
         }
-		
+
 		Door door = board[x][y].getDoor(direction);
         return door != null && door.isBreak();
 	}
-	
+
 	/**
 	 * move the actor in the direction
 	 * @param player the player
@@ -254,8 +255,8 @@ public class Board {
             System.out.println("Impossible de se déplacer dans cette direction.");
         }
     }
-	
-	
+
+
 	/**
 	 * move the actor in the direction
 	 * @param zombie the zombie
@@ -287,7 +288,7 @@ public class Board {
             System.out.println("Impossible de se déplacer dans cette direction.");
         }
     }
-	
+
 	/**
 	 * get the list item
 	 * @return the list of items
@@ -295,7 +296,7 @@ public class Board {
 	public List<Item> getItem(){
 		return this.items;
 	}
-	
+
 	/**
 	 * add item in the list Items
 	 * @param i item to add on the list
@@ -304,10 +305,10 @@ public class Board {
 		this.items.add(i);
 	}
 	/**
-	 * get the cell with the direction 
+	 * get the cell with the direction
 	 * @param d direction of cell the next cell
 	 * @param a  Actor who is on the cell
-	 * @return the cell 
+	 * @return the cell
 	 */
 	public Cell getCellDirection(Direction d,Actor a) {
 		Cell c = a.getCurrentCell();
@@ -326,7 +327,7 @@ public class Board {
 			}
 		return null;
 	}
-	
+
 	/**
 	 * Place item on the board if and only if the random number drawn is 5.
 	 * @param x indice of the cell
@@ -342,32 +343,27 @@ public class Board {
 			}
 		}
 	}
-	
+
 	/**
 	 * Print the Board
 	 */
 	public void Display() {
-
-		for(int i =0;i<this.board.length;i++) {
-			for(int ligne = 0;ligne <4;ligne++) {
+		for (int i = 0; i < this.board.length; i++) {
+			for (int ligne = 0; ligne < 4; ligne++) {
 				StringBuilder x = new StringBuilder();
-				for(int j =0;j<this.board[0].length;j++) {
-					if(ligne ==0) {
+				for (int j = 0; j < this.board[0].length; j++) {
+					if (ligne == 0) {
 						x.append(this.board[i][j].getDoor(Direction.North).toString());
-					}
-					else if(ligne ==1){
+					} else if (ligne == 1) {
 						x.append(secondLineDisplay(i, j));
-					}
-					else if(ligne ==2){
+					} else if (ligne == 2) {
 						x.append(ThirdLineDisplay(i, j));
-					}
-					else{
+					} else {
 						x.append(this.board[i][j].getDoor(Direction.South).toString());
 					}
 				}
 				System.out.println(x);
 			}
-			
 		}
 	}
 
