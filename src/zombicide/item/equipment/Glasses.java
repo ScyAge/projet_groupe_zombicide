@@ -44,24 +44,27 @@ public class Glasses extends Equipment {
 		Cell cell = p.getCurrentCell();
 		int x= cell.getX();
 		int y = cell.getY();
-		String res="";
+		StringBuilder res = new StringBuilder();
 		
 		List<Cell> adjCell= getAdjacentCells(x,y);
-		
+
 		
 		for(Cell c : adjCell) {
+
 			if (c!=null && c.canLook()) {
-				res+=("Players in cell (" + c.getX() + ", " + c.getY() + "): \n" );
+				res.append(String.format("Players in cell (%d, %d): \n",c.getX(),c.getY()));
 				for (Player player : c.getAllPlayers()) {
-				    res+=("P" + player.getId()+ "\n");
+				    res.append(String.format("P%d\n",player.getId()));
 				}
-				res+=("Zombies in cell (" + c.getX() + ", " + c.getY() + "): \n");
+				res.append(String.format("Zombies in cell (%d, %d): \n",c.getX(),c.getY()));
 				for(Zombies z: c.getAllZombies()) {
-					res+=("Z"+ z.getId()+"\n");
+					res.append(String.format("Z%d\n",z.getId()));
 				}
+			} else if (c!=null && !c.canLook()) {
+				res.append(String.format("You can't look in the room (%d,%d)\n",c.getX(),c.getY()));
 			}
 		}
-		return res;
+		return res.toString();
 	}
 
 
