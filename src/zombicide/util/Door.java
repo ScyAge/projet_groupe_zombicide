@@ -31,14 +31,14 @@ public abstract class Door {
 	 * @return true if we can break the door and else false
 	 */
 	public boolean isBreakable() {
-		return Breakable;
+		return this.Breakable;
 	}
 	/**
 	 * return true if the door is break and else false
 	 * @return true if the door is break and else false
 	 */
 	public boolean isBreak() {
-		return Break;
+		return this.Break;
 	}
 
 	/**
@@ -46,7 +46,7 @@ public abstract class Door {
 	 */
 	public void Break() {
 		if(this.isBreakable()) {
-			Break = true;
+			this.Break = true;
 		}
 	}
 	/**
