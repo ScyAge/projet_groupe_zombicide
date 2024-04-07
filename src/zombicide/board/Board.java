@@ -95,10 +95,7 @@ public class Board {
 				this.placeItemAlea(i,j);
 				this.addDrugStoreAndContinentalInBuilding(i, j);
 				if(i==0) {
-					System.out.println("avant:"+this.board[i][j].getDoor(Direction.North).isBreakable()+" coord "+i+" "+j);
 					this.board[i][j].getDoor(Direction.North).SetNotBreakble();
-					System.out.println("apres:"+this.board[i][j].getDoor(Direction.North).isBreakable());
-					System.out.println(this.board[i][j].getClass().getSimpleName());
 				}
 				if(j==0) {
 					this.board[i][j].getDoor(Direction.West).SetNotBreakble();
