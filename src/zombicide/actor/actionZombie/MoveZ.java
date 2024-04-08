@@ -36,16 +36,16 @@ public class MoveZ implements ActionZombie {
 	private Direction choiceDirectionNoise(Zombies z) {
 		Direction d = null;
 		Cell c = choiceCellNoise(); 
-		if(z.getCurrentCell().getX()> c.getX()) {
+		if(z.getCurrentCell().getX()> c.getX() && this.board.getCellBoard(z.getCurrentCell().getX()-1,z.getCurrentCell().getY()).getDoor(Direction.South).isBreak()) {
 			d = Direction.North;
 		}
-		else if(z.getCurrentCell().getX()< c.getX() && z.getCurrentCell().getDoor(Direction.South).isBreak()) {
+		else if(z.getCurrentCell().getX()< c.getX() && this.board.getCellBoard(z.getCurrentCell().getX()+1,z.getCurrentCell().getY()).getDoor(Direction.North).isBreak()) {
 			d = Direction.South;
 		}
-		else if(z.getCurrentCell().getY()< c.getY() && z.getCurrentCell().getDoor(Direction.East).isBreak()) {
+		else if(z.getCurrentCell().getY()< c.getY() && this.board.getCellBoard(z.getCurrentCell().getX(),z.getCurrentCell().getY()+1).getDoor(Direction.West).isBreak()) {
 			d = Direction.East;
 		}
-		else if(z.getCurrentCell().getY()> c.getY() && z.getCurrentCell().getDoor(Direction.West).isBreak()) {
+		else if(z.getCurrentCell().getY()> c.getY() && this.board.getCellBoard(z.getCurrentCell().getX(),z.getCurrentCell().getY()-1).getDoor(Direction.East).isBreak()) {
 			d = Direction.West;
 		}
 		return d;
