@@ -35,7 +35,7 @@ public class Combattant extends Attack{
      */
     @Override
     public void action(Player p) {
-		super.attack(p, 0,1);
+		super.attack(p,1);
 		
     }
  
