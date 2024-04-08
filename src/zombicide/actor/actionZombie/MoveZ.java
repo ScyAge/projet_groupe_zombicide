@@ -1,34 +1,20 @@
 package zombicide.actor.actionZombie;
 
-
-
-import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
-import zombicide.util.listchooser.InteractiveListChooser;
-import zombicide.util.listchooser.ListChooser;
 
 /**
  * Class Move implementation  of ActionZombie
  */
-public class Move implements ActionZombie{
-	
-	/**
-	 * Builder of Move
-	 */
+public class MoveZ implements ActionZombie {
+
 	private final Board board;
-	private final ListChooser<Direction> chooser;
 
-	public Move(Board board,ListChooser<Direction> chooser) {
 
+	public MoveZ(Board board){
 		this.board = board;
-		this.chooser = chooser;
-	}
-	public Move(Board board){
-		this.board = board;
-		this.chooser = new InteractiveListChooser<>();
 	}
 	
 
@@ -49,7 +35,7 @@ public class Move implements ActionZombie{
 	
 	private Direction choiceDirectionNoise(Zombies z) {
 		Direction d = null;
-		Cell c = choiceCellNoise(); // to find the cell with the most Noise
+		Cell c = choiceCellNoise(); 
 		if(z.getCurrentCell().getX()> c.getX()) {
 			d = Direction.North;
 		}
@@ -73,7 +59,7 @@ public class Move implements ActionZombie{
 	public void action(Zombies z) {
 		Direction d = choiceDirectionNoise(z);
 		if(d != null) {
-			this.board.moveZombie(z, choiceDirectionNoise(z));
+			this.board.moveZombie(z, d);
 		}
 		int actionPoints= z.getAction_points();
 		z.setAction_points(actionPoints-1);
@@ -85,5 +71,3 @@ public class Move implements ActionZombie{
 		return (c.getDoor(Direction.North).isBreak() ||c.getDoor(Direction.South).isBreak() ||c.getDoor(Direction.East).isBreak() ||c.getDoor(Direction.West).isBreak());
 	}
 }
-
-

@@ -15,7 +15,7 @@ import zombicide.util.listchooser.ListChooser;
 /**
  * class for Chanceux
  */
-public class Chanceux extends Attack implements ActionsPlayer {
+public class Chanceux extends Attack {
 	
 	
 	/**
@@ -40,8 +40,9 @@ public class Chanceux extends Attack implements ActionsPlayer {
      */
     @Override
     public void action(Player p) {
-    	super.attack(p,1,0);
-		p.setAction_points(p.getAction_points()+1);
+    	super.attack(p, 0);
+    	super.attack(p, 0);
+		
     }
     
 

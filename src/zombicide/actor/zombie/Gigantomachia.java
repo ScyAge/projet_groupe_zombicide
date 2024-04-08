@@ -19,7 +19,7 @@ public class Gigantomachia extends Zombies {
 	/**
 	 * constant damage point of Gigantomachia
 	 * */
-	private final static int DAMAGE_POINT=1;
+	private final static int DAMAGE_POINT=1000;
 	
 	/**
 	 * Builder of the Gigantomachia 
