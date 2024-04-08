@@ -438,7 +438,7 @@ public class Board {
 	            return Direction.North;
 	        }
 	    }
-	    throw new IllegalArgumentException("Cells are not on the same line or column");
+		return null;
 	}
 
 	/**
@@ -452,48 +452,47 @@ public class Board {
 	    int playerY = cell1.getY();
 	    int zombieX = cell2.getX();
 	    int zombieY = cell2.getY();
+		boolean res = false;
 
-	    try {
-	        Direction direction = getDirectionBetweenCells(cell1, cell2);
-
-	        if (direction == Direction.North) {
-	            for (int y = Math.max(playerY, zombieY); y > Math.min(playerY, zombieY); y--) {
-	                Door door = this.board[playerX][y].getDoor(Direction.North);
-	                if (door != null && !door.isBreak()) {
-	                    return false;
-	                }
-	            }
-	            return true;
-	        } else if (direction == Direction.South) {
-	            for (int y = Math.min(playerY, zombieY); y < Math.max(playerY, zombieY); y++) {
-	                Door door = this.board[playerX][y].getDoor(Direction.South);
-	                if (door != null && !door.isBreak()) {
-	                    return false;
-	                }
-	            }
-	            return true;
-	        } else if (direction == Direction.East) {
-	            for (int x = Math.min(playerX, zombieX); x < Math.max(playerX, zombieX); x++) {
-	                Door door = this.board[x][playerY].getDoor(Direction.East);
-	                if (door != null && !door.isBreak()) {
-	                    return false;
-	                }
-	            }
-	            return true;
-	        } else if (direction == Direction.West) {
-	            for (int x = Math.max(playerX, zombieX); x > Math.min(playerX, zombieX); x--) {
-	                Door door = this.board[x][playerY].getDoor(Direction.West);
-	                if (door != null && !door.isBreak()) {
-	                    return false;
-	                }
-	            }
-	            return true;
-	        }
-	    } catch (IllegalArgumentException e) {
-			System.out.println(e);
-	    }
-
-	    throw new IllegalArgumentException("Direction cannot be determined");
+		Direction direction = getDirectionBetweenCells(cell1, cell2);
+		if(direction != null){
+			if (direction == Direction.North) {
+				for (int y = Math.max(playerY, zombieY); y > Math.min(playerY, zombieY); y--) {
+					Door door = this.board[playerX][y].getDoor(Direction.North);
+					if (door != null && !door.isBreak()) {
+						return res;
+					}
+				}
+				res = true;
+			} else if (direction == Direction.South) {
+				for (int y = Math.min(playerY, zombieY); y < Math.max(playerY, zombieY); y++) {
+					Door door = this.board[playerX][y].getDoor(Direction.South);
+					if (door != null && !door.isBreak()) {
+						return res;
+					}
+				}
+				res = true;
+			} else if (direction == Direction.East) {
+				for (int x = Math.min(playerX, zombieX); x < Math.max(playerX, zombieX); x++) {
+					Door door = this.board[x][playerY].getDoor(Direction.East);
+					if (door != null && !door.isBreak()) {
+						return res;
+					}
+				}
+				res = true;
+			} else if (direction == Direction.West) {
+				for (int x = Math.max(playerX, zombieX); x > Math.min(playerX, zombieX); x--) {
+					Door door = this.board[x][playerY].getDoor(Direction.West);
+					if (door != null && !door.isBreak()) {
+						return res;
+					}
+				}
+				res = true;
+			}
+		} else {
+			throw new IllegalArgumentException("Direction cannot be determined");
+		}
+		return res;
 	}
 
 
