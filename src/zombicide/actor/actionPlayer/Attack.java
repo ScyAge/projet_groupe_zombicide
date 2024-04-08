@@ -116,8 +116,7 @@ public class Attack implements ActionsPlayer{
 					}
 					if(X>= w.getThreshold()) {
 						if(w.isNoisy()) {
-							ActionsPlayer a = new MakeNoise();
-							a.action(p);
+							p.getCurrentCell().setNoise(p.getCurrentCell().getNoise()+1);
 						}
 						targetZ.takeDamage(w.getDamage());
 						if(targetZ.isDead()) {
