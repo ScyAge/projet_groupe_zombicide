@@ -74,7 +74,7 @@ public class ZombiesTest {
 	}
 	@Test
 	public void testToString(){
-		assertEquals(this.z1.toString(),"Gigantomachia have 1 damage Points");
+		assertEquals(this.z1.toString(),"Gigantomachia have 1000 damage Points");
 		assertEquals(this.z2.toString(),"Walker have 1 damage Points");
 		assertEquals(this.z3.toString(),"Runner have 2 damage Points");
 		assertEquals(this.z4.toString(),"Broom have 2 damage Points");
