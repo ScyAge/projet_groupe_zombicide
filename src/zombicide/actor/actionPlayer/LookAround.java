@@ -27,38 +27,38 @@ public class LookAround implements ActionsPlayer {
 	}
 	
 	public String display(Player p) {
+		StringBuilder res = new StringBuilder();
 		Cell c= p.getCurrentCell();
-		System.out.println("Description of the area : "+ c.description());
+		res.append(String.format("Description of the area : %s\n",c.description()));
 		
 		List<Player> players= c.getAllPlayers();
 		List<Zombies> zombies= c.getAllZombies();
-		String res="";
 		
 		if(!players.isEmpty()) {
-			res+="Players in this Area : ";
+			res.append("Players in this Area : \n");
 			for(Player player: players) {
-				res+=player.getId();
+				res.append(String.format("Player of id %d\n",player.getId()));
 			}
 		}
 		if (!zombies.isEmpty()) {
-			res+="Zombies in this Area : ";
+			res.append("Zombies in this Area : \n");
 			for(Zombies z: zombies) {
-				res+=z.getId();
+				res.append(String.format("Zombie of id %d\n",z.getId()));
 			}
 		}
 		
-		res+="The opened doors : ";
+		res.append("The opened doors : \n");
 		for(Direction d: Direction.values()) {
 			Door door= c.getDoor(d);
 			if(door.isBreak()) {
-				res+="the door at the direction "+ d + "is opened";
+				res.append(String.format("the door at the direction %s is opened\n",d));
 			}
 		}
-		return res;
+		return res.toString();
 	}
 
 	@Override
 	public boolean IsActionPlayable(Player p) {
-		return true;
+		return p.getCurrentCell().canLook();
 	}
 }
