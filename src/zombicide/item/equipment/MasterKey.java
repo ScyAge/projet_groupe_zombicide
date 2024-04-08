@@ -69,8 +69,6 @@ public class MasterKey extends Equipment {
 			if(doorToOpen!=null) {
 				doorToOpen.Break();
 				System.out.println("Door opened in the "+ targetD + " direction");
-			}else {
-				System.out.println("No door found in the "+ targetD+ " direction ");
 			}
 		}else {
 			System.out.println("No direction chosen");
