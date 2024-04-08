@@ -207,7 +207,8 @@ public class Player extends Actor{
 
 	@Override
 	public String toString() {
-		return String.format("Player : %d",this.id);
+		String status = (this.getLifePoints() > 0) ? "Alive" : "Dead";
+	    return String.format("Player %d: HP : %d, Status : %s", this.id, this.getLifePoints(), status);
 	}
 
 	/**

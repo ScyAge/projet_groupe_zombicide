@@ -39,13 +39,13 @@ public class MoveZ implements ActionZombie {
 		if(z.getCurrentCell().getX()> c.getX()) {
 			d = Direction.North;
 		}
-		else if(z.getCurrentCell().getX()< c.getX()) {
+		else if(z.getCurrentCell().getX()< c.getX() && z.getCurrentCell().getDoor(Direction.South).isBreak()) {
 			d = Direction.South;
 		}
-		else if(z.getCurrentCell().getY()< c.getY()) {
+		else if(z.getCurrentCell().getY()< c.getY() && z.getCurrentCell().getDoor(Direction.East).isBreak()) {
 			d = Direction.East;
 		}
-		else if(z.getCurrentCell().getY()> c.getY()) {
+		else if(z.getCurrentCell().getY()> c.getY() && z.getCurrentCell().getDoor(Direction.West).isBreak()) {
 			d = Direction.West;
 		}
 		return d;

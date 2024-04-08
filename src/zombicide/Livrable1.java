@@ -21,6 +21,7 @@ public class Livrable1 {
 		System.out.println('\n');
 		System.out.println("Plateau d'entrainement :");
 		Board test = new TrainingBoard();
+		
 		test.Display();
 	}
 }
