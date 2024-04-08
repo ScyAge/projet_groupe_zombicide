@@ -66,7 +66,7 @@ public class ChanceuxTest {
     	int LP2 = this.z2.getLifePoints();
     	this.action.action(this.player);
     	
-    	System.out.println(z1.getLifePoints() +" and "+ z2.getLifePoints());
+    	
     	assertEquals(z1.getLifePoints(), LP1 );
     	assertEquals(z2.getLifePoints(), LP2);
     	
