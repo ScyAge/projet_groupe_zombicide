@@ -10,7 +10,7 @@ import zombicide.util.listchooser.ListChooser;
 /**
  * Class Combattant
  */
-public class Combattant extends Attack implements ActionsPlayer {
+public class Combattant extends Attack{
 	
 	
 	/**
@@ -36,7 +36,7 @@ public class Combattant extends Attack implements ActionsPlayer {
     @Override
     public void action(Player p) {
 		super.attack(p, 0,1);
-		p.setAction_points(p.getAction_points()+1);
+		
     }
  
 }
