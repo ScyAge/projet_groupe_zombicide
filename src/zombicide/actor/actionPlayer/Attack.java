@@ -95,16 +95,16 @@ public class Attack implements ActionsPlayer{
 	 * @param p player who attack a zombie
 	 */
 	public void action(Player p) {
-		attack(p, 0, 0);
+		attack(p, 0);
 		
 	}
 
 
-	protected void attack(Player p, int nbRollDice, int addDicePoint) {
+	protected void attack(Player p,  int addDicePoint) {
 		if(p.getItemInHand() != null) {
 			if(p.getItemInHand().cantAttack()) {
 				Weapon w = (Weapon) p.getItemInHand();
-				int nbDice = w.getNbDice()+ nbRollDice;
+				int nbDice = w.getNbDice();
 				List<Zombies> zombies= WhoCanAttack(p,w);
 
 				Zombies targetZ= this.chooser.choose("choose the zombie: ", zombies);
