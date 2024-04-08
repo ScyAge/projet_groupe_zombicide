@@ -436,8 +436,6 @@ public class Board {
 	            return Direction.South;
 	        } else if (dy < 0) {
 	            return Direction.North;
-	        } else {
-	            throw new IllegalArgumentException("Cells are not on the same line or column");
 	        }
 	    }
 	    throw new IllegalArgumentException("Cells are not on the same line or column");
