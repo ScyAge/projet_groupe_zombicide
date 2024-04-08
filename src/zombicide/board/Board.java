@@ -490,7 +490,7 @@ public class Board {
 	            return true;
 	        }
 	    } catch (IllegalArgumentException e) {
-	        e.printStackTrace();
+			System.out.println(e);
 	    }
 
 	    throw new IllegalArgumentException("Direction cannot be determined");

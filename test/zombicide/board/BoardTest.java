@@ -173,6 +173,10 @@ public class BoardTest {
         assertFalse(board.getCellBoard(0, 0).getDoor(d).isBreak());
     	board.BreakDoor(d, 2, 2);
         assertTrue(board.getCellBoard(2, 2).getDoor(d).isBreak());
+		board.BreakDoor(Direction.South,2,2);
+		assertTrue(board.getCellBoard(2,2).getDoor(Direction.South).isBreak());
+		board.BreakDoor(Direction.West,2,2);
+		assertTrue(board.getCellBoard(2,2).getDoor(Direction.West).isBreak());
     }
     
     @Test
