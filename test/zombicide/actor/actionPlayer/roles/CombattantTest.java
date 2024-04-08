@@ -66,8 +66,6 @@ public class CombattantTest {
     	int LP1 = this.z1.getLifePoints();
     	int LP2 = this.z2.getLifePoints();
     	action.action(this.player);
-    	
-    	
     	assertTrue(LP1-1== z1.getLifePoints() || LP2-1== z2.getLifePoints());
     	assertTrue(z1.isDead()||z2.isDead());
     }

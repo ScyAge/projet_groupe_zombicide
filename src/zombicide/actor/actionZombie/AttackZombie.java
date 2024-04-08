@@ -11,17 +11,28 @@ import java.util.List;
 
 public class AttackZombie implements ActionZombie{
 
+	
+	/**
+	 * Builder of Attack Zombies
+	 */
+	public AttackZombie() {
+		
+	}
+	
+	
     @Override
     public void action(Zombies z) {
         Cell curent = z.getCurrentCell();
-        List<Player> AllPlayer = curent.getAllPlayers();
-        if(AllPlayer.size() == 1){
-            AllPlayer.get(0).takeDamage(z.getDamagePoints());
-        }
-        else{
-            ListChooser<Player> choosePlayer = new RandomListChooser<>();
-            Player pToAttack = choosePlayer.choose("The zombie choose a random player",AllPlayer);
-            pToAttack.takeDamage(z.getDamagePoints());
+        if(this.IsActionPlayable(z)){
+	        List<Player> AllPlayer = curent.getAllPlayers();
+	        if(AllPlayer.size() == 1){
+	            AllPlayer.get(0).takeDamage(z.getDamagePoints());
+	        }
+	        else{
+	            ListChooser<Player> choosePlayer = new RandomListChooser<>();
+	            Player pToAttack = choosePlayer.choose("The zombie choose a random player",AllPlayer);
+	            pToAttack.takeDamage(z.getDamagePoints());
+	        }
         }
 
 
