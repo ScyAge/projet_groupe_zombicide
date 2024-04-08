@@ -106,23 +106,27 @@ public class Attack implements ActionsPlayer{
 				Weapon w = (Weapon) p.getItemInHand();
 				int nbDice = w.getNbDice()+ nbRollDice;
 				List<Zombies> zombies= WhoCanAttack(p,w);
+
 				Zombies targetZ= this.chooser.choose("choose the zombie: ", zombies);
-				Random random = new Random() ;
-				int X= random.nextInt(6) + addDicePoint;
-				while(X< w.getThreshold()&& nbDice-->1  ) {
-					X= random.nextInt(6) + addDicePoint;
-				}
-				if(X>= w.getThreshold()) {
-					if(w.isNoisy()) {
-						ActionsPlayer a = new MakeNoise();
-						a.action(p);
+				if(targetZ != null) {
+					Random random = new Random() ;
+					int X= random.nextInt(6) + addDicePoint;
+					while(X< w.getThreshold()&& nbDice-->1  ) {
+						X= random.nextInt(6) + addDicePoint;
 					}
-					targetZ.takeDamage(w.getDamage());
-					if(targetZ.isDead()) {
-						p.UpOneExpertiseLevel();
+					if(X>= w.getThreshold()) {
+						if(w.isNoisy()) {
+							ActionsPlayer a = new MakeNoise();
+							a.action(p);
+						}
+						targetZ.takeDamage(w.getDamage());
+						if(targetZ.isDead()) {
+							p.UpOneExpertiseLevel();
+						}
 					}
+					p.setAction_points(p.getAction_points()-1);
 				}
-				p.setAction_points(p.getAction_points()-1);
+				
 			}
 		}
 	}
