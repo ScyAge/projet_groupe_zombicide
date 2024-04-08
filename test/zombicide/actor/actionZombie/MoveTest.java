@@ -1,6 +1,7 @@
 package zombicide.actor.actionZombie;
 
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +29,7 @@ public class MoveTest {
 	
 	@Test
 	public void moveTest() {
+		assertTrue(a.IsActionPlayable(z));
 		b.getCellBoard(1, 1).breakDoor(Direction.East);
 		b.getCellBoard(1, 1).breakDoor(Direction.South);
 		b.getCellBoard(1, 1).setNoise(50);
