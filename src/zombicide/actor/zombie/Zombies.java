@@ -73,7 +73,7 @@ public class Zombies extends Actor {
      * @return Affichage of Zombies
      */
     public String toString() {
-        return "Zombie have " + this.damagePoints + " damage Points";
+        return "Zombie have " + this.damagePoints + " life Points";
     }
 
 
