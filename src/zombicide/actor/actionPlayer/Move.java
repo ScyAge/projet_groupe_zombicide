@@ -1,5 +1,6 @@
 package zombicide.actor.actionPlayer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import zombicide.actor.player.Player;
@@ -40,12 +41,41 @@ public class Move implements ActionsPlayer {
 		this.chooser = new InteractiveListChooser<>();
 	}
 	
+	private List<Direction> DirectionToMove(Player player) {
+		List<Direction> d = new ArrayList<>();
+		Cell c= player.getCurrentCell();
+		for(Direction D : Direction.values()) {
+			if( D == Direction.West) {
+				if(c.getY()>0 &&  this.board.getCellBoard(c.getX(), c.getY()-1).getDoor(Direction.East).isBreak()&&this.board.getCellBoard(c.getX(), c.getY()).getDoor(D).isBreak()){
+					d.add(D);
+				}
+			}
+			if( D == Direction.East) {
+				if(c.getY()<this.board.getBoard()[0].length-1&&  this.board.getCellBoard(c.getX(), c.getY()+1).getDoor(Direction.West).isBreak()&&this.board.getCellBoard(c.getX(), c.getY()).getDoor(D).isBreak()){
+					d.add(D);
+				}
+			}
+			if( D == Direction.South) {
+				if(c.getX()<this.board.getBoard().length-1 &&  this.board.getCellBoard(c.getX()+1, c.getY()).getDoor(Direction.North).isBreak()&&this.board.getCellBoard(c.getX(), c.getY()).getDoor(D).isBreak()){
+					d.add(D);
+				}
+
+			}
+			if( D == Direction.North ) {
+				if(c.getX()>0 &&  this.board.getCellBoard(c.getX()-1, c.getY()).getDoor(Direction.South).isBreak()&&this.board.getCellBoard(c.getX(), c.getY()).getDoor(D).isBreak() ){
+					d.add(D);
+				}
+			}
+		}
+		return d;
+	}
+	
 	/**
 	 * Move a player in a direction 
 	 * @param p Player who want to move
 	 */
 	public void action(Player p) {
-		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
+		List<Direction> directions=  DirectionToMove(p);
 		Direction D= this.chooser.choose("choose a direction: ", directions);
 		this.board.movePlayer(p, D);
 		int actionPoints= p.getAction_points();
