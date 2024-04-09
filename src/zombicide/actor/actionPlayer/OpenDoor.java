@@ -18,14 +18,19 @@ import zombicide.util.listchooser.*;
 public class OpenDoor implements ActionsPlayer {
 	
 	/**
-	 * Param
+	 * List chooser
 	 */
     private final ListChooser<Direction> chooser;
+    
+    /**
+     * the Board 
+     */
     private final Board board;
     
     /**
      * Builder of SearchIntRoomAction with ListChooser to test
      * @param chooser ListChooser of the Action
+     * @param b the board 
      */
     public OpenDoor(ListChooser<Direction> chooser,Board b){
         this.chooser = chooser;
@@ -33,6 +38,7 @@ public class OpenDoor implements ActionsPlayer {
     }
     /**
      * Builder of SearchInTRoomAction 
+     * @param b the board 
      */
     public OpenDoor(Board b){
 		this.chooser = new InteractiveListChooser<>();

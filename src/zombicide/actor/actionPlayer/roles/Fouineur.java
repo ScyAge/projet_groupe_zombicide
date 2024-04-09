@@ -14,10 +14,14 @@ public class Fouineur extends SearchInTRoomAction implements ActionsPlayer {
 	
 	/**
 	 * Builder of Fouineur
+	 * @param li list chooser to test
 	 */
 	public Fouineur(ListChooser<Item> li) {
 		super(li);
 	}
+	/**
+	 * Builder of Fouineur
+	 */
 	public Fouineur() {
 		super();
 	}

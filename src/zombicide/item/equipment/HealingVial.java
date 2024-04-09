@@ -10,6 +10,7 @@ public class HealingVial extends Equipment{
 	/**
 	 * Builder of HealingVial
 	 * @param title of the item
+	 * @param breakDoor can break Door
 	 */
 	public HealingVial(String title, boolean breakDoor) {
 		super(title, breakDoor);

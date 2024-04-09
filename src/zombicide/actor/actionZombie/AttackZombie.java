@@ -37,7 +37,11 @@ public class AttackZombie implements ActionZombie{
 
 
     }
-
+    
+    /**
+     * the zombie can attack
+     * @param z is the the zombie who use the action
+     */
     public boolean IsActionPlayable(Zombies z){
         return !z.getCurrentCell().getAllPlayers().isEmpty();
     }

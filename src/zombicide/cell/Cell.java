@@ -199,6 +199,7 @@ public abstract class Cell {
 	/**
 	 * removes the given item from the list of items
 	 * @param i Item
+	 * @return the item remove
 	 */
 	public abstract Item removeItem(Item i);
 

@@ -12,7 +12,10 @@ public class MoveZ implements ActionZombie {
 
 	private final Board board;
 
-
+	/**
+	 * Builder of MoveZ
+	 * @param board the board to move
+	 */
 	public MoveZ(Board board){
 		this.board = board;
 	}
@@ -55,7 +58,6 @@ public class MoveZ implements ActionZombie {
 	 * Move a zombies  in a direction 
 	 * @param z zombies who want to move
 	 */
-	
 	public void action(Zombies z) {
 		Direction d = choiceDirectionNoise(z);
 		if(d != null) {

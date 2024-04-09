@@ -12,15 +12,13 @@ import zombicide.item.weapons.*;
  */
 public class SpawnPlayers extends Street {
 	
-	private final Board board;
 	
 	/** Constructor of the class SpawnPlayers
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
 	 */
-	public SpawnPlayers(int x, int y, Board board) {
+	public SpawnPlayers(int x, int y ){
 		super(x, y);
-		this.board =board;
 	}
 	
 	/** populates the spawn point with players 

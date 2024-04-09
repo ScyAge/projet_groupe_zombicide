@@ -14,6 +14,7 @@ public class MapCard extends Equipment{
 	/**
 	 * Create MapCard
 	 * @param title of the MapCard
+	 * @param breakDoor can break door
 	 * @param board of the card
 	 */
 	public MapCard(String title,boolean breakDoor, Board board) {

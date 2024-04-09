@@ -21,6 +21,7 @@ public class Chanceux extends Attack {
 	/**
 	 * Builder of Chanceux with ListChooser in param to test
 	 * @param chooser the listchooser of the action
+	 * @param b the board of the player
 	 */
 	public Chanceux(ListChooser<Zombies> chooser, Board b) {
 		super(chooser,b);
@@ -29,6 +30,7 @@ public class Chanceux extends Attack {
 	
 	/**
 	 * Builder of Chanceux
+	 * @param b the board of the player
 	 */
 	public Chanceux(Board b) {
 		super(b);

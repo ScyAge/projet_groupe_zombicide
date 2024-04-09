@@ -19,7 +19,7 @@ class SpawnPlayersTest {
     @BeforeEach
     void setUp() {
     	Board board = new Board(5,5);
-    	SpawnPlayers = new SpawnPlayers(1, 1,board);
+    	SpawnPlayers = new SpawnPlayers(1, 1);
         player = new Player(8,SpawnPlayers,1,6);
 
     }

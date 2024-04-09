@@ -75,7 +75,7 @@ public class Board {
 				this.board[xf-1][Y] = new Sewer(xd, Y);
 				this.board[X][yd] = new Sewer(xd, Y);
 				this.board[X][yf-1] = new Sewer(xd, Y);
-				this.board[X][Y] = new SpawnPlayers(X,Y,this);
+				this.board[X][Y] = new SpawnPlayers(X,Y);
 			}
 
 		}

@@ -15,7 +15,9 @@ public class Item {
 	 * the Item is use or not 
 	 */
 	protected boolean Use;
-	
+	/**
+	 * can break door
+	 */
 	protected boolean breakDoor;
 	/**
 	 * Builder of Item

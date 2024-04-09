@@ -25,7 +25,11 @@ public class LookAround implements ActionsPlayer {
 		String res= display(p);
 		System.out.println(res);
 	}
-	
+	/**
+	 * the display around the player
+	 * @param p Player who use the action
+	 * @return the display
+	 */
 	public String display(Player p) {
 		StringBuilder res = new StringBuilder();
 		Cell c= p.getCurrentCell();

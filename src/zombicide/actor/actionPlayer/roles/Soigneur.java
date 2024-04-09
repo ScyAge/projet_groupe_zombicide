@@ -14,7 +14,9 @@ import java.util.List;
  * class Soigneur
  */
 public class Soigneur implements ActionsPlayer {
-
+	/**
+	 * Param
+	 */
 	private ListChooser<Player> chooser;
 	/**
 	 * Builder of Soigneur
@@ -22,6 +24,11 @@ public class Soigneur implements ActionsPlayer {
 	public Soigneur() {
 		this.chooser = new InteractiveListChooser<>();
 	}
+	
+	/**
+	 * Builder of Soigneur
+	 * @param chooser list chooser to test
+	 */
 	public Soigneur(ListChooser<Player> chooser){
 		this.chooser = new RandomListChooser<>();
 	}

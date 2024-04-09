@@ -13,6 +13,7 @@ public class  Equipment extends Item {
 	/**
 	 * Builder of Equipment
 	 * @param title of the item
+	 * @param breakDoor can break Door
 	 */
 	public Equipment(String title, boolean breakDoor) {
 		super(title, breakDoor);

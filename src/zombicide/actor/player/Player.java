@@ -213,13 +213,13 @@ public class Player extends Actor{
 
 	/**
 	 * method that return the list of all the actions
-	 * @return List<ActionsPlayer>
+	 * @return all actions 
 	 */
 	public List<ActionsPlayer> getAllAction(){return this.AllAction;}
 
 	/**
 	 * Return the list of all the actions a player can do at T moment
-	 * @return List<ActionsPlayer>
+	 * @return  actions of the player
 	 */
 	public List<ActionsPlayer> getActionOfThePlayer(){
 		List<ActionsPlayer> res = new ArrayList<>();

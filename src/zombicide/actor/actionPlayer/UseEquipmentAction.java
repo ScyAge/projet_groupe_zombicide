@@ -3,8 +3,19 @@ package zombicide.actor.actionPlayer;
 import zombicide.actor.player.Player;
 import zombicide.item.Item;
 
+/**
+ * class UseEquipmentAction 
+ */
 public class UseEquipmentAction implements ActionsPlayer {
-
+	
+	
+	/**
+	 * Builder of UseEquipmentAction
+	 */
+	public UseEquipmentAction() {
+		
+	}
+	
     @Override
     public void action(Player p) {
         if(this.IsActionPlayable(p)){
