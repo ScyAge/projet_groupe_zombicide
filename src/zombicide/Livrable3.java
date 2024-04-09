@@ -78,8 +78,8 @@ public class Livrable3 {
 					Zombies.addAll(b.getCellBoard(x, y).getAllZombies());
 
 				}
-				
 			}
+			
 			b.Display();
 			
 			System.out.println(p1.toString());
