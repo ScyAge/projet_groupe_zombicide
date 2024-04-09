@@ -1,4 +1,7 @@
 package zombicide;
+import java.util.ArrayList;
+import java.util.List;
+
 import zombicide.actor.actionPlayer.ActionsPlayer;
 import zombicide.actor.actionPlayer.LookAround;
 import zombicide.actor.actionPlayer.Move;
@@ -66,14 +69,14 @@ public class Livrable3 {
 			move.action(p3);
 			move.action(p4);
 			
-
+			List<Zombies> Zombies = new ArrayList<>();
 			MoveZ movez = new MoveZ(b);
 			AttackZombie AZ = new AttackZombie();
+			
 			for(int x =0;x< b.getBoard().length;x++) {
 				for(int y =0;y< b.getBoard()[0].length;y++) {
-					Zombies z =b.getCellBoard(x, y).getAllZombies().get(0);
-					movez.action(z);
-					AZ.action(z);
+					Zombies.addAll(b.getCellBoard(x, y).getAllZombies());
+
 				}
 				
 			}
