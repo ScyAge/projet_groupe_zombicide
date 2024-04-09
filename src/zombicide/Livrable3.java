@@ -63,11 +63,10 @@ public class Livrable3 {
 			
 			LA.action(p1);
 			OD.action(p2);
-			b.Display();
 			move.action(p3);
 			move.action(p4);
 			
-			/**
+
 			MoveZ movez = new MoveZ(b);
 			AttackZombie AZ = new AttackZombie();
 			for(int x =0;x< b.getBoard().length;x++) {
@@ -78,7 +77,6 @@ public class Livrable3 {
 				}
 				
 			}
-			**/
 			b.Display();
 			
 			System.out.println(p1.toString());
