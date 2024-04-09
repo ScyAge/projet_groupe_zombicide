@@ -284,8 +284,6 @@ public class Board {
             	this.board[x][y].remove(zombie);
             	this.board[x][y+1].addZombies(zombie);
             }
-        } else {
-            System.out.println("Impossible de se déplacer dans cette direction.");
         }
     }
 
