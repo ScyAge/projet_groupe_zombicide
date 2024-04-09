@@ -80,6 +80,11 @@ public class Livrable3 {
 				}
 			}
 			
+			for(Zombies z :Zombies) {
+				movez.action(z);
+				AZ.action(z);
+			}
+			
 			b.Display();
 			
 			System.out.println(p1.toString());
