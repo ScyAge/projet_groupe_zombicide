@@ -32,7 +32,7 @@ public class Abominations extends Zombies {
 
 	@Override
 	public String toString() {
-		return String.format("Abominations have %d damage Points",this.damagePoints);
+		return String.format("Abominations have %d life Points",this.lifePoints);
 	}
 	
 	public void takeDamage(int damage) {

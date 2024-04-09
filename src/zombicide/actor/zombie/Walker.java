@@ -32,6 +32,6 @@ public class Walker extends Zombies {
 
 	@Override
 	public String toString() {
-		return String.format("Walker have %d damage Points",this.damagePoints);
+		return String.format("Walker have %d life Points",this.lifePoints);
 	}
 }
