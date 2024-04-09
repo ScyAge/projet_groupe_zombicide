@@ -148,7 +148,7 @@ Pour compiler les classes, on exécute la/les commande(s) :
 javac -sourcepath src src/*/*.java -d classes
 ```
 
-### Compilation et lancement des tests
+### Compilation et lancement des tests>
 Pour compiler les tests, on exécute la/les commande(s) :
 ```
 javac -classpath junit-console.jar:classes test/zombicide/cell/*.java test/zombicide/util/*.java test/zombicide/item/*.java test/zombicide/actor/player/*.java test/zombicide/actor/zombie/*.java test/zombicide/board/*.java test/zombicide/item/equipment/*.java
@@ -184,9 +184,68 @@ java -classpath classes zombicide.Livrable2
 
 ## Livrable 3
 
-### Atteinte des objectifs
+Dans ce troisièmes livrable , c'est enfin l'heure de mettre en relation toutes les classe nous avons écrite précédemment , que ça soit les Item ou encore les différents acteur. Les actions vont nous permettre de déplacer un survivant, de le faire attaquer un zombie avec une arme etc... Tout que peut faire un joueur et un zombie!
 
-### Difficultés restant à résoudre
+En effet les actions faite pas le survivant et le zombie sont distincte donc deux implémentation différente mais qui suive un même schémas.
+
+Pour le survivant nous avons utilisé une interface pour chacune de nos action, cette interface contient deux méthodes qui prenne en paramètre un survivant, une qui permet d'exécuter une action : `action(Player p)` et l'autre qui permet de vérifier qu'une action est jouable ce qui est utile lors de la création de la liste d'action du joueur pour vérifié quelle action il pourra faire `isActionPlayable(Player p)`. Cette interface est donc implémenté par chacune de nos action qui définisse un comportement qui leur est propre pour chacune des méthode.  
+Pour le zombie l'interface et de la même forme sauf que les deux méthodes prenne maintenant un zombie en paramètre.
+
+Pourquoi avoir choisis deux implémentation distincte ? Simplement car les actions réaliser par le survivant son différente de celle du zombie, elle n'ont de commun que le nom, ce n'est pas leur classe mère `Actor` qui en paramètre des actions mais bien le `Player` ou le `Zombie` car c'est deux classe on beau avoir des comportement commun traduit par la présence d'`Actor` , le survivant se démarque plus avec la présence du sac a doc ou encore de la main pour tenir des objets ou les levels. On ne peut donc pas utiliser une implémentation avec la classe `Actor` a cause de la perte d'information que l'on va avoir . Le fait que les deux soit distinct nous facilite grandement la tache dans l'implémentation des actions .
+
+Il faut maintenant revenir sur une implémentation réaliser lors du livrable précédent celle des rôles. En effet nous avions crée une interface `roles`qui implémente une méthode `action` afin de réaliser une action lié à ce rôle or lors de la création des actions on à remarquer une grosse similarité d'implémentation entre les actions et les rôles. Nous avons donc conclu qu'il fallait les fusionner. Ainsi on a supprimé les méthodes `action` et `actionsSpéciale` du `Player`  car inutile.
+
+Lors de ce livrable il nous a fallu aussi complété les effets des équipements avec notamment l'utilisation des `ListChooser<>` afin que l'action qui permet d'utiliser un équipement soit pleinement opérationnel car utilisant la méthode `ItemEffect()`
+
+D'ailleurs cette méthode `ItemEffect()` de la classe `Item`  nous a fait poser la question lorsqu'elle est utiliser dans les `Weapons` de qui fait les dégât lors de l'attaque. En effet l'idée de bas était que la gestion de dégât qu'infligé un survivant avec son arme à un Zombie était dans la classe `Weapon` et dans la méthode `ItemEffect()` or cela donné des contraintes sur ce qu'on devais donné comme attributs des objets `Weapon` et complexifier vachement la chose. C'est pour cela qu'on a changer cela pour maintenant s'en occuper directement dans l'action attaquer ce qui vachement plus logique c'est bien le joueur qui, avec l'arme fait des dégât est non l'arme qui trouve qui attaquer et fait les dégâts elle même.
+
+Ce livrable nous a permis aussi d'améliorer un partie de notre code qu'on avait délaisser. En effet nôtre coverage des différente ligne de code testé n'était pas vraiment au rendez vous. Nous avons donc lancé une grande opération de création de test unitaire dans le seul objectif d'atteindre les 100% de coverage et non pas d'avoir un jeu qui fonctionne. Ce qui nous a n'empêche permis de résoudre des bugs vieux comme le monde (janvier 2024), mais aussi globalement d'avoir une meilleur compréhension du code de chacun et d'analyse qui nous on permis résoudre d'autres soucis d'implémentation. Ainsi cette phase nous a aussi permis de faire du nettoyage de code afin d'avoir un code plus clean.
+
+Voila globalement tout les points majoritaire  de la construction de ce 3e livrable , il n'y a pas tant a dire sur l'implémentation étant donné quelle est assez courte , mais ce sont les points central de raisonnement sur lesquels nous nous sommes pencher
+
+### Etat du développement
+
+Maintenant que toute les fonctionnalité du jeu sont en place action, item , acteur. Il faut s'occuper des  boucle de jeu , tour des survivant  , celui des  zombies et enfin la dernière qui s'occupera de mettre a jour la carte pour la préparation du prochain tour , tout ça dans une boucle principal. Bien sur ce n'est pas tout entre des changement de modélisation a prévoir pour le placement des piéce spécial (pharmacie ,drugStore) ou d'autre chose à amélioré pas encore découverte. Il reste énormément de travail !!
+
+### Commande de Génération et de compilation
+
+>Génération de la doc :
+```bash
+javadoc -sourcepath src -subpackages zombicide -d docs
+```
+
+>Compilation des classes
+```bash
+javac -sourcepath src src/*/*.java -d classes
+```
+
+>Compilation des tests
+``` bash
+javac -classpath junit-console.jar:classes test/zombicide/cell/*.java test/zombicide/util/*.java test/zombicide/item/*.java test/zombicide/actor/player/*.java test/zombicide/actor/zombie/*.java test/zombicide/board/*.java test/zombicide/item/equipment/*.java  
+```
+
+>Exécution des tests
+```bash
+java -jar junit-console.jar -classpath test:classes -scan-classpath  
+```
+
+> Génération du jar
+```bash
+jar cvfe livrable2.jar zombicide.Livrable2 -C classes .  
+```
+
+>Lancement du programme avec le jar
+``` bash
+java -jar livrable2.jar  
+```
+
+>Lancement du programme sans le jar
+``` bash
+java -classpath classes zombicide.Livrable3
+```
+
+### Diagramme UML
+<img src="uml/UMLlivrable3.png"/>
 
 ## Livrable 4
 
