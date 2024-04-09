@@ -26,6 +26,7 @@ public class Weapon extends Item {
 	 * Builder of the weapons
 	 * @param title of the item
 	 * @param rangeMin of the weapons
+	 * @param rangeMax of the weapons
 	 * @param damage of the weapons
 	 * @param threshold of the weapons
 	 * @param breakDoor  can break door or not

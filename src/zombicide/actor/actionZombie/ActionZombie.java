@@ -2,6 +2,9 @@ package zombicide.actor.actionZombie;
 
 import zombicide.actor.zombie.Zombies;
 
+/**
+ * interface ActionZombie
+ */
 public interface ActionZombie {
 
     /**

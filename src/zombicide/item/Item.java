@@ -22,6 +22,7 @@ public class Item {
 	/**
 	 * Builder of Item
 	 * @param title of the item
+	 * @param breakDoor can break door
 	 */
 	public Item(String title, boolean breakDoor) {
 		this.title = title;

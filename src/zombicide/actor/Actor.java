@@ -66,8 +66,11 @@ public abstract class Actor {
 			this.lifePoints += lifePoints;
 		}
 	}
-	
+	/**
+	 * the actor die
+	 */
 	abstract public void Dead();
+	
 	/**
 	 * Get if the Player is dead or not
 	 *@return true if the actor have 0 lifePoints

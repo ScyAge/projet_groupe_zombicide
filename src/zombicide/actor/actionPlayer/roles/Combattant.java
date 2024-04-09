@@ -16,6 +16,7 @@ public class Combattant extends Attack{
 	/**
 	 * Builder of Combattant with ListChooser in param to test
 	 * @param chooser the listchooser of the action
+	 * @param b the board of the combattant
 	 */
 	public Combattant(ListChooser<Zombies> chooser, Board b) {
 		super(chooser,b);
@@ -24,6 +25,7 @@ public class Combattant extends Attack{
 	
 	/**
 	 * Builder of Combattant
+	 * @param b the board of the combattant
 	 */
 	public Combattant(Board b) {
 		super(b);

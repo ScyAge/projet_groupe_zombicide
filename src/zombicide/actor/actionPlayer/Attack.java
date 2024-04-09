@@ -13,6 +13,10 @@ import zombicide.util.Direction;
 import zombicide.util.listchooser.InteractiveListChooser;
 import zombicide.util.listchooser.ListChooser;
 
+
+/**
+ * class Attack
+ */
 public class Attack implements ActionsPlayer{
 	
 	/**
@@ -99,7 +103,11 @@ public class Attack implements ActionsPlayer{
 		
 	}
 
-
+	/**
+	 * The action attack of the Player
+	 * @param p the player
+	 * @param addDicePoint  the number of dice
+	 */
 	protected void attack(Player p,  int addDicePoint) {
 		if(p.getItemInHand() != null) {
 			if(p.getItemInHand().cantAttack()) {

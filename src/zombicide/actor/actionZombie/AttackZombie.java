@@ -9,6 +9,10 @@ import zombicide.util.listchooser.RandomListChooser;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * class AttackZombie
+ */
 public class AttackZombie implements ActionZombie{
 
 	

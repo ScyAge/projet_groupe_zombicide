@@ -403,6 +403,8 @@ public class Board {
 
 	/**
 	 * return true if the zombie is on the same line that the player
+	 * @param cell1 the first cell
+	 * @param cell2 the second cell
 	 * @return true if the zombie is on the same line that the player
 	 */
 	public boolean cellIsOnSameLineOrColumn(Cell cell1, Cell cell2){
