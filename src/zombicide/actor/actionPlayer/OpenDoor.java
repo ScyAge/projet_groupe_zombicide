@@ -89,7 +89,7 @@ public class OpenDoor implements ActionsPlayer {
 				if (item.cantAttack()) {
 					c.setNoise(c.getNoise() + 1);
 				}
-				generateZombies(p);
+				generateZombies(p, targetD);
 				
 			}else {
 				System.out.println("No direction chosen");
@@ -105,9 +105,10 @@ public class OpenDoor implements ActionsPlayer {
 	
 	/**
 	 * generates randomly zombies and special zombies 
-	 * @param p player who's opening the door*/
-	private void generateZombies(Player p) {
-		Cell c= p.getCurrentCell();
+	 * @param p player who's opening the door
+	 * @param d the direction of the opened door*/
+	private void generateZombies(Player p, Direction d) {
+		Cell c= getAdjacentCell(p,d);
 		Random random= new Random();
 		int numZ= random.nextInt(3)+1;
 		for (int i=0; i<numZ; i++) {
@@ -127,6 +128,41 @@ public class OpenDoor implements ActionsPlayer {
 				c.addZombies(b);
 				break;
 		}
+	}
+	
+	
+	/**
+	 * returns the adjacent cell in the direction of the opened door where we generate zombies 
+	 * @param p the player who's doing the action
+	 * @param d the direction of the opened door
+	 * @return the cell where we generate zombies */
+	private Cell getAdjacentCell(Player p, Direction openDirection) {
+		Cell c= p.getCurrentCell();
+		
+		int adjX= c.getX();
+		int adjY= c.getY();
+		
+		switch(openDirection) {
+		case North:
+			adjY++;
+			break;
+		case South:
+			adjY--;
+			break;
+		case East:
+			adjX++;
+			break;
+		case West:
+			adjY--;
+			break;
+			
+		}
+		if(adjX>=0 && adjX< this.board.getBoard().length && adjY>=0 && adjY< this.board.getBoard()[0].length) {
+			return this.board.getCellBoard(adjX, adjY);
+		}else {
+			return null;
+		}
+		
 	}
 
 	@Override
