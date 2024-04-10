@@ -59,7 +59,7 @@ public class LookAround implements ActionsPlayer {
 			}
 		}
 		
-		res.append("The opened doors : \n");
+		res.append("The opened doors : \n"); 
 		for(Direction d: Direction.values()) {
 			Door door= c.getDoor(d);
 			if(((p.getCurrentCell().getX() > 0 && this.b.getCellBoard(c.getX()-1, c.getY()).getDoor(Direction.South).isBreak())&& d == Direction.North) ||
