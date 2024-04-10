@@ -216,12 +216,12 @@ javadoc -sourcepath src -subpackages zombicide -d docs
 
 >Compilation des classes
 ```bash
-javac -sourcepath src src/*/*.java -d classes
+javac -sourcepath src src/zombicide/board/*.java src/zombicide/cell/*.java src/zombicide/actor/*.java src/zombicide/exeption/*.java src/zombicide/item/*.java src/zombicide/util/*.java src/zombicide/*.java src/zombicide/actor/actionPlayer/*.java src/zombicide/actor/actionZombie/*.java src/zombicide/actor/player/*.java src/zombicide/actor/zombie/*.java src/zombicide/item/equipment/*.java src/zombicide/item/weapons/*.java src/zombicide/util/door/*.java src/zombicide/util/listchooser/*.java src/zombicide/util/listchooser/util/*.java -d classes
 ```
 
 >Compilation des tests
 ``` bash
-javac -classpath junit-console.jar:classes test/zombicide/cell/*.java test/zombicide/util/*.java test/zombicide/item/*.java test/zombicide/actor/player/*.java test/zombicide/actor/zombie/*.java test/zombicide/board/*.java test/zombicide/item/equipment/*.java  
+javac -classpath junit-console.jar:classes test/zombicide/board/*.java test/zombicide/cell/*.java test/zombicide/item/*.java test/zombicide/util/*.java test/zombicide/actor/actionPlayer/*.java test/zombicide/actor/actionZombie/*.java test/zombicide/actor/player/*.java test/zombicide/actor/zombie/*.java test/zombicide/item/equipment/*.java test/zombicide/item/weapons/*.java test/zombicide/actor/actionPlayer/roles/*.java test/zombicide/util/listchooser/util/*.java
 ```
 
 >Exécution des tests
@@ -231,12 +231,12 @@ java -jar junit-console.jar -classpath test:classes -scan-classpath
 
 > Génération du jar
 ```bash
-jar cvfe livrable2.jar zombicide.Livrable2 -C classes .  
+jar cvfe livrable2.jar zombicide.Livrable3 -C classes .  
 ```
 
 >Lancement du programme avec le jar
 ``` bash
-java -jar livrable2.jar  
+java -jar livrable3.jar  
 ```
 
 >Lancement du programme sans le jar
