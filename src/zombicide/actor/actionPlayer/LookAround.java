@@ -17,7 +17,7 @@ public class LookAround implements ActionsPlayer {
 	/**
 	 * Param of LookAround
 	 */
-	private Board b ;
+	private final Board b ;
 	
 	/**
 	 * Builder of LookAround
@@ -59,16 +59,19 @@ public class LookAround implements ActionsPlayer {
 			}
 		}
 		
-		res.append("The opened doors : \n"); 
+		res.append("The opened doors : \n");
 		for(Direction d: Direction.values()) {
 			Door door= c.getDoor(d);
-			if(((p.getCurrentCell().getX() > 0 && this.b.getCellBoard(c.getX()-1, c.getY()).getDoor(Direction.South).isBreak())&& d == Direction.North) ||
-				    ((p.getCurrentCell().getX() < this.b.getBoard().length - 1 && this.b.getCellBoard(c.getX()+1, c.getY()).getDoor(Direction.North).isBreak())&& d == Direction.South) ||
-				    ((p.getCurrentCell().getY() > 0&& this.b.getCellBoard(c.getX(), c.getY()-1).getDoor(Direction.East).isBreak() )&& d == Direction.West) ||
-				    ((p.getCurrentCell().getY() < this.b.getBoard()[0].length - 1 &&this.b.getCellBoard(c.getX(), c.getY()+1).getDoor(Direction.West).isBreak())&& d == Direction.East)
-				){
-					res.append(String.format("the door at the direction %s is opened\n",d));
-				}
+			boolean test;
+			if(b.getCellDirection(d,p) == null){
+				test = false;
+			}
+			else{
+				test = b.getCellDirection(d,p).getDoor(Direction.oppose(d)).isBreak();
+			}
+			if(door.isBreak() && test) {
+				res.append(String.format("the door at the direction %s is opened\n",d));
+			}
 		}
 		return res.toString();
 	}
