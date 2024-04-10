@@ -245,7 +245,7 @@ java -classpath classes zombicide.Livrable3
 ```
 
 ### Diagramme UML
-<img src="uml/UMLlivrable3.png"/>
+<img src="uml/UmlLivrable3.png"/>
 
 ## Livrable 4
 
