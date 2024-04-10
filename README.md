@@ -231,7 +231,7 @@ java -jar junit-console.jar -classpath test:classes -scan-classpath
 
 > Génération du jar
 ```bash
-jar cvfe livrable2.jar zombicide.Livrable3 -C classes .  
+jar cvfe livrable3.jar zombicide.Livrable3 -C classes .  
 ```
 
 >Lancement du programme avec le jar
