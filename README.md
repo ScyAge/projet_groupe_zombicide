@@ -440,5 +440,16 @@ Théo Nave : Ajout constante armes + Gestion du bruit pour les equipements et de
 Wissal-Asma Harrat : Ajout constante equipement + Création de l'interface Actions et des classes LookAround et MakeNoise  
 
 ## Semaine 11
+Pendant cette semaine, de nombreux changements ont été réalisés.  
+Il y a eu des modifications concernant les actions qui se sont séparées en deux classes distinctes : une pour les joueurs et une pour les zombies.  
+Les rôles ont également été revus ; auparavant, nous étions sur une interface, mais désormais les rôles sont devenus des actions.  
+Nous avons finalisé l'implémentation des différentes actions du jeu, corrigé les différents problèmes engendrés, etc.  
+
+De plus, nous avons considérablement augmenté notre production et la qualité des différents tests de classes.  
+En effet, notre objectif est d'atteindre un taux de couverture de 100 %.  
+
+En résumé, nous avons retravaillé certaines classes qui n'étaient pas adaptées avec l'ajout des actions, finalisé la création des différentes actions avec leur spécificité, et pour finir, complété tous les tests possibles pour toutes les méthodes de nos classes.  
+
+Maintenant, nous devons travailler sur le rendu du livrable 3, notamment avec la rédaction du README, la création du main pour ce livrable, et continuer d'ajuster/compléter certaines méthodes pour mieux correspondre au cahier des charges du jeu.
 
 ## Semaine 12
