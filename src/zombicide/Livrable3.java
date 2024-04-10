@@ -61,6 +61,8 @@ public class Livrable3 {
 			LookAround LA =new LookAround(b);
 			OpenDoor OD = new OpenDoor(new RandomListChooser<>(),b);
 			Move move = new Move(b,new RandomListChooser<>());
+
+
 			
 			take.action(p2);
 			take.action(p3);
