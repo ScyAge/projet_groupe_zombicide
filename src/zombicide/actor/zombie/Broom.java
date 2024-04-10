@@ -14,7 +14,7 @@ public class Broom extends Zombies {
 	/**
 	 * constant action point of the Broom
 	 * */
-	private final static int ACTION_POINT=2;
+	private final static int ACTION_POINT=1;
 	
 	/**
 	 * constant damage point of the Broom

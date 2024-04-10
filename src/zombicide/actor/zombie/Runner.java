@@ -14,13 +14,13 @@ public class Runner extends Zombies{
 	/**
 	 * constant action point of the runner
 	 * */
-	private final static int ACTION_POINT=1;
+	private final static int ACTION_POINT=2;
 	
 	/**
 	 * constant damage pojnt of the damage point 
 	 * */
 	
-	private final static int DAMAGE_POINT=2;
+	private final static int DAMAGE_POINT=1;
 	
 	/**
 	 * Builder of the Runner

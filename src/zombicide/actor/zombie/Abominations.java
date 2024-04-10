@@ -14,7 +14,7 @@ public class Abominations extends Zombies {
 	/**
 	 * constant action point of Abominations 
 	 * */
-	private final static int ACTION_POINT=3;
+	private final static int ACTION_POINT=1;
 	
 	/**
 	 * constant damage point of Abominations 
