@@ -51,7 +51,17 @@ public class UseEquipmentActionTest {
 				this.cell.getDoor(Direction.East).isBreak() || this.cell.getDoor(Direction.West).isBreak());
 	}
 	
-	
-	
+	@Test
+	public void TestAction(){
+		this.player.setItemInHand(this.equipment);
+		this.action.action(this.player);
+		assertTrue(this.cell.getDoor(Direction.North).isBreak()|| this.cell.getDoor(Direction.South).isBreak() ||
+				this.cell.getDoor(Direction.East).isBreak() || this.cell.getDoor(Direction.West).isBreak());
+	}
+
+	@Test
+	public void TestToString(){
+		assertEquals(this.action.toString(),"UseEquipment action");
+	}
 	
 }
