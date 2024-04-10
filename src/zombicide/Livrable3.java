@@ -41,7 +41,6 @@ public class Livrable3 {
 			actions.add(useEquip);
 			actions.add(attack);
 			actions.add(search);
-
 			// creation d'une liste de player et de zombie
 			List<Player> Players = new ArrayList<>();
 			List<Zombies> Zombies = new ArrayList<>();
@@ -89,9 +88,10 @@ public class Livrable3 {
 			//création et ajout des deux objet dans les sac des joueurs
 			Item heal = new HealingVial("heal", false);
 			Axe axe = new Axe();
-			
+
 			p2.putItemInBackPack(axe);
 			p3.putItemInBackPack(heal);
+
 			//puis ajout dans leurs main
 			take.action(p2);
 			take.action(p3);
@@ -103,6 +103,7 @@ public class Livrable3 {
 				List<ActionsPlayer> ActionOfPlayer = p.getActionOfThePlayer();
 				ActionsPlayer a =Lchoose.choose("Choose a action to execute",ActionOfPlayer);
 				a.action(p);
+
 			}
 
 
