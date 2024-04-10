@@ -57,7 +57,7 @@ public class Livrable3 {
 			p3.putItemInBackPack(heal);
 			
 			TakeInHandAction take = new TakeInHandAction();
-			LookAround LA =new LookAround();
+			LookAround LA =new LookAround(b);
 			OpenDoor OD = new OpenDoor(b);
 			Move move = new Move(b);
 			
