@@ -68,10 +68,11 @@ public class Livrable3 {
 			Players.add(p4);
 
 			//création des Roles plus ajout
-			ActionsPlayer Chanceux = new Chanceux(b);
-			ActionsPlayer Combattant = new Combattant(b);
-			ActionsPlayer Fouineur = new Fouineur();
-			ActionsPlayer Soigneur = new Soigneur();
+			ActionsPlayer Chanceux = new Chanceux(new RandomListChooser<>(),b);
+			ActionsPlayer Combattant = new Combattant(new RandomListChooser<>(),b);
+			ActionsPlayer Fouineur = new Fouineur(new RandomListChooser<>());
+			ActionsPlayer Soigneur = new Soigneur(new RandomListChooser<>());
+
 			p1.setAction(Chanceux);
 			p2.setAction(Combattant);
 			p3.setAction(Fouineur);
