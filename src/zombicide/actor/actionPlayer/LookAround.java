@@ -4,6 +4,7 @@ import java.util.List;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
+import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
 import zombicide.util.Door;
@@ -14,9 +15,16 @@ import zombicide.util.Door;
 public class LookAround implements ActionsPlayer {
 	
 	/**
-	 * Builder of LookAround
+	 * Param of LookAround
 	 */
-	public LookAround() {
+	private Board b ;
+	
+	/**
+	 * Builder of LookAround
+	 * @param b The board
+	 */
+	public LookAround(Board b) {
+		this.b = b;
 	}
 	
 
@@ -54,9 +62,13 @@ public class LookAround implements ActionsPlayer {
 		res.append("The opened doors : \n");
 		for(Direction d: Direction.values()) {
 			Door door= c.getDoor(d);
-			if(door.isBreak()) {
-				res.append(String.format("the door at the direction %s is opened\n",d));
-			}
+			if(((p.getCurrentCell().getX() > 0 && this.b.getCellBoard(c.getX()-1, c.getY()).getDoor(Direction.South).isBreak())&& d == Direction.North) ||
+				    ((p.getCurrentCell().getX() < this.b.getBoard().length - 1 && this.b.getCellBoard(c.getX()+1, c.getY()).getDoor(Direction.North).isBreak())&& d == Direction.South) ||
+				    ((p.getCurrentCell().getY() > 0&& this.b.getCellBoard(c.getX(), c.getY()-1).getDoor(Direction.East).isBreak() )&& d == Direction.West) ||
+				    ((p.getCurrentCell().getY() < this.b.getBoard()[0].length - 1 &&this.b.getCellBoard(c.getX(), c.getY()+1).getDoor(Direction.West).isBreak())&& d == Direction.East)
+				){
+					res.append(String.format("the door at the direction %s is opened\n",d));
+				}
 		}
 		return res.toString();
 	}

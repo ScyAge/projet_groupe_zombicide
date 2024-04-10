@@ -186,7 +186,7 @@ public class PlayerTest {
         ActionsPlayer a2 = new TakeInHandAction();
         ActionsPlayer a3 = new SearchInTRoomAction();
         ActionsPlayer a4 = new OpenDoor(b);
-        ActionsPlayer a5 = new LookAround();
+        ActionsPlayer a5 = new LookAround(b);
         ActionsPlayer a6 = new MakeNoise();
         ActionsPlayer a7 = new Attack(b);
 

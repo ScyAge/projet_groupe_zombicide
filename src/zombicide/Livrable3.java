@@ -19,6 +19,7 @@ import zombicide.item.*;
 import zombicide.item.equipment.*;
 import zombicide.item.weapons.Axe;
 import zombicide.util.Direction;
+import zombicide.util.listchooser.RandomListChooser;
 
 public class Livrable3 {
 	
@@ -26,7 +27,7 @@ public class Livrable3 {
 			Board b = new TrainingBoard();
 			for(int x =0;x< b.getBoard().length;x++) {
 				for(int y =0;y< b.getBoard()[0].length;y++) {
-					b.getCellBoard(x, y).addZombies(new Gigantomachia(b.getCellBoard(x, y),1));
+					b.getCellBoard(x, y).addZombies(new Runner(b.getCellBoard(x, y),1));
 				}
 				
 			}
@@ -56,10 +57,10 @@ public class Livrable3 {
 			p2.putItemInBackPack(axe);
 			p3.putItemInBackPack(heal);
 			
-			TakeInHandAction take = new TakeInHandAction();
-			LookAround LA =new LookAround();
-			OpenDoor OD = new OpenDoor(b);
-			Move move = new Move(b);
+			TakeInHandAction take = new TakeInHandAction(new RandomListChooser<>());
+			LookAround LA =new LookAround(b);
+			OpenDoor OD = new OpenDoor(new RandomListChooser<>(),b);
+			Move move = new Move(b,new RandomListChooser<>());
 			
 			take.action(p2);
 			take.action(p3);
@@ -81,8 +82,8 @@ public class Livrable3 {
 			}
 			
 			for(Zombies z :Zombies) {
-				movez.action(z);
 				AZ.action(z);
+				movez.action(z);
 			}
 			
 			b.Display();

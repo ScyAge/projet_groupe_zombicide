@@ -23,18 +23,18 @@ public class LookAroundTest {
         this.z = new Broom(this.b.getCellBoard(1,1),1);
         this.b.getCellBoard(1,1).addPlayers(this.p);
         this.b.getCellBoard(1,1).addZombies(this.z);
-        this.act = new LookAround();
+        this.act = new LookAround(b);
     }
 
 
     @Test
     public void testDisplayLookAround(){
-        Cell cell = this.p.getCurrentCell();
         this.act.action(this.p);
-        cell.breakDoor(Direction.North);
-        cell.breakDoor(Direction.West);
+        this.b.BreakDoor(Direction.North, p.getCurrentCell().getX(), p.getCurrentCell().getY());
+        this.b.BreakDoor(Direction.West, p.getCurrentCell().getX(), p.getCurrentCell().getY());
         String res = this.act.display(this.p);
         System.out.println(res);
+        b.Display();
         assertTrue(res.contains("Player of id 1"));
         assertTrue(res.contains("Zombie of id 1"));
         assertTrue(res.contains("the door at the direction North is opened"));
