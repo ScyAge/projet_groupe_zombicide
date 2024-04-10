@@ -5,10 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zombicide.actor.actionPlayer.*;
-import zombicide.actor.actionPlayer.roles.Combattant;
 import zombicide.actor.actionPlayer.roles.Fouineur;
 import zombicide.actor.zombie.Broom;
-import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
@@ -82,15 +80,12 @@ public class PlayerTest {
     }
 
 
-    @Test
-    public void TestgetRolesExept() {
-        assertThrows(IndexOutOfBoundsException.class, () -> this.testP.getRoles(10));
-    }
+
 
     @Test
     public void TestSetRoles() {
-        this.testP.setRoles(this.r1);
-        assertEquals(this.testP.getRoles(0), this.r1);
+        this.testP.setAction(this.r1);
+        assertTrue(this.testP.getAllAction().contains(this.r1));
     }
 
     @Test

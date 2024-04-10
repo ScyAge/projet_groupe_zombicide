@@ -19,7 +19,6 @@ public class Player extends Actor{
 	private final int backPackSize;
 	private  Item itemInHand;
 	private int expertiseLevel;
-	private final List<ActionsPlayer> roles;
 	private final List<ActionsPlayer> AllAction;
 
 	/**
@@ -34,7 +33,6 @@ public class Player extends Actor{
 		this.backpack = new ArrayList<>(taille_sac);
 		this.itemInHand = null ;
 		this.expertiseLevel = 1;
-		this.roles = new ArrayList<>();
 		this.backPackSize = taille_sac;
 		this.AllAction = new ArrayList<>();
 	}
@@ -52,7 +50,6 @@ public class Player extends Actor{
 		this.backpack = new ArrayList<>(taille_sac);
 		this.itemInHand = null ;
 		this.expertiseLevel = 1;
-		this.roles = new ArrayList<>();
 		this.backPackSize = taille_sac;
 		this.AllAction = actions;
 	}
@@ -172,20 +169,9 @@ public class Player extends Actor{
 	 * method for adding a role to a player
 	 * @param role the role you want to add
 	 */
-	public void setRoles(ActionsPlayer role) {
-		this.roles.add(role);
+	public void setAction(ActionsPlayer role) {
+		this.AllAction.add(role);
 	}
-
-	/**
-	 * method that return a role in the list roles
-	 * @param index the index of the role you want
-	 * @return Roles the role returned
-	 */
-	public ActionsPlayer getRoles(int index){
-		return this.roles.get(index);
-	}
-
-
 
 	/**
 	 * player take damage if is hp are below 0 so if is dead all is item in the backpack and in is hand drop in the cell
@@ -228,7 +214,6 @@ public class Player extends Actor{
 				res.add(a);
 			}
 		}
-		res.addAll(this.roles);
 		return res;
 	}
 }
