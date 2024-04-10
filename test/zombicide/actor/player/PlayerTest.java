@@ -208,6 +208,7 @@ public class PlayerTest {
         //if the room contain a zombie and an item the actione SearchInRoom and attack are here
         b.getCellBoard(1, 1).addZombies(new Broom(b.getCellBoard(1, 1), 1));
         b.getCellBoard(1, 1).addItem(new Axe());
+        p.setItemInHand(new Axe());
         List<ActionsPlayer> actionsPlayers2 = p.getActionOfThePlayer();
         assertTrue(actionsPlayers2.contains(a3));
         assertTrue(actionsPlayers2.contains(a7));

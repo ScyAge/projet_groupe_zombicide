@@ -205,7 +205,7 @@ Voila globalement tout les points majoritaire  de la construction de ce 3e livra
 
 ### Etat du développement
 
-Maintenant que toute les fonctionnalité du jeu sont en place action, item , acteur. Il faut s'occuper des  boucle de jeu , tour des survivant  , celui des  zombies et enfin la dernière qui s'occupera de mettre a jour la carte pour la préparation du prochain tour , tout ça dans une boucle principal. Bien sur ce n'est pas tout entre des changement de modélisation a prévoir pour le placement des piéce spécial (pharmacie ,drugStore) ou d'autre chose à amélioré pas encore découverte. Il reste énormément de travail !!
+Maintenant que toute les fonctionnalité du jeu sont en place action, item , acteur. Il faut s'occuper des  boucle de jeu , tour des survivant  , celui des  zombies et enfin la dernière qui s'occupera de mettre a jour la carte pour la préparation du prochain tour , tout ça dans une boucle principal. Bien sur ce n'est pas tout entre des changement de modélisation a prévoir pour le placement des piéce spécial (pharmacie ,drugStore) ou encore un ajout optimal des actions pour la list d'action de chaque joueur et l'amélioration de l'affichage. Il reste énormément de travail !!
 
 ### Commande de Génération et de compilation
 
