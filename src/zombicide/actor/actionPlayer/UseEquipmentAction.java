@@ -28,4 +28,9 @@ public class UseEquipmentAction implements ActionsPlayer {
     public boolean IsActionPlayable(Player p) {
         return p.getItemInHand() != null && !p.getItemInHand().cantAttack();
     }
+
+    @Override
+    public String toString() {
+        return "UseEquipment action";
+    }
 }

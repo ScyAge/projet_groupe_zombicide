@@ -10,6 +10,7 @@ import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.item.Item;
 import zombicide.util.Direction;
+import zombicide.util.Door;
 import zombicide.util.listchooser.*;
 
 /**
@@ -134,7 +135,7 @@ public class OpenDoor implements ActionsPlayer {
 	/**
 	 * returns the adjacent cell in the direction of the opened door where we generate zombies 
 	 * @param p the player who's doing the action
-	 * @param d the direction of the opened door
+	 * @param openDirection the direction of the opened door
 	 * @return the cell where we generate zombies */
 	private Cell getAdjacentCell(Player p, Direction openDirection) {
 		Cell c= p.getCurrentCell();
@@ -168,6 +169,28 @@ public class OpenDoor implements ActionsPlayer {
 	@Override
 	public boolean IsActionPlayable(Player p) {
 		Cell c = p.getCurrentCell();
-		return (p.getItemInHand() != null && p.getItemInHand().getBreakDoor()) && (!c.getDoor(Direction.North).isBreak() ||!c.getDoor(Direction.South).isBreak() ||!c.getDoor(Direction.East).isBreak() ||!c.getDoor(Direction.West).isBreak());
+		List<Boolean> res = new ArrayList<>();
+		for(Direction d: Direction.values()) {
+			Door door= c.getDoor(d);
+			boolean test;
+			if(board.getCellDirection(d,p) == null){
+				test = false;
+			}
+			else{
+				test = board.getCellDirection(d,p).getDoor(Direction.oppose(d)).isBreak();
+			}
+			res.add(!test || !door.isBreak());
+		}
+		for(boolean r : res){
+			if(r){
+				return p.getItemInHand() != null && p.getItemInHand().getBreakDoor();
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "OpenDoor action";
 	}
 }

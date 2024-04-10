@@ -60,4 +60,9 @@ public class Soigneur implements ActionsPlayer {
 		return !playersToHeal.isEmpty();
 	}
 
+	@Override
+	public String toString() {
+		return "Soigneur action";
+	}
+
 }

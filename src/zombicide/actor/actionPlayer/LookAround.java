@@ -80,4 +80,10 @@ public class LookAround implements ActionsPlayer {
 	public boolean IsActionPlayable(Player p) {
 		return p.getCurrentCell().canLook();
 	}
+
+
+	@Override
+	public String toString() {
+		return "LooAround action";
+	}
 }

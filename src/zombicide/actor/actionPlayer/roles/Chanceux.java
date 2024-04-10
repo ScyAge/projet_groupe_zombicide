@@ -46,6 +46,11 @@ public class Chanceux extends Attack {
     	super.attack(p, 0);
 		
     }
+
+	@Override
+	public String toString() {
+		return "Chanceux action";
+	}
     
 
 }

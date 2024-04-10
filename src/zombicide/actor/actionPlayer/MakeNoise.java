@@ -16,6 +16,7 @@ public class MakeNoise implements ActionsPlayer {
 	
 	@Override
 	public void action(Player p) {
+		System.out.println("Makenoise action");
 		Cell c= p.getCurrentCell();
 		c.setNoise(c.getNoise()+1);
 		int actionP= p.getAction_points();
@@ -25,5 +26,10 @@ public class MakeNoise implements ActionsPlayer {
 	@Override
 	public boolean IsActionPlayable(Player p) {
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "MakeNoise action";
 	}
 }

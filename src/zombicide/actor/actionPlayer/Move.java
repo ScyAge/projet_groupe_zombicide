@@ -75,6 +75,7 @@ public class Move implements ActionsPlayer {
 	 * @param p Player who want to move
 	 */
 	public void action(Player p) {
+		System.out.println("La move action va être éxecuter");
 		List<Direction> directions=  DirectionToMove(p);
 		Direction D= this.chooser.choose("choose a direction: ", directions);
 		this.board.movePlayer(p, D);
@@ -86,6 +87,11 @@ public class Move implements ActionsPlayer {
 	public boolean IsActionPlayable(Player p) {
 		Cell c = p.getCurrentCell();
 		return (c.getDoor(Direction.North).isBreak() ||c.getDoor(Direction.South).isBreak() ||c.getDoor(Direction.East).isBreak() ||c.getDoor(Direction.West).isBreak());
+	}
+
+	@Override
+	public String toString() {
+		return "Move action";
 	}
 }
 

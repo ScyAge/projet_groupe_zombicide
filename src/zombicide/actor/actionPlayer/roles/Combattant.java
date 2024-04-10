@@ -40,5 +40,9 @@ public class Combattant extends Attack{
 		super.attack(p,1);
 		
     }
+	@Override
+	public String toString() {
+		return "Combattant action";
+	}
  
 }

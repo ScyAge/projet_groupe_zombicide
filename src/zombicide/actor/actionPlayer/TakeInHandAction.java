@@ -49,4 +49,9 @@ public class TakeInHandAction implements ActionsPlayer {
     public boolean IsActionPlayable(Player p) {
         return  !p.getBackPack().isEmpty();
     }
+
+    @Override
+    public String toString() {
+        return "TakeInHandAction action";
+    }
 }

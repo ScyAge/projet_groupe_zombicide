@@ -35,4 +35,9 @@ public class Fouineur extends SearchInTRoomAction implements ActionsPlayer {
 	 super.action(p);
 	 p.setAction_points(p.getAction_points()+1);
     }
+
+	@Override
+	public String toString() {
+		return "Fouineur action";
+	}
 }

@@ -50,4 +50,9 @@ public class SearchInTRoomAction implements ActionsPlayer {
     public boolean IsActionPlayable(Player p) {
         return !p.getCurrentCell().getAllItems().isEmpty();
     }
+
+    @Override
+    public String toString() {
+        return "SearchInRoomAction action";
+    }
 }

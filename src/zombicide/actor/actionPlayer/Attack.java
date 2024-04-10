@@ -115,7 +115,7 @@ public class Attack implements ActionsPlayer{
 				int nbDice = w.getNbDice();
 				List<Zombies> zombies= WhoCanAttack(p,w);
 
-				Zombies targetZ= this.chooser.choose("choose the zombie: ", zombies);
+				Zombies targetZ= this.chooser.choose("choose the zombie to attack: ", zombies);
 				if(targetZ != null) {
 					Random random = new Random() ;
 					int X= random.nextInt(6) + addDicePoint;
@@ -140,6 +140,11 @@ public class Attack implements ActionsPlayer{
 
 	@Override
 	public boolean IsActionPlayable(Player p) {
-		return !p.getCurrentCell().getAllZombies().isEmpty();
+		return !p.getCurrentCell().getAllZombies().isEmpty() && (p.getItemInHand() != null && p.getItemInHand().cantAttack());
+	}
+
+	@Override
+	public String toString() {
+		return "Attack action";
 	}
 }
