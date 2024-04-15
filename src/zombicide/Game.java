@@ -2,6 +2,7 @@ package zombicide;
 
 import zombicide.actor.actionPlayer.ActionsPlayer;
 import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 import zombicide.item.Item;
 import zombicide.util.listchooser.ListChooser;
@@ -29,7 +30,7 @@ public class Game {
     }
 
     /**
-     * method that test if all the player in game are alive
+     * method that test if all the players in game are alive
      * @return the result of the predicate
      */
     public boolean AreTheyAllAlive(){
@@ -39,6 +40,19 @@ public class Game {
         }
         Stream<Boolean> res = test.stream().filter(c -> !c);
         return  res.toList().contains(false);
+    }
+    
+    /**
+     * method that tests if all the zombies in game are alive
+     * @return true if they're all dead, false if not
+     *  */
+    public boolean areZombiesAllALive() {
+    	List<Boolean> test= new ArrayList<>();
+    	for(Zombies z: this.board.getAllZombies()) {
+    		test.add(z.isDead());
+    	}
+    	Stream<Boolean> res= test.stream().filter(c->!c);
+    	return res.toList().contains(false);
     }
 
 
