@@ -1,6 +1,9 @@
 package zombicide;
 
 import zombicide.actor.actionPlayer.ActionsPlayer;
+import zombicide.actor.actionZombie.ActionZombie;
+import zombicide.actor.actionZombie.AttackZombie;
+import zombicide.actor.actionZombie.MoveZ;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
@@ -41,7 +44,7 @@ public class Game {
         Stream<Boolean> res = test.stream().filter(c -> !c);
         return  res.toList().contains(false);
     }
-    
+
     /**
      * method that tests if all the zombies in game are alive
      * @return true if they're all dead, false if not
@@ -61,18 +64,45 @@ public class Game {
      */
     public void play(){
         while(this.AreTheyAllAlive()){
-            //Phase 1 tour des joueur
-            for(Player p : this.allPLayers){
-                while(p.getAction_points() > 0){
-                    List<ActionsPlayer> actionPossible = p.getActionOfThePlayer();
-                    ActionsPlayer actionHeChoose = this.PlayerChooser.choose("Qu'elle action souhaite tu faire",actionPossible);
-                    actionHeChoose.action(p);
-                }
-            }
+            //Phase  tour des joueur
+            this.roundPlayer();
             //Action des Zombie
-
+            this.roundZombie();
         }
     }
 
+
+    /**
+     * method that play the round for all the player in the game
+     */
+    protected void roundPlayer() {
+        for(Player p : this.allPLayers){
+            while(p.getAction_points() > 0){
+                List<ActionsPlayer> actionPossible = p.getActionOfThePlayer();
+                ActionsPlayer actionHeChoose = this.PlayerChooser.choose("Qu'elle action souhaite tu faire",actionPossible);
+                actionHeChoose.action(p);
+            }
+        }
+        //update de la list des zombie
+        this.board.updateListZombie();
+    }
+
+    /**
+     * method that play the round for all the zombie on the board
+     */
+    protected void roundZombie(){
+        ActionZombie attack = new AttackZombie();
+        ActionZombie move = new MoveZ(this.board);
+        for(Zombies z : this.board.getAllZombies()){
+            while(z.getAction_points() > 0){
+                if(attack.IsActionPlayable(z)){
+                    attack.action(z);
+                }
+                else{
+                    move.action(z);
+                }
+            }
+        }
+    }
 
 }
