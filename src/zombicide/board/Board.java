@@ -22,6 +22,7 @@ public class Board {
 	private boolean continentalExist;
     private int xr;
     private final List<Item> items;
+	private List<Zombies> listZombie;
 
 
 	/**
@@ -31,7 +32,7 @@ public class Board {
 	 */
 	public Board(int height, int width) {
 		this(height,width,new ArrayList<>() );
-
+		this.listZombie = new ArrayList<>();
 	}
 
 	/**
@@ -495,6 +496,31 @@ public class Board {
 		return res;
 	}
 
+
+	/**
+	 * add a zombie to the list of the zombie
+	 * @param z
+	 */
+	public void addZombieList(Zombies z){
+		this.listZombie.add(z);
+	}
+
+	/**
+	 * get the list of all zombie in the board
+	 * @return all the zombies
+	 */
+	public List<Zombies> getAllZombies(){
+		return this.listZombie;
+	}
+
+	/**
+	 * update the list of the zombie if zombies are dead
+	 */
+	public void updateListZombie(){
+		List<Zombies> test;
+		test = this.listZombie.stream().filter(z -> !z.isDead()).toList();
+		this.listZombie = test;
+	}
 
 
 }
