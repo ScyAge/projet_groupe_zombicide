@@ -22,6 +22,9 @@ public class UseEquipmentAction implements ActionsPlayer {
         	System.out.println("L'equipement est utiliser !");
             Item equipment = p.getItemInHand();
             equipment.ItemEffect(p);
+            if(equipment.isUsed()) {
+            	p.setItemInHand(null);
+            }
         }
     }
 

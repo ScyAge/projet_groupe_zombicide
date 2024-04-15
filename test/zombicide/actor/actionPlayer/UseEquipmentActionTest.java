@@ -57,6 +57,7 @@ public class UseEquipmentActionTest {
 		this.action.action(this.player);
 		assertTrue(this.cell.getDoor(Direction.North).isBreak()|| this.cell.getDoor(Direction.South).isBreak() ||
 				this.cell.getDoor(Direction.East).isBreak() || this.cell.getDoor(Direction.West).isBreak());
+		assertEquals(this.player.getItemInHand(),null);
 	}
 
 	@Test
