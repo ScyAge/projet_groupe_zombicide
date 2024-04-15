@@ -28,6 +28,10 @@ public class Game {
 
     }
 
+    /**
+     * method that test if all the player in game are alive
+     * @return the result of the predicate
+     */
     public boolean AreTheyAllAlive(){
         List<Boolean> test = new ArrayList<>();
         for(Player p :  this.allPLayers){
@@ -38,6 +42,9 @@ public class Game {
     }
 
 
+    /**
+     * method that launch a game of zombicide
+     */
     public void play(){
         while(this.AreTheyAllAlive()){
             //Phase 1 tour des joueur
