@@ -64,9 +64,9 @@ public class Game {
      */
     public void play(){
         while(this.AreTheyAllAlive()){
-            //Phase  tour des joueur
+            //tour des joueurs
             this.roundPlayer();
-            //Action des Zombie
+            //Action des Zombies
             this.roundZombie();
         }
     }
@@ -103,6 +103,10 @@ public class Game {
                 }
             }
         }
+    }
+
+    protected void roundUpdateBoard(){
+        
     }
 
 }
