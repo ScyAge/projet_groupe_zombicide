@@ -38,6 +38,7 @@ public class AttackZombie implements ActionZombie{
 	            pToAttack.takeDamage(z.getDamagePoints());
 	        }
         }
+        z.setAction_points(z.getAction_points()-1);
 
 
     }
