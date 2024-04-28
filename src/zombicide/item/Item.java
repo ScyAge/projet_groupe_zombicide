@@ -6,7 +6,7 @@ import zombicide.actor.player.Player;
 /**
  * Class Item
  */
-public class Item implements Cloneable{
+public abstract class Item implements Cloneable{
 	
 	/** Param of item */
 	private String title ;
@@ -78,9 +78,7 @@ public class Item implements Cloneable{
 	 * realizes the item effect 
 	 * @param player who uses the equipment 
 	 * */
-	public void ItemEffect(Player player) {
-		this.Used();
-	}
+	public abstract void ItemEffect(Player player);
 	
 	/**
 	 * use the item
