@@ -272,6 +272,26 @@ public class BoardTest {
 		b.Display();
 	}
 
+	@Test
+	public void testCleanNoise(){
+		//set at 10 for each cell
+		for(int i = 0 ; i < board.getBoard().length ; i++){
+			for(int j = 0; j < board.getBoard()[0].length; j++){
+				board.getBoard()[i][j].setNoise(10);
+			}
+		}
+		for(int i = 0 ; i < board.getBoard().length ; i++){
+			for(int j = 0; j < board.getBoard()[0].length; j++){
+				assertEquals(board.getBoard()[i][j].getNoise(),10);
+			}
+		}
+		board.cleanNoise();
+		for(int i = 0 ; i < board.getBoard().length ; i++){
+			for(int j = 0; j < board.getBoard()[0].length; j++){
+				assertEquals(board.getBoard()[i][j].getNoise(),0);
+			}
+		}
+	}
     
 
 }

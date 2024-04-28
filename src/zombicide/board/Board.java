@@ -522,5 +522,16 @@ public class Board {
 		this.listZombie = test;
 	}
 
+	/**
+	 * put the noise of all the cell at 0
+	 */
+	public void cleanNoise(){
+		for(int i = 0 ; i < this.getBoard().length ; i++){
+			for(int j = 0; j < this.getBoard()[0].length; j++){
+				this.board[i][j].setNoise(0);
+			}
+		}
+	}
+
 
 }
