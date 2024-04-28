@@ -99,6 +99,7 @@ public class OpenDoor implements ActionsPlayer {
 		else {
 			System.out.println("The item in hand can't break the door");
 		}
+		p.setAction_points(p.getAction_points()-1);
 		
 	}
 	
@@ -110,24 +111,29 @@ public class OpenDoor implements ActionsPlayer {
 	 * @param d the direction of the opened door*/
 	private void generateZombies(Player p, Direction d) {
 		Cell c= getAdjacentCell(p,d);
-		Random random= new Random();
-		int numZ= random.nextInt(3)+1;
-		for (int i=0; i<numZ; i++) {
-			Walker z=new Walker(c,random.nextInt(100));
-			c.addZombies(z);
-		}
-		ListChooser<String> zombieChooser = new RandomListChooser<>();
-		List<String> specialZ= List.of("Abomination", "Broom");
-		String zombieType= zombieChooser.choose("choose the special type of zombie", specialZ);
-		switch(zombieType) {
-			case "Abomination":
-				Abominations a= new Abominations(c, random.nextInt(100));
-				c.addZombies(a);
-				break;
-			case "Broom":
-				Broom b= new Broom(c, random.nextInt(100));
-				c.addZombies(b);
-				break;
+		if(c!=null) {
+			Random random= new Random();
+			int numZ= random.nextInt(3)+1;
+			for (int i=0; i<numZ; i++) {
+				Walker z=new Walker(c,random.nextInt(100));
+				c.addZombies(z);
+				this.board.addZombieList(z);
+			}
+			ListChooser<String> zombieChooser = new RandomListChooser<>();
+			List<String> specialZ= List.of("Abomination", "Broom");
+			String zombieType= zombieChooser.choose("choose the special type of zombie", specialZ);
+			switch(zombieType) {
+				case "Abomination":
+					Abominations a= new Abominations(c, random.nextInt(100));
+					c.addZombies(a);
+					this.board.addZombieList(a);
+					break;
+				case "Broom":
+					Broom b= new Broom(c, random.nextInt(100));
+					c.addZombies(b);
+					this.board.addZombieList(b);
+					break;
+			}
 		}
 	}
 	
@@ -145,13 +151,13 @@ public class OpenDoor implements ActionsPlayer {
 		
 		switch(openDirection) {
 		case North:
-			adjY++;
+			adjX++;
 			break;
 		case South:
-			adjY--;
+			adjX--;
 			break;
 		case East:
-			adjX++;
+			adjY++;
 			break;
 		case West:
 			adjY--;

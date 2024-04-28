@@ -26,9 +26,9 @@ public class Game {
 
     private final ListChooser<ActionsPlayer> PlayerChooser;
 
-    public Game(Board b, List<Player> players, List<ActionsPlayer> AllActions, List<Item> AllItem,ListChooser<ActionsPlayer> PlayerChooser) {
+    public Game(Board b,List<Player> player, List<ActionsPlayer> AllActions, List<Item> AllItem,ListChooser<ActionsPlayer> PlayerChooser) {
         this.board = b;
-        this.allPLayers = players;
+        this.allPLayers = player;
         this.AllActionPlayer = AllActions;
         this.allItem = AllItem;
         this.PlayerChooser = PlayerChooser;
@@ -58,36 +58,58 @@ public class Game {
     		test.add(z.isDead());
     	}
     	Stream<Boolean> res= test.stream().filter(c->!c);
-    	return res.toList().contains(false);
+    	return res.toList().contains(false)||test.size() ==0;
     }
-
+    
+    public int totalXP() {
+    	int totalExpertiseLevel = 0;
+    	for(Player p: this.allPLayers) {
+    		totalExpertiseLevel += p.getExpertiseLevel(); 
+    	}
+    	return totalExpertiseLevel;
+    }
 
     /**
      * method that launch a game of zombicide
      */
     public void play(){
-        while(this.AreTheyAllAlive()){
+    	this.board.Display();
+    	while(this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30){
             //tour des joueurs
             this.roundPlayer();
             //Action des Zombies
             this.roundZombie();
+            //update board
+            this.roundUpdateBoard();
+            this.board.Display();
+        }
+        this.board.Display();
+        if(this.AreTheyAllAlive()) {
+        	System.out.println(this.totalXP());
+        	System.out.println("player win");
+        }
+        else {
+        	System.out.println("player lose");
         }
     }
 
 
-    /**
+	/**
      * method that play the round for all the player in the game
      */
     protected void roundPlayer() {
         for(Player p : this.allPLayers){
+        	this.board.Display();
+        	System.out.println("je suis le player "+p.getId());
             while(p.getAction_points() > 0){
                 List<ActionsPlayer> actionPossible = p.getActionOfThePlayer();
                 ActionsPlayer actionHeChoose = this.PlayerChooser.choose("Qu'elle action souhaite tu faire",actionPossible);
                 actionHeChoose.action(p);
             }
         }
-        //update de la list des zombie
-        this.board.updateListZombie();
+        for(Player p : this.allPLayers){
+        	p.setAction_points(3);
+        }
     }
 
     /**
@@ -96,7 +118,8 @@ public class Game {
     protected void roundZombie(){
         ActionZombie attack = new AttackZombie();
         ActionZombie move = new MoveZ(this.board);
-        for(Zombies z : this.board.getAllZombies()){
+        List<Zombies> zombies = this.board.updateListZombie();
+        for(Zombies z : zombies){
             while(z.getAction_points() > 0){
                 if(attack.IsActionPlayable(z)){
                     attack.action(z);
@@ -123,15 +146,10 @@ public class Game {
      method to add zombies 
      */
     protected void multiplyZombies() {
-    	int totalExpertiseLevel = 0;
-    	int counter=0;
-    	for(Player p: this.allPLayers) {
-    		totalExpertiseLevel += p.getExpertiseLevel(); 
-    		counter++;
-    	}
-    	int averageExpertiseLevel = totalExpertiseLevel/counter;
+    	int totalExpertiseLevel = this.totalXP();
+    	int averageExpertiseLevel = totalExpertiseLevel/this.allPLayers.size();
     	
-    	int nbZombiesToAdd = (int) Math.ceil(averageExpertiseLevel/3);
+    	int nbZombiesToAdd = (int) Math.ceil(averageExpertiseLevel/3.0);
     	for(Sewer s : this.board.getAllSewers()) {
     		Random r= new Random();
     		s.ProductionZombie(nbZombiesToAdd,  new Walker(s, r.nextInt(10000)));
