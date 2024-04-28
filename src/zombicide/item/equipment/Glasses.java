@@ -29,8 +29,7 @@ public class Glasses extends Equipment {
 	 * shows the actors that are in adjacent cells to the player's cell
 	 * @param player the player who use the item
 	 * */
-	public void ItemEffect(Player player) {
-		super.ItemEffect(player);
+	public void effectOfTheEquip(Player player) {
 		this.actorsAround(player);
 	}
 	

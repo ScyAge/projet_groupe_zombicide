@@ -26,9 +26,8 @@ public class MapCard extends Equipment{
 	 * displays the board 
 	 * @param player player who use the effect
 	 */
-	public void ItemEffect(Player player) {
+	public void effectOfTheEquip(Player player) {
 		this.display();
-		super.ItemEffect(player);
 	}
 
 	/**
