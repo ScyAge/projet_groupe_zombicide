@@ -5,13 +5,16 @@ import zombicide.actor.actionZombie.ActionZombie;
 import zombicide.actor.actionZombie.AttackZombie;
 import zombicide.actor.actionZombie.MoveZ;
 import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Walker;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
+import zombicide.cell.Sewer;
 import zombicide.item.Item;
 import zombicide.util.listchooser.ListChooser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -111,7 +114,29 @@ public class Game {
      */
     protected void roundUpdateBoard(){
         board.cleanNoise();
+        this.multiplyZombies();
 
+    }
+    
+    
+    /**
+     method to add zombies 
+     */
+    protected void multiplyZombies() {
+    	int totalExpertiseLevel = 0;
+    	int counter=0;
+    	for(Player p: this.allPLayers) {
+    		totalExpertiseLevel += p.getExpertiseLevel(); 
+    		counter++;
+    	}
+    	int averageExpertiseLevel = totalExpertiseLevel/counter;
+    	
+    	int nbZombiesToAdd = (int) Math.ceil(averageExpertiseLevel/3);
+    	for(Sewer s : this.board.getAllSewers()) {
+    		Random r= new Random();
+    		s.ProductionZombie(nbZombiesToAdd,  new Walker(s, r.nextInt(10000)));
+    	}
+    	
     }
 
 }
