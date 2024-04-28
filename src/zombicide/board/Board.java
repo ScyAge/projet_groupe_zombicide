@@ -23,6 +23,7 @@ public class Board {
     private int xr;
     private final List<Item> items;
 	private List<Zombies> listZombie;
+	private List<Sewer> listSewer;
 
 
 	/**
@@ -33,6 +34,7 @@ public class Board {
 	public Board(int height, int width) {
 		this(height,width,new ArrayList<>() );
 		this.listZombie = new ArrayList<>();
+		this.listSewer= new ArrayList<>();
 	}
 
 	/**
@@ -72,10 +74,22 @@ public class Board {
 			initBoard(xd, X, Y+1, yf,false);
 			initBoard(X+1, xf, Y+1, yf,false);
 			if (sewer){
-				this.board[xd][Y] = new Sewer(xd, Y);
-				this.board[xf-1][Y] = new Sewer(xd, Y);
-				this.board[X][yd] = new Sewer(xd, Y);
-				this.board[X][yf-1] = new Sewer(xd, Y);
+				Sewer s1 = new Sewer(xd, Y);
+				this.board[xd][Y] = s1;
+				this.listSewer.add(s1);
+				
+				Sewer s2 =  new Sewer(xd, Y);
+				this.board[xf-1][Y] = s2;
+				this.listSewer.add(s2);
+				
+				Sewer s3 =  new Sewer(xd, Y);
+				this.board[X][yd] = s3;
+				this.listSewer.add(s3);
+				
+				Sewer s4= new Sewer(xd, Y);
+				this.board[X][yf-1] = s4;
+				this.listSewer.add(s4);
+				
 				this.board[X][Y] = new SpawnPlayers(X,Y);
 			}
 
@@ -531,6 +545,10 @@ public class Board {
 				this.board[i][j].setNoise(0);
 			}
 		}
+	}
+	
+	public List<Sewer> getAllSewers(){
+		return this.listSewer;
 	}
 
 
