@@ -105,8 +105,13 @@ public class Game {
         }
     }
 
+    /**
+     * method to achieve the end of the game turn,
+     * set the noise levels to 0 and make the zombies appear (the actors were already suprimmed by themselves)
+     */
     protected void roundUpdateBoard(){
-        
+        board.cleanNoise();
+
     }
 
 }
