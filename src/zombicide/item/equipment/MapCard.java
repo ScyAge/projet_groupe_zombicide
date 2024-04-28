@@ -105,4 +105,13 @@ public class MapCard extends Equipment{
 			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+this.board.getBoard()[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie)+this.board.getBoard()[i][j].getDoor(Direction.East).toString();}
 		return x;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Glasses){
+			MapCard i = (MapCard) obj;
+			return super.equals(i) && (this.board == i.board);
+		}
+		return false;
+	}
 }

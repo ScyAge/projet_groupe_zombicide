@@ -102,4 +102,13 @@ public class Glasses extends Equipment {
 	private boolean isValidCell(int x, int y) {
 		return x>=0 && x<this.board.getBoard().length && y>=0 && y< this.board.getBoard()[0].length;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Glasses){
+			Glasses i = (Glasses) obj;
+			return super.equals(i) && (this.board == i.board);
+		}
+		return false;
+	}
 }

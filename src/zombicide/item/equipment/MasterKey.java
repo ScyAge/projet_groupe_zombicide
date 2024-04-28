@@ -76,5 +76,12 @@ public class MasterKey extends Equipment {
 		
 	}
 
-
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof MasterKey){
+			MasterKey i = (MasterKey) obj;
+			return super.equals(i) && (this.chooser == i.chooser);
+		}
+		return false;
+	}
 }
