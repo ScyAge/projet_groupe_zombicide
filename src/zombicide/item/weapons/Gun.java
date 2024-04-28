@@ -28,7 +28,7 @@ public class Gun extends Weapon{
     /**
      * constant breakDoor of Gun
      */
-    private final static boolean BreakDoor_Gun = false;
+    private final static boolean BreakDoor_Gun = true;
     /**
      * constant noisy of Gun
      */

@@ -30,7 +30,7 @@ public class MasterKeyTest {
     public void init(){
 		this.chooser = new RandomListChooser<>();
 		this.masterkey= new MasterKey("MasterKey", true, chooser);
-		this.masterkey2= new MasterKey("MasterKey2", true);
+		this.masterkey2= new MasterKey("MasterKey2");
         this.board = new TrainingBoard();
         this.cell = this.board.getCellBoard(1,1);
         this.p= new Player(1,this.cell, 0,0);
