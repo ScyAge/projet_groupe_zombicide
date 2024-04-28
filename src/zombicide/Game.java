@@ -143,7 +143,7 @@ public class Game {
     
     
     /**
-     method to add zombies 
+     * Multiplies zombies across all sewer cells on the board based on the average expertise level of all players.
      */
     protected void multiplyZombies() {
     	int totalExpertiseLevel = this.totalXP();

@@ -53,11 +53,11 @@ public class Board {
 		this.items = items;
 		initBoard(0,width,0,height,true);
 	}
-	
+
 	public void setItems(List<Item> i) {
 		this.items =i;
 	}
-	
+
 	/**
 	 * init the Board
 	 * @param xd start width
@@ -83,23 +83,27 @@ public class Board {
 				Sewer s1 = new Sewer(xd, Y,this);
 				this.board[xd][Y] = s1;
 				this.listSewer.add(s1);
-				
+
 				Sewer s2 =  new Sewer(xd, Y,this);
 				this.board[xf-1][Y] = s2;
 				this.listSewer.add(s2);
-				
+
 				Sewer s3 =  new Sewer(xd, Y,this);
 				this.board[X][yd] = s3;
 				this.listSewer.add(s3);
-				
+
+
 				Sewer s4= new Sewer(xd, Y,this);
 				this.board[X][yf-1] = s4;
 				this.listSewer.add(s4);
-				
+
 				SpawnPlayers SP = new SpawnPlayers(X,Y);
 				this.board[X][Y] = SP;
 				this.spawnPlayer = SP;
-				
+
+				SpawnPlayers Sp = new SpawnPlayers(X,Y);
+				this.board[X][Y] = Sp;
+				this.spawnPlayer = Sp;
 			}
 
 		}
@@ -360,14 +364,18 @@ public class Board {
 	 * @param y indice of the cell
 	 */
 	private void placeItemAlea(int x,int y){
-		int nb;
-		Random nb_alea = new Random();
-		for( Item item : this.getItem()) {
-			nb = nb_alea.nextInt((this.getItem().size()*5)+1);
-			if(nb == 5){
-				this.board[x][y].addItem(item);
-			}
-		}
+        int nb;
+        try {
+            Random nb_alea = new Random();
+            nb = nb_alea.nextInt((this.getItem().size() * 5) + 1);
+            if (nb == 5) {
+                int index_item = nb_alea.nextInt(items.size());
+                this.board[x][y].addItem(items.get(index_item).clone());
+            }
+        }
+        catch (CloneNotSupportedException exc){
+            System.out.println(System.err);
+        }
 	}
 
 	/**
@@ -558,7 +566,10 @@ public class Board {
 			}
 		}
 	}
-	
+
+	/**
+	 * get the list of Sewers in the board
+	 * @return all sewers */
 	public List<Sewer> getAllSewers(){
 		return this.listSewer;
 	}

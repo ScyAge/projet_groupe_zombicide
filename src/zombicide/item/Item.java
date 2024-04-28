@@ -6,7 +6,7 @@ import zombicide.actor.player.Player;
 /**
  * Class Item
  */
-public class Item {
+public class Item implements Cloneable{
 	
 	/** Param of item */
 	private String title ;
@@ -108,5 +108,19 @@ public class Item {
 	@Override
 	public String toString() {
 		return this.title;
+	}
+
+	@Override
+	public Item clone() throws CloneNotSupportedException {
+		return (Item )super.clone();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Item){
+			Item i = (Item)obj;
+			return (this.Use == i.Use) && (this.title.equals(i.title)) && (this.breakDoor == i.breakDoor);
+		}
+		return false;
 	}
 }

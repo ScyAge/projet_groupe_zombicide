@@ -14,7 +14,6 @@ public class MapCard extends Equipment{
 	/**
 	 * Create MapCard
 	 * @param title of the MapCard
-	 * @param breakDoor can break door
 	 * @param board of the card
 	 */
 	public MapCard(String title, Board board) {
@@ -104,5 +103,14 @@ public class MapCard extends Equipment{
 			int NbZombie = this.board.getBoard()[i][j].getAllZombies().size();
 			x += this.board.getBoard()[i][j].getDoor(Direction.West).toString()+this.board.getBoard()[i][j].toString()+"z"+ (NbZombie > 9 ? "+" : NbZombie)+this.board.getBoard()[i][j].getDoor(Direction.East).toString();}
 		return x;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof MapCard){
+			MapCard i = (MapCard) obj;
+			return super.equals(i) && (this.board == i.board);
+		}
+		return false;
 	}
 }
