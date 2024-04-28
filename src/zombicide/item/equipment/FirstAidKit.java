@@ -40,7 +40,7 @@ public class FirstAidKit extends Equipment {
 	 * who has the FirstAidKit
 	 * @param player who has the FirstAidkit
 	 * */
-	public void ItemEffect(Player player ) {
+	public void effectOfTheEquip(Player player ) {
 		Cell cell= player.getCurrentCell();
 		List<Player> players= cell.getAllPlayers();
 		

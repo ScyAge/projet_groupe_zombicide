@@ -21,7 +21,6 @@ public class MasterKey extends Equipment {
 	/**
 	 * Builder of MasterKey
 	 * @param title of the item
-	 * @param breakDoor true if masterkey can break a door, else return false
 	 */
 	public MasterKey(String title) {
 		super(title, true);
@@ -44,8 +43,8 @@ public class MasterKey extends Equipment {
 	 * Opens the cell's door where the player is according to the user's choice
 	 * @param player who has the MasterKey
 	 * */
-	public void ItemEffect(Player player) {
-		super.ItemEffect(player);
+	public void effectOfTheEquip(Player player) {
+
 		Cell cell= player.getCurrentCell();
 		
 		boolean doorsOpen=true;
