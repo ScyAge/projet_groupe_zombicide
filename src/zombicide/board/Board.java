@@ -47,6 +47,7 @@ public class Board {
 		this.board = new Cell[width][height];
 		this.drugStoreExist=false;
 		this.continentalExist=false;
+		this.listSewer= new ArrayList<>();
         this.xr=((height-(height/4)) *(width-(width/4))-1) ;
 		this.items = items;
 		initBoard(0,width,0,height,true);
