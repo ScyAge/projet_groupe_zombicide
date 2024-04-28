@@ -108,6 +108,7 @@ public class GameMain {
 		items.add(MasterKey);
 		items.add(carabine);
 		
-		Game g = new Game(b,Players,actions,items,new RandomListChooser<>());		
+		Game g = new Game(b,Players,actions,items,new RandomListChooser<>());	
+		g.play();
 	}
 }
