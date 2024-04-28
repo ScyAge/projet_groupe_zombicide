@@ -1,6 +1,7 @@
 package zombicide.item.weapons;
 
 
+import zombicide.actor.player.Player;
 import zombicide.item.*;
 
 /**
@@ -95,8 +96,12 @@ public class Weapon extends Item {
 	public void Used() {
 		this.Use=true;
 	}
-	
-	
+
+
+	@Override
+	public void ItemEffect(Player player) {
+		this.Used();
+	}
 
 	/**
 	 * return true if the weapon is noisy else false (for attack)
