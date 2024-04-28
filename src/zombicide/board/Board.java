@@ -551,6 +551,9 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * get the list of Sewers in the board
+	 * @return all sewers */
 	public List<Sewer> getAllSewers(){
 		return this.listSewer;
 	}
