@@ -108,7 +108,7 @@ public class MapCard extends Equipment{
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Glasses){
+		if(obj instanceof MapCard){
 			MapCard i = (MapCard) obj;
 			return super.equals(i) && (this.board == i.board);
 		}
