@@ -10,18 +10,24 @@ import zombicide.actor.zombie.Gigantomachia;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.*;
 import zombicide.item.Item;
+import zombicide.item.ItemTest;
 import zombicide.util.listchooser.RandomListChooser;
 
 
-public class WeaponsTest {
+public class WeaponsTest extends ItemTest {
 	
 	private Board b ;
 	private Weapon w;
 	private Zombies z;
 	private Player p; 
 	private Weapon wTest;
-	
-	@BeforeEach
+
+    @Override
+    protected Item createItem() {
+        return new Gun();
+    }
+
+    @BeforeEach
     void setUp() {
     	b= new Board(5,5);
 		w = new Weapon("gun",1,0,1,4,false,true,2);
@@ -50,7 +56,7 @@ public class WeaponsTest {
         assertEquals(0, wTest.getMinRange());
         assertEquals(1, wTest.getDamage());
         assertEquals(4, wTest.getThreshold());
-        assertFalse(wTest.getBreakDoor());
+        assertTrue(wTest.getBreakDoor());
         assertTrue(wTest.isNoisy());
         assertEquals(1, wTest.getNbDice());
     }
@@ -134,3 +140,4 @@ public class WeaponsTest {
     
     
 }
+

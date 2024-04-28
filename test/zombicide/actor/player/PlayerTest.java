@@ -31,8 +31,8 @@ public class PlayerTest {
         this.testCell = new Room(5, 5);
         this.testP = new Player(5, this.testCell, 1, 6);
         this.testCell.addPlayers(this.testP);
-        this.testI = new Item("Test", true);
-        this.testI2 = new Item("Test2", true);
+        this.testI = new Axe();
+        this.testI2 = new Gun();
         this.r1 = new Fouineur();
     }
 
@@ -98,7 +98,7 @@ public class PlayerTest {
 
     @Test
     public void TestTakeInHandFromBackPackIfAnItemIsAlreadyInYourHand() throws ItemDoesNotExistExeption {
-        Item testI2 = new Item("Test2", false);
+        Item testI2 = new Gun();
         this.testP.setItemInHand(testI2);
         this.testP.putItemInBackPack(this.testI);
         this.testP.takeInHandFromBackPack(0);
