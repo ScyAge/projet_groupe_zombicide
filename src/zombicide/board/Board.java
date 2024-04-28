@@ -21,7 +21,7 @@ public class Board {
 	private boolean drugStoreExist;
 	private boolean continentalExist;
     private int xr;
-    private final List<Item> items;
+    private List<Item> items;
 	private List<Zombies> listZombie;
 
 
@@ -49,7 +49,11 @@ public class Board {
 		this.items = items;
 		initBoard(0,width,0,height,true);
 	}
-
+	
+	public void setItems(List<Item> i) {
+		this.items =i;
+	}
+	
 	/**
 	 * init the Board
 	 * @param xd start width

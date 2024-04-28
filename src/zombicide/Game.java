@@ -29,6 +29,7 @@ public class Game {
         this.AllActionPlayer = AllActions;
         this.allItem = AllItem;
         this.PlayerChooser = PlayerChooser;
+        this.board.setItems(AllItem);
     }
 
     /**
