@@ -31,7 +31,7 @@ public class BoardTest {
     @BeforeEach
     void setUp() {
     	board = new Board(5,5);
-    	i = new MapCard("mp",false, board);
+    	i = new MapCard("mp", board);
     	d = Direction.North;
 		d2 = Direction.East;
     	p1 = new Player(5,board.getCellBoard(0, 0),5,6);

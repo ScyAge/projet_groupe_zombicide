@@ -26,7 +26,7 @@ public class GlassesTest {
         this.cell = this.board.getCellBoard(1,1);
         this.player= new Player(3,cell,0,5);
         this.cell.addPlayers(player);
-        this.glasses= new Glasses("Glasses", false, this.board);
+        this.glasses= new Glasses("Glasses", this.board);
 	}
 	
 	@Test
