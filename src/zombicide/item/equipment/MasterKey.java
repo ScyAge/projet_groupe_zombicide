@@ -23,8 +23,8 @@ public class MasterKey extends Equipment {
 	 * @param title of the item
 	 * @param breakDoor true if masterkey can break a door, else return false
 	 */
-	public MasterKey(String title, boolean breakDoor) {
-		super(title, breakDoor);
+	public MasterKey(String title) {
+		super(title, true);
 		this.chooser = new InteractiveListChooser<>();
 	}
 	

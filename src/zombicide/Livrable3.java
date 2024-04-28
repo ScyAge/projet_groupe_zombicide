@@ -84,7 +84,7 @@ public class Livrable3 {
 			b.Display();
 
 			//création et ajout des deux objet dans les sac des joueurs
-			Item heal = new HealingVial("heal", false);
+			Item heal = new HealingVial("heal");
 			Axe axe = new Axe();
 
 			p2.putItemInBackPack(axe);

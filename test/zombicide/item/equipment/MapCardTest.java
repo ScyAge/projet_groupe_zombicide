@@ -23,7 +23,7 @@ public class MapCardTest {
         this.b = new TrainingBoard();
         this.cell = b.getCellBoard(2,2);
         this.p = new Player(3,this.cell,3,5);
-        this.i = new MapCard("test",false,b);
+        this.i = new MapCard("test",b);
         this.cell.addPlayers(this.p);
     }
 

@@ -18,11 +18,10 @@ public class Glasses extends Equipment {
 	/**
 	 * Builder of Glasses
 	 * @param title of the item
-	 * @param breakDoor can break Door
 	 * @param board of the glasses
 	 */
-	public Glasses(String title,boolean breakDoor, Board board) {
-		super(title, breakDoor);
+	public Glasses(String title, Board board) {
+		super(title, false);
 		this.board=board;
 	}
 
