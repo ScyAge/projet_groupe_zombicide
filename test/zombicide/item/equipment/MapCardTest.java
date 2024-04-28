@@ -8,9 +8,9 @@ import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
 import zombicide.item.Item;
+import zombicide.item.weapons.Gun;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MapCardTest {
     private Item i;
@@ -46,4 +46,20 @@ public class MapCardTest {
         assertTrue(this.i.isNoisy());
     }
 
+
+    @Test
+    public void testCloneEquipment(){
+        Item map = new MapCard("ui",b);
+        try {
+            Item mapBis = map.clone();
+            assertNotSame(map, mapBis);
+            assertSame(map.getClass(),mapBis.getClass());
+            assertEquals(map, mapBis);
+            map.Used();
+            assertNotEquals(map.isUsed(),mapBis.isUsed());
+        }
+        catch (CloneNotSupportedException err){
+            System.out.println(System.err);
+        }
+    }
 }

@@ -9,6 +9,7 @@ import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Gigantomachia;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.*;
+import zombicide.item.Item;
 import zombicide.util.listchooser.RandomListChooser;
 
 
@@ -113,6 +114,23 @@ public class WeaponsTest {
         assertTrue(this.w.isUsed());
     }
 
+    @Test
+    public void TestClone(){
+        Item arme = new Gun();
+        try {
+            Item armeBis = arme.clone();
+            assertNotSame(arme, armeBis);
+            assertSame(arme.getClass(),armeBis.getClass());
+            assertEquals(arme, armeBis);
+            arme.Used();
+            assertNotEquals(arme.isUsed(),armeBis.isUsed());
+
+        }
+        catch (CloneNotSupportedException err){
+            System.out.println(System.err);
+        }
+
+    }
     
     
 }

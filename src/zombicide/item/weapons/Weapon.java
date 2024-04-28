@@ -105,8 +105,14 @@ public class Weapon extends Item {
 	public boolean isNoisy(){
 		return this.noisy;
 	}
-	
-	
-	
-	
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Weapon){
+			Weapon i = (Weapon) obj;
+			return super.equals(i) && (this.noisy == i.noisy) && (this.rangeMax == i.rangeMax) && (this.rangeMin == i.rangeMin) &&(this.threshold == i.threshold) &&(this.nbDice == i.nbDice) &&(this.damage == i.damage);
+		}
+		return false;
+	}
 }

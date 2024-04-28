@@ -39,4 +39,6 @@ class HealingVialTest {
            this.testHV.Used();
            assertTrue(this.testHV.isUsed());
     }
+
+
 }
