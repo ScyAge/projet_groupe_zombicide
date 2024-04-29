@@ -29,6 +29,8 @@ import zombicide.item.weapons.Carabine;
 import zombicide.item.weapons.Chainsaw;
 import zombicide.item.weapons.Crowbar;
 import zombicide.item.weapons.Gun;
+import zombicide.util.listchooser.InteractiveListChooser;
+import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.RandomListChooser;
 
 public class GameMain {
@@ -41,14 +43,14 @@ public class GameMain {
 		Board b = new Board(size,size);
 		
 		//initalisation de toute les actions
-		ActionsPlayer take = new TakeInHandAction(new RandomListChooser<>());
+		ActionsPlayer take = new TakeInHandAction(new InteractiveListChooser<>());
 		ActionsPlayer LA =new LookAround(b);
-		ActionsPlayer OD = new OpenDoor(new RandomListChooser<>(),b);
-		ActionsPlayer move = new Move(b,new RandomListChooser<>());
+		ActionsPlayer OD = new OpenDoor(new InteractiveListChooser<>(),b);
+		ActionsPlayer move = new Move(b,new InteractiveListChooser<>());
 		ActionsPlayer noise = new MakeNoise();
 		ActionsPlayer useEquip = new UseEquipmentAction();
-		ActionsPlayer attack = new Attack(new RandomListChooser<>(),b);
-		ActionsPlayer search = new SearchInTRoomAction(new RandomListChooser<>());
+		ActionsPlayer attack = new Attack(new InteractiveListChooser<>(),b);
+		ActionsPlayer search = new SearchInTRoomAction(new InteractiveListChooser<>());
 
 		//ajout dans une ArrayList
 		List<ActionsPlayer> actions = new ArrayList<>();
@@ -64,10 +66,10 @@ public class GameMain {
 		List<Player> Players = new ArrayList<>();
 		
 		//creation des players
-		Player p1 = new Player(5,b.getCellBoard(0, 2),1,5,actions);
-		Player p2 = new Player(5,b.getCellBoard(0, 2),2,5,actions);
-		Player p3 = new Player(5,b.getCellBoard(0, 2),3,5,actions);
-		Player p4 = new Player(5,b.getCellBoard(0, 2),4,5,actions);
+		Player p1 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),1,5,actions);
+		Player p2 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),2,5,actions);
+		Player p3 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),3,5,actions);
+		Player p4 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),4,5,actions);
 
 		Players.add(p1);
 		Players.add(p2);
@@ -75,15 +77,17 @@ public class GameMain {
 		Players.add(p4);
 
 		//création des Roles plus ajout
-		ActionsPlayer Chanceux = new Chanceux(new RandomListChooser<>(),b);
-		ActionsPlayer Combattant = new Combattant(new RandomListChooser<>(),b);
-		ActionsPlayer Fouineur = new Fouineur(new RandomListChooser<>());
-		ActionsPlayer Soigneur = new Soigneur(new RandomListChooser<>());
+		ActionsPlayer Chanceux = new Chanceux(new InteractiveListChooser<>(),b);
+		ActionsPlayer Combattant = new Combattant(new InteractiveListChooser<>(),b);
+		ActionsPlayer Fouineur = new Fouineur(new InteractiveListChooser<>());
+		ActionsPlayer Soigneur = new Soigneur(new InteractiveListChooser<>());
 
 		p1.setAction(Chanceux);
 		p2.setAction(Combattant);
 		p3.setAction(Fouineur);
 		p4.setAction(Soigneur);
+		
+		b.getSpawnPlayers().spawnPlayer(Players);
 		
 		List<Item> items = new ArrayList<>();
 		Item Kit = new FirstAidKit("kit");
@@ -108,7 +112,7 @@ public class GameMain {
 		items.add(MasterKey);
 		items.add(carabine);
 		
-		Game g = new Game(b,Players,actions,items,new RandomListChooser<>());	
+		Game g = new Game(b,Players,actions,items,new InteractiveListChooser<>());	
 		g.play();
 	}
 }

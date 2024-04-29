@@ -24,6 +24,7 @@ public class Board {
     private List<Item> items;
 	private List<Zombies> listZombie;
 	private List<Sewer> listSewer;
+	private SpawnPlayers spawnPlayer;
 
 
 	/**
@@ -33,8 +34,6 @@ public class Board {
 	 */
 	public Board(int height, int width) {
 		this(height,width,new ArrayList<>() );
-		this.listZombie = new ArrayList<>();
-		this.listSewer= new ArrayList<>();
 	}
 
 	/**
@@ -47,7 +46,9 @@ public class Board {
 		this.board = new Cell[width][height];
 		this.drugStoreExist=false;
 		this.continentalExist=false;
+		this.listZombie = new ArrayList<>();
 		this.listSewer= new ArrayList<>();
+		this.spawnPlayer =null ;
         this.xr=((height-(height/4)) *(width-(width/4))-1) ;
 		this.items = items;
 		initBoard(0,width,0,height,true);
@@ -79,26 +80,37 @@ public class Board {
 			initBoard(xd, X, Y+1, yf,false);
 			initBoard(X+1, xf, Y+1, yf,false);
 			if (sewer){
-				Sewer s1 = new Sewer(xd, Y);
+				Sewer s1 = new Sewer(xd, Y,this);
 				this.board[xd][Y] = s1;
 				this.listSewer.add(s1);
 
-				Sewer s2 =  new Sewer(xd, Y);
+				Sewer s2 =  new Sewer(xd, Y,this);
 				this.board[xf-1][Y] = s2;
 				this.listSewer.add(s2);
 
-				Sewer s3 =  new Sewer(xd, Y);
+				Sewer s3 =  new Sewer(xd, Y,this);
 				this.board[X][yd] = s3;
 				this.listSewer.add(s3);
 
-				Sewer s4= new Sewer(xd, Y);
+
+				Sewer s4= new Sewer(xd, Y,this);
 				this.board[X][yf-1] = s4;
 				this.listSewer.add(s4);
 
-				this.board[X][Y] = new SpawnPlayers(X,Y);
+				SpawnPlayers SP = new SpawnPlayers(X,Y);
+				this.board[X][Y] = SP;
+				this.spawnPlayer = SP;
+
+				SpawnPlayers Sp = new SpawnPlayers(X,Y);
+				this.board[X][Y] = Sp;
+				this.spawnPlayer = Sp;
 			}
 
 		}
+	}
+	
+	public SpawnPlayers getSpawnPlayers() {
+		return this.spawnPlayer;
 	}
 
 	/**
@@ -545,10 +557,9 @@ public class Board {
 	/**
 	 * update the list of the zombie if zombies are dead
 	 */
-	public void updateListZombie(){
-		List<Zombies> test;
-		test = this.listZombie.stream().filter(z -> !z.isDead()).toList();
-		this.listZombie = test;
+	public List<Zombies> updateListZombie(){
+		List<Zombies> test = this.listZombie.stream().filter(z -> !z.isDead()).toList();
+		return test;
 	}
 
 	/**

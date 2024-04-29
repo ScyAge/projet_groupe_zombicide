@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zombicide.actor.zombie.*;
+import zombicide.board.Board;
 
 
 class SewerTest {
@@ -14,7 +15,8 @@ class SewerTest {
     
     @BeforeEach
     void setUp() {
-    	sewer = new Sewer(5, 5);
+    	Board b = new Board(5,5);
+    	sewer = new Sewer(5, 5,b);
     	z= new Gigantomachia(sewer,1);
     }
     

@@ -1,18 +1,22 @@
 package zombicide.cell;
 
 import zombicide.actor.zombie.Zombies;
+import zombicide.board.Board;
 
 /**
  * class of Sewer
  */
 public class Sewer extends Street{
 	
+	private Board b ;
+	
 	/** Constructor of the class Sewer
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
 	 */
-	public Sewer(int x, int y) {
+	public Sewer(int x, int y,Board b ) {
 		super(x, y);
+		this.b = b ;
 	}
 	 
 	/** 
@@ -22,7 +26,8 @@ public class Sewer extends Street{
 	 */ 
 	public void ProductionZombie(int nb,Zombies Z) {
 		for (int i = 0; i < nb; i++) {
-            addZombies(Z);
+            this.addZombies(Z);
+            this.b.addZombieList(Z);
 		}
 	}
 	
