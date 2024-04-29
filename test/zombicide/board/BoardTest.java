@@ -14,7 +14,9 @@ import zombicide.util.Direction;
 import zombicide.item.weapons.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
+import zombicide.item.equipment.*;
 
 public class BoardTest {
 	
@@ -27,11 +29,23 @@ public class BoardTest {
 	private Zombies z1;
 	private Zombies z2;
 	
-	
+	private List<Item> items;
     @BeforeEach
     void setUp() {
-    	board = new Board(5,5);
-    	i = new MapCard("mp", board);
+
+		this.items = new ArrayList<>();
+		this.items.add(new Axe());
+		this.items.add(new Carabine());
+		this.items.add(new Chainsaw());
+		this.items.add(new Crowbar());
+		this.items.add(new Gun());
+		this.items.add(new FirstAidKit("test"));
+		//this.items.add(new Glasses("ts",board));
+		this.items.add(new HealingVial("tt"));
+		//this.items.add(new MapCard("tt",board));
+		this.items.add(new MasterKey("tt"));
+    	//i = new MapCard("mp", board);
+		board = new Board(5,5,this.items);
     	d = Direction.North;
 		d2 = Direction.East;
     	p1 = new Player(5,board.getCellBoard(0, 0),5,6);
@@ -42,11 +56,14 @@ public class BoardTest {
 	
     @Test
 	public void testInitBoard() {
+		List<Boolean> test = new ArrayList<>();
 		for(int i = 0 ; i<board.getBoard().length;i++) {
 			for(int j = 0 ; j<board.getBoard()[i].length;j++) {
 				assertNotNull(board.getBoard()[i][j]);
+				test.add(!this.board.getBoard()[i][j].getAllItems().isEmpty());
 			}
 		}
+		assertTrue(test.contains(true));
 	}
     
     @Test

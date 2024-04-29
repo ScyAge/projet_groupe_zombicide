@@ -353,12 +353,18 @@ public class Board {
 	 */
 	private void placeItemAlea(int x,int y){
         int nb;
+		int[] aleaNonEquiprob = {1,1,1,1,1,2,2,2,3,3};
         try {
             Random nb_alea = new Random();
-            nb = nb_alea.nextInt((this.getItem().size() * 5) + 1);
-            if (nb == 5) {
-                int index_item = nb_alea.nextInt(items.size());
-                this.board[x][y].addItem(items.get(index_item).clone());
+            nb = nb_alea.nextInt(4);
+            if (nb == 1 || nb == 2) {
+				int nb_item_to_spawn = nb_alea.nextInt(aleaNonEquiprob.length);
+				for(int i =0; i < aleaNonEquiprob[nb_item_to_spawn] ; i++){
+					System.out.println("test");
+					int index_item = nb_alea.nextInt(items.size());
+					this.board[x][y].addItem(items.get(index_item).clone());
+				}
+
             }
         }
         catch (CloneNotSupportedException exc){
