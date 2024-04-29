@@ -356,8 +356,8 @@ public class Board {
 		int[] aleaNonEquiprob = {1,1,1,1,1,2,2,2,3,3};
         try {
             Random nb_alea = new Random();
-            nb = nb_alea.nextInt(4);
-            if (nb == 1 || nb == 2) {
+            nb = nb_alea.nextInt(2);
+            if (nb == 1) {
 				int nb_item_to_spawn = nb_alea.nextInt(aleaNonEquiprob.length);
 				for(int i =0; i < aleaNonEquiprob[nb_item_to_spawn] ; i++){
 					System.out.println("test");
