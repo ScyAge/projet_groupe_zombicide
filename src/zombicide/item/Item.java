@@ -19,15 +19,20 @@ public abstract class Item implements Cloneable{
 	 * can break door
 	 */
 	protected boolean breakDoor;
+
+	protected boolean noisy;
+	protected boolean canAttack;
 	/**
 	 * Builder of Item
 	 * @param title of the item
 	 * @param breakDoor can break door
 	 */
-	public Item(String title, boolean breakDoor) {
+	public Item(String title, boolean breakDoor,boolean canAttack ,boolean noisy) {
 		this.title = title;
 		this.Use = false;
 		this.breakDoor= breakDoor;
+		this.noisy = noisy;
+		this.canAttack = canAttack;
 	}
 	
 	/**
@@ -60,8 +65,8 @@ public abstract class Item implements Cloneable{
 	 * Item can attack or not
 	 * @return if it can attack
 	 */
-	public boolean cantAttack(){
-		return false;
+	public boolean canAttack(){
+		return this.canAttack;
 	}
 	
 	
@@ -99,7 +104,7 @@ public abstract class Item implements Cloneable{
 	 * @return true if the equipment is noisy else false
 	 */
 	public boolean isNoisy() {
-		return false;
+		return this.noisy;
 	}
 	
 
@@ -117,7 +122,7 @@ public abstract class Item implements Cloneable{
 	public boolean equals(Object obj) {
 		if(obj instanceof Item){
 			Item i = (Item)obj;
-			return (this.Use == i.Use) && (this.title.equals(i.title)) && (this.breakDoor == i.breakDoor);
+			return (this.Use == i.Use) && (this.title.equals(i.title)) && (this.breakDoor == i.breakDoor)&& (this.noisy == i.noisy)&& (this.canAttack == i.canAttack);
 		}
 		return false;
 	}

@@ -37,6 +37,7 @@ public class WeaponsTest extends ItemTest {
 		b.getCellBoard(2, 2).addPlayers(p);
 
     }
+
     
     @Test
     public void testGetter() {

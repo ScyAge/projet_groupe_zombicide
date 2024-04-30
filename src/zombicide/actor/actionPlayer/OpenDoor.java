@@ -87,7 +87,7 @@ public class OpenDoor implements ActionsPlayer {
 			
 			if(targetD != null) {
 				this.board.BreakDoor(targetD, c.getX(), c.getY());
-				if (item.cantAttack()) {
+				if (item.canAttack()) {
 					c.setNoise(c.getNoise() + 1);
 				}
 				generateZombies(p, targetD);
