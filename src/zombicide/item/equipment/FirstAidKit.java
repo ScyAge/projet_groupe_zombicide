@@ -22,7 +22,7 @@ public class FirstAidKit extends Equipment {
 	 * @param chooser ListChooser of the player to heal
 	 */
 	public FirstAidKit( String title, ListChooser<Player> chooser) {
-		super(title, false);
+		super(title, false,false);
 		this.chooser=chooser;
 	}
 	
@@ -31,7 +31,7 @@ public class FirstAidKit extends Equipment {
 	 * @param title of the item
 	 */
 	public FirstAidKit( String title) {
-		super(title, false);
+		super(title, false,false);
 		this.chooser= new InteractiveListChooser<>();
 	}
 	
@@ -43,9 +43,7 @@ public class FirstAidKit extends Equipment {
 	public void effectOfTheEquip(Player player ) {
 		Cell cell= player.getCurrentCell();
 		List<Player> players= cell.getAllPlayers();
-		
-		
-		super.ItemEffect(player);
+
 		Player target = chooser.choose("choose a player to heal: ", players );
 			
 		int targetLifePoints= target.getLifePoints();
