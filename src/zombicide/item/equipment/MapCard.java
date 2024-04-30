@@ -17,7 +17,7 @@ public class MapCard extends Equipment{
 	 * @param board of the card
 	 */
 	public MapCard(String title, Board board) {
-		super(title, false);
+		super(title, false,true);
 		this.board=board;
 	}
 
@@ -30,13 +30,6 @@ public class MapCard extends Equipment{
 		this.display();
 	}
 
-	/**
-	 * return true if the equipment is noisy else false
-	 * @return true if the equipment is noisy else false
-	 */
-	public boolean isNoisy() {
-		return true;
-	}
 
 	/**
 	 * displays the board without showing what's inside the continental

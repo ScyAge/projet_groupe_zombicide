@@ -35,7 +35,7 @@ public class Weapon extends Item {
 	 * @param nbDice of the weapon
 	 */
 	public Weapon(String title,int rangeMax,int rangeMin,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice) {
-		super(title, breakDoor);
+		super(title, breakDoor,true,noisy);
 		this.damage =damage;
 		this.rangeMax =rangeMax;
 		this.rangeMin =rangeMin;
@@ -44,14 +44,7 @@ public class Weapon extends Item {
 		this.nbDice= nbDice;
 	}
 	
-	/**
-	 * Item can attack or not
-	 * @return true if it can attack
-	 */
-	public boolean cantAttack(){
-		return true;
-	}
-	
+
 	/**returns the threshold of the Weapon 
 	 * @return threshold of the given weapon
 	 * */
@@ -102,15 +95,6 @@ public class Weapon extends Item {
 	public void ItemEffect(Player player) {
 		this.Used();
 	}
-
-	/**
-	 * return true if the weapon is noisy else false (for attack)
-	 * @return true if the weapon is noisy else false (for attack)
-	 */
-	public boolean isNoisy(){
-		return this.noisy;
-	}
-
 
 	@Override
 	public boolean equals(Object obj) {

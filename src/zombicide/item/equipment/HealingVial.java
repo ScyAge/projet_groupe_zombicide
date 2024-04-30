@@ -12,7 +12,7 @@ public class HealingVial extends Equipment{
 	 * @param title of the item
 	 */
 	public HealingVial(String title) {
-		super(title, false);
+		super(title, false,false);
 	}
 	
 	/**

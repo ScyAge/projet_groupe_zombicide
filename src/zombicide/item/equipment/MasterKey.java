@@ -23,7 +23,7 @@ public class MasterKey extends Equipment {
 	 * @param title of the item
 	 */
 	public MasterKey(String title) {
-		super(title, true);
+		super(title, true,false);
 		this.chooser = new InteractiveListChooser<>();
 	}
 	
@@ -35,7 +35,7 @@ public class MasterKey extends Equipment {
 	 * @param chooser ListChooser of the masterkey
 	 */
 	public MasterKey(String title, boolean breakDoor, ListChooser<Direction> chooser) {
-		super(title, breakDoor);
+		super(title, breakDoor,false);
 		this.chooser=chooser;
 	}
 	

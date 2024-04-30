@@ -21,7 +21,7 @@ public class Glasses extends Equipment {
 	 * @param board of the glasses
 	 */
 	public Glasses(String title, Board board) {
-		super(title, false);
+		super(title, false,false);
 		this.board=board;
 	}
 

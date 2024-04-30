@@ -15,8 +15,8 @@ public abstract class  Equipment extends Item {
 	 * @param title of the item
 	 * @param breakDoor can break Door
 	 */
-	public Equipment(String title, boolean breakDoor) {
-		super(title, breakDoor);
+	public Equipment(String title, boolean breakDoor,boolean noisy) {
+		super(title, breakDoor,false,noisy);
 	}
 
 	/**
