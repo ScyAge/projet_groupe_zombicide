@@ -13,15 +13,21 @@ import zombicide.cell.Cell;
 import zombicide.cell.Continental;
 
 
-public class GlassesTest {
+public class GlassesTest extends EquipmentTest{
 	
 	private Glasses glasses;
 	private Player player;
 	private Board board;
 	private Cell cell;
-	
+
+
+	@Override
+	protected Equipment createEquip() {
+		return new Glasses("test",this.board);
+	}
+
 	@BeforeEach
-	public void init() {
+	public void initG() {
         this.board = new TrainingBoard();
         this.cell = this.board.getCellBoard(1,1);
         this.player= new Player(3,cell,0,5);
@@ -67,7 +73,7 @@ public class GlassesTest {
 	}
 
 	@Test
-	public void TestItemEffect() {
+	public void TestEffectOfTheEquip() {
 		Cell adjCell1 = this.board.getCellBoard(1, 0);
 		Cell adjCell2 = this.board.getCellBoard(1, 2);
 		Cell adjCell3 = this.board.getCellBoard(0, 1);

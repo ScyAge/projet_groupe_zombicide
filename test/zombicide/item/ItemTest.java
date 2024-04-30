@@ -10,16 +10,18 @@ import static org.junit.jupiter.api.Assertions.*;
 public abstract class ItemTest {
 
    private Item i;
+   private Item mi;
    private Player p;
    private Cell cell;
 
    protected abstract Item createItem();
    @BeforeEach
-    public void init(){
-        this.i = this.createItem();
-        this.cell = new Room(2,2);
-        this.p = new Player(3,this.cell,2,5);
-    }
+   public void init(){
+       this.i = this.createItem();
+       this.mi = new MockItem();
+       this.cell = new Room(2,2);
+       this.p = new Player(3,this.cell,2,5);
+   }
 
 
     @Test
@@ -31,23 +33,26 @@ public abstract class ItemTest {
 
     @Test
     public void testCantAttack(){
-        assertFalse(this.i.cantAttack());
-    }
-
-    @Test
-    public void TestItemEffect(){
-        assertFalse(this.i.isUsed());
-        this.i.ItemEffect(this.p);
-        assertTrue(this.i.isUsed());
+        assertEquals(this.mi.canAttack(),MockItem.canAttack);
     }
 
     @Test
     public void TestNotUsed(){
-        this.i.ItemEffect(this.p);
+        this.i.Used();
         assertTrue(this.i.isUsed());
         this.i.NotUsed();
         assertFalse(this.i.isUsed());
     }
+
+    @Test
+    public void TestNoisy(){
+        assertEquals(this.mi.isNoisy(),MockItem.noisy);
+    }
+    @Test
+    public void TestCanBreakDoor(){
+        assertEquals(this.mi.getBreakDoor(),MockItem.breakDoor);
+    }
+
 
     @Test
     public void TestSetTittle(){

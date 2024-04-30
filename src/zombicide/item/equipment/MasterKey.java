@@ -31,11 +31,10 @@ public class MasterKey extends Equipment {
 	/**
 	 * Builder of MasterKey
 	 * @param title of the item
-	 * @param breakDoor true if masterkey can break a door, else return false
 	 * @param chooser ListChooser of the masterkey
 	 */
-	public MasterKey(String title, boolean breakDoor, ListChooser<Direction> chooser) {
-		super(title, breakDoor,false);
+	public MasterKey(String title,ListChooser<Direction> chooser) {
+		super(title, true,false);
 		this.chooser=chooser;
 	}
 	

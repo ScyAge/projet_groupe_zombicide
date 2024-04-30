@@ -27,7 +27,7 @@ public class UseEquipmentActionTest {
 		this.b= new TrainingBoard();
 		this.cell= b.getCellBoard(1, 1);
 		this.player = new Player(3,this.cell,1,5);
-		this.equipment= new MasterKey("MasterKey", this.chooser);
+		this.equipment= new MasterKey("MasterKey",this.chooser);
 		this.action= new UseEquipmentAction();
 	}
 	
