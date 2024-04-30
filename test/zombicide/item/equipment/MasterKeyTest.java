@@ -16,7 +16,7 @@ import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.NoneListChooser;
 import zombicide.util.listchooser.RandomListChooser;
 
-public class MasterKeyTest {
+public class MasterKeyTest extends EquipmentTest{
 	
 	private MasterKey masterkey;
 	private TrainingBoard board;
@@ -25,11 +25,16 @@ public class MasterKeyTest {
 	private ListChooser<Direction> chooser;
 
 	private MasterKey masterkey2;
-	
+
+	@Override
+	protected Equipment createEquip() {
+		return new MasterKey("ff",this.chooser);
+	}
+
 	@BeforeEach
-    public void init(){
+    public void initMast(){
 		this.chooser = new RandomListChooser<>();
-		this.masterkey= new MasterKey("MasterKey", true, chooser);
+		this.masterkey= new MasterKey("MasterKey", chooser);
 		this.masterkey2= new MasterKey("MasterKey2");
         this.board = new TrainingBoard();
         this.cell = this.board.getCellBoard(1,1);
@@ -38,7 +43,7 @@ public class MasterKeyTest {
 	}
 	
 	@Test
-	public void TestItemEffect() {
+	public void TestEffectOfTheEquip() {
 		
 		this.masterkey.ItemEffect(this.p);
 		assertTrue(this.cell.getDoor(Direction.North).isBreak()|| this.cell.getDoor(Direction.South).isBreak() || 
@@ -47,14 +52,14 @@ public class MasterKeyTest {
 	}
 
 	@Test
-	public void TestItemEffectNoDirection() {
+	public void TestEffectOfTheEquipNoDirection() {
 		ListChooser<Direction> chose = new NoneListChooser<>();
-		MasterKey m = new MasterKey("MasterKey", true, chose);
+		MasterKey m = new MasterKey("MasterKey",chose);
 		m.ItemEffect(this.p);
 	}
 	
 	@Test 
-	public void TestItemEffectWhenAllDoorsOpen() {
+	public void TestEffectOfTheEquipWhenAllDoorsOpen() {
 		for(Direction d: Direction.values()) {
 			this.cell.getDoor(d).Break();
 		}
