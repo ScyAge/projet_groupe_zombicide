@@ -30,7 +30,7 @@ public class UseEquipmentAction implements ActionsPlayer {
 
     @Override
     public boolean IsActionPlayable(Player p) {
-        return p.getItemInHand() != null && !p.getItemInHand().cantAttack();
+        return p.getItemInHand() != null && !p.getItemInHand().canAttack();
     }
 
     @Override
