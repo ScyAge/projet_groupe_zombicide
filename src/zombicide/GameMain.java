@@ -41,13 +41,13 @@ public class GameMain {
 			size = Integer.parseInt(args[0]);
 		}
 		Board b = new Board(size,size);
-		
+		//init items
 		List<Item> items = new ArrayList<>();
-		Item Kit = new FirstAidKit("kit");
+		Item Kit = new FirstAidKit("kit",new RandomListChooser<>());
 		Item glasses = new Glasses("glasse",b);
 		Item heal = new HealingVial("heal");
 		Item Mapcard = new MapCard("heal",b);
-		Item MasterKey = new MasterKey("key");
+		Item MasterKey = new MasterKey("key",new RandomListChooser<>());
 		Item gun =new Gun();
 		Item crowbar =new Crowbar();
 		Item chainsaw =new Chainsaw();
@@ -69,14 +69,14 @@ public class GameMain {
 		b.initBoard(0, size, 0, size, true);
 		
 		//initalisation de toute les actions
-		ActionsPlayer take = new TakeInHandAction(new InteractiveListChooser<>());
+		ActionsPlayer take = new TakeInHandAction(new RandomListChooser<>());
 		ActionsPlayer LA =new LookAround(b);
-		ActionsPlayer OD = new OpenDoor(new InteractiveListChooser<>(),b);
-		ActionsPlayer move = new Move(b,new InteractiveListChooser<>());
+		ActionsPlayer OD = new OpenDoor(new RandomListChooser<>(),b);
+		ActionsPlayer move = new Move(b,new RandomListChooser<>());
 		ActionsPlayer noise = new MakeNoise();
 		ActionsPlayer useEquip = new UseEquipmentAction();
-		ActionsPlayer attack = new Attack(new InteractiveListChooser<>(),b);
-		ActionsPlayer search = new SearchInTRoomAction(new InteractiveListChooser<>());
+		ActionsPlayer attack = new Attack(new RandomListChooser<>(),b);
+		ActionsPlayer search = new SearchInTRoomAction(new RandomListChooser<>());
 
 		//ajout dans une ArrayList
 		List<ActionsPlayer> actions = new ArrayList<>();
@@ -88,6 +88,8 @@ public class GameMain {
 		actions.add(useEquip);
 		actions.add(attack);
 		actions.add(search);
+		
+		
 		
 		List<Player> Players = new ArrayList<>();
 		//creation des players
@@ -102,10 +104,10 @@ public class GameMain {
 		Players.add(p4);
 
 		//création des Roles plus ajout
-		ActionsPlayer Chanceux = new Chanceux(new InteractiveListChooser<>(),b);
-		ActionsPlayer Combattant = new Combattant(new InteractiveListChooser<>(),b);
-		ActionsPlayer Fouineur = new Fouineur(new InteractiveListChooser<>());
-		ActionsPlayer Soigneur = new Soigneur(new InteractiveListChooser<>());
+		ActionsPlayer Chanceux = new Chanceux(new RandomListChooser<>(),b);
+		ActionsPlayer Combattant = new Combattant(new RandomListChooser<>(),b);
+		ActionsPlayer Fouineur = new Fouineur(new RandomListChooser<>());
+		ActionsPlayer Soigneur = new Soigneur(new RandomListChooser<>());
 
 		p1.setAction(Chanceux);
 		p2.setAction(Combattant);
@@ -115,7 +117,7 @@ public class GameMain {
 		b.getSpawnPlayers().spawnPlayer(Players);
 
 		
-		Game g = new Game(b,Players,actions,items,new InteractiveListChooser<>());	
+		Game g = new Game(b,Players,actions,items,new RandomListChooser<>());	
 		g.play();
 	}
 }

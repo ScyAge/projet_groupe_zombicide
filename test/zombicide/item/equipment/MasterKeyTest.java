@@ -29,7 +29,7 @@ public class MasterKeyTest {
 	@BeforeEach
     public void init(){
 		this.chooser = new RandomListChooser<>();
-		this.masterkey= new MasterKey("MasterKey", true, chooser);
+		this.masterkey= new MasterKey("MasterKey", chooser);
 		this.masterkey2= new MasterKey("MasterKey2");
         this.board = new TrainingBoard();
         this.cell = this.board.getCellBoard(1,1);
@@ -49,7 +49,7 @@ public class MasterKeyTest {
 	@Test
 	public void TestItemEffectNoDirection() {
 		ListChooser<Direction> chose = new NoneListChooser<>();
-		MasterKey m = new MasterKey("MasterKey", true, chose);
+		MasterKey m = new MasterKey("MasterKey", chose);
 		m.ItemEffect(this.p);
 	}
 	

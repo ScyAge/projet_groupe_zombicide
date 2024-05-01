@@ -18,6 +18,6 @@ public class TrainingBoard extends Board {
 		this.board[0][2] = new Street(0,2);
 		this.board[2][4] = new Street(2,4);
 		this.board[4][2] = new Street(4,2);
-		this.board[2][2] = new Sewer(2,2,this);
+		this.board[2][2] = new Sewer(2,2);
 	}
 }

@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Game {
-    private final List<Player> allPlayers;
+    private List<Player> allPlayers;
     private final Board board;
     private final List<ActionsPlayer>AllActionPlayer;
     private final List<Item> allItem;
@@ -73,13 +73,16 @@ public class Game {
      */
     public void play(){
     	this.board.Display();
+    	int compteur;
     	while(this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30){
             //tour des joueurs
             this.roundPlayer();
             //Action des Zombies
             this.roundZombie();
             //update board
-            this.roundUpdateBoard();
+        	if(this.allPlayers.size() > 0) {
+        		this.roundUpdateBoard();
+        	}
             this.board.Display();
         }
         this.board.Display();
@@ -104,7 +107,9 @@ public class Game {
                 List<ActionsPlayer> actionPossible = p.getActionOfThePlayer();
                 ActionsPlayer actionHeChoose = this.PlayerChooser.choose("Qu'elle action souhaite tu faire",actionPossible);
                 actionHeChoose.action(p);
+                this.board.updateListZombie();
             }
+            this.board.updateListZombie();
         }
         for(Player p : this.allPlayers){
         	p.setAction_points(3);
@@ -122,6 +127,7 @@ public class Game {
             while(z.getAction_points() > 0){
                 if(attack.IsActionPlayable(z)){
                     attack.action(z);
+                    this.allPlayers = this.allPlayers.stream().filter(p -> !p.isDead()).toList();
                 }
                 else{
                     move.action(z);
@@ -149,10 +155,7 @@ public class Game {
     	int averageExpertiseLevel = totalExpertiseLevel/this.allPlayers.size();
     	
     	int nbZombiesToAdd = (int) Math.ceil(averageExpertiseLevel/3.0);
-    	for(Sewer s : this.board.getAllSewers()) {
-    		Random r= new Random();
-    		s.ProductionZombie(nbZombiesToAdd,  new Walker(s, r.nextInt(10000)));
-    	}
+    	this.board.ProductionZombie(nbZombiesToAdd,totalExpertiseLevel);
     	
     }
 

@@ -95,7 +95,7 @@ public abstract class Cell {
 	 * @return List of players
 	 */
 	public List<Player> getAllPlayers() {
-		return this.players;
+		return this.players.stream().filter(p -> !p.isDead()).toList();
 	}
 
 	/**
@@ -119,7 +119,7 @@ public abstract class Cell {
 	 * @return List of zombies
 	 */
 	public List<Zombies> getAllZombies() {
-		return this.zombies;
+		return this.zombies.stream().filter(p -> !p.isDead()).toList();
 	}
 	
 	/**

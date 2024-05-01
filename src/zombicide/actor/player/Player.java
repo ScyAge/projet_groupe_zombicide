@@ -93,6 +93,7 @@ public class Player extends Actor{
 	 */
 	public void Dead() {
 		this.cell.remove(this);
+		this.setCell(null);
 	}
 	
 	/**

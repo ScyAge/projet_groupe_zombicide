@@ -1,5 +1,8 @@
 package zombicide.cell;
 
+import java.util.Random;
+
+import zombicide.actor.zombie.Walker;
 import zombicide.actor.zombie.Zombies;
 import zombicide.board.Board;
 
@@ -8,15 +11,13 @@ import zombicide.board.Board;
  */
 public class Sewer extends Street{
 	
-	private Board b ;
 	
 	/** Constructor of the class Sewer
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell
 	 */
-	public Sewer(int x, int y,Board b ) {
+	public Sewer(int x, int y) {
 		super(x, y);
-		this.b = b ;
 	}
 	 
 	/** 
@@ -27,9 +28,9 @@ public class Sewer extends Street{
 	public void ProductionZombie(int nb,Zombies Z) {
 		for (int i = 0; i < nb; i++) {
             this.addZombies(Z);
-            this.b.addZombieList(Z);
 		}
 	}
+
 	
 	/**
 	 * @return display of the Sewer

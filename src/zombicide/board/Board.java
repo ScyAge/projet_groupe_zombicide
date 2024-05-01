@@ -5,6 +5,10 @@ import java.util.Random;
 
 import zombicide.actor.Actor;
 import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Abominations;
+import zombicide.actor.zombie.Broom;
+import zombicide.actor.zombie.Runner;
+import zombicide.actor.zombie.Walker;
 import zombicide.actor.zombie.Zombies;
 import zombicide.cell.*;
 import zombicide.util.Direction;
@@ -79,20 +83,20 @@ public class Board {
 			initBoard(xd, X, Y+1, yf,false);
 			initBoard(X+1, xf, Y+1, yf,false);
 			if (sewer){
-				Sewer s1 = new Sewer(xd, Y,this);
+				Sewer s1 = new Sewer(xd, Y);
 				this.board[xd][Y] = s1;
 				this.listSewer.add(s1);
 
-				Sewer s2 =  new Sewer(xd, Y,this);
+				Sewer s2 =  new Sewer(xd, Y);
 				this.board[xf-1][Y] = s2;
 				this.listSewer.add(s2);
 
-				Sewer s3 =  new Sewer(xd, Y,this);
+				Sewer s3 =  new Sewer(xd, Y);
 				this.board[X][yd] = s3;
 				this.listSewer.add(s3);
 
 
-				Sewer s4= new Sewer(xd, Y,this);
+				Sewer s4= new Sewer(xd, Y);
 				this.board[X][yf-1] = s4;
 				this.listSewer.add(s4);
 
@@ -561,6 +565,34 @@ public class Board {
 		return test;
 	}
 
+private int compteur =0;
+	/** 
+	 * generate x zombies in this cell 
+	 * @param nb the number of zombies 
+	 * @param Z type of Zombies to spawn 
+	 */ 
+	public void ProductionZombie(int nb,int LevelTotal) {
+		for(Sewer s : this.getAllSewers()) {
+			for (int i = 0; i < nb; i++) {
+				Zombies Z;
+				if(LevelTotal < 10) {
+					Z = new Walker(s,compteur++);
+				}
+				else if(LevelTotal < 15) {
+					Z = new Runner(s,compteur++);
+				}
+				else if(LevelTotal < 25) {
+					Z = new Broom(s,compteur++);
+				}
+				else{
+					Z = new Abominations(s,compteur++);
+				}
+	            s.addZombies(Z);
+	            this.addZombieList(Z);
+			}
+		}
+	}
+	
 	/**
 	 * put the noise of all the cell at 0
 	 */
