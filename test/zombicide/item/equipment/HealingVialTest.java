@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import zombicide.actor.player.Player;
 import zombicide.cell.Cell;
-import zombicide.item.Item;
 import zombicide.cell.Room;
 
 class HealingVialTest extends EquipmentTest{
@@ -15,7 +14,7 @@ class HealingVialTest extends EquipmentTest{
 
     @Override
     protected Equipment createEquip() {
-        return new HealingVial("t");
+        return new HealingVial();
     }
 
     @BeforeEach
@@ -23,7 +22,7 @@ class HealingVialTest extends EquipmentTest{
         this.testCell = new Room(5,5);
         this.testP = new Player(5,this.testCell,1,6);
         this.testCell.addPlayers(this.testP);
-        this.testHV = new HealingVial("HealingVial1");
+        this.testHV = new HealingVial();
     }
 
     @Test

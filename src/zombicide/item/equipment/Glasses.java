@@ -17,11 +17,11 @@ public class Glasses extends Equipment {
 	
 	/**
 	 * Builder of Glasses
-	 * @param title of the item
+	 *
 	 * @param board of the glasses
 	 */
-	public Glasses(String title, Board board) {
-		super(title, false,false);
+	public Glasses(Board board) {
+		super(false,false);
 		this.board=board;
 	}
 

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
-import zombicide.cell.Room;
 import zombicide.item.Item;
 import zombicide.item.equipment.FirstAidKit;
 import zombicide.item.weapons.*;
@@ -66,7 +65,7 @@ public class SearchInTRoomActionTest {
     public  void TestSearchInRoomActionWhenBackPackFull(){
         this.p.putItemInBackPack(new Crowbar());
         this.p.putItemInBackPack(new Gun());
-        Item kit = new FirstAidKit("TEST");
+        Item kit = new FirstAidKit();
         this.p.putItemInBackPack(kit);
 
         //test de la coherence des item present dans la cell et dans le sac

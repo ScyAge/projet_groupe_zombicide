@@ -11,12 +11,8 @@ import zombicide.actor.player.Player;
 import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
-import zombicide.item.Item;
 import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.RandomListChooser;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 public class FirstAidKitTest extends EquipmentTest{
 	private static final ListChooser<Player> chooser = new RandomListChooser<>();;
@@ -28,12 +24,12 @@ public class FirstAidKitTest extends EquipmentTest{
 
 	@Override
 	protected Equipment createEquip() {
-		return new FirstAidKit("title",chooser);
+		return new FirstAidKit(chooser);
 	}
 
 	@BeforeEach
 	public void init3() {
-		this.firstAidKit= new FirstAidKit("FirstAidKit",chooser);
+		this.firstAidKit= new FirstAidKit(chooser);
         this.board = new TrainingBoard();
         this.cell = this.board.getCellBoard(1,1);
         this.player= new Player(3,cell,0,5);

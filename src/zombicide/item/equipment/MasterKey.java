@@ -20,21 +20,20 @@ public class MasterKey extends Equipment {
 	
 	/**
 	 * Builder of MasterKey
-	 * @param title of the item
 	 */
-	public MasterKey(String title) {
-		super(title, true,false);
+	public MasterKey() {
+		super( true,false);
 		this.chooser = new InteractiveListChooser<>();
 	}
 	
 	
 	/**
 	 * Builder of MasterKey
-	 * @param title of the item
+	 *
 	 * @param chooser ListChooser of the masterkey
 	 */
-	public MasterKey(String title,ListChooser<Direction> chooser) {
-		super(title, true,false);
+	public MasterKey(ListChooser<Direction> chooser) {
+		super(true,false);
 		this.chooser=chooser;
 	}
 	

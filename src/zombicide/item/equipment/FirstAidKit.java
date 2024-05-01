@@ -18,20 +18,19 @@ public class FirstAidKit extends Equipment {
 	
 	/**
 	 * Builder of FirstAidKit
-	 * @param title of the item
+	 *
 	 * @param chooser ListChooser of the player to heal
 	 */
-	public FirstAidKit( String title, ListChooser<Player> chooser) {
-		super(title, false,false);
+	public FirstAidKit( ListChooser<Player> chooser) {
+		super(false,false);
 		this.chooser=chooser;
 	}
 	
 	/**
 	 * Builder of FirstAidKit
-	 * @param title of the item
 	 */
-	public FirstAidKit( String title) {
-		super(title, false,false);
+	public FirstAidKit() {
+		super(false,false);
 		this.chooser= new InteractiveListChooser<>();
 	}
 	

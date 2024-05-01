@@ -53,7 +53,7 @@ public class GameMain {
 		Item chainsaw =new Chainsaw();
 		Item carabine =new Carabine();
 		Item axe =new Axe();
-		
+
 		items.add(axe);
 		items.add(Kit);
 		items.add(glasses);
@@ -64,10 +64,10 @@ public class GameMain {
 		items.add(chainsaw);
 		items.add(MasterKey);
 		items.add(carabine);
-		
+
 		b.setItems(items);
 		b.initBoard(0, size, 0, size, true);
-		
+
 		//initalisation de toute les actions
 		ActionsPlayer take = new TakeInHandAction(new RandomListChooser<>());
 		ActionsPlayer LA =new LookAround(b);
@@ -89,8 +89,8 @@ public class GameMain {
 		actions.add(attack);
 		actions.add(search);
 		
-		
-		
+
+
 		List<Player> Players = new ArrayList<>();
 		//creation des players
 		Player p1 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),1,5,actions);

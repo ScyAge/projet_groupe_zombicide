@@ -54,12 +54,6 @@ public abstract class ItemTest {
     }
 
 
-    @Test
-    public void TestSetTittle(){
-        String t = "OUIII";
-        this.i.setTitle(t);
-        assertEquals(this.i.getTitle(),t);
-    }
 
 }
 

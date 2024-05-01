@@ -32,6 +32,8 @@ public class BoardTest {
 	private List<Item> items;
     @BeforeEach
     void setUp() {
+    	board = new Board(5,5);
+    	i = new MapCard(board);
 
 		this.items = new ArrayList<>();
 		this.items.add(new Axe());

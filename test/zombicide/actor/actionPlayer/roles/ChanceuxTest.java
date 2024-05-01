@@ -38,8 +38,8 @@ public class ChanceuxTest {
 	  
 	     this.cell.addPlayers(this.player);
 	     this.action= new Chanceux(this.chooser, this.board );
-	     this.wp1 = new Weapon("Axe",0,0,2,0,false,true,1);
-	     this.wp2 = new Weapon("gun",4,0,1,0,false,true,1);
+	     this.wp1 = new Weapon(0,0,2,0,false,true,1);
+	     this.wp2 = new Weapon(4,0,1,0,false,true,1);
 	     this.z1= new Broom(this.cell, 1);
 	     this.z2= new Broom(this.cell, 2);
 		 this.cell.addZombies(z1);

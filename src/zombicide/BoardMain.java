@@ -18,7 +18,7 @@ public class BoardMain {
 		b.getBoard()[1][1].addPlayers(p2);
 		b.Display();
 		System.out.println(b.getBoard()[2][0].getDoor(Direction.North).isBreak());
-		Item MapCard1 = new MapCard("MC", b);
+		Item MapCard1 = new MapCard(b);
 		MapCard1.Used();
 		
 	}
