@@ -375,7 +375,6 @@ public class Board {
             if (nb == 1) {
 				int nb_item_to_spawn = nb_alea.nextInt(aleaNonEquiprob.length);
 				for(int i =0; i < aleaNonEquiprob[nb_item_to_spawn] ; i++){
-					System.out.println("test");
 					int index_item = nb_alea.nextInt(items.size());
 					this.board[x][y].addItem(items.get(index_item).clone());
 				}
