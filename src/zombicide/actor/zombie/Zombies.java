@@ -12,7 +12,10 @@ public class Zombies extends Actor {
      * domage of the zombies
      */
     protected int damagePoints;
-
+    /**
+     * basic action point
+     */
+    protected int basic_action_point;
     /**
      * Builder of Zombies
      *
@@ -25,6 +28,7 @@ public class Zombies extends Actor {
     public Zombies(int lifePoints, int action_points, Cell cell, int id, int damagePoints) {
         super(lifePoints, action_points, cell, id);
         this.damagePoints = damagePoints;
+        basic_action_point = this.action_points;
     }
 
     /**
@@ -40,7 +44,10 @@ public class Zombies extends Actor {
             this.Dead();
         }
     }
-
+    
+    public int getBasicActionPoint() {
+    	return this.basic_action_point;
+    }
     /**
      * remove the zombie to the cell
      */

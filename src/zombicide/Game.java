@@ -134,6 +134,9 @@ public class Game {
                 }
             }
         }
+        for(Zombies z : zombies){
+        	z.setAction_points(z.getBasicActionPoint());
+        }
     }
 
     /**

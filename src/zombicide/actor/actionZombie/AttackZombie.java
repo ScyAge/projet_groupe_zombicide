@@ -37,8 +37,8 @@ public class AttackZombie implements ActionZombie{
 	            Player pToAttack = choosePlayer.choose("The zombie choose a random player",AllPlayer);
 	            pToAttack.takeDamage(z.getDamagePoints());
 	        }
+	        z.setAction_points(z.getAction_points()-1);
         }
-        z.setAction_points(z.getAction_points()-1);
 
 
     }
