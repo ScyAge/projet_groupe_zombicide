@@ -42,6 +42,32 @@ public class GameMain {
 		}
 		Board b = new Board(size,size);
 		
+		List<Item> items = new ArrayList<>();
+		Item Kit = new FirstAidKit("kit");
+		Item glasses = new Glasses("glasse",b);
+		Item heal = new HealingVial("heal");
+		Item Mapcard = new MapCard("heal",b);
+		Item MasterKey = new MasterKey("key");
+		Item gun =new Gun();
+		Item crowbar =new Crowbar();
+		Item chainsaw =new Chainsaw();
+		Item carabine =new Carabine();
+		Item axe =new Axe();
+		
+		items.add(axe);
+		items.add(Kit);
+		items.add(glasses);
+		items.add(heal);
+		items.add(Mapcard);
+		items.add(gun);
+		items.add(crowbar);
+		items.add(chainsaw);
+		items.add(MasterKey);
+		items.add(carabine);
+		
+		b.setItems(items);
+		b.initBoard(0, size, 0, size, true);
+		
 		//initalisation de toute les actions
 		ActionsPlayer take = new TakeInHandAction(new InteractiveListChooser<>());
 		ActionsPlayer LA =new LookAround(b);
@@ -64,7 +90,6 @@ public class GameMain {
 		actions.add(search);
 		
 		List<Player> Players = new ArrayList<>();
-		
 		//creation des players
 		Player p1 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),1,5,actions);
 		Player p2 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),2,5,actions);
@@ -88,29 +113,7 @@ public class GameMain {
 		p4.setAction(Soigneur);
 		
 		b.getSpawnPlayers().spawnPlayer(Players);
-		
-		List<Item> items = new ArrayList<>();
-		Item Kit = new FirstAidKit("kit");
-		Item glasses = new Glasses("glasse",b);
-		Item heal = new HealingVial("heal");
-		Item Mapcard = new MapCard("heal",b);
-		Item MasterKey = new MasterKey("key");
-		Item gun =new Gun();
-		Item crowbar =new Crowbar();
-		Item chainsaw =new Chainsaw();
-		Item carabine =new Carabine();
-		Item axe =new Axe();
-		
-		items.add(axe);
-		items.add(Kit);
-		items.add(glasses);
-		items.add(heal);
-		items.add(Mapcard);
-		items.add(gun);
-		items.add(crowbar);
-		items.add(chainsaw);
-		items.add(MasterKey);
-		items.add(carabine);
+
 		
 		Game g = new Game(b,Players,actions,items,new InteractiveListChooser<>());	
 		g.play();

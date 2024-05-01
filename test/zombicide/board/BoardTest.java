@@ -46,6 +46,7 @@ public class BoardTest {
 		this.items.add(new MasterKey("tt"));
     	//i = new MapCard("mp", board);
 		board = new Board(5,5,this.items);
+		board.initBoard(0, 5, 0, 5, true);
     	d = Direction.North;
 		d2 = Direction.East;
     	p1 = new Player(5,board.getCellBoard(0, 0),5,6);
@@ -69,7 +70,7 @@ public class BoardTest {
     @Test
     public void testAddItem() {
     	board.addItem(i);
-    	assertEquals(i, board.getItem().get(0));
+    	assertEquals(i, board.getItem().get(board.getItem().size()-1));
     }
     
     @Test
@@ -285,6 +286,7 @@ public class BoardTest {
 		g.add(new Carabine());
 		g.add(new Gun());
 		Board b = new Board(5,5,g);
+		b.initBoard(0, 5, 0, 5, true);
         assertFalse(b.getItem().isEmpty());
 		b.Display();
 	}

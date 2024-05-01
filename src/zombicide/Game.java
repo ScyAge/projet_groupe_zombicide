@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Game {
-    private final List<Player> allPLayers;
+    private final List<Player> allPlayers;
     private final Board board;
     private final List<ActionsPlayer>AllActionPlayer;
     private final List<Item> allItem;
@@ -27,12 +27,11 @@ public class Game {
     private final ListChooser<ActionsPlayer> PlayerChooser;
 
     public Game(Board b,List<Player> player, List<ActionsPlayer> AllActions, List<Item> AllItem,ListChooser<ActionsPlayer> PlayerChooser) {
-        this.board = b;
-        this.allPLayers = player;
+        this.allPlayers = player;
+        this.board =b;
         this.AllActionPlayer = AllActions;
         this.allItem = AllItem;
         this.PlayerChooser = PlayerChooser;
-        this.board.setItems(AllItem);
     }
 
     /**
@@ -41,7 +40,7 @@ public class Game {
      */
     public boolean AreTheyAllAlive(){
         List<Boolean> test = new ArrayList<>();
-        for(Player p :  this.allPLayers){
+        for(Player p :  this.allPlayers){
             test.add(p.isDead());
         }
         Stream<Boolean> res = test.stream().filter(c -> !c);
@@ -63,7 +62,7 @@ public class Game {
     
     public int totalXP() {
     	int totalExpertiseLevel = 0;
-    	for(Player p: this.allPLayers) {
+    	for(Player p: this.allPlayers) {
     		totalExpertiseLevel += p.getExpertiseLevel(); 
     	}
     	return totalExpertiseLevel;
@@ -98,7 +97,7 @@ public class Game {
      * method that play the round for all the player in the game
      */
     protected void roundPlayer() {
-        for(Player p : this.allPLayers){
+        for(Player p : this.allPlayers){
         	this.board.Display();
         	System.out.println("je suis le player "+p.getId());
             while(p.getAction_points() > 0){
@@ -107,7 +106,7 @@ public class Game {
                 actionHeChoose.action(p);
             }
         }
-        for(Player p : this.allPLayers){
+        for(Player p : this.allPlayers){
         	p.setAction_points(3);
         }
     }
@@ -147,7 +146,7 @@ public class Game {
      */
     protected void multiplyZombies() {
     	int totalExpertiseLevel = this.totalXP();
-    	int averageExpertiseLevel = totalExpertiseLevel/this.allPLayers.size();
+    	int averageExpertiseLevel = totalExpertiseLevel/this.allPlayers.size();
     	
     	int nbZombiesToAdd = (int) Math.ceil(averageExpertiseLevel/3.0);
     	for(Sewer s : this.board.getAllSewers()) {

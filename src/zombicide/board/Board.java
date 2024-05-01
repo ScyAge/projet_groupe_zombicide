@@ -51,7 +51,6 @@ public class Board {
 		this.spawnPlayer =null ;
         this.xr=((height-(height/4)) *(width-(width/4))-1) ;
 		this.items = items;
-		initBoard(0,width,0,height,true);
 	}
 
 	public void setItems(List<Item> i) {
@@ -65,7 +64,7 @@ public class Board {
 	 * @param yd start height
 	 * @param yf final height
 	 */
-	private void initBoard(int xd,int xf,int yd,int yf,boolean sewer) {
+	public void initBoard(int xd,int xf,int yd,int yf,boolean sewer) {
 		if(!isSplitable(xd, xf, yd, yf)){
 			Building(xf, xd, yf, yd);
 		}
