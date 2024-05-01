@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
-import zombicide.item.equipment.HealingVial;
 import zombicide.item.equipment.MasterKey;
 import zombicide.util.Direction;
 import zombicide.util.listchooser.*;
@@ -27,7 +26,7 @@ public class UseEquipmentActionTest {
 		this.b= new TrainingBoard();
 		this.cell= b.getCellBoard(1, 1);
 		this.player = new Player(3,this.cell,1,5);
-		this.equipment= new MasterKey("MasterKey",this.chooser);
+		this.equipment= new MasterKey(this.chooser);
 		this.action= new UseEquipmentAction();
 	}
 	

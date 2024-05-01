@@ -13,11 +13,11 @@ public class MapCard extends Equipment{
 
 	/**
 	 * Create MapCard
-	 * @param title of the MapCard
+	 *
 	 * @param board of the card
 	 */
-	public MapCard(String title, Board board) {
-		super(title, false,true);
+	public MapCard(Board board) {
+		super(false,true);
 		this.board=board;
 	}
 

@@ -8,7 +8,6 @@ import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
 import zombicide.item.Item;
-import zombicide.item.weapons.Gun;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +20,7 @@ public class MapCardTest extends EquipmentTest{
 
     @Override
     protected Equipment createEquip() {
-        return new MapCard("ff",this.b);
+        return new MapCard(this.b);
     }
 
     @BeforeEach
@@ -29,7 +28,7 @@ public class MapCardTest extends EquipmentTest{
         this.b = new TrainingBoard();
         this.cell = b.getCellBoard(2,2);
         this.p = new Player(3,this.cell,3,5);
-        this.i = new MapCard("test",b);
+        this.i = new MapCard(b);
         this.cell.addPlayers(this.p);
     }
 
@@ -49,7 +48,7 @@ public class MapCardTest extends EquipmentTest{
 
     @Test
     public void testCloneEquipment(){
-        Item map = new MapCard("ui",b);
+        Item map = new MapCard(b);
         try {
             Item mapBis = map.clone();
             assertNotSame(map, mapBis);

@@ -11,7 +11,6 @@ import zombicide.actor.zombie.Zombies;
 import zombicide.board.*;
 import zombicide.item.Item;
 import zombicide.item.ItemTest;
-import zombicide.util.listchooser.RandomListChooser;
 
 
 public class WeaponsTest extends ItemTest {
@@ -30,7 +29,7 @@ public class WeaponsTest extends ItemTest {
     @BeforeEach
     void setUp() {
     	b= new Board(5,5);
-		w = new Weapon("gun",1,0,1,4,false,true,2);
+		w = new Weapon(1,0,1,4,false,true,2);
 		z = new Gigantomachia(b.getCellBoard(2, 2),1);
 		p= new Player(5,b.getCellBoard(2, 2),1,1);
 		b.getCellBoard(2, 2).addZombies(z);
@@ -43,7 +42,6 @@ public class WeaponsTest extends ItemTest {
     public void testGetter() {
         assertEquals(1, w.getDamage());
         assertEquals(1, w.getRange());
-        assertSame("gun", w.getTitle());
         assertEquals(4, w.getThreshold());
         assertFalse(w.getBreakDoor());
         assertFalse(w.isUsed());
@@ -52,7 +50,6 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testGun() {
         wTest = new Gun();
-        assertEquals("gun", wTest.getTitle());
         assertEquals(1, wTest.getRange());
         assertEquals(0, wTest.getMinRange());
         assertEquals(1, wTest.getDamage());
@@ -65,7 +62,6 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testCrowbar() {
         wTest = new Crowbar();
-        assertEquals("crowbar", wTest.getTitle());
         assertEquals(0, wTest.getRange());
         assertEquals(0, wTest.getMinRange());
         assertEquals(1, wTest.getDamage());
@@ -78,7 +74,6 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testChainsaw() {
         wTest = new Chainsaw();
-        assertEquals("chainsaw", wTest.getTitle());
         assertEquals(0, wTest.getRange());
         assertEquals(0, wTest.getMinRange());
         assertEquals(3, wTest.getDamage());
@@ -91,7 +86,6 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testCarabine() {
         wTest = new Carabine();
-        assertEquals("carabine", wTest.getTitle());
         assertEquals(3, wTest.getRange());
         assertEquals(1, wTest.getMinRange());
         assertEquals(1, wTest.getDamage());
@@ -104,7 +98,6 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testAxe() {
         wTest = new Axe();
-        assertEquals("axe", wTest.getTitle());
         assertEquals(0, wTest.getRange());
         assertEquals(0, wTest.getMinRange());
         assertEquals(2, wTest.getDamage());

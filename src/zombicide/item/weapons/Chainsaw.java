@@ -5,10 +5,7 @@ package zombicide.item.weapons;
  * class Chainsaw
  */
 public class Chainsaw extends Weapon{
-    /**
-     * constant name of Chainsaw
-     */
-    private final static String Name_Chainsaw = "chainsaw";
+
     /**
      * constant range max of  Chainsaw
      */
@@ -41,6 +38,6 @@ public class Chainsaw extends Weapon{
      * Builder of Chainsaw
      */
     public Chainsaw(){
-        super(Name_Chainsaw,Max_Range_Chainsaw,Min_Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, nbDice_Chainsaw);
+        super(Max_Range_Chainsaw,Min_Range_Chainsaw, Damage_Chainsaw, Threshold_Chainsaw, BreakDoor_Chainsaw, Noisy_Chainsaw, nbDice_Chainsaw);
     }
 }

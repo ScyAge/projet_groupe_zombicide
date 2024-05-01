@@ -5,10 +5,7 @@ package zombicide.item.weapons;
  * class Axe
  */
 public class Axe extends Weapon{
-    /**
-     * constant name of axe
-     */
-    private final static String Name_Axe = "axe";
+
     /**
      * constant range max of axe
      */
@@ -41,6 +38,6 @@ public class Axe extends Weapon{
      * Builder of Axe
      */
     public Axe(){
-        super(Name_Axe, Max_Range_Axe,Min_Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, nbDice_Axe);
+        super(Max_Range_Axe,Min_Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, nbDice_Axe);
     }
 }

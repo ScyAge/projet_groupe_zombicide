@@ -5,10 +5,7 @@ package zombicide.item.weapons;
  * class Crowbar
  */
 public class Crowbar extends Weapon{
-    /**
-     * constant name of Crowbar
-     */
-    private final static String Name_Crowbar = "crowbar";
+
     /**
      * constant range max of Crowbar
      */
@@ -41,6 +38,6 @@ public class Crowbar extends Weapon{
      * Builder of Crowbar
      */
     public Crowbar(){
-        super(Name_Crowbar, Max_Range_Crowbar,Min_Range_Crowbar, Damage_Crowbar, Threshold_Crowbar, BreakDoor_Crowbar, Noisy_Crowbar, nbDice_Crowbar);
+        super(Max_Range_Crowbar,Min_Range_Crowbar, Damage_Crowbar, Threshold_Crowbar, BreakDoor_Crowbar, Noisy_Crowbar, nbDice_Crowbar);
     }
 }

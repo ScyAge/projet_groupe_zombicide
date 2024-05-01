@@ -10,8 +10,6 @@ import zombicide.actor.player.Player;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
-import zombicide.util.Door;
-import zombicide.util.listchooser.InteractiveListChooser;
 import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.NoneListChooser;
 import zombicide.util.listchooser.RandomListChooser;
@@ -28,14 +26,14 @@ public class MasterKeyTest extends EquipmentTest{
 
 	@Override
 	protected Equipment createEquip() {
-		return new MasterKey("ff",this.chooser);
+		return new MasterKey(this.chooser);
 	}
 
 	@BeforeEach
     public void initMast(){
 		this.chooser = new RandomListChooser<>();
-		this.masterkey= new MasterKey("MasterKey", chooser);
-		this.masterkey2= new MasterKey("MasterKey2");
+		this.masterkey= new MasterKey(chooser);
+		this.masterkey2= new MasterKey();
         this.board = new TrainingBoard();
         this.cell = this.board.getCellBoard(1,1);
         this.p= new Player(1,this.cell, 0,0);
@@ -54,7 +52,7 @@ public class MasterKeyTest extends EquipmentTest{
 	@Test
 	public void TestEffectOfTheEquipNoDirection() {
 		ListChooser<Direction> chose = new NoneListChooser<>();
-		MasterKey m = new MasterKey("MasterKey",chose);
+		MasterKey m = new MasterKey(chose);
 		m.ItemEffect(this.p);
 	}
 	

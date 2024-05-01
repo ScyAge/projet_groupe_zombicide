@@ -25,17 +25,17 @@ public class Weapon extends Item {
 	
 	/**
 	 * Builder of the weapons
-	 * @param title of the item
-	 * @param rangeMin of the weapons
-	 * @param rangeMax of the weapons
-	 * @param damage of the weapons
+	 *
+	 * @param rangeMax  of the weapons
+	 * @param rangeMin  of the weapons
+	 * @param damage    of the weapons
 	 * @param threshold of the weapons
-	 * @param breakDoor  can break door or not
-	 * @param noisy if the weapon is noisy
-	 * @param nbDice of the weapon
+	 * @param breakDoor can break door or not
+	 * @param noisy     if the weapon is noisy
+	 * @param nbDice    of the weapon
 	 */
-	public Weapon(String title,int rangeMax,int rangeMin,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice) {
-		super(title, breakDoor,true,noisy);
+	public Weapon(int rangeMax, int rangeMin, int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice) {
+		super(breakDoor,true,noisy);
 		this.damage =damage;
 		this.rangeMax =rangeMax;
 		this.rangeMin =rangeMin;
@@ -82,14 +82,6 @@ public class Weapon extends Item {
 		return this.nbDice;
 	}
 	
-	
-	/**
-	 * the weapon is used 
-	 * */
-	public void Used() {
-		this.Use=true;
-	}
-
 
 	@Override
 	public void ItemEffect(Player player) {

@@ -83,7 +83,7 @@ class RoomTest {
     
     @Test
     void testGetAllAndAddItems() {
-    	Item item2 = new HealingVial("tt");
+    	Item item2 = new HealingVial();
     	Item item3 = new Axe();
     	
     	room.addItem(item);
@@ -104,7 +104,7 @@ class RoomTest {
     
     @Test
     void testRemoveItem() {
-    	Item item2 = new HealingVial("yy");
+    	Item item2 = new HealingVial();
     	
     	room.addItem(item);
     	room.addItem(item2);

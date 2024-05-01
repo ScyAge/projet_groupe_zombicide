@@ -23,7 +23,7 @@ public class GlassesTest extends EquipmentTest{
 
 	@Override
 	protected Equipment createEquip() {
-		return new Glasses("test",this.board);
+		return new Glasses(this.board);
 	}
 
 	@BeforeEach
@@ -32,7 +32,7 @@ public class GlassesTest extends EquipmentTest{
         this.cell = this.board.getCellBoard(1,1);
         this.player= new Player(3,cell,0,5);
         this.cell.addPlayers(player);
-        this.glasses= new Glasses("Glasses", this.board);
+        this.glasses= new Glasses(this.board);
 	}
 	
 	@Test
