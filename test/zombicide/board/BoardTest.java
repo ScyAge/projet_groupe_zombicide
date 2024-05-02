@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import zombicide.item.equipment.*;
+import zombicide.util.listchooser.RandomListChooser;
 
 public class BoardTest {
 	
@@ -41,12 +42,12 @@ public class BoardTest {
 		this.items.add(new Chainsaw());
 		this.items.add(new Crowbar());
 		this.items.add(new Gun());
-		this.items.add(new FirstAidKit("test"));
-		//this.items.add(new Glasses("ts",board));
-		this.items.add(new HealingVial("tt"));
-		//this.items.add(new MapCard("tt",board));
-		this.items.add(new MasterKey("tt"));
-    	//i = new MapCard("mp", board);
+		this.items.add(new FirstAidKit());
+		//this.items.add(new Glasses(board));
+		this.items.add(new HealingVial());
+		//this.items.add(new MapCard(board));
+		this.items.add(new MasterKey(new RandomListChooser<>(),board));
+    	//i = new MapCard(board);
 		board = new Board(5,5,this.items);
 		board.initBoard(0, 5, 0, 5, true);
     	d = Direction.North;

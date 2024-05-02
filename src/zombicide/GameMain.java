@@ -47,7 +47,7 @@ public class GameMain {
 		Item glasses = new Glasses(b);
 		Item heal = new HealingVial();
 		Item Mapcard = new MapCard(b);
-		Item MasterKey = new MasterKey(new RandomListChooser<>());
+		Item MasterKey = new MasterKey(new RandomListChooser<>(),b);
 		Item gun =new Gun();
 		Item crowbar =new Crowbar();
 		Item chainsaw =new Chainsaw();
