@@ -90,7 +90,7 @@ public class GameMain {
 		Item glasses = new Glasses(b);
 		Item heal = new HealingVial();
 		Item Mapcard = new MapCard(b);
-		Item MasterKey = new MasterKey();
+		Item MasterKey = new MasterKey(b);
 		Item gun =new Gun();
 		Item crowbar =new Crowbar();
 		Item chainsaw =new Chainsaw();
