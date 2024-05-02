@@ -21,7 +21,7 @@ public class Gun extends Weapon{
     /**
      * constant threshold of Gun
      */
-    private final static int Threshold_Gun = 4;
+    private final static int Threshold_Gun = 0;
     /**
      * constant breakDoor of Gun
      */

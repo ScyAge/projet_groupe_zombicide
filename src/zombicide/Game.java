@@ -57,7 +57,7 @@ public class Game {
     		test.add(z.isDead());
     	}
     	Stream<Boolean> res= test.stream().filter(c->!c);
-    	return res.toList().contains(false)||test.size() ==0;
+    	return res.toList().contains(false);
     }
     
     public int totalXP() {
@@ -73,16 +73,17 @@ public class Game {
      */
     public void play(){
     	this.board.Display();
-    	int compteur;
-    	while(this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30){
+    	int compteur = 0;
+    	while((this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30)|| compteur <= 1){
+    		//update board
+        	if(compteur > 0) {
+        		this.roundUpdateBoard();
+        	}
+    		compteur += 1;
             //tour des joueurs
             this.roundPlayer();
             //Action des Zombies
             this.roundZombie();
-            //update board
-        	if(this.allPlayers.size() > 0) {
-        		this.roundUpdateBoard();
-        	}
             this.board.Display();
         }
         this.board.Display();
