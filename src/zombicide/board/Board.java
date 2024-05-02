@@ -358,17 +358,26 @@ public class Board {
 	 */
 	public Cell getCellDirection(Direction d,Actor a) {
 		Cell c = a.getCurrentCell();
-		if(canMove(a,d)) {
-			if (d == Direction.North) {
-				return this.board[c.getX() - 1][c.getY()];
-			} else if (d == Direction.East) {
-				return this.board[c.getX()][c.getY() + 1];
-			} else if (d == Direction.South) {
-				return this.board[c.getX() + 1][c.getY()];
-			} else {
-				return this.board[c.getX()][c.getY() - 1];
+		if(d == Direction.North) {
+			if(c.getX()-1>=0) {
+				return this.board[c.getX()-1][c.getY()];
 			}
 		}
+		else if(d == Direction.East) {
+			if(c.getY()+1<this.board[0].length) {
+				return this.board[c.getX()][c.getY()+1];
+			}
+		}
+		else if(d == Direction.South) {
+			if(c.getX()+1<this.board.length) {
+				return this.board[c.getX()+1][c.getY()];
+			}
+		}
+		else {
+			if(c.getY()-1>=0) {
+				return this.board[c.getX()][c.getY()-1];
+			}
+        }
 		return null;
 	}
 
