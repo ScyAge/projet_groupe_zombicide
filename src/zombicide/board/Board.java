@@ -251,16 +251,25 @@ public class Board {
 	private boolean canMove(Actor actor, Direction direction){
 		int x = actor.getCurrentCell().getX();
 		int y = actor.getCurrentCell().getY();
-
+		boolean test;
 		if ((direction == Direction.North && x == 0) ||
             (direction == Direction.South && x == board.length - 1) ||
             (direction == Direction.West && y == 0) ||
             (direction == Direction.East && y == board[0].length - 1)) {
             return false;
         }
+		if(direction == Direction.North){
+			test = this.getCellBoard(x-1, y).getDoor(Direction.oppose(direction)).isBreak()&& this.getCellBoard(x, y).getDoor(direction).isBreak();
+		} else if (direction == Direction.South) {
+			test = this.getCellBoard(x+1, y).getDoor(Direction.oppose(direction)).isBreak()&& this.getCellBoard(x, y).getDoor(direction).isBreak();
+		} else if (direction == Direction.West) {
+			test =this.getCellBoard(x, y-1).getDoor(Direction.oppose(direction)).isBreak()&&this.getCellBoard(x,y).getDoor(direction).isBreak();
+		}
+		else{
+			test =this.getCellBoard(x, y+1).getDoor(Direction.oppose(direction)).isBreak()&&this.getCellBoard(x,y).getDoor(direction).isBreak();
+		}
 
-		Door door = board[x][y].getDoor(direction);
-        return door != null && door.isBreak();
+        return test;
 	}
 
 	/**
@@ -368,7 +377,7 @@ public class Board {
 			if(c.getY()-1>=0) {
 				return this.board[c.getX()][c.getY()-1];
 			}
-		}
+        }
 		return null;
 	}
 
