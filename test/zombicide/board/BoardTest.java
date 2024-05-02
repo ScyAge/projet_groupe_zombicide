@@ -91,6 +91,7 @@ public class BoardTest {
 		assertEquals(p1.getCurrentCell(),board.getCellBoard(0, 0));
 		//Door is Break
 		p1.getCurrentCell().breakDoor(Direction.South);
+		board.getCellBoard(1, 0).breakDoor(Direction.North);
 		board.movePlayer(p1, Direction.South);
 		assertEquals(p1.getCurrentCell(),board.getCellBoard(1, 0));
 
@@ -107,6 +108,7 @@ public class BoardTest {
 		assertEquals(p1.getCurrentCell(),board.getCellBoard(0, 0));
 		//Door is Break
 		p1.getCurrentCell().breakDoor(Direction.East);
+		board.getCellBoard(0, 1).breakDoor(Direction.West);
 		board.movePlayer(p1, Direction.East);
 		assertEquals(p1.getCurrentCell(),board.getCellBoard(0, 1));
 
@@ -147,6 +149,7 @@ public class BoardTest {
 		assertEquals(z1.getCurrentCell(),board.getCellBoard(0, 0));
 		//Door is Break
 		p1.getCurrentCell().breakDoor(Direction.South);
+		board.getCellBoard(1, 0).breakDoor(Direction.North);
 		board.moveZombie(z1, Direction.South);
 		assertEquals(z1.getCurrentCell(),board.getCellBoard(1, 0));
 
@@ -162,7 +165,8 @@ public class BoardTest {
 		//Door is not break
 		assertEquals(z1.getCurrentCell(),board.getCellBoard(0, 0));
 		//Door is Break
-		p1.getCurrentCell().breakDoor(Direction.East);
+		z1.getCurrentCell().breakDoor(Direction.East);
+		board.getCellBoard(0, 1).breakDoor(Direction.West);
 		board.moveZombie(z1, Direction.East);
 		assertEquals(z1.getCurrentCell(),board.getCellBoard(0, 1));
 
