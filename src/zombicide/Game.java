@@ -73,18 +73,18 @@ public class Game {
      */
     public void play(){
     	this.board.Display();
-    	int compteur = 0;
-    	while((this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30)|| compteur <= 1){
-    		//update board
-        	if(compteur > 0) {
-        		this.roundUpdateBoard();
-        	}
-    		compteur += 1;
+    	boolean firstRound = true;
+    	while((this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30)|| firstRound){
             //tour des joueurs
             this.roundPlayer();
             //Action des Zombies
             this.roundZombie();
             this.board.Display();
+    		//update board
+        	if((this.AreTheyAllAlive()&& this.areZombiesAllALive())|| firstRound) {
+        		this.roundUpdateBoard();
+        	}
+        	firstRound = false;
         }
         this.board.Display();
         if(this.AreTheyAllAlive()) {
