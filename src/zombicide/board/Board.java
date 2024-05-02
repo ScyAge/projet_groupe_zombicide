@@ -91,16 +91,16 @@ public class Board {
 				this.board[xd][Y] = s1;
 				this.listSewer.add(s1);
 
-				Sewer s2 =  new Sewer(xd, Y);
+				Sewer s2 =  new Sewer(xf-1, Y);
 				this.board[xf-1][Y] = s2;
 				this.listSewer.add(s2);
 
-				Sewer s3 =  new Sewer(xd, Y);
+				Sewer s3 =  new Sewer(X, yd);
 				this.board[X][yd] = s3;
 				this.listSewer.add(s3);
 
 
-				Sewer s4= new Sewer(xd, Y);
+				Sewer s4= new Sewer(X, yf-1);
 				this.board[X][yf-1] = s4;
 				this.listSewer.add(s4);
 

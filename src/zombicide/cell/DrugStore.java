@@ -45,7 +45,7 @@ public class DrugStore extends Room {
 	 */
 	public void addPlayers(Player p) {
 		super.addPlayers(p);
-		this.addHealingVial(null);
+		this.addHealingVial(new HealingVial());
 	}
 
 	/**
