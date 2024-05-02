@@ -19,6 +19,7 @@ public class LookAroundTest {
     @BeforeEach
     public void init(){
         this.b = new TrainingBoard();
+        this.b.initBoard();
         this.p = new Player(5,b.getCellBoard(1,1),1,5);
         this.z = new Broom(this.b.getCellBoard(1,1),1);
         this.b.getCellBoard(1,1).addPlayers(this.p);

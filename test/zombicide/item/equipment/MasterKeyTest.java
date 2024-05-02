@@ -33,6 +33,7 @@ public class MasterKeyTest extends EquipmentTest{
 	@BeforeEach
     public void initMast(){
 		this.board = new TrainingBoard();
+		this.board.initBoard();
 		this.chooser = new RandomListChooser<>();
 		this.masterkey= new MasterKey(chooser, board);
 		this.masterkey2= new MasterKey(board);

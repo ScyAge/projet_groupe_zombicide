@@ -14,9 +14,7 @@ import zombicide.util.Direction;
 import zombicide.item.weapons.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
-import zombicide.item.equipment.*;
 import zombicide.util.listchooser.RandomListChooser;
 
 public class BoardTest {
@@ -49,7 +47,7 @@ public class BoardTest {
 		this.items.add(new MasterKey(new RandomListChooser<>(),board));
     	//i = new MapCard(board);
 		board = new Board(5,5,this.items);
-		board.initBoard(0, 5, 0, 5, true);
+		board.initBoard();
     	d = Direction.North;
 		d2 = Direction.East;
     	p1 = new Player(5,board.getCellBoard(0, 0),5,6);
@@ -289,7 +287,7 @@ public class BoardTest {
 		g.add(new Carabine());
 		g.add(new Gun());
 		Board b = new Board(5,5,g);
-		b.initBoard(0, 5, 0, 5, true);
+		b.initBoard();
         assertFalse(b.getItem().isEmpty());
 		b.Display();
 	}

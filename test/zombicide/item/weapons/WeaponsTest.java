@@ -29,6 +29,7 @@ public class WeaponsTest extends ItemTest {
     @BeforeEach
     void setUp() {
     	b= new Board(5,5);
+        this.b.initBoard();
 		w = new Weapon(1,0,1,4,false,true,2);
 		z = new Gigantomachia(b.getCellBoard(2, 2),1);
 		p= new Player(5,b.getCellBoard(2, 2),1,1);

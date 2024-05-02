@@ -23,6 +23,7 @@ public class AttackZombieTest {
 	@BeforeEach
 	void setUp() {
 		b = new Board(5,5);
+		this.b.initBoard();
 		z = new Gigantomachia(b.getCellBoard(0, 0),1);
 		p = new Player(1,b.getCellBoard(0, 0),1,5);
 		p2 = new Player(1,b.getCellBoard(0, 0),1,5);

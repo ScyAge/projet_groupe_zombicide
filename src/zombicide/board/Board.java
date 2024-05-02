@@ -61,6 +61,10 @@ public class Board {
 		this.items =i;
 	}
 
+	public void initBoard(){
+		initBoardBis(0,this.board.length,0,this.board[0].length,true);
+	}
+
 	/**
 	 * init the Board
 	 * @param xd start width
@@ -68,7 +72,7 @@ public class Board {
 	 * @param yd start height
 	 * @param yf final height
 	 */
-	public void initBoard(int xd,int xf,int yd,int yf,boolean sewer) {
+	private void initBoardBis(int xd, int xf, int yd, int yf, boolean sewer) {
 		if(!isSplitable(xd, xf, yd, yf)){
 			Building(xf, xd, yf, yd);
 		}
@@ -78,10 +82,10 @@ public class Board {
 			int X = random.nextInt((xf-2) -(xd+2))+(xd+2);
 			VStreet(Y,xf,xd);
 			HStreet(yd,yf, X);
-			initBoard(xd, X, yd, Y,false);
-			initBoard(X+1, xf, yd, Y,false);
-			initBoard(xd, X, Y+1, yf,false);
-			initBoard(X+1, xf, Y+1, yf,false);
+			initBoardBis(xd, X, yd, Y,false);
+			initBoardBis(X+1, xf, yd, Y,false);
+			initBoardBis(xd, X, Y+1, yf,false);
+			initBoardBis(X+1, xf, Y+1, yf,false);
 			if (sewer){
 				Sewer s1 = new Sewer(xd, Y);
 				this.board[xd][Y] = s1;
@@ -369,6 +373,10 @@ public class Board {
 	private void placeItemAlea(int x,int y){
         int nb;
 		int[] aleaNonEquiprob = {1,1,1,1,1,2,2,2,3,3};
+
+		if(items.isEmpty()){
+			return;
+		}
         try {
             Random nb_alea = new Random();
             nb = nb_alea.nextInt(2);

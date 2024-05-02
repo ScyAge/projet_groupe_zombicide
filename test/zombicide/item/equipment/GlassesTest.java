@@ -29,6 +29,7 @@ public class GlassesTest extends EquipmentTest{
 	@BeforeEach
 	public void initG() {
         this.board = new TrainingBoard();
+		this.board.initBoard();
         this.cell = this.board.getCellBoard(1,1);
         this.player= new Player(3,cell,0,5);
         this.cell.addPlayers(player);

@@ -175,6 +175,7 @@ public class PlayerTest {
     public void TestgetActionOfThePlayer() {
         //creation of a board
         Board b = new TrainingBoard();
+        b.initBoard();
         //creation of a list with all the Actions
         List<ActionsPlayer> actions = new ArrayList<>();
         ActionsPlayer a1 = new Move(b);

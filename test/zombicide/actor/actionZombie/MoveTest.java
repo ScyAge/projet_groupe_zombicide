@@ -22,6 +22,7 @@ public class MoveTest {
 	@BeforeEach
 	void setUp() {
 		b = new Board(5,5);
+		this.b.initBoard();
 		z = new Gigantomachia(b.getCellBoard(2, 2),1);
 		a = new MoveZ(b);
 		b.getCellBoard(0, 0).addZombies(z);

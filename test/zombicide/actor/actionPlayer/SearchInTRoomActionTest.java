@@ -29,6 +29,7 @@ public class SearchInTRoomActionTest {
     public void init(){
         this.chooser = new RandomListChooser<>();
         this.board = new TrainingBoard();
+        this.board.initBoard();
         this.cell = this.board.getCellBoard(0,0);
         this.p = new Player(3,this.cell,1,5);
         this.cell.addPlayers(this.p);

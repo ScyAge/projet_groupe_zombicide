@@ -30,7 +30,6 @@ import zombicide.item.weapons.Chainsaw;
 import zombicide.item.weapons.Crowbar;
 import zombicide.item.weapons.Gun;
 import zombicide.util.listchooser.InteractiveListChooser;
-import zombicide.util.listchooser.RandomListChooser;
 
 public class GameMainInteractif {
 	
@@ -42,11 +41,11 @@ public class GameMainInteractif {
 		Board b = new Board(size,size);
 		//init items
 		List<Item> items = new ArrayList<>();
-		Item Kit = new FirstAidKit("kit",new InteractiveListChooser<>());
-		Item glasses = new Glasses("glasse",b);
-		Item heal = new HealingVial("heal");
-		Item Mapcard = new MapCard("heal",b);
-		Item MasterKey = new MasterKey("key",new InteractiveListChooser<>());
+		Item Kit = new FirstAidKit(new InteractiveListChooser<>());
+		Item glasses = new Glasses(b);
+		Item heal = new HealingVial();
+		Item Mapcard = new MapCard(b);
+		Item MasterKey = new MasterKey(new InteractiveListChooser<>(),b);
 		Item gun =new Gun();
 		Item crowbar =new Crowbar();
 		Item chainsaw =new Chainsaw();
@@ -65,7 +64,7 @@ public class GameMainInteractif {
 		items.add(carabine);
 		
 		b.setItems(items);
-		b.initBoard(0, size, 0, size, true);
+		b.initBoard();
 		
 		//initalisation de toute les actions
 		ActionsPlayer take = new TakeInHandAction(new InteractiveListChooser<>());

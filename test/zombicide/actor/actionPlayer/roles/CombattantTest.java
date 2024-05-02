@@ -34,6 +34,7 @@ public class CombattantTest {
 	public void init() {
 		 this.chooser = new RandomListChooser<>();
 		 this.board = new TrainingBoard();
+		this.board.initBoard();
 	     this.cell = this.board.getCellBoard(1,1);
 	     this.player = new Player(3,this.cell,1,5);
 	  

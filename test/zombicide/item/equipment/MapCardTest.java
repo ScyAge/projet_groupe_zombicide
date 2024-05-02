@@ -26,6 +26,7 @@ public class MapCardTest extends EquipmentTest{
     @BeforeEach
     public void initM(){
         this.b = new TrainingBoard();
+        this.b.initBoard();
         this.cell = b.getCellBoard(2,2);
         this.p = new Player(3,this.cell,3,5);
         this.i = new MapCard(b);

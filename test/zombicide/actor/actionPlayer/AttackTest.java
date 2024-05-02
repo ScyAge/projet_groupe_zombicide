@@ -24,6 +24,7 @@ public class AttackTest {
 	@BeforeEach
 	void setUp() {
 		b = new Board(5,5);
+		this.b.initBoard();
 		z = new Gigantomachia(b.getCellBoard(2, 2),1);
 		p = new Player(5,b.getCellBoard(2, 2),1,1);
 		w = new Weapon(4,0,2,0,false,true,1);

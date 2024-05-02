@@ -29,8 +29,6 @@ import zombicide.item.weapons.Carabine;
 import zombicide.item.weapons.Chainsaw;
 import zombicide.item.weapons.Crowbar;
 import zombicide.item.weapons.Gun;
-import zombicide.util.listchooser.InteractiveListChooser;
-import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.RandomListChooser;
 
 public class GameMain {
@@ -66,7 +64,7 @@ public class GameMain {
 		items.add(carabine);
 
 		b.setItems(items);
-		b.initBoard(0, size, 0, size, true);
+		b.initBoard();
 
 		//initalisation de toute les actions
 		ActionsPlayer take = new TakeInHandAction(new RandomListChooser<>());

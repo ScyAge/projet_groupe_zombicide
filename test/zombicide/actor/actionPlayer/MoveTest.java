@@ -22,6 +22,7 @@ public class MoveTest {
     void setUp() {
 
         board = new Board(5,5);
+        this.board.initBoard();
         player = new Player(5,board.getCellBoard(2, 2),1,5);
         move = new Move(board,new RandomListChooser<>());
         board.getCellBoard(2, 2).addPlayers(player);

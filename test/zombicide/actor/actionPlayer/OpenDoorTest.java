@@ -25,6 +25,7 @@ public class OpenDoorTest {
     @BeforeEach
     public void init(){
         this.b = new TrainingBoard();
+        this.b.initBoard();
         this.p = new Player(3,b.getCellBoard(1,1),1,5);
         this.open = new OpenDoor(new RandomListChooser<>(),this.b);
         this.cassePorte = new Axe();

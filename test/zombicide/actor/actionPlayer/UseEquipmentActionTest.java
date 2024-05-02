@@ -24,6 +24,7 @@ public class UseEquipmentActionTest {
 	public void init() {
 		this.chooser= new RandomListChooser<>();
 		this.b= new TrainingBoard();
+		this.b.initBoard();
 		this.cell= b.getCellBoard(1, 1);
 		this.player = new Player(3,this.cell,1,5);
 		this.equipment= new MasterKey(this.chooser,b );
