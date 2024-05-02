@@ -21,7 +21,7 @@ public class Glasses extends Equipment {
 	 * @param board of the glasses
 	 */
 	public Glasses(Board board) {
-		super(false,false);
+		super(false);
 		this.board=board;
 	}
 

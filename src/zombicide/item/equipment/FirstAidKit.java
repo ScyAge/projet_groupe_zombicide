@@ -22,7 +22,7 @@ public class FirstAidKit extends Equipment {
 	 * @param chooser ListChooser of the player to heal
 	 */
 	public FirstAidKit( ListChooser<Player> chooser) {
-		super(false,false);
+		super(false);
 		this.chooser=chooser;
 	}
 	
@@ -30,7 +30,7 @@ public class FirstAidKit extends Equipment {
 	 * Builder of FirstAidKit
 	 */
 	public FirstAidKit() {
-		super(false,false);
+		super(false);
 		this.chooser= new InteractiveListChooser<>();
 	}
 	

@@ -12,11 +12,10 @@ public abstract class  Equipment extends Item {
 	
 	/**
 	 * Builder of Equipment
-	 * @param title of the item
-	 * @param breakDoor can break Door
+	 * @param noisy if it's noisy or not
 	 */
-	public Equipment(boolean breakDoor,boolean noisy) {
-		super( breakDoor,false,noisy);
+	public Equipment(boolean noisy) {
+		super( false,false,noisy);
 	}
 
 	/**

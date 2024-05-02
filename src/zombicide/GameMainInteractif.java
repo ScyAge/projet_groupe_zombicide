@@ -30,6 +30,7 @@ import zombicide.item.weapons.Chainsaw;
 import zombicide.item.weapons.Crowbar;
 import zombicide.item.weapons.Gun;
 import zombicide.util.listchooser.InteractiveListChooser;
+import zombicide.util.listchooser.RandomListChooser;
 
 public class GameMainInteractif {
 	
@@ -87,6 +88,7 @@ public class GameMainInteractif {
 		actions.add(attack);
 		actions.add(search);
 		
+		Item MasterKey2 = new MasterKey(new InteractiveListChooser<>(),b);
 		
 		
 		List<Player> Players = new ArrayList<>();
@@ -112,8 +114,10 @@ public class GameMainInteractif {
 		p3.setAction(Fouineur);
 		p4.setAction(Soigneur);
 		
+		ActionsPlayer take2 = new TakeInHandAction(new RandomListChooser<>());
 		b.getSpawnPlayers().spawnPlayer(Players);
-
+		p1.putItemInBackPack(MasterKey2);
+		take2.action(p1);
 		
 		Game g = new Game(b,Players,actions,items,new InteractiveListChooser<>());	
 		g.play();

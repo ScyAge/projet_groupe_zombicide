@@ -592,7 +592,7 @@ private int compteur =0;
 				if(LevelTotal < 10) {
 					Z = new Walker(s,compteur++);
 				}
-				else if(LevelTotal < 15) {
+				else if(LevelTotal < 20) {
 					Z = new Runner(s,compteur++);
 				}
 				else if(LevelTotal < 25) {

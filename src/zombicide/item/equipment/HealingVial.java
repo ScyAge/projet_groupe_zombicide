@@ -11,7 +11,7 @@ public class HealingVial extends Equipment{
 	 * Builder of HealingVial
 	 */
 	public HealingVial() {
-		super(false,false);
+		super(false);
 	}
 	
 	/**

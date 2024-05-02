@@ -6,7 +6,7 @@ public class MockEquip extends Equipment{
 
     public int applyCalled = 0;
     public MockEquip(){
-        super(false,true);
+        super(true);
     }
 
     @Override

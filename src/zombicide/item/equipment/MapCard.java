@@ -17,7 +17,7 @@ public class MapCard extends Equipment{
 	 * @param board of the card
 	 */
 	public MapCard(Board board) {
-		super(false,true);
+		super(true);
 		this.board=board;
 	}
 

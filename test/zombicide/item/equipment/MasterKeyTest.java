@@ -68,6 +68,6 @@ public class MasterKeyTest extends EquipmentTest{
 			this.cell.getDoor(d).Break();
 		}
 		this.masterkey.ItemEffect(this.p);
-		assertFalse(this.masterkey.isUsed());
+		assertTrue(this.masterkey.isUsed());
 	}
 }

@@ -23,7 +23,7 @@ public class MasterKey extends Equipment {
 	 * Builder of MasterKey
 	 */
 	public MasterKey(Board b) {
-		super( true,false);
+		super(false);
 		this.chooser = new InteractiveListChooser<>();
 		this.b = b;
 	}
@@ -36,7 +36,7 @@ public class MasterKey extends Equipment {
 	 * @param b
 	 */
 	public MasterKey(ListChooser<Direction> chooser, Board b) {
-		super(true,false);
+		super(false);
 		this.chooser=chooser;
 		this.b = b;
 	}
@@ -49,17 +49,6 @@ public class MasterKey extends Equipment {
 
 		Cell cell= player.getCurrentCell();
 		
-		boolean doorsOpen=true;
-		for(Direction d : Direction.values()) {
-			if(!cell.getDoor(d).isBreak()){
-				doorsOpen=false;
-				break;
-			}
-		}
-		if(doorsOpen) {
-			this.Use = false;
-			return;
-		}
 		System.out.println("enter the Direction of the door you want to open");
 		
 		List<Direction> directions= List.of(Direction.North, Direction.South, Direction.East, Direction.West);
