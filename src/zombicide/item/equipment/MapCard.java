@@ -13,11 +13,11 @@ public class MapCard extends Equipment{
 
 	/**
 	 * Create MapCard
-	 * @param title of the MapCard
+	 *
 	 * @param board of the card
 	 */
-	public MapCard(String title, Board board) {
-		super(title, false);
+	public MapCard(Board board) {
+		super(false,true);
 		this.board=board;
 	}
 
@@ -26,18 +26,10 @@ public class MapCard extends Equipment{
 	 * displays the board 
 	 * @param player player who use the effect
 	 */
-	public void ItemEffect(Player player) {
+	public void effectOfTheEquip(Player player) {
 		this.display();
-		super.ItemEffect(player);
 	}
 
-	/**
-	 * return true if the equipment is noisy else false
-	 * @return true if the equipment is noisy else false
-	 */
-	public boolean isNoisy() {
-		return true;
-	}
 
 	/**
 	 * displays the board without showing what's inside the continental

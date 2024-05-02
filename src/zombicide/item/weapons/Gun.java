@@ -5,10 +5,7 @@ package zombicide.item.weapons;
  * class Gun
  */
 public class Gun extends Weapon{
-    /**
-     * constant name of Gun
-     */
-    private final static String Name_Gun = "gun";
+
     /**
      * constant range min of Gun
      */
@@ -42,6 +39,6 @@ public class Gun extends Weapon{
      * Builder of Gun
      */
     public Gun(){
-        super(Name_Gun, Max_Range_Gun,Min_Range_Gun, Damage_Gun, Threshold_Gun, BreakDoor_Gun, Noisy_Gun, nbDice_Gun);
+        super(Max_Range_Gun,Min_Range_Gun, Damage_Gun, Threshold_Gun, BreakDoor_Gun, Noisy_Gun, nbDice_Gun);
     }
 }

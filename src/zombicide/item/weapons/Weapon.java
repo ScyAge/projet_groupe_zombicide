@@ -1,6 +1,7 @@
 package zombicide.item.weapons;
 
 
+import zombicide.actor.player.Player;
 import zombicide.item.*;
 
 /**
@@ -24,17 +25,17 @@ public class Weapon extends Item {
 	
 	/**
 	 * Builder of the weapons
-	 * @param title of the item
-	 * @param rangeMin of the weapons
-	 * @param rangeMax of the weapons
-	 * @param damage of the weapons
+	 *
+	 * @param rangeMax  of the weapons
+	 * @param rangeMin  of the weapons
+	 * @param damage    of the weapons
 	 * @param threshold of the weapons
-	 * @param breakDoor  can break door or not
-	 * @param noisy if the weapon is noisy
-	 * @param nbDice of the weapon
+	 * @param breakDoor can break door or not
+	 * @param noisy     if the weapon is noisy
+	 * @param nbDice    of the weapon
 	 */
-	public Weapon(String title,int rangeMax,int rangeMin,int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice) {
-		super(title, breakDoor);
+	public Weapon(int rangeMax, int rangeMin, int damage, int threshold, boolean breakDoor, boolean noisy, int nbDice) {
+		super(breakDoor,true,noisy);
 		this.damage =damage;
 		this.rangeMax =rangeMax;
 		this.rangeMin =rangeMin;
@@ -43,14 +44,7 @@ public class Weapon extends Item {
 		this.nbDice= nbDice;
 	}
 	
-	/**
-	 * Item can attack or not
-	 * @return true if it can attack
-	 */
-	public boolean cantAttack(){
-		return true;
-	}
-	
+
 	/**returns the threshold of the Weapon 
 	 * @return threshold of the given weapon
 	 * */
@@ -88,24 +82,11 @@ public class Weapon extends Item {
 		return this.nbDice;
 	}
 	
-	
-	/**
-	 * the weapon is used 
-	 * */
-	public void Used() {
-		this.Use=true;
-	}
-	
-	
 
-	/**
-	 * return true if the weapon is noisy else false (for attack)
-	 * @return true if the weapon is noisy else false (for attack)
-	 */
-	public boolean isNoisy(){
-		return this.noisy;
+	@Override
+	public void ItemEffect(Player player) {
+		this.Used();
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {

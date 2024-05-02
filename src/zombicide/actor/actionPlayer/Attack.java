@@ -110,7 +110,7 @@ public class Attack implements ActionsPlayer{
 	 */
 	protected void attack(Player p,  int addDicePoint) {
 		if(p.getItemInHand() != null) {
-			if(p.getItemInHand().cantAttack()) {
+			if(p.getItemInHand().canAttack()) {
 				Weapon w = (Weapon) p.getItemInHand();
 				int nbDice = w.getNbDice();
 				List<Zombies> zombies= WhoCanAttack(p,w);
@@ -140,7 +140,7 @@ public class Attack implements ActionsPlayer{
 
 	@Override
 	public boolean IsActionPlayable(Player p) {
-		return !p.getCurrentCell().getAllZombies().isEmpty() && (p.getItemInHand() != null && p.getItemInHand().cantAttack());
+		return !p.getCurrentCell().getAllZombies().isEmpty() && (p.getItemInHand() != null && p.getItemInHand().canAttack());
 	}
 
 	@Override

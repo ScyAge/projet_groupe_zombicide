@@ -13,7 +13,6 @@ import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
 import zombicide.item.Item;
 import zombicide.item.weapons.Carabine;
-import zombicide.item.weapons.Gun;
 import zombicide.item.weapons.Weapon;
 import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.RandomListChooser;
@@ -41,7 +40,7 @@ public class CombattantTest {
 	     this.cell.addPlayers(this.player);
 	     this.action= new Combattant(this.chooser, this.board );
 	     this.wp1 = new Carabine();
-	     this.wp2 = new Weapon("gun",4,0,1,0,false,true,1);
+	     this.wp2 = new Weapon(4,0,1,0,false,true,1);
 	     this.z1= new Walker(this.cell, 1);
 	     this.z2= new Walker(this.cell, 2);
 		 this.cell.addZombies(z1);

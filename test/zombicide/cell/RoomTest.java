@@ -9,6 +9,9 @@ import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Broom;
 import zombicide.actor.zombie.Zombies;
 import zombicide.item.Item;
+import zombicide.item.equipment.HealingVial;
+import zombicide.item.weapons.Axe;
+import zombicide.item.weapons.Gun;
 import zombicide.util.Direction;
 import zombicide.util.Door;
 
@@ -25,7 +28,7 @@ class RoomTest {
         room = new Room(1, 1);
         player = new Player(8,room,1,6);
         zombie = new Zombies(8,5,room,1,1);
-        item = new Item("pistoler", false);
+        item = new Gun();
     }
     
     @Test
@@ -80,8 +83,8 @@ class RoomTest {
     
     @Test
     void testGetAllAndAddItems() {
-    	Item item2 = new Item("potion", false);
-    	Item item3 = new Item("hache", false);
+    	Item item2 = new HealingVial();
+    	Item item3 = new Axe();
     	
     	room.addItem(item);
     	room.addItem(item2);
@@ -101,7 +104,7 @@ class RoomTest {
     
     @Test
     void testRemoveItem() {
-    	Item item2 = new Item("potion", false); 
+    	Item item2 = new HealingVial();
     	
     	room.addItem(item);
     	room.addItem(item2);

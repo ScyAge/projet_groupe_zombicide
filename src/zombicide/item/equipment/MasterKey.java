@@ -1,6 +1,7 @@
 package zombicide.item.equipment;
 
 import zombicide.actor.player.*;
+import zombicide.board.Board;
 import zombicide.cell.*;
 import zombicide.util.*;
 import java.util.*;
@@ -17,35 +18,35 @@ public class MasterKey extends Equipment {
 	 */
 	private final ListChooser<Direction> chooser;
 	
-	
+	private final Board b;
 	/**
 	 * Builder of MasterKey
-	 * @param title of the item
-	 * @param breakDoor true if masterkey can break a door, else return false
 	 */
-	public MasterKey(String title) {
-		super(title, true);
+	public MasterKey(Board b) {
+		super( true,false);
 		this.chooser = new InteractiveListChooser<>();
+		this.b = b;
 	}
 	
 	
 	/**
 	 * Builder of MasterKey
-	 * @param title of the item
-	 * @param breakDoor true if masterkey can break a door, else return false
+	 *
 	 * @param chooser ListChooser of the masterkey
+	 * @param b
 	 */
-	public MasterKey(String title, ListChooser<Direction> chooser) {
-		super(title, true);
+	public MasterKey(ListChooser<Direction> chooser, Board b) {
+		super(true,false);
 		this.chooser=chooser;
+		this.b = b;
 	}
 	
 	/**
 	 * Opens the cell's door where the player is according to the user's choice
 	 * @param player who has the MasterKey
 	 * */
-	public void ItemEffect(Player player) {
-		super.ItemEffect(player);
+	public void effectOfTheEquip(Player player) {
+
 		Cell cell= player.getCurrentCell();
 		
 		boolean doorsOpen=true;
@@ -66,8 +67,9 @@ public class MasterKey extends Equipment {
 		
 		if(targetD != null) {
 			Door doorToOpen= cell.getDoor(targetD);
-			if(doorToOpen!=null) {
-				doorToOpen.Break();
+			Door doorOfTheNearCell = this.b.getCellDirection(targetD,player).getDoor(Direction.oppose(targetD));
+			if(!doorOfTheNearCell.isBreak() || !doorToOpen.isBreak()) {
+				this.b.BreakDoor(targetD,cell.getX(),cell.getY());
 				System.out.println("Door opened in the "+ targetD + " direction");
 			}
 		}else {

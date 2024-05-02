@@ -22,12 +22,12 @@ class DrugStoreTest {
     	drugStore = new DrugStore(1, 1);
         player = new Player(8,drugStore,1,6);
 
-        healingVial = new HealingVial("potion");;
+        healingVial = new HealingVial();;
     }
     
     @Test
     void testAddAndGetHealingVial() {
-    	HealingVial healingVial2 = new HealingVial("potion");
+    	HealingVial healingVial2 = new HealingVial();
     	
     	drugStore.addHealingVial(healingVial);
     	drugStore.addHealingVial(healingVial2);

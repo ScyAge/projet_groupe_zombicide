@@ -9,19 +9,16 @@ public class HealingVial extends Equipment{
 
 	/**
 	 * Builder of HealingVial
-	 * @param title of the item
-	 * @param breakDoor can break Door
 	 */
-	public HealingVial(String title) {
-		super(title, false);
+	public HealingVial() {
+		super(false,false);
 	}
 	
 	/**
 	 * adds one lifepoint to the players who use it
 	 * @param player to give lifePoints
 	 */
-	public void ItemEffect(Player player) {
-		super.ItemEffect(player);
+	public void effectOfTheEquip(Player player) {
 		player.setLifePoints(1);
 	}
 

@@ -14,20 +14,22 @@ import zombicide.cell.Cell;
 import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.RandomListChooser;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
-public class FirstAidKitTest {
-	private ListChooser<Player> chooser;
+public class FirstAidKitTest extends EquipmentTest{
+	private static final ListChooser<Player> chooser = new RandomListChooser<>();;
 	private Player player;
 	private Board board;
 	private Cell cell;
 	private FirstAidKit firstAidKit;
-	
+
+
+	@Override
+	protected Equipment createEquip() {
+		return new FirstAidKit(chooser);
+	}
+
 	@BeforeEach
-	public void init() {
-		this.chooser = new RandomListChooser<>();
-		this.firstAidKit= new FirstAidKit("FirstAidKit",chooser);
+	public void init3() {
+		this.firstAidKit= new FirstAidKit(chooser);
         this.board = new TrainingBoard();
         this.cell = this.board.getCellBoard(1,1);
         this.player= new Player(3,cell,0,5);
@@ -35,7 +37,7 @@ public class FirstAidKitTest {
 	}
 	
 	@Test
-	public void TestItemEffect() {
+	public void TestEffectOfTheEquip() {
 		Player p1= new Player(3,this.cell, 1,5);
 		Player p2= new Player(3,this.cell, 2,5);
 		p1.takeDamage(1);
@@ -52,9 +54,9 @@ public class FirstAidKitTest {
 	}
 
 	@Test
-	public void TestItemEffectWhenNoPlayerInCell() {
+	public void TestEffectOfTheEquipWhenNoPlayerInCell() {
 		int lp=this.player.getLifePoints();
-		this.firstAidKit.ItemEffect(player);
+		this.firstAidKit.effectOfTheEquip(player);
 		assertEquals(lp , this.player.getLifePoints() );
 
 	}

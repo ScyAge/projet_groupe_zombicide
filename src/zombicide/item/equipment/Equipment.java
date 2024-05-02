@@ -7,7 +7,7 @@ import zombicide.cell.Cell;
 /**
  * class Equipment
  */
-public class  Equipment extends Item {
+public abstract class  Equipment extends Item {
 
 	
 	/**
@@ -15,8 +15,8 @@ public class  Equipment extends Item {
 	 * @param title of the item
 	 * @param breakDoor can break Door
 	 */
-	public Equipment(String title, boolean breakDoor) {
-		super(title, breakDoor);
+	public Equipment(boolean breakDoor,boolean noisy) {
+		super( breakDoor,false,noisy);
 	}
 
 	/**
@@ -24,12 +24,19 @@ public class  Equipment extends Item {
 	 * @param player who uses the equipment 
 	 * */
 	public void ItemEffect(Player player) {
+		this.effectOfTheEquip(player);
 		this.Used();
 		if(this.isNoisy()){
 			Cell c = player.getCurrentCell();
 			c.setNoise(c.getNoise()+1);
 		}
 	}
+
+	/**
+	 * method used to trigger the specific effect of a piece of equipment
+	 * @param p the player who use it
+	 */
+	protected abstract void effectOfTheEquip(Player p);
 
 
 }
