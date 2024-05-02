@@ -1,6 +1,7 @@
 package zombicide.item.equipment;
 
 import zombicide.actor.player.*;
+import zombicide.board.Board;
 import zombicide.cell.*;
 import zombicide.util.*;
 import java.util.*;
@@ -17,13 +18,14 @@ public class MasterKey extends Equipment {
 	 */
 	private final ListChooser<Direction> chooser;
 	
-	
+	private final Board b;
 	/**
 	 * Builder of MasterKey
 	 */
-	public MasterKey() {
+	public MasterKey(Board b) {
 		super( true,false);
 		this.chooser = new InteractiveListChooser<>();
+		this.b = b;
 	}
 	
 	
@@ -31,10 +33,12 @@ public class MasterKey extends Equipment {
 	 * Builder of MasterKey
 	 *
 	 * @param chooser ListChooser of the masterkey
+	 * @param b
 	 */
-	public MasterKey(ListChooser<Direction> chooser) {
+	public MasterKey(ListChooser<Direction> chooser, Board b) {
 		super(true,false);
 		this.chooser=chooser;
+		this.b = b;
 	}
 	
 	/**
@@ -63,8 +67,9 @@ public class MasterKey extends Equipment {
 		
 		if(targetD != null) {
 			Door doorToOpen= cell.getDoor(targetD);
-			if(doorToOpen!=null) {
-				doorToOpen.Break();
+			Door doorOfTheNearCell = this.b.getCellDirection(targetD,player).getDoor(Direction.oppose(targetD));
+			if(!doorOfTheNearCell.isBreak() || !doorToOpen.isBreak()) {
+				this.b.BreakDoor(targetD,cell.getX(),cell.getY());
 				System.out.println("Door opened in the "+ targetD + " direction");
 			}
 		}else {

@@ -43,11 +43,11 @@ public class GameMain {
 		Board b = new Board(size,size);
 		//init items
 		List<Item> items = new ArrayList<>();
-		Item Kit = new FirstAidKit("kit",new RandomListChooser<>());
-		Item glasses = new Glasses("glasse",b);
-		Item heal = new HealingVial("heal");
-		Item Mapcard = new MapCard("heal",b);
-		Item MasterKey = new MasterKey("key",new RandomListChooser<>());
+		Item Kit = new FirstAidKit(new RandomListChooser<>());
+		Item glasses = new Glasses(b);
+		Item heal = new HealingVial();
+		Item Mapcard = new MapCard(b);
+		Item MasterKey = new MasterKey(new RandomListChooser<>());
 		Item gun =new Gun();
 		Item crowbar =new Crowbar();
 		Item chainsaw =new Chainsaw();
