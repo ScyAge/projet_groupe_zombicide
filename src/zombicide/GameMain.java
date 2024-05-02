@@ -34,7 +34,7 @@ import zombicide.util.listchooser.RandomListChooser;
 public class GameMain {
 	
 	public static void main(String[] args) {
-		int size = 5 ;
+		int size = 25;
 		if(args.length> 0) {
 			size = Integer.parseInt(args[0]);
 		}

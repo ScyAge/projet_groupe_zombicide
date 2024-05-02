@@ -56,7 +56,7 @@ public class Move implements ActionsPlayer {
 				}
 			}
 			if( D == Direction.South) {
-				if(c.getX()<this.board.getBoard().length-1 &&  this.board.getCellBoard(c.getX()+1, c.getY()).getDoor(Direction.North).isBreak()&&this.board.getCellBoard(c.getX(), c.getY()).getDoor(D).isBreak()){
+				if(c.getX() < this.board.getBoard().length-1 && this.board.getCellBoard(c.getX()+1, c.getY()).getDoor(Direction.North).isBreak() && this.board.getCellBoard(c.getX(), c.getY()).getDoor(D).isBreak()){
 					d.add(D);
 				}
 

@@ -114,10 +114,7 @@ public class GameMainInteractif {
 		p3.setAction(Fouineur);
 		p4.setAction(Soigneur);
 		
-		ActionsPlayer take2 = new TakeInHandAction(new RandomListChooser<>());
 		b.getSpawnPlayers().spawnPlayer(Players);
-		p1.putItemInBackPack(MasterKey2);
-		take2.action(p1);
 		
 		Game g = new Game(b,Players,actions,items,new InteractiveListChooser<>());	
 		g.play();
