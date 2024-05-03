@@ -4,6 +4,7 @@ package zombicide.cell;
 import java.util.*;
 import zombicide.actor.player.*;
 import zombicide.board.Board;
+import zombicide.item.equipment.MapCard;
 import zombicide.item.weapons.*;
 
 
@@ -26,11 +27,13 @@ public class SpawnPlayers extends Street {
 	 * gun is assigned to each player.
 	 * @param players the list of players to populate on the spawn point
 	 * */
-	public void spawnPlayer(List<Player> players) {
-		Weapon gun= new Gun();
+	public void spawnPlayer(List<Player> players,Board Board) {
 		for(Player p : players) {
+			Weapon gun= new Gun();
+			MapCard mc = new MapCard(Board);
 			this.addPlayers(p);
 			p.setItemInHand(gun);
+			p.putItemInBackPack(mc);
 		}
 	}
 

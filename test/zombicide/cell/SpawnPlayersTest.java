@@ -26,9 +26,10 @@ class SpawnPlayersTest {
     
     @Test
     void testSpawnPlayer() {
+    	Board b = new Board(5,5);
     	List<Player> players =new ArrayList<Player>();
     	players.add(player);
-    	SpawnPlayers.spawnPlayer(players);
+    	SpawnPlayers.spawnPlayer(players,b);
     	assertEquals(players,SpawnPlayers.getAllPlayers());
     	
     }
