@@ -57,7 +57,9 @@ public class Attack implements ActionsPlayer{
 		Cell c;
 		int i;
 		if(0>= w.getMinRange()) {
-			z.addAll(player.getCurrentCell().getAllZombies());
+			if(player.getCurrentCell().canLook()){
+				z.addAll(player.getCurrentCell().getAllZombies());
+			}
 		}
 		for(Direction D : Direction.values()) {
 			c = player.getCurrentCell();
@@ -65,28 +67,36 @@ public class Attack implements ActionsPlayer{
 			if( D == Direction.West) {
 				while(c.getDoor(D).isBreak() && c.getY()-1 - i>=0 && i-1 < w.getRange() &&i>=w.getMinRange()&&this.board.getCellBoard(c.getX(), c.getY()-1).getDoor(Direction.East).isBreak()) {
 					c = this.board.getCellBoard(c.getX(), c.getY()-1);
-					z.addAll(c.getAllZombies());
+					if(c.canLook()){
+						z.addAll(c.getAllZombies());
+					}
 					i+=1;
 				}
 			}
 			if( D == Direction.East) {
 				while(c.getDoor(D).isBreak() && c.getY()+i+1< this.board.getBoard()[0].length && i -1< w.getRange()&&i>=w.getMinRange()&&this.board.getCellBoard(c.getX(), c.getY()+1).getDoor(Direction.West).isBreak()) {
 					c = this.board.getCellBoard(c.getX(), c.getY()+1);
-					z.addAll(c.getAllZombies());
+					if(c.canLook()){
+						z.addAll(c.getAllZombies());
+					}
 					i+=1;
 				}
 			}
 			if( D == Direction.South) {
 				while(c.getDoor(D).isBreak() && i+c.getX()+1< this.board.getBoard().length &&i-1 < w.getRange()&&i>=w.getMinRange()&&this.board.getCellBoard(c.getX()+1, c.getY()).getDoor(Direction.North).isBreak()) {
 					c = this.board.getCellBoard(c.getX()+1, c.getY());
-					z.addAll(c.getAllZombies());
+					if(c.canLook()){
+						z.addAll(c.getAllZombies());
+					}
 					i+=1;
 				}
 			}
 			if( D == Direction.North) {
 				while(c.getDoor(D).isBreak() && c.getX()-i-1>= 0 && i-1 < w.getRange()&&i>=w.getMinRange()&&this.board.getCellBoard(c.getX()-1, c.getY()).getDoor(Direction.South).isBreak()) {
 					c = this.board.getCellBoard(c.getX()-1, c.getY());
-					z.addAll(c.getAllZombies());
+					if(c.canLook()){
+						z.addAll(c.getAllZombies());
+					}
 					i+=1;
 				}
 			}
