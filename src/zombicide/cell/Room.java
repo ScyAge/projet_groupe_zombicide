@@ -14,7 +14,7 @@ public class Room extends Cell {
 	 * @param y coordinates of the cell
 	 */
 	public Room(int x, int y) {
-		super(x, y);
+		super(x, y, true);
 		for (Direction direction : Direction.values()) {
             if(direction == Direction.East || direction == Direction.West){
 				this.doors.put(direction, new East_west_door(true,false));

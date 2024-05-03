@@ -13,7 +13,7 @@ public class Street extends Cell{
 	 * @param y coordinates of the cell
 	 */
 	public Street(int x, int y) {
-		super(x, y);
+		super(x, y,false );
     }
 
 	/**

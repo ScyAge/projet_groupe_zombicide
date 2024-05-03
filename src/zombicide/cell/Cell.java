@@ -42,15 +42,18 @@ public abstract class Cell {
 		/**color blue*/
 	public static final String colorBlue = "\u001B[34m" ;
 	
-	
+	private final boolean canSpawnInCell;
 	/**
-	 * Constructor of the class Cell 
-	 * @param x coordinates of the cell
-	 * @param y coordinates of the cell
+	 * Constructor of the class Cell
+	 *
+	 * @param x              coordinates of the cell
+	 * @param y              coordinates of the cell
+	 * @param canSpawnInCell if a zombie can spawn in this cell when a door is break
 	 */
-	public Cell(int x , int y) {
+	public Cell(int x , int y, boolean canSpawnInCell) {
 		this.x = x;
 		this.y = y;
+		this.canSpawnInCell = canSpawnInCell;
 		this.players = new ArrayList<>();
 		this.zombies = new ArrayList<>();
 		this.doors = new HashMap<>();
@@ -243,8 +246,12 @@ public abstract class Cell {
 	 * @return display string
 	 */
 	public abstract String toString();
-		
-	
-	
-	
+
+	/**
+	 * return if a boolean if a zombie can spawn in this cell
+	 * @return a boolean
+	 */
+	public boolean isCanSpawnInCell() {
+		return canSpawnInCell;
+	}
 }

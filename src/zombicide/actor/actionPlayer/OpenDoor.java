@@ -112,6 +112,9 @@ public class OpenDoor implements ActionsPlayer {
 	private void generateZombies(Player p, Direction d) {
 		Cell c= getAdjacentCell(p,d);
 		if(c!=null) {
+			if(!c.isCanSpawnInCell()){
+				return;
+			}
 			Random random= new Random();
 			int numZ= random.nextInt(3)+1;
 			for (int i=0; i<numZ; i++) {
