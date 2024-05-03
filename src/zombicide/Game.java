@@ -113,7 +113,7 @@ public class Game {
             this.board.updateListZombie();
         }
         for(Player p : this.allPlayers){
-        	p.setAction_points(3);
+        	p.setAction_points(p.getBasicActionPoints());
         }
     }
 

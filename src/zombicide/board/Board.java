@@ -595,16 +595,18 @@ private int compteur =0;
 	 * @param Z type of Zombies to spawn 
 	 */ 
 	public void ProductionZombie(int nb,int LevelTotal) {
+		Random random = new Random();
 		for(Sewer s : this.getAllSewers()) {
 			for (int i = 0; i < nb; i++) {
 				Zombies Z;
-				if(LevelTotal < 10) {
+				int typeZ = random.nextInt(4);
+				if(typeZ ==0) {
 					Z = new Walker(s,compteur++);
 				}
-				else if(LevelTotal < 20) {
+				else if(typeZ == 1 ) {
 					Z = new Runner(s,compteur++);
 				}
-				else if(LevelTotal < 25) {
+				else if(typeZ==2) {
 					Z = new Broom(s,compteur++);
 				}
 				else{

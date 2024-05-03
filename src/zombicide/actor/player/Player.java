@@ -20,7 +20,7 @@ public class Player extends Actor{
 	private  Item itemInHand;
 	private int expertiseLevel;
 	private final List<ActionsPlayer> AllAction;
-
+	private int basic_action_point;
 	/**
 	 * Test Builder of Player class
 	 * @param lifePoints life of the player
@@ -35,8 +35,8 @@ public class Player extends Actor{
 		this.expertiseLevel = 1;
 		this.backPackSize = taille_sac;
 		this.AllAction = new ArrayList<>();
+		this.basic_action_point =3;
 	}
-
 	/**
 	 * Builder of Player class
 	 * @param lifePoints life of the player
@@ -53,8 +53,22 @@ public class Player extends Actor{
 		this.backPackSize = taille_sac;
 		this.AllAction = new ArrayList<>();
 		this.AllAction.addAll(actions);
+		this.basic_action_point =3;
 	}
-
+	/**
+	 * add 1 to the basic action point
+	 */
+	public void add1BasicActionPoints() {
+		this.basic_action_point +=1;
+	}
+	
+	/**
+	 * get the basic action points
+	 * @return the number of the basic action points
+	 */
+	public int getBasicActionPoints() {
+		return this.basic_action_point;
+	}
 	
 	/**
 	 * gives the player's expertise level
@@ -69,6 +83,15 @@ public class Player extends Actor{
 	 *  */
 	public void UpOneExpertiseLevel() {
 		this.expertiseLevel += 1;
+		if (this.expertiseLevel ==3){
+			this.add1BasicActionPoints();
+		}
+		else if(this.expertiseLevel == 7) {
+			this.add1BasicActionPoints();
+		}
+		else if(this.expertiseLevel == 11) {
+			this.add1BasicActionPoints();
+		}
 	}
 
 	
