@@ -21,16 +21,13 @@ import java.util.stream.Stream;
 public class Game {
     private List<Player> allPlayers;
     private final Board board;
-    private final List<ActionsPlayer>AllActionPlayer;
-    private final List<Item> allItem;
+
 
     private final ListChooser<ActionsPlayer> PlayerChooser;
 
     public Game(Board b,List<Player> player, List<ActionsPlayer> AllActions, List<Item> AllItem,ListChooser<ActionsPlayer> PlayerChooser) {
         this.allPlayers = player;
         this.board =b;
-        this.AllActionPlayer = AllActions;
-        this.allItem = AllItem;
         this.PlayerChooser = PlayerChooser;
     }
 

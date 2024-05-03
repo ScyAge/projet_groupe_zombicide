@@ -249,9 +249,83 @@ java -classpath classes zombicide.Livrable3
 
 ## Livrable 4
 
+Dans ce quatrième livrable , c'est enfin l'heure de mettre en relation tout les classe précedement créer afin de enfin jouer à notre jeu .
+
+En effet , dans se quatrième livrable nous avons le plus claire de notre temps à rassembler toutes nos ancienne classe afin de faire de construire notre jeu .
+
+Dans un premier temps , Nous avons fais la boucle principale du jeu avec la méthode `Play` qui appartient à la classe `Game`.
+Dans cette méthode  nous appellons 3 autres méthodes `RoundPlayer` , suivie de `RoundZombie` et enfin `RoundUpdateBoard`.
+
+Par conséquent dans le deuxième temps , nous avons créer c'est trois méthode . 
+- `RoundPlayer` qui permet aux players d'executer des actions . De plus cette méthode nous a demander de créer une méthode `getBasicActionPoints` dans player afin de pouvoir rénissialiser les points d'actions de Player .
+- `RoundZombie` qui  permet aux Zombies d'executer des actions en priorité attaquer si il y a un player dans leurs cellules sinon bouger . De plus cette méthode nous a demander de créer une méthode `getBasicActionPoints` dans Zombies afin de pouvoir rénissialiser les points d'actions de chaque Zombies .
+- `RoundUpdateBoard`  qui  permet de clear le bruit dans chacune des cellules , et qui permet d'ajouter les zombies dans les égout.
+Suite à cela , le game été fini . 
+
+Nous avons donc créer le premier `GameMain` (non interactife). 
+Puis un autre lui interactif nommé en conséquence `GameMainInteractif` .
+
+
+Grâce à l'ajout de ces 2 main nous avons plus tester dans des conditions réelles les anciennes fonctions créer . 
+Et nous avons pus voir beaucoup d'erreur  dans ces anciennes méthode . 
+Tel que :
+- L'action `OpenDoor` qui ajouter des zombies mais forcement dans les bonnes cellules, à cause de problème d'indice .
+- L'action `Attack` de player qui ne utiliser mal la range qu'avait les armes .
+- Le placement des cellules `Sewer` qui avait de mauvaise coordonner à leurs création .
+- l'ajout d'une `MapCard` dans le bagpack durant le spawn d'un `Player` 
+
+Nous avons suite à ces corrections :
+- améliorer l'affichage 
+- créer la possibilité d'ajouté des Speciales ou non .
+- Donner une meilleur liste des actions possibles .
+
+Voila globalement les points majoritaire  de la construction de ce 4e et dernier livrable .
+
 ### Atteinte des objectifs
 
-### Difficultés restant à résoudre
+Nous avons atteint l'objectif fixé dans le livrable précédent ! En effet, nous avons amélioré l'implémentation des cellules spéciales pour permettre d'en rajouter si nécessaire. De plus, nous avons enrichi les possibilités d'action des joueurs. Le jeu est désormais entièrement terminé et jouable. De plus, l'affichage a été amélioré.
+
+### Commande de Génération et de compilation
+
+>Génération de la doc :
+```bash
+javadoc -sourcepath src -subpackages zombicide -d docs
+```
+
+>Compilation des classes
+```bash
+javac -sourcepath src src/zombicide/board/*.java src/zombicide/cell/*.java src/zombicide/actor/*.java src/zombicide/exeption/*.java src/zombicide/item/*.java src/zombicide/util/*.java src/zombicide/*.java src/zombicide/actor/actionPlayer/*.java src/zombicide/actor/actionZombie/*.java src/zombicide/actor/player/*.java src/zombicide/actor/zombie/*.java src/zombicide/item/equipment/*.java src/zombicide/item/weapons/*.java src/zombicide/util/door/*.java src/zombicide/util/listchooser/*.java src/zombicide/util/listchooser/util/*.java -d classes
+```
+
+>Compilation des tests
+``` bash
+javac -classpath junit-console.jar:classes test/zombicide/board/*.java test/zombicide/cell/*.java test/zombicide/item/*.java test/zombicide/util/*.java test/zombicide/actor/actionPlayer/*.java test/zombicide/actor/actionZombie/*.java test/zombicide/actor/player/*.java test/zombicide/actor/zombie/*.java test/zombicide/item/equipment/*.java test/zombicide/item/weapons/*.java test/zombicide/actor/actionPlayer/roles/*.java test/zombicide/util/listchooser/util/*.java
+```
+
+>Exécution des tests
+```bash
+java -jar junit-console.jar -classpath test:classes -scan-classpath  
+```
+
+> Génération du jar
+```bash
+jar cvfe livrable3.jar zombicide.Livrable3 -C classes .  
+```
+
+>Lancement du programme
+avec le jar
+``` bash
+java -jar livrable3.jar  
+```
+
+>Lancement du programme sans le jar
+``` bash
+java -classpath classes zombicide.Livrable3
+```
+
+
+### Diagramme UML
+<img src="uml/umlLivrable3.png"/>
 
 # Journal de bord
 
