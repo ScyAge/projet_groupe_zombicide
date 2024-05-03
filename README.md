@@ -249,16 +249,17 @@ java -classpath classes zombicide.Livrable3
 
 ## Livrable 4
 
-Dans ce quatrième livrable , c'est enfin l'heure de mettre en relation tout les classe précedement créer afin de enfin jouer à notre jeu .
+Dans ce quatrième livrable, c'est enfin l'heure de mettre en relation toutes les classes précédemment créées afin de jouer enfin à notre jeu.
 
-En effet , dans se quatrième livrable nous avons le plus claire de notre temps à rassembler toutes nos ancienne classe afin de faire de construire notre jeu .
+En effet, dans ce quatrième livrable, nous avons passé la majeure partie de notre temps à rassembler toutes nos anciennes classes afin de construire notre jeu.
 
-Dans un premier temps , Nous avons fais la boucle principale du jeu avec la méthode `Play` qui appartient à la classe `Game`.
-Dans cette méthode  nous appellons 3 autres méthodes `RoundPlayer` , suivie de `RoundZombie` et enfin `RoundUpdateBoard`.
+Dans un premier temps, nous avons créé la boucle principale du jeu avec la méthode  `Play`  qui appartient à la classe `Game`.
+ Dans cette méthode, nous appelons trois autres méthodes :  `RoundPlayer` , suivie de `RoundZombie` et enfin `RoundUpdateBoard`.
 
-Par conséquent dans le deuxième temps , nous avons créer c'est trois méthode . 
-- `RoundPlayer` qui permet aux players d'executer des actions . De plus cette méthode nous a demander de créer une méthode `getBasicActionPoints` dans player afin de pouvoir rénissialiser les points d'actions de Player .
-- `RoundZombie` qui  permet aux Zombies d'executer des actions en priorité attaquer si il y a un player dans leurs cellules sinon bouger . De plus cette méthode nous a demander de créer une méthode `getBasicActionPoints` dans Zombies afin de pouvoir rénissialiser les points d'actions de chaque Zombies .
+Par conséquent, dans un deuxième temps, nous avons créé ces trois méthodes :
+
+- `RoundPlayer`  qui permet aux joueurs d'exécuter des actions. De plus, cette méthode nous a demandé de créer une méthode `getBasicActionPoints`  dans la classe `Player`  afin de pouvoir réinitialiser les points d'action du joueur.
+- `RoundZombie` qui permet aux zombies d'exécuter des actions, en priorité attaquer s'il y a un joueur dans leur cellule, sinon se déplacer. De plus, cette méthode nous a demandé de créer une méthode `getBasicActionPoints` dans la classe `Zombies`afin de pouvoir réinitialiser les points d'action de chaque zombie.
 - `RoundUpdateBoard`  qui  permet de clear le bruit dans chacune des cellules , et qui permet d'ajouter les zombies dans les égout.
 Suite à cela , le game été fini . 
 
@@ -266,20 +267,18 @@ Nous avons donc créer le premier `GameMain` (non interactife).
 Puis un autre lui interactif nommé en conséquence `GameMainInteractif` .
 
 
-Grâce à l'ajout de ces 2 main nous avons plus tester dans des conditions réelles les anciennes fonctions créer . 
-Et nous avons pus voir beaucoup d'erreur  dans ces anciennes méthode . 
-Tel que :
-- L'action `OpenDoor` qui ajouter des zombies mais forcement dans les bonnes cellules, à cause de problème d'indice .
-- L'action `Attack` de player qui ne utiliser mal la range qu'avait les armes .
-- Le placement des cellules `Sewer` qui avait de mauvaise coordonner à leurs création .
-- l'ajout d'une `MapCard` dans le bagpack durant le spawn d'un `Player` 
+Grâce à l'ajout de ces deux `main` nous avons pu tester dans des conditions réelles les anciennes fonctions créées. Et nous avons pu constater beaucoup d'erreurs dans ces anciennes méthodes, telles que :
+- L'action `OpenDoor` qui ajoutait des zombies mais pas forcément dans les bonnes cellules, à cause d'un problème d'indice.
+- L'action `Attack` du joueur qui n'utilisait pas correctement la portée des armes.
+- Le placement des cellules `Sewer` qui avait de mauvaises coordonnées lors de leur création.
+- l'ajout d'une `MapCard` dans le sac à dos lors du spawn d'un joueur. 
 
-Nous avons suite à ces corrections :
+Suite à ces corrections, nous avons :
 - améliorer l'affichage 
 - créer la possibilité d'ajouté des Speciales ou non .
 - Donner une meilleur liste des actions possibles .
 
-Voila globalement les points majoritaire  de la construction de ce 4e et dernier livrable .
+Voilà, globalement, les points principaux de la construction de ce quatrième et dernier livrable.
 
 ### Atteinte des objectifs
 
