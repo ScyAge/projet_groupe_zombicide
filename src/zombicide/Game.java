@@ -79,9 +79,8 @@ public class Game {
             this.roundPlayer();
             //Action des Zombies
             this.roundZombie();
-            this.board.Display();
     		//update board
-        	if((this.AreTheyAllAlive()&& this.areZombiesAllALive())|| firstRound) {
+        	if(this.AreTheyAllAlive()&& (this.areZombiesAllALive()|| firstRound)) {
         		this.roundUpdateBoard();
         	}
         	firstRound = false;
@@ -102,7 +101,6 @@ public class Game {
      */
     protected void roundPlayer() {
         for(Player p : this.allPlayers){
-        	this.board.Display();
         	System.out.println("je suis le player "+p.getId());
             while(p.getAction_points() > 0){
                 List<ActionsPlayer> actionPossible = p.getActionOfThePlayer();
