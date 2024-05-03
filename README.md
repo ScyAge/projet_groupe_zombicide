@@ -285,6 +285,11 @@ Voila globalement les points majoritaire  de la construction de ce 4e et dernier
 
 Nous avons atteint l'objectif fixé dans le livrable précédent ! En effet, nous avons amélioré l'implémentation des cellules spéciales pour permettre d'en rajouter si nécessaire. De plus, nous avons enrichi les possibilités d'action des joueurs. Le jeu est désormais entièrement terminé et jouable. De plus, l'affichage a été amélioré.
 
+### Difficultés restant à résoudre
+
+Nous avons plus avons terminer le jeu donc dans un sens il nous reste plus réellement de difficulter à résoudre
+
+
 ### Commande de Génération et de compilation
 
 >Génération de la doc :
