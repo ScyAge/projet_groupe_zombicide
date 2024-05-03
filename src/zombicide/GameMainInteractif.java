@@ -114,7 +114,7 @@ public class GameMainInteractif {
 		p3.setAction(Fouineur);
 		p4.setAction(Soigneur);
 		
-		b.getSpawnPlayers().spawnPlayer(Players);
+		b.getSpawnPlayers().spawnPlayer(Players,b);
 		
 		Game g = new Game(b,Players,actions,items,new InteractiveListChooser<>());	
 		g.play();

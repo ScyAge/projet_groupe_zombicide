@@ -112,7 +112,7 @@ public class GameMain {
 		p3.setAction(Fouineur);
 		p4.setAction(Soigneur);
 		
-		b.getSpawnPlayers().spawnPlayer(Players);
+		b.getSpawnPlayers().spawnPlayer(Players,b);
 
 		
 		Game g = new Game(b,Players,actions,items,new RandomListChooser<>());	
