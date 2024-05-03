@@ -16,8 +16,8 @@ public abstract class Cell {
 	
 	private final List<Player> players;
 	private final List<Zombies> zombies;
-	private final int x;
-	private final int y;
+	private  int x;
+	private  int y;
 	private int noise;
 	
 	/**
@@ -65,6 +65,22 @@ public abstract class Cell {
         }
 		this.noise = 0;
 		
+	}
+	
+	/**
+	 * Sets the value of the X-coordinate.
+	 * @param x the new value of the X-coordinate
+	 */
+	public void setX(int x) {
+	    this.x = x;
+	}
+
+	/**
+	 * Sets the value of the Y-coordinate.
+	 * @param y the new value of the Y-coordinate
+	 */
+	public void setY(int y) {
+	    this.y = y;
 	}
 	
 	/**

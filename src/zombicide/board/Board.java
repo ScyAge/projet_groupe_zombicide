@@ -29,6 +29,7 @@ public class Board {
 	private List<Zombies> listZombie;
 	private List<Sewer> listSewer;
 	private SpawnPlayers spawnPlayer;
+	private List<Cell> SpecialCell;
 
 
 	/**
@@ -55,12 +56,30 @@ public class Board {
 		this.spawnPlayer =null ;
         this.xr=((height-(height/4)) *(width-(width/4))-1) ;
 		this.items = items;
+		this.SpecialCell = new ArrayList<>();
+		this.SpecialCell.add(new DrugStore(0,0));
+		this.SpecialCell.add(new Continental(0,0));
 	}
-
+	
+	/**
+	 * Add a new specialCell in the board
+	 * @param c the new cell
+	 */
+	public void addSpecialCell(Cell c) {
+		this.SpecialCell.add(c);
+	}
+	
+	/**
+	 * set the list items of the board
+	 * @param i the list of items
+	 */
 	public void setItems(List<Item> i) {
 		this.items =i;
 	}
-
+	
+	/**
+	 * Init the board
+	 */
 	public void initBoard(){
 		initBoardBis(0,this.board.length,0,this.board[0].length,true);
 	}
@@ -155,20 +174,13 @@ public class Board {
         Random random = new Random() ;
 		if(!continentalExist || !drugStoreExist ) {
         	int X= random.nextInt(xr);
-			if(X==0) {
-				int Y= random.nextInt(2);
-				if((!continentalExist && Y == 1) || (!continentalExist && drugStoreExist)  ) {
-					Continental continental = new Continental(i,j);
-					this.board[i][j]=continental;
-					continentalExist=true;
-
-				}
-				else if((!drugStoreExist)){
-					DrugStore drugstore = new DrugStore(i,j);
-					this.board[i][j]=drugstore ;
-					drugStoreExist=true ;
-				}
-
+			if(X==0 && this.SpecialCell.size() >0) {
+				int Y= random.nextInt(this.SpecialCell.size());
+				Cell c = this.SpecialCell.get(Y);
+				c.setX(i);
+				c.setY(j);
+				this.board[i][j] = c;
+				this.SpecialCell.remove(Y);
 			}
 			else {
 				xr--;
