@@ -151,10 +151,10 @@ public class OpenDoor implements ActionsPlayer {
 		
 		switch(openDirection) {
 		case North:
-			adjX++;
+			adjX--;
 			break;
 		case South:
-			adjX--;
+			adjX++;
 			break;
 		case East:
 			adjY++;

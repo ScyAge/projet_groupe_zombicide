@@ -107,7 +107,8 @@ public class Game {
             while(p.getAction_points() > 0){
                 List<ActionsPlayer> actionPossible = p.getActionOfThePlayer();
                 ActionsPlayer actionHeChoose = this.PlayerChooser.choose("Qu'elle action souhaite tu faire",actionPossible);
-                actionHeChoose.action(p);
+                if(actionHeChoose != null)
+                	actionHeChoose.action(p);
                 this.board.updateListZombie();
             }
             this.board.updateListZombie();
