@@ -15,6 +15,7 @@ public class ActorTest {
     public void init(){
         cell = new Room(2,2);
         mock = new MockActor(cell);
+
     }
     @Test
     public void TestGetLifePoint(){
