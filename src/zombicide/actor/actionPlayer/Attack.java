@@ -47,10 +47,10 @@ public class Attack implements ActionsPlayer{
 	}
 	
 	/**
-	 * take zombie who can attack
+	 * selects all the zombies around the player that he can attack with his weapon
 	 * @param player the player who will attack
 	 * @param w the weapon of the player
-	 * @return list of zombie who can attack
+	 * @return the list of zombies that the player can attack
 	 */
 	public List<Zombie> WhoCanAttack(Player player, Weapon w){
 		List<Zombie> z = new ArrayList<>();
@@ -104,10 +104,7 @@ public class Attack implements ActionsPlayer{
 		return z;
 	}
 	
-	/**
-	 * player attack zombies
-	 * @param p player who attack a zombie
-	 */
+	@Override
 	public void action(Player p) {
 		attack(p, 0);
 		
@@ -119,16 +116,20 @@ public class Attack implements ActionsPlayer{
 	 * @param addDicePoint  the number of dice
 	 */
 	protected void attack(Player p,  int addDicePoint) {
+		//verify if the player has an item in hand
 		if(p.getItemInHand() != null) {
+			//verify if the item can attack
 			if(p.getItemInHand().canAttack()) {
+
 				Weapon w = (Weapon) p.getItemInHand();
 				int nbDice = w.getNbDice();
 				List<Zombie> zombies= WhoCanAttack(p,w);
-
 				Zombie targetZ= this.chooser.choose("choose the zombie to attack: ", zombies);
+
 				if(targetZ != null) {
 					Random random = new Random() ;
 					int X= random.nextInt(6) + addDicePoint;
+
 					while(X< w.getThreshold()&& nbDice-->1  ) {
 						X= random.nextInt(6) + addDicePoint;
 					}
@@ -137,12 +138,21 @@ public class Attack implements ActionsPlayer{
 							p.getCurrentCell().setNoise(p.getCurrentCell().getNoise()+1);
 						}
 						targetZ.takeDamage(w.getDamage());
+
+						System.out.println("-[ATTACK SUCCEED]-");
+						System.out.printf("-[the %s have lost %d hp from the attack]-",targetZ.getClass().getSimpleName(),w.getDamage());
+
 						if(targetZ.isDead()) {
 							p.UpOneExpertiseLevel();
+							System.out.printf("-[the %s id dead hp you gained a level your now lvl %d]-",targetZ.getClass().getSimpleName(),p.getExpertiseLevel());
 						}
 					}
-					p.setAction_points(p.getAction_points()-1);
+					else{
+						System.out.println("-[ATTACK FAIllED]-");
+					}
+
 				}
+				p.setAction_points(p.getAction_points()-1);
 				
 			}
 		}

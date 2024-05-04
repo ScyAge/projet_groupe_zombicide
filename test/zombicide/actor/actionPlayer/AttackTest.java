@@ -65,4 +65,9 @@ public class AttackTest {
         b.getCellBoard(2,3).addZombies(z);
         assertEquals(2, a.WhoCanAttack(p,w).size());
     }
+
+	@Test
+	public void testToString(){
+		assertEquals(this.a.toString(),"Attack action");
+	}
 }
