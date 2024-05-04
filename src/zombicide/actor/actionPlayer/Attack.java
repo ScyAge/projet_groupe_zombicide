@@ -139,16 +139,16 @@ public class Attack implements ActionsPlayer{
 						}
 						targetZ.takeDamage(w.getDamage());
 
-						System.out.println("-[ATTACK SUCCEED]-");
-						System.out.printf("-[the %s have lost %d hp from the attack]-",targetZ.getClass().getSimpleName(),w.getDamage());
+						System.out.println("-[ATTACK SUCCEED]-\n");
+						System.out.printf("-[the %s have lost %d hp from the attack]-\n",targetZ.getClass().getSimpleName(),w.getDamage());
 
 						if(targetZ.isDead()) {
 							p.UpOneExpertiseLevel();
-							System.out.printf("-[the %s id dead hp you gained a level your now lvl %d]-",targetZ.getClass().getSimpleName(),p.getExpertiseLevel());
+							System.out.printf("-[the %s id dead hp you gained a level your now lvl %d]-\n",targetZ.getClass().getSimpleName(),p.getExpertiseLevel());
 						}
 					}
 					else{
-						System.out.println("-[ATTACK FAIllED]-");
+						System.out.println("-[ATTACK FAIllED]-\n");
 					}
 
 				}

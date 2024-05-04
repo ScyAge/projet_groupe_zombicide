@@ -16,9 +16,10 @@ public class MakeNoise implements ActionsPlayer {
 	
 	@Override
 	public void action(Player p) {
-		System.out.println("Makenoise action");
+		System.out.println("-[MakeNoise action]-");
 		Cell c= p.getCurrentCell();
 		c.setNoise(c.getNoise()+1);
+		System.out.printf("-[The noise in now at %d in this cell]-\n",c.getNoise());
 		int actionP= p.getAction_points();
 		p.setAction_points(actionP-1);
 	}

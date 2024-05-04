@@ -35,4 +35,9 @@ public class MakeNoiseTest {
     	this.action.action(p);
     	assertEquals(actionPoints-1, this.p.getAction_points());
     }
+
+    @Test
+    public void testToString(){
+        assertEquals(this.action.toString(),"MakeNoise action");
+    }
 }
