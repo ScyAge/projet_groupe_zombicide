@@ -34,7 +34,8 @@ public class LookAround implements ActionsPlayer {
 		System.out.println(res);
 	}
 	/**
-	 * the display around the player
+	 * Displays everything that's going on around the player:
+	 * doors open or not, players and zombies present, etc.
 	 * @param p Player who use the action
 	 * @return the display
 	 */

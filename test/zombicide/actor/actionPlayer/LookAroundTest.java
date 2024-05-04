@@ -53,6 +53,9 @@ public class LookAroundTest {
         assertTrue(res.contains("the door at the direction South is opened"));
         assertTrue(res.contains("the door at the direction West is opened"));
     }
-
+    @Test
+    public void testToString(){
+        assertEquals(this.act.toString(),"LookAround action");
+    }
 
 }
