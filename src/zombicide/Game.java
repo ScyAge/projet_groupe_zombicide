@@ -70,11 +70,15 @@ public class Game {
      */
     public void play(){
     	this.board.Display();
+    	
     	boolean firstRound = true;
     	while((this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30)|| firstRound){
             //tour des joueurs
+    		System.out.println("** Survivor tour");
             this.roundPlayer();
+            System.out.println("\n");
             //Action des Zombies
+            System.out.println("** Zombie tour");
             this.roundZombie();
     		//update board
         	if(this.AreTheyAllAlive()&& (this.areZombiesAllALive()|| firstRound)) {
@@ -98,15 +102,16 @@ public class Game {
      */
     protected void roundPlayer() {
         for(Player p : this.allPlayers){
-        	System.out.println("je suis le player "+p.getId());
+        	System.out.println("I am player "+p.getId());
             while(p.getAction_points() > 0){
                 List<ActionsPlayer> actionPossible = p.getActionOfThePlayer();
-                ActionsPlayer actionHeChoose = this.PlayerChooser.choose("Qu'elle action souhaite tu faire",actionPossible);
+                ActionsPlayer actionHeChoose = this.PlayerChooser.choose("*** Which action do you want to do?",actionPossible);
                 if(actionHeChoose != null)
                 	actionHeChoose.action(p);
                 this.board.updateListZombie();
             }
             this.board.updateListZombie();
+            System.out.println("\n");
         }
         for(Player p : this.allPlayers){
         	p.setAction_points(p.getBasicActionPoints());
@@ -138,7 +143,7 @@ public class Game {
 
     /**
      * method to achieve the end of the game turn,
-     * set the noise levels to 0 and make the zombies appear (the actors were already suprimmed by themselves)
+     * set the noise levels to 0 and make the zombies appear (the actors were already deleted by themselves)
      */
     protected void roundUpdateBoard(){
         board.cleanNoise();
@@ -154,7 +159,7 @@ public class Game {
     	int totalExpertiseLevel = this.totalXP();
     	int averageExpertiseLevel = totalExpertiseLevel/this.allPlayers.size();
     	
-    	int nbZombiesToAdd = (int) Math.ceil(averageExpertiseLevel/3.0);
+    	int nbZombiesToAdd = (int) Math.ceil(averageExpertiseLevel/3.0);   
     	this.board.ProductionZombie(nbZombiesToAdd,totalExpertiseLevel);
     	
     }

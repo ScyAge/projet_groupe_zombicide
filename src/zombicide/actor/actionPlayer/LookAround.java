@@ -84,6 +84,6 @@ public class LookAround implements ActionsPlayer {
 
 	@Override
 	public String toString() {
-		return "LooAround action";
+		return "LookAround action";
 	}
 }
