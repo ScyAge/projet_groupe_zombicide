@@ -16,10 +16,10 @@ public class Livrable2 {
 		
 		Board test = new TrainingBoard();
 		
-		Zombies z  = new Gigantomachia(test.getCellBoard(0, 0),1);
-		Zombies z1  = new Gigantomachia(test.getCellBoard(4, 0),2);
-		Zombies z2  = new Gigantomachia(test.getCellBoard(0, 4),3);
-		Zombies z3  = new Gigantomachia(test.getCellBoard(4, 4),4);
+		Zombie z  = new Gigantomachia(test.getCellBoard(0, 0),1);
+		Zombie z1  = new Gigantomachia(test.getCellBoard(4, 0),2);
+		Zombie z2  = new Gigantomachia(test.getCellBoard(0, 4),3);
+		Zombie z3  = new Gigantomachia(test.getCellBoard(4, 4),4);
 		test.getCellBoard(0, 0).addZombies(z);
 		test.getCellBoard(4, 0).addZombies(z1);
 		test.getCellBoard(0, 4).addZombies(z2);

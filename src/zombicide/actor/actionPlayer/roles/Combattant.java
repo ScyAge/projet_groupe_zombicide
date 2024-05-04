@@ -1,9 +1,8 @@
 package zombicide.actor.actionPlayer.roles;
 
-import zombicide.actor.actionPlayer.ActionsPlayer;
 import zombicide.actor.actionPlayer.Attack;
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.util.listchooser.ListChooser;
 
@@ -18,7 +17,7 @@ public class Combattant extends Attack{
 	 * @param chooser the listchooser of the action
 	 * @param b the board of the combattant
 	 */
-	public Combattant(ListChooser<Zombies> chooser, Board b) {
+	public Combattant(ListChooser<Zombie> chooser, Board b) {
 		super(chooser,b);
 	}
 	

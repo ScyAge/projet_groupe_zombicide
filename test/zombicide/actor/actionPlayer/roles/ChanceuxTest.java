@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Broom;
 
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
 import zombicide.item.Item;
@@ -20,10 +20,10 @@ import zombicide.util.listchooser.RandomListChooser;
 public class ChanceuxTest {
 	
 	private Player player;
-	private Zombies z1;
-	private Zombies z2;
+	private Zombie z1;
+	private Zombie z2;
 	private Chanceux action;
-    private ListChooser<Zombies> chooser;
+    private ListChooser<Zombie> chooser;
     private TrainingBoard board;
     private Cell cell;
     private Item wp1;

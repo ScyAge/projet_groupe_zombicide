@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Gigantomachia;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.*;
 import zombicide.item.Item;
 import zombicide.item.ItemTest;
@@ -17,7 +17,7 @@ public class WeaponsTest extends ItemTest {
 	
 	private Board b ;
 	private Weapon w;
-	private Zombies z;
+	private Zombie z;
 	private Player p; 
 	private Weapon wTest;
 

@@ -11,7 +11,7 @@ import zombicide.board.Board;
 class SewerTest {
 
 	private Sewer sewer;
-	private Zombies z;
+	private Zombie z;
     
     @BeforeEach
     void setUp() {

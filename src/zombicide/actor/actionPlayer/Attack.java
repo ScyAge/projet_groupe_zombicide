@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.item.weapons.Weapon;
@@ -22,7 +22,7 @@ public class Attack implements ActionsPlayer{
 	/**
 	 * param 
 	 */
-	private final ListChooser<Zombies> chooser;
+	private final ListChooser<Zombie> chooser;
 	private final Board board;
 	
 	
@@ -31,7 +31,7 @@ public class Attack implements ActionsPlayer{
 	 * @param chooser the listchooser of the action
 	 * @param board where attack
 	 */
-	public Attack(ListChooser<Zombies> chooser,Board board) {
+	public Attack(ListChooser<Zombie> chooser, Board board) {
 		this.chooser = chooser;
 		this.board = board ;
 	}
@@ -52,8 +52,8 @@ public class Attack implements ActionsPlayer{
 	 * @param w the weapon of the player
 	 * @return list of zombie who can attack
 	 */
-	public List<Zombies> WhoCanAttack(Player player,Weapon w){
-		List<Zombies> z = new ArrayList<>();
+	public List<Zombie> WhoCanAttack(Player player, Weapon w){
+		List<Zombie> z = new ArrayList<>();
 		Cell c;
 		int i;
 		if(0>= w.getMinRange()) {
@@ -123,9 +123,9 @@ public class Attack implements ActionsPlayer{
 			if(p.getItemInHand().canAttack()) {
 				Weapon w = (Weapon) p.getItemInHand();
 				int nbDice = w.getNbDice();
-				List<Zombies> zombies= WhoCanAttack(p,w);
+				List<Zombie> zombies= WhoCanAttack(p,w);
 
-				Zombies targetZ= this.chooser.choose("choose the zombie to attack: ", zombies);
+				Zombie targetZ= this.chooser.choose("choose the zombie to attack: ", zombies);
 				if(targetZ != null) {
 					Random random = new Random() ;
 					int X= random.nextInt(6) + addDicePoint;

@@ -1,6 +1,6 @@
 package zombicide.actor.actionZombie;
 
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
@@ -36,7 +36,7 @@ public class MoveZ implements ActionZombie {
 		return res;
 	}
 	
-	private Direction choiceDirectionNoise(Zombies z) {
+	private Direction choiceDirectionNoise(Zombie z) {
 		Direction d = null;
 		Cell c = choiceCellNoise(); 
 		if(z.getCurrentCell().getX()> c.getX() && this.board.getCellBoard(z.getCurrentCell().getX()-1,z.getCurrentCell().getY()).getDoor(Direction.South).isBreak()) {
@@ -58,7 +58,7 @@ public class MoveZ implements ActionZombie {
 	 * Move a zombies  in a direction 
 	 * @param z zombies who want to move
 	 */
-	public void action(Zombies z) {
+	public void action(Zombie z) {
 		Direction d = choiceDirectionNoise(z);
 		if(d != null) {
 			this.board.moveZombie(z, d);
@@ -68,7 +68,7 @@ public class MoveZ implements ActionZombie {
 	}
 
 	@Override
-	public boolean IsActionPlayable(Zombies z) {
+	public boolean IsActionPlayable(Zombie z) {
 		Cell c = z.getCurrentCell();
 		return (c.getDoor(Direction.North).isBreak() ||c.getDoor(Direction.South).isBreak() ||c.getDoor(Direction.East).isBreak() ||c.getDoor(Direction.West).isBreak());
 	}

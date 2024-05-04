@@ -1,12 +1,11 @@
 package zombicide.actor.actionZombie;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.cell.Cell;
 import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.RandomListChooser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,7 +16,7 @@ public class AttackZombie implements ActionZombie{
 
 	
 	/**
-	 * Builder of Attack Zombies
+	 * Builder of Attack Zombie
 	 */
 	public AttackZombie() {
 		
@@ -25,7 +24,7 @@ public class AttackZombie implements ActionZombie{
 	
 	
     @Override
-    public void action(Zombies z) {
+    public void action(Zombie z) {
         Cell curent = z.getCurrentCell();
         if(this.IsActionPlayable(z) && z.getCurrentCell().canLook()){
 	        List<Player> AllPlayer = curent.getAllPlayers();
@@ -47,7 +46,7 @@ public class AttackZombie implements ActionZombie{
      * the zombie can attack
      * @param z is the the zombie who use the action
      */
-    public boolean IsActionPlayable(Zombies z){
+    public boolean IsActionPlayable(Zombie z){
         return !z.getCurrentCell().getAllPlayers().isEmpty();
     }
 }

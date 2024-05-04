@@ -20,7 +20,7 @@ public class Player extends Actor{
 	private  Item itemInHand;
 	private int expertiseLevel;
 	private final List<ActionsPlayer> AllAction;
-	private int basic_action_point;
+
 	/**
 	 * Test Builder of Player class
 	 * @param lifePoints life of the player
@@ -35,8 +35,8 @@ public class Player extends Actor{
 		this.expertiseLevel = 1;
 		this.backPackSize = taille_sac;
 		this.AllAction = new ArrayList<>();
-		this.basic_action_point =3;
 	}
+
 	/**
 	 * Builder of Player class
 	 * @param lifePoints life of the player
@@ -53,22 +53,9 @@ public class Player extends Actor{
 		this.backPackSize = taille_sac;
 		this.AllAction = new ArrayList<>();
 		this.AllAction.addAll(actions);
-		this.basic_action_point =3;
 	}
-	/**
-	 * add 1 to the basic action point
-	 */
-	public void add1BasicActionPoints() {
-		this.basic_action_point +=1;
-	}
-	
-	/**
-	 * get the basic action points
-	 * @return the number of the basic action points
-	 */
-	public int getBasicActionPoints() {
-		return this.basic_action_point;
-	}
+
+
 	
 	/**
 	 * gives the player's expertise level
@@ -84,13 +71,13 @@ public class Player extends Actor{
 	public void UpOneExpertiseLevel() {
 		this.expertiseLevel += 1;
 		if (this.expertiseLevel ==3){
-			this.add1BasicActionPoints();
+			this.addNMaxActionPoints(1);
 		}
 		else if(this.expertiseLevel == 7) {
-			this.add1BasicActionPoints();
+			this.addNMaxActionPoints(1);
 		}
 		else if(this.expertiseLevel == 11) {
-			this.add1BasicActionPoints();
+			this.addNMaxActionPoints(1);
 		}
 	}
 
@@ -112,7 +99,7 @@ public class Player extends Actor{
 	}
 	
 	/**
-	 * remove the Player to the cell
+	 * When this method is used, the player is removed from the cell it was in.
 	 */
 	public void Dead() {
 		this.cell.remove(this);
@@ -132,7 +119,7 @@ public class Player extends Actor{
 	public boolean IsBackPackFull(){return this.backpack.size()>= this.backPackSize;}
 
 	/**
-	 * take a item from the backpack and place it in the hand of the player
+	 * take an item from the backpack and place it in the hand of the player
 	 * @param index_of_item the position of the wanted item
 	 * @throws ItemDoesNotExistExeption if there is no Item at the specified position
 	 */
@@ -198,22 +185,16 @@ public class Player extends Actor{
 		this.AllAction.add(role);
 	}
 
-	/**
-	 * player take damage if is hp are below 0 so if is dead all is item in the backpack and in is hand drop in the cell
-	 * @param damage taken by the actor
-	 */
-	public void takeDamage(int damage) {
-		super.takeDamage(damage);
-		if(this.lifePoints <=0){
-			for(Item i :this.backpack){
-				this.cell.addItem(i);
-				if(this.itemInHand != null){
-					this.PutItemInHandInCell();
-				}
+
+	@Override
+	protected void consequenceDeath() {
+		for(Item i :this.backpack){
+			this.cell.addItem(i);
+			if(this.itemInHand != null){
+				this.PutItemInHandInCell();
 			}
-			this.Dead();
 		}
-		
+		this.Dead();
 	}
 
 	@Override

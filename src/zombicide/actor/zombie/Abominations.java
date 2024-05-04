@@ -5,7 +5,7 @@ import zombicide.cell.Cell;
 /**
  * class Abominations
  */
-public class Abominations extends Zombies {
+public class Abominations extends Zombie {
 	/**
 	 * constant lifepoint of Abominations
 	 * */
@@ -30,10 +30,6 @@ public class Abominations extends Zombies {
 		super(LIFEPOINT, ACTION_POINT,cell,id, DAMAGE_POINT);
 	}
 
-	@Override
-	public String toString() {
-		return String.format("Abominations have %d life Points",this.lifePoints);
-	}
 	
 	public void takeDamage(int damage) {
 		if(damage > 1) {

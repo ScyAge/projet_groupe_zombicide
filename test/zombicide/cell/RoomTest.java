@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Broom;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.item.Item;
 import zombicide.item.equipment.HealingVial;
 import zombicide.item.weapons.Axe;
@@ -19,7 +19,7 @@ class RoomTest {
 	
 	private Room room;
     private Player player;
-    private Zombies zombie;
+    private Zombie zombie;
     private Item item;
     private Door door;
     
@@ -27,7 +27,7 @@ class RoomTest {
     void setUp() {
         room = new Room(1, 1);
         player = new Player(8,room,1,6);
-        zombie = new Zombies(8,5,room,1,1);
+        zombie = new Zombie(8,5,room,1,1);
         item = new Gun();
     }
     
@@ -49,7 +49,7 @@ class RoomTest {
     
     @Test
     void testAddRemoveZombie() {
-    	Zombies zombie1 = new Zombies(8,5,room,1,1);
+    	Zombie zombie1 = new Zombie(8,5,room,1,1);
     	room.addZombies(zombie);
     	room.addZombies(zombie1);
     	
@@ -129,7 +129,7 @@ class RoomTest {
 	@Test
 	public void testDescription(){
 		this.room.addZombies(new Broom(this.room,2));
-		String c = String.format("(%d,%d) %s [ Players : %d ; Zombies : %d]",this.room.getX(),this.room.getY(),this.room.getClass().getSimpleName(),this.room.getAllPlayers().size(),this.room.getAllZombies().size());
+		String c = String.format("(%d,%d) %s [ Players : %d ; Zombie : %d]",this.room.getX(),this.room.getY(),this.room.getClass().getSimpleName(),this.room.getAllPlayers().size(),this.room.getAllZombies().size());
 		assertEquals(this.room.description(),c);
 	}
    

@@ -5,7 +5,7 @@ import zombicide.cell.Cell;
 /**
  * class Runner
  */
-public class Runner extends Zombies{
+public class Runner extends Zombie {
 	/**
 	 * constant lifepoint of runner 
 	 * */
@@ -30,11 +30,6 @@ public class Runner extends Zombies{
 	public Runner(Cell cell, int id) {
 		super(LIFEPOINT, ACTION_POINT,cell, id, DAMAGE_POINT);
 
-	}
-
-	@Override
-	public String toString() {
-		return String.format("Runner have %d life Points",this.lifePoints);
 	}
 
 }

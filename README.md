@@ -259,7 +259,7 @@ Dans un premier temps, nous avons créé la boucle principale du jeu avec la mé
 Par conséquent, dans un deuxième temps, nous avons créé ces trois méthodes :
 
 - `RoundPlayer`  qui permet aux joueurs d'exécuter des actions. De plus, cette méthode nous a demandé de créer une méthode `getBasicActionPoints`  dans la classe `Player`  afin de pouvoir réinitialiser les points d'action du joueur.
-- `RoundZombie` qui permet aux zombies d'exécuter des actions, en priorité attaquer s'il y a un joueur dans leur cellule, sinon se déplacer. De plus, cette méthode nous a demandé de créer une méthode `getBasicActionPoints` dans la classe `Zombies`afin de pouvoir réinitialiser les points d'action de chaque zombie.
+- `RoundZombie` qui permet aux zombies d'exécuter des actions, en priorité attaquer s'il y a un joueur dans leur cellule, sinon se déplacer. De plus, cette méthode nous a demandé de créer une méthode `getBasicActionPoints` dans la classe `Zombie`afin de pouvoir réinitialiser les points d'action de chaque zombie.
 - `RoundUpdateBoard`  qui  permet de clear le bruit dans chacune des cellules , et qui permet d'ajouter les zombies dans les égout.
 Suite à cela , le game été fini . 
 
@@ -447,10 +447,10 @@ En ce qui concerne les méthodes, elle possède évidemment les différents gett
 
 Maintenant, intéressons-nous à un acteur en particulier, prenons le Zombie.  
 
-La particularité des Zombies est qu'il y en a de différentes sortes : l'abomination, le broom, le runner et le walker. Pour implémenter cela, nous créons différentes classes correspondant aux différents types de zombies qui héritent de la classe Zombie, elle-même héritant de la classe Actor.  
+La particularité des Zombie est qu'il y en a de différentes sortes : l'abomination, le broom, le runner et le walker. Pour implémenter cela, nous créons différentes classes correspondant aux différents types de zombies qui héritent de la classe Zombie, elle-même héritant de la classe Actor.  
 La classe Zombie contient une méthode pour infliger des dégâts. La différence entre les types de zombies réside dans leurs points de vie, leurs dégâts et leurs points d'action.  
 
-Passons maintenant aux survivants, appelés les Players. Cette classe, tout comme pour les Zombies, hérite de la classe Actor.  
+Passons maintenant aux survivants, appelés les Players. Cette classe, tout comme pour les Zombie, hérite de la classe Actor.  
 
 La particularité des joueurs est qu'ils peuvent avoir des rôles : le soigneur, le chanceux, le combattant et le fouineur, qui ont tous des capacités influant sur leurs actions (qui seront définies dans le livrable 3).  
 Après mûre réflexion, pour implémenter les rôles des joueurs, nous avons décidé d'utiliser une interface que nous nommons 'RolesInterface', qui contiendra la méthode 'action()' permettant d'adapter l'action du rôle à un joueur.  

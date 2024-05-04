@@ -5,7 +5,7 @@ import zombicide.cell.Cell;
 /**
  * class Gigantomachia
  */
-public class Gigantomachia extends Zombies {
+public class Gigantomachia extends Zombie {
 	/**
 	 * constant lifepoint of Gigantomachia
 	 * */
@@ -31,9 +31,5 @@ public class Gigantomachia extends Zombies {
 
 	}
 
-	@Override
-	public String toString() {
-		return String.format("Gigantomachia have %d life Points",this.lifePoints);
-	}
 
 }

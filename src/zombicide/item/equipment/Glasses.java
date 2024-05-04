@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
 
@@ -56,8 +56,8 @@ public class Glasses extends Equipment {
 				for (Player player : c.getAllPlayers()) {
 				    res.append(String.format("P%d\n",player.getId()));
 				}
-				res.append(String.format("Zombies in cell (%d, %d): \n",c.getX(),c.getY()));
-				for(Zombies z: c.getAllZombies()) {
+				res.append(String.format("Zombie in cell (%d, %d): \n",c.getX(),c.getY()));
+				for(Zombie z: c.getAllZombies()) {
 					res.append(String.format("Z%d\n",z.getId()));
 				}
 			} else if (c!=null && !c.canLook()) {

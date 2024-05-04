@@ -2,7 +2,7 @@ package zombicide.cell;
 import java.util.*;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.util.*;
 import zombicide.util.door.*;
 import zombicide.item.*;
@@ -15,7 +15,7 @@ public abstract class Cell {
 	
 	
 	private final List<Player> players;
-	private final List<Zombies> zombies;
+	private final List<Zombie> zombies;
 	private  int x;
 	private  int y;
 	private int noise;
@@ -137,7 +137,7 @@ public abstract class Cell {
 	 * Return the list of all the zombies in the cell
 	 * @return List of zombies
 	 */
-	public List<Zombies> getAllZombies() {
+	public List<Zombie> getAllZombies() {
 		return this.zombies.stream().filter(p -> !p.isDead()).toList();
 	}
 	
@@ -145,7 +145,7 @@ public abstract class Cell {
 	 * method that adds a zombie to the list
 	 * @param  z the zombie
 	 */
-	public void addZombies(Zombies z) {
+	public void addZombies(Zombie z) {
 		this.zombies.add(z);
 	}
 	
@@ -161,7 +161,7 @@ public abstract class Cell {
 	 * remove the specified zombie from the list of zombie
 	 * @param z the zombie
 	 */
-	public void remove(Zombies z ) {
+	public void remove(Zombie z ) {
 		this.zombies.remove(z);
 	}
 	
@@ -238,7 +238,7 @@ public abstract class Cell {
 		String cellName= this.getClass().getSimpleName();
 		int nbPlayers= players.size();
 		int nbZombies= zombies.size();
-		return "("+ this.getX() +","+ this.getY() + ") " + cellName + " [ Players : " + nbPlayers+ " ; Zombies : " + nbZombies + "]";
+		return "("+ this.getX() +","+ this.getY() + ") " + cellName + " [ Players : " + nbPlayers+ " ; Zombie : " + nbZombies + "]";
 	}
 
 	/**

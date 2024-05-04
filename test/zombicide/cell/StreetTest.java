@@ -6,24 +6,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.item.Item;
 import zombicide.item.weapons.Axe;
-import zombicide.util.Direction;
-import zombicide.util.Door;
-import zombicide.util.door.North_South_door;
 
 class StreetTest {
 	
 	private Street street;
     private Player player;
-    private Zombies zombie;
+    private Zombie zombie;
     
     @BeforeEach
     void setUp() {
         street = new Street(5, 5);
         player = new Player(8,street,1,6);
-        zombie = new Zombies(8,5,street,1,1);
+        zombie = new Zombie(8,5,street,1,1);
     }
     
     @Test
@@ -44,7 +41,7 @@ class StreetTest {
     
     @Test
     void testAddRemoveZombie() {
-    	Zombies zombie1 = new Zombies(8,5,street,1,1);
+    	Zombie zombie1 = new Zombie(8,5,street,1,1);
     	street.addZombies(zombie);
     	street.addZombies(zombie1);
     	

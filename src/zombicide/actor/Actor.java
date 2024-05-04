@@ -20,6 +20,8 @@ public abstract class Actor {
 	protected boolean isDead;
 		/** id of the Actor*/
 	protected int id;
+
+	protected int maxActionPoint;
 	
 	/**
 	 * Builder of Actor
@@ -35,6 +37,7 @@ public abstract class Actor {
 		this.cell=cell;
 		this.isDead =false;
 		this.id = id;
+		this.maxActionPoint = action_points;
 	}
 	
 	
@@ -88,9 +91,14 @@ public abstract class Actor {
 		this.lifePoints -= damage;
 		if(this.lifePoints <= 0){
 			this.isDead = true;
+			this.consequenceDeath();
 		}
 	}
-	
+
+	/**
+	 * apply de consequence of the death of the actor
+	 */
+	protected abstract void consequenceDeath();
 	
 	
 	/**
@@ -118,7 +126,7 @@ public abstract class Actor {
 	}
 	
 	/**
-	 *Set a cell
+	 *Set a cell to the Actor
 	 *@param cell where the Actor is
 	 */
 	public void setCell(Cell cell) {
@@ -131,4 +139,20 @@ public abstract class Actor {
 	public int getId() {
 		return this.id;
 	}
+
+	/**
+	 * add n to the basic max point
+	 */
+	public void addNMaxActionPoints(int n) {
+		this.maxActionPoint +=n;
+	}
+
+	/**
+	 * get the max action points
+	 * @return the number of the max action points of the actor
+	 */
+	public int getMaxActionPoints() {
+		return this.maxActionPoint;
+	}
 }
+

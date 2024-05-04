@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
 import static org.junit.jupiter.api.Assertions.*;
 import zombicide.actor.zombie.Gigantomachia;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.item.weapons.Weapon;
 import zombicide.util.Direction;
@@ -18,7 +18,7 @@ public class AttackTest {
 	private Attack a;
 	private Player p;
 	private Board b ;
-	private Zombies z;
+	private Zombie z;
 	private TakeInHandAction t;
 	
 	@BeforeEach

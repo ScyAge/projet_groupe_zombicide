@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Gigantomachia;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 
 
 public class AttackZombieTest {
 	private Board b ;
-	private Zombies z;
+	private Zombie z;
 	private AttackZombie a;
 	private Player p;
 	private Player p2;

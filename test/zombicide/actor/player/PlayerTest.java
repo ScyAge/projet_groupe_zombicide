@@ -164,6 +164,7 @@ public class PlayerTest {
         this.testP.setItemInHand(this.testI);
         this.testP.takeDamage(1000);
         assertTrue(this.testCell.getAllItems().size() >= 7);
+        assertTrue(this.testP.isDead());
     }
 
     @Test

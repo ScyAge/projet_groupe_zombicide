@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Walker;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.item.Item;
 import zombicide.item.equipment.*;
 import zombicide.util.Direction;
@@ -25,8 +25,8 @@ public class BoardTest {
 	private Direction d2;
 	private Player p1;
 	private Player p2;
-	private Zombies z1;
-	private Zombies z2;
+	private Zombie z1;
+	private Zombie z2;
 	
 	private List<Item> items;
     @BeforeEach
@@ -52,8 +52,8 @@ public class BoardTest {
 		d2 = Direction.East;
     	p1 = new Player(5,board.getCellBoard(0, 0),5,6);
     	p2 = new Player(5,board.getCellBoard(2, 2),5,6);
-    	z1 = new Zombies(5,2,board.getCellBoard(0, 0),5,5);
-    	z2 = new Zombies(5,2,board.getCellBoard(2, 2),5,5);
+    	z1 = new Zombie(5,2,board.getCellBoard(0, 0),5,5);
+    	z2 = new Zombie(5,2,board.getCellBoard(2, 2),5,5);
     }
 	
     @Test

@@ -5,11 +5,8 @@ import java.util.Random;
 
 import zombicide.actor.Actor;
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Abominations;
-import zombicide.actor.zombie.Broom;
-import zombicide.actor.zombie.Runner;
-import zombicide.actor.zombie.Walker;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.*;
+import zombicide.actor.zombie.Zombie;
 import zombicide.cell.*;
 import zombicide.util.Direction;
 import zombicide.util.Door;
@@ -26,7 +23,7 @@ public class Board {
 	private boolean continentalExist;
     private int xr;
     private List<Item> items;
-	private List<Zombies> listZombie;
+	private List<Zombie> listZombie;
 	private List<Sewer> listSewer;
 	private SpawnPlayers spawnPlayer;
 	private List<Cell> SpecialCell;
@@ -322,7 +319,7 @@ public class Board {
 	 * @param zombie the zombie
 	 * @param direction the direction
 	 */
-	public void moveZombie(Zombies zombie, Direction direction) {
+	public void moveZombie(Zombie zombie, Direction direction) {
         if (canMove(zombie, direction)) {
             int x = zombie.getCurrentCell().getX();
             int y = zombie.getCurrentCell().getY();
@@ -580,7 +577,7 @@ public class Board {
 	 * add a zombie to the list of the zombie
 	 * @param z
 	 */
-	public void addZombieList(Zombies z){
+	public void addZombieList(Zombie z){
 		this.listZombie.add(z);
 	}
 
@@ -588,15 +585,15 @@ public class Board {
 	 * get the list of all zombie in the board
 	 * @return all the zombies
 	 */
-	public List<Zombies> getAllZombies(){
+	public List<Zombie> getAllZombies(){
 		return this.listZombie;
 	}
 
 	/**
 	 * update the list of the zombie if zombies are dead
 	 */
-	public List<Zombies> updateListZombie(){
-		List<Zombies> test = this.listZombie.stream().filter(z -> !z.isDead()).toList();
+	public List<Zombie> updateListZombie(){
+		List<Zombie> test = this.listZombie.stream().filter(z -> !z.isDead()).toList();
 		return test;
 	}
 
@@ -604,13 +601,13 @@ private int compteur =0;
 	/** 
 	 * generate x zombies in this cell 
 	 * @param nb the number of zombies 
-	 * @param Z type of Zombies to spawn 
+	 * @param Z type of Zombie to spawn
 	 */ 
 	public void ProductionZombie(int nb,int LevelTotal) {
 		Random random = new Random();
 		for(Sewer s : this.getAllSewers()) {
 			for (int i = 0; i < nb; i++) {
-				Zombies Z;
+				Zombie Z;
 				int typeZ = random.nextInt(4);
 				if(typeZ ==0) {
 					Z = new Walker(s,compteur++);

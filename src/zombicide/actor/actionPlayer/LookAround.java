@@ -3,7 +3,7 @@ package zombicide.actor.actionPlayer;
 import java.util.List;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
@@ -44,7 +44,7 @@ public class LookAround implements ActionsPlayer {
 		res.append(String.format("Description of the area : %s\n",c.description()));
 		
 		List<Player> players= c.getAllPlayers();
-		List<Zombies> zombies= c.getAllZombies();
+		List<Zombie> zombies= c.getAllZombies();
 		
 		if(!players.isEmpty()) {
 			res.append("Players in this Area : \n");
@@ -53,8 +53,8 @@ public class LookAround implements ActionsPlayer {
 			}
 		}
 		if (!zombies.isEmpty()) {
-			res.append("Zombies in this Area : \n");
-			for(Zombies z: zombies) {
+			res.append("Zombie in this Area : \n");
+			for(Zombie z: zombies) {
 				res.append(String.format("Zombie of id %d\n",z.getId()));
 			}
 		}

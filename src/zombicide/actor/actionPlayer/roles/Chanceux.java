@@ -1,15 +1,9 @@
 package zombicide.actor.actionPlayer.roles;
 
-import java.util.Random;
-
-import zombicide.actor.actionPlayer.ActionsPlayer;
 import zombicide.actor.actionPlayer.Attack;
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
-import zombicide.cell.Cell;
-import zombicide.item.weapons.Weapon;
-import zombicide.util.listchooser.InteractiveListChooser;
 import zombicide.util.listchooser.ListChooser;
 
 /**
@@ -23,7 +17,7 @@ public class Chanceux extends Attack {
 	 * @param chooser the listchooser of the action
 	 * @param b the board of the player
 	 */
-	public Chanceux(ListChooser<Zombies> chooser, Board b) {
+	public Chanceux(ListChooser<Zombie> chooser, Board b) {
 		super(chooser,b);
 	}
 	

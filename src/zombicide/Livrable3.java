@@ -47,7 +47,7 @@ public class Livrable3 {
 			//ajout des zombies dans chaque cell
 			for(int x =0;x< b.getBoard().length;x++) {
 				for(int y =0;y< b.getBoard()[0].length;y++) {
-					Zombies z = new Runner(b.getCellBoard(x, y),x+y);
+					Zombie z = new Runner(b.getCellBoard(x, y),x+y);
 					b.getCellBoard(x, y).addZombies(z);
 				}
 				
@@ -112,15 +112,15 @@ public class Livrable3 {
 			AttackZombie AZ = new AttackZombie();
 			
 			// add des zombie dans une list
-			List<Zombies> Zombies = new ArrayList<>();
+			List<Zombie> Zombie = new ArrayList<>();
 			for(int x =0;x< b.getBoard().length;x++) {
 				for(int y =0;y< b.getBoard()[0].length;y++) {
-					Zombies.addAll(b.getCellBoard(x, y).getAllZombies());
+					Zombie.addAll(b.getCellBoard(x, y).getAllZombies());
 				}
 			}
 
 			//execution des action attaque et move pour chacun des zombie
-			for(Zombies z :Zombies) {
+			for(Zombie z : Zombie) {
 				AZ.action(z);
 				movez.action(z);
 			}

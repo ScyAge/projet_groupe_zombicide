@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test;
 
 import zombicide.cell.Room;
 
-public class ZombiesTest {
+public class ZombieTest {
 	
 	private Room room;
-	private Zombies z1;
-	private Zombies z2;
-	private Zombies z3;
-	private Zombies z4;
-	private Zombies z5;
+	private Zombie z1;
+	private Zombie z2;
+	private Zombie z3;
+	private Zombie z4;
+	private Zombie z5;
 
 	
     @BeforeEach
@@ -79,7 +79,7 @@ public class ZombiesTest {
 		assertEquals(this.z3.toString(),"Runner have 2 life Points");
 		assertEquals(this.z4.toString(),"Broom have 4 life Points");
 		assertEquals(this.z5.toString(),"Abominations have 6 life Points");
-		Zombies z = new Zombies(3,3,this.room,3,3);
+		Zombie z = new Zombie(3,3,this.room,3,3);
 		assertEquals(z.toString(),"Zombie have 3 life Points");
 	}
     

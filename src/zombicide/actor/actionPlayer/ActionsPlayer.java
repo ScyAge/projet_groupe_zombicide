@@ -1,7 +1,6 @@
 package zombicide.actor.actionPlayer;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
 
 /**
  * interface Action Player

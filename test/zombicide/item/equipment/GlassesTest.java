@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
@@ -46,9 +46,9 @@ public class GlassesTest extends EquipmentTest{
 		Player p2 = new Player(3,adjCell2,2,5);
 		Player p3 = new Player(3,adjCell3,3,5);
 		
-		Zombies z1 = new Zombies(5,2,adjCell1,1,5);
-		Zombies z2 = new Zombies(5,2,adjCell2,2,5);
-		Zombies z3 = new Zombies(5,2,adjCell3,3,5);
+		Zombie z1 = new Zombie(5,2,adjCell1,1,5);
+		Zombie z2 = new Zombie(5,2,adjCell2,2,5);
+		Zombie z3 = new Zombie(5,2,adjCell3,3,5);
 		
 		adjCell1.addPlayers(p1);
 		adjCell1.addZombies(z1);
@@ -64,13 +64,13 @@ public class GlassesTest extends EquipmentTest{
 		System.out.println(got);
 		
 		assertTrue(got.contains("Players in cell (1, 0): \nP" + p1.getId()) || got.contains("You can't look in the room"));
-		assertTrue(got.contains("Zombies in cell (1, 0): \nZ" + z1.getId())|| got.contains("You can't look in the room"));
+		assertTrue(got.contains("Zombie in cell (1, 0): \nZ" + z1.getId())|| got.contains("You can't look in the room"));
 		
 		assertTrue(got.contains("Players in cell (1, 2): \nP" + p2.getId())|| got.contains("You can't look in the room"));
-		assertTrue(got.contains("Zombies in cell (1, 2): \nZ" + z2.getId())|| got.contains("You can't look in the room"));
+		assertTrue(got.contains("Zombie in cell (1, 2): \nZ" + z2.getId())|| got.contains("You can't look in the room"));
 		
 		assertTrue(got.contains("Players in cell (0, 1): \nP" + p3.getId()) || got.contains("You can't look in the room"));
-		assertTrue(got.contains("Zombies in cell (0, 1): \nZ" + z3.getId())|| got.contains("You can't look in the room"));
+		assertTrue(got.contains("Zombie in cell (0, 1): \nZ" + z3.getId())|| got.contains("You can't look in the room"));
 	}
 
 	@Test
@@ -83,9 +83,9 @@ public class GlassesTest extends EquipmentTest{
 		Player p2 = new Player(3,adjCell2,2,5);
 		Player p3 = new Player(3,adjCell3,3,5);
 
-		Zombies z1 = new Zombies(5,2,adjCell1,1,5);
-		Zombies z2 = new Zombies(5,2,adjCell2,2,5);
-		Zombies z3 = new Zombies(5,2,adjCell3,3,5);
+		Zombie z1 = new Zombie(5,2,adjCell1,1,5);
+		Zombie z2 = new Zombie(5,2,adjCell2,2,5);
+		Zombie z3 = new Zombie(5,2,adjCell3,3,5);
 
 		adjCell1.addPlayers(p1);
 		adjCell1.addZombies(z1);
@@ -113,9 +113,9 @@ public class GlassesTest extends EquipmentTest{
 		Player p2 = new Player(3,adjCell2,2,5);
 		Player p3 = new Player(3,adjCell3,3,5);
 
-		Zombies z1 = new Zombies(5,2,adjCell1,1,5);
-		Zombies z2 = new Zombies(5,2,adjCell2,2,5);
-		Zombies z3 = new Zombies(5,2,adjCell3,3,5);
+		Zombie z1 = new Zombie(5,2,adjCell1,1,5);
+		Zombie z2 = new Zombie(5,2,adjCell2,2,5);
+		Zombie z3 = new Zombie(5,2,adjCell3,3,5);
 
 		adjCell1.addPlayers(p1);
 		adjCell1.addZombies(z1);
@@ -131,13 +131,13 @@ public class GlassesTest extends EquipmentTest{
 		System.out.println(got);
 
 		assertTrue(got.contains("Players in cell (1, 0): \nP" + p1.getId()) || got.contains("You can't look in the room"));
-		assertTrue(got.contains("Zombies in cell (1, 0): \nZ" + z1.getId())|| got.contains("You can't look in the room"));
+		assertTrue(got.contains("Zombie in cell (1, 0): \nZ" + z1.getId())|| got.contains("You can't look in the room"));
 
 		//for cell (1,2)
 		assertTrue(got.contains("You can't look in the room"));
 
 		assertTrue(got.contains("Players in cell (0, 1): \nP" + p3.getId()) || got.contains("You can't look in the room"));
-		assertTrue(got.contains("Zombies in cell (0, 1): \nZ" + z3.getId())|| got.contains("You can't look in the room"));
+		assertTrue(got.contains("Zombie in cell (0, 1): \nZ" + z3.getId())|| got.contains("You can't look in the room"));
 	}
 	
 }

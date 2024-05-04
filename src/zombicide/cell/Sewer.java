@@ -1,10 +1,6 @@
 package zombicide.cell;
 
-import java.util.Random;
-
-import zombicide.actor.zombie.Walker;
-import zombicide.actor.zombie.Zombies;
-import zombicide.board.Board;
+import zombicide.actor.zombie.Zombie;
 
 /**
  * class of Sewer
@@ -23,9 +19,9 @@ public class Sewer extends Street{
 	/** 
 	 * generate x zombies in this cell 
 	 * @param nb the number of zombies 
-	 * @param Z type of Zombies to spawn 
+	 * @param Z type of Zombie to spawn
 	 */ 
-	public void ProductionZombie(int nb,Zombies Z) {
+	public void ProductionZombie(int nb, Zombie Z) {
 		for (int i = 0; i < nb; i++) {
             this.addZombies(Z);
 		}

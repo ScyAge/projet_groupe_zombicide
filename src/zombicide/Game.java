@@ -5,17 +5,13 @@ import zombicide.actor.actionZombie.ActionZombie;
 import zombicide.actor.actionZombie.AttackZombie;
 import zombicide.actor.actionZombie.MoveZ;
 import zombicide.actor.player.Player;
-import zombicide.actor.zombie.Walker;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
-import zombicide.cell.Sewer;
 import zombicide.item.Item;
 import zombicide.util.listchooser.ListChooser;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Game {
@@ -50,7 +46,7 @@ public class Game {
      *  */
     public boolean areZombiesAllALive() {
     	List<Boolean> test= new ArrayList<>();
-    	for(Zombies z: this.board.getAllZombies()) {
+    	for(Zombie z: this.board.getAllZombies()) {
     		test.add(z.isDead());
     	}
     	Stream<Boolean> res= test.stream().filter(c->!c);
@@ -73,11 +69,12 @@ public class Game {
     	
     	boolean firstRound = true;
     	while((this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30)|| firstRound){
+            this.board.Display();
             //tour des joueurs
     		System.out.println("** Survivor tour");
             this.roundPlayer();
             System.out.println("\n");
-            //Action des Zombies
+            //Action des Zombie
             System.out.println("** Zombie tour");
             this.roundZombie();
     		//update board
@@ -85,6 +82,7 @@ public class Game {
         		this.roundUpdateBoard();
         	}
         	firstRound = false;
+            this.board.Display();
         }
         this.board.Display();
         if(this.AreTheyAllAlive()) {
@@ -114,7 +112,7 @@ public class Game {
             System.out.println("\n");
         }
         for(Player p : this.allPlayers){
-        	p.setAction_points(p.getBasicActionPoints());
+        	p.setAction_points(p.getMaxActionPoints());
         }
     }
 
@@ -124,8 +122,8 @@ public class Game {
     protected void roundZombie(){
         ActionZombie attack = new AttackZombie();
         ActionZombie move = new MoveZ(this.board);
-        List<Zombies> zombies = this.board.updateListZombie();
-        for(Zombies z : zombies){
+        List<Zombie> zombies = this.board.updateListZombie();
+        for(Zombie z : zombies){
             while(z.getAction_points() > 0){
                 if(attack.IsActionPlayable(z)){
                     attack.action(z);
@@ -136,8 +134,8 @@ public class Game {
                 }
             }
         }
-        for(Zombies z : zombies){
-        	z.setAction_points(z.getBasicActionPoint());
+        for(Zombie z : zombies){
+        	z.setAction_points(z.getMaxActionPoints());
         }
     }
 

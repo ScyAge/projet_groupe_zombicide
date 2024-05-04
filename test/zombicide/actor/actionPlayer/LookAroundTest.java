@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Broom;
-import zombicide.actor.zombie.Zombies;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
@@ -14,7 +14,7 @@ public class LookAroundTest {
 
     private Board b;
     private Player p;
-    private Zombies z;
+    private Zombie z;
     private LookAround act;
     @BeforeEach
     public void init(){
