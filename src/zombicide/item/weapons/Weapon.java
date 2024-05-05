@@ -7,7 +7,7 @@ import zombicide.item.*;
 /**
  * class weapons
  */
-public class Weapon extends Item {
+public  class Weapon extends Item {
 	
 
 	/**
@@ -95,5 +95,11 @@ public class Weapon extends Item {
 			return super.equals(i) && (this.noisy == i.noisy) && (this.rangeMax == i.rangeMax) && (this.rangeMin == i.rangeMin) &&(this.threshold == i.threshold) &&(this.nbDice == i.nbDice) &&(this.damage == i.damage);
 		}
 		return false;
+	}
+	
+	/**
+	 * method that prints a description of the weapon */
+	public void weaponDescription() {
+		System.out.println("damageValue="+ this.getDamage()+ ", canBreakDoor="+ this.getBreakDoor());
 	}
 }
