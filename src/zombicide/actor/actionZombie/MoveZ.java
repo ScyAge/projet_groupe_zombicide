@@ -60,11 +60,11 @@ public class MoveZ implements ActionZombie {
 	 */
 	public void action(Zombie z) {
 		Direction d = choiceDirectionNoise(z);
+		int actionPoints= z.getAction_points();
+		z.setAction_points(actionPoints-1);
 		if(d != null) {
 			this.board.moveZombie(z, d);
 		}
-		int actionPoints= z.getAction_points();
-		z.setAction_points(actionPoints-1);
 	}
 
 	@Override

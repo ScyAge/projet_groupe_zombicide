@@ -76,13 +76,15 @@ public class Game {
             System.out.println("\n");
             //Action des Zombie
             System.out.println("** Zombie tour");
-            this.roundZombie();
+            if(this.areZombiesAllALive()) {
+            	this.roundZombie();
+            }
     		//update board
+            System.out.println("** Update Board");
         	if(this.AreTheyAllAlive()&& (this.areZombiesAllALive()|| firstRound)) {
         		this.roundUpdateBoard();
         	}
         	firstRound = false;
-            this.board.Display();
         }
         this.board.Display();
         if(this.AreTheyAllAlive()) {
@@ -113,6 +115,15 @@ public class Game {
         }
         for(Player p : this.allPlayers){
         	p.setAction_points(p.getMaxActionPoints());
+    		if (p.getExpertiseLevel() ==3){
+    			p.addNMaxActionPoints(1);
+    		}
+    		else if(p.getExpertiseLevel() == 7) {
+    			p.addNMaxActionPoints(1);
+    		}
+    		else if(p.getExpertiseLevel() == 11) {
+    			p.addNMaxActionPoints(1);
+    		}
         }
     }
 
