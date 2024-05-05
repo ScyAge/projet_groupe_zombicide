@@ -17,7 +17,7 @@ public class Soigneur implements ActionsPlayer {
 	/**
 	 * Param
 	 */
-	private ListChooser<Player> chooser;
+	private final ListChooser<Player> chooser;
 	/**
 	 * Builder of Soigneur
 	 */
@@ -30,12 +30,10 @@ public class Soigneur implements ActionsPlayer {
 	 * @param chooser list chooser to test
 	 */
 	public Soigneur(ListChooser<Player> chooser){
-		this.chooser = new RandomListChooser<>();
+		this.chooser = chooser;
 	}
-    /**
-     * method that allows a survivor to perform the special action related to its roles
-     * @param p the survivor who use the action
-     */
+
+	@Override
     public void action(Player p) {
 		Cell cellCurrentPlayer = p.getCurrentCell();
 		List<Player> playersToHeal = new ArrayList<>();

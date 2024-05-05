@@ -45,6 +45,7 @@ public class ChanceuxTest {
 	     this.z2= new Broom(this.cell, 2);
 		 this.cell.addZombies(z1);
 		 this.cell.addZombies(z2);
+		 Chanceux bis = new Chanceux(this.board);
 	}
 	
     @Test
@@ -72,4 +73,9 @@ public class ChanceuxTest {
     	assertEquals(z2.getLifePoints(), LP2);
     	
     }
+
+	@Test
+	public void TestToString(){
+		assertEquals(this.action.toString(),"Chanceux action");
+	}
 }

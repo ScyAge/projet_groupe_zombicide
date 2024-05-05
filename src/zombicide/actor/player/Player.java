@@ -70,15 +70,6 @@ public class Player extends Actor{
 	 *  */
 	public void UpOneExpertiseLevel() {
 		this.expertiseLevel += 1;
-		if (this.expertiseLevel ==3){
-			this.addNMaxActionPoints(1);
-		}
-		else if(this.expertiseLevel == 7) {
-			this.addNMaxActionPoints(1);
-		}
-		else if(this.expertiseLevel == 11) {
-			this.addNMaxActionPoints(1);
-		}
 	}
 
 	
@@ -121,9 +112,8 @@ public class Player extends Actor{
 	/**
 	 * take an item from the backpack and place it in the hand of the player
 	 * @param index_of_item the position of the wanted item
-	 * @throws ItemDoesNotExistExeption if there is no Item at the specified position
 	 */
-	public void takeInHandFromBackPack(int index_of_item) throws ItemDoesNotExistExeption{
+	public void takeInHandFromBackPack(int index_of_item){
 		if(this.itemInHand != null){
 			Item temp_main = this.itemInHand;
 			this.setItemInHand(this.takeItemInTheBackPack(index_of_item));

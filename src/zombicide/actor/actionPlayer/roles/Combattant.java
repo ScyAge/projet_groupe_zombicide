@@ -14,7 +14,7 @@ public class Combattant extends Attack{
 	
 	/**
 	 * Builder of Combattant with ListChooser in param to test
-	 * @param chooser the listchooser of the action
+	 * @param chooser the ListChooser of the action
 	 * @param b the board of the combattant
 	 */
 	public Combattant(ListChooser<Zombie> chooser, Board b) {
@@ -30,10 +30,7 @@ public class Combattant extends Attack{
 		super(b);
 	}
 	
-    /**
-     * method that allows a survivor to perform the special action related to its roles
-     * @param p the survivor who use the action
-     */
+
     @Override
     public void action(Player p) {
 		super.attack(p,1);

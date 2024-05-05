@@ -34,14 +34,11 @@ public class TakeInHandAction implements ActionsPlayer {
     @Override
     public void action(Player p) {
          Item item = this.chooser.choose("\"Choose the object you want to take from your bag\"",p.getBackPack());
-         int index = p.getBackPack().indexOf(item);
-         try {
+         if(item != null) {
+             int index = p.getBackPack().indexOf(item);
              p.takeInHandFromBackPack(index);
          }
-         catch (ItemDoesNotExistExeption error){
-             System.out.println("error item does not exist");
-         }
-         int actionPoints= p.getAction_points();
+         int actionPoints = p.getAction_points();
  		 p.setAction_points(actionPoints-1);
     }
 

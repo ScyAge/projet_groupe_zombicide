@@ -63,4 +63,8 @@ public class TakeInHandActionTest {
 
     }
 
+    @Test
+    public void testToString(){
+        assertEquals(this.action.toString(),"TakeInHandAction action");
+    }
 }

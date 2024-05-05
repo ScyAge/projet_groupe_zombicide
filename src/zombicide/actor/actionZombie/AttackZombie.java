@@ -26,7 +26,7 @@ public class AttackZombie implements ActionZombie{
     @Override
     public void action(Zombie z) {
         Cell curent = z.getCurrentCell();
-        if(this.IsActionPlayable(z) && z.getCurrentCell().canLook()){
+        if(this.IsActionPlayable(z)){
 	        List<Player> AllPlayer = curent.getAllPlayers();
 	        if(AllPlayer.size() == 1){
 	            AllPlayer.get(0).takeDamage(z.getDamagePoints());
@@ -47,6 +47,6 @@ public class AttackZombie implements ActionZombie{
      * @param z is the the zombie who use the action
      */
     public boolean IsActionPlayable(Zombie z){
-        return !z.getCurrentCell().getAllPlayers().isEmpty();
+        return !z.getCurrentCell().getAllPlayers().isEmpty() && z.getCurrentCell().canLook();
     }
 }

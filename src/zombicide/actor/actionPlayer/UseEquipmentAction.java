@@ -12,9 +12,7 @@ public class UseEquipmentAction implements ActionsPlayer {
 	/**
 	 * Builder of UseEquipmentAction
 	 */
-	public UseEquipmentAction() {
-		
-	}
+	public UseEquipmentAction() {}
 	
     @Override
     public void action(Player p) {

@@ -65,4 +65,9 @@ public class OpenDoorTest {
         test.addAll(testBis);
         assertTrue(!test.get(0).isBreak() && !test.get(1).isBreak() && !test.get(2).isBreak()&& !test.get(3).isBreak());
     }
+
+    @Test
+    public void testToString(){
+        assertEquals(this.open.toString(),"OpenDoor action");
+    }
 }

@@ -27,10 +27,7 @@ public class Fouineur extends SearchInTRoomAction implements ActionsPlayer {
 	}
 	
 	
-    /**
-     * method that allows a survivor to perform the special action related to its roles
-     * @param p the survivor who use the action
-     */
+    @Override
     public void action(Player p) {
 	 super.action(p);
 	 p.setAction_points(p.getAction_points()+1);
