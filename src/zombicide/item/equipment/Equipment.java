@@ -36,6 +36,10 @@ public abstract class  Equipment extends Item {
 	 * @param p the player who use it
 	 */
 	protected abstract void effectOfTheEquip(Player p);
-
+	
+	
+	/**
+	 * method that print a short description of the equipment's effect*/
+	public abstract void equipmentDescription() ;
 
 }
