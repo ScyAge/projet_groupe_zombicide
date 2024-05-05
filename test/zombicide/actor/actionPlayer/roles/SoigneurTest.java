@@ -26,6 +26,7 @@ public class SoigneurTest {
         this.cell.addPlayers(p1);
         this.cell.addPlayers(p2);
         this.cell.addPlayers(p3);
+        Soigneur bis = new Soigneur();
     }
 
 
@@ -46,5 +47,20 @@ public class SoigneurTest {
         //you have only the choice between the player who have less than their max else
         this.act.action(p1);
         assertTrue(p2.getLifePoints() ==3 ||p3.getLifePoints() ==3);
+    }
+
+    @Test
+    public void TestIsActionPlayable(){
+        //because all the player are full hp
+        assertFalse(this.act.IsActionPlayable(p1));
+        this.p2.takeDamage(1);
+        this.p3.takeDamage(1);
+        assertTrue(this.act.IsActionPlayable(p1));
+
+    }
+
+    @Test
+    public void TestToString(){
+        assertEquals(this.act.toString(),"Soigneur action");
     }
 }
