@@ -144,7 +144,7 @@ public class Attack implements ActionsPlayer{
 
 						if(targetZ.isDead()) {
 							p.UpOneExpertiseLevel();
-							System.out.printf("-[the %s id dead hp you gained a level your now lvl %d]-\n",targetZ.getClass().getSimpleName(),p.getExpertiseLevel());
+							System.out.printf("-[the %s is dead hp you gained a level your now lvl %d]-\n",targetZ.getClass().getSimpleName(),p.getExpertiseLevel());
 						}
 					}
 					else{

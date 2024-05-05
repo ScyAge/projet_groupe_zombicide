@@ -257,7 +257,7 @@ public class Board {
 	 * @param direction the direction
 	 * @return true if the player can go in the direction he wants to go otherwise false
 	 */
-	private boolean canMove(Actor actor, Direction direction){
+	public boolean canMove(Actor actor, Direction direction){
 		int x = actor.getCurrentCell().getX();
 		int y = actor.getCurrentCell().getY();
 		boolean test;

@@ -43,6 +43,10 @@ public class MoveTest {
         assertEquals(board.getCellBoard(0, 0).getAllPlayers(),a);
     }
 
+    @Test
+    public void testToString(){
+        assertEquals(this.move.toString(),"Move action");
+    }
 
 
 
