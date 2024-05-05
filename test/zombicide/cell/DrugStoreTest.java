@@ -25,27 +25,17 @@ class DrugStoreTest {
         healingVial = new HealingVial();;
     }
     
-    @Test
-    void testAddAndGetHealingVial() {
-    	HealingVial healingVial2 = new HealingVial();
-    	
-    	drugStore.addHealingVial(healingVial);
-    	drugStore.addHealingVial(healingVial2);
-    	
-    	assertEquals(2, drugStore.getHealingVials().size());
-    	assertTrue(drugStore.getHealingVials().contains(healingVial));
-    	assertTrue(drugStore.getHealingVials().contains(healingVial2));
-    }
+
 
     @Test
     void testAddPlayer() {
     	assertEquals(0, drugStore.getAllPlayers().size());
-        assertEquals(0, drugStore.getHealingVials().size());
+        assertEquals(0, drugStore.getAllItems().size());
         
         drugStore.addPlayers(player);
         
         assertEquals(1, drugStore.getAllPlayers().size());
-        assertEquals(1, drugStore.getHealingVials().size());
+        assertEquals(1, drugStore.getAllItems().size());
     }
 }
 

@@ -43,7 +43,6 @@ public abstract class Cell {
 	public static final String colorBlue = "\u001B[34m" ;
 	
 	private final boolean canSpawnInCell;
-	
 	/**
 	 * Constructor of the class Cell
 	 *
