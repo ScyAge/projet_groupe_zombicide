@@ -61,7 +61,7 @@ public class FirstAidKitTest extends EquipmentTest{
 		assertEquals(lp , this.player.getLifePoints() );
 
 	}
-
+	@Test
 	public void equalsTest() {
 		assertNotEquals(this.firstAidKit,this.board);
 		assertEquals(this.firstAidKit,this.board);
