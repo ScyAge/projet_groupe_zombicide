@@ -19,8 +19,6 @@ public class Board {
 
 	/** composition of board */
 	protected Cell[][] board;
-	private boolean drugStoreExist;
-	private boolean continentalExist;
     private int xr;
     private List<Item> items;
 	private List<Zombie> listZombie;
@@ -46,8 +44,6 @@ public class Board {
 	 */
 	public Board(int height, int width,List<Item> items) {
 		this.board = new Cell[width][height];
-		this.drugStoreExist=false;
-		this.continentalExist=false;
 		this.listZombie = new ArrayList<>();
 		this.listSewer= new ArrayList<>();
 		this.spawnPlayer =null ;
@@ -104,19 +100,22 @@ public class Board {
 			initBoardBis(X+1, xf, Y+1, yf,false);
 			if (sewer){
 				Sewer s1 = new Sewer(xd, Y);
+				s1.getDoor(Direction.North).SetNotBreakble();
 				this.board[xd][Y] = s1;
 				this.listSewer.add(s1);
 
 				Sewer s2 =  new Sewer(xf-1, Y);
+				s2.getDoor(Direction.South).SetNotBreakble();
 				this.board[xf-1][Y] = s2;
 				this.listSewer.add(s2);
-
 				Sewer s3 =  new Sewer(X, yd);
+				s3.getDoor(Direction.West).SetNotBreakble();
 				this.board[X][yd] = s3;
 				this.listSewer.add(s3);
 
 
 				Sewer s4= new Sewer(X, yf-1);
+				s4.getDoor(Direction.East).SetNotBreakble();
 				this.board[X][yf-1] = s4;
 				this.listSewer.add(s4);
 
@@ -169,9 +168,9 @@ public class Board {
 
 	private void addDrugStoreAndContinentalInBuilding(int i , int j) {
         Random random = new Random() ;
-		if(!continentalExist || !drugStoreExist ) {
+		if(this.SpecialCell.size() >0) {
         	int X= random.nextInt(xr);
-			if(X==0 && this.SpecialCell.size() >0) {
+			if(X==0) {
 				int Y= random.nextInt(this.SpecialCell.size());
 				Cell c = this.SpecialCell.get(Y);
 				c.setX(i);
