@@ -30,10 +30,7 @@ public class Chanceux extends Attack {
 		super(b);
 	}
 	
-    /**
-     * method that allows a survivor to perform the special action related to its roles
-     * @param p the survivor who use the action
-     */
+
     @Override
     public void action(Player p) {
     	super.attack(p, 0);
