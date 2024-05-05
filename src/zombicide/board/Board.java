@@ -282,6 +282,24 @@ public class Board {
 	}
 
 	/**
+	 * method for determining whether a door can be broken in one direction
+	 * @param direction the direction of the door
+	 * @param actor the actor that want to break a door
+	 * @return a boolean if he can break this door
+	 */
+	public boolean canBreakDoor(Direction direction,Actor actor){
+		Cell cell =  actor.getCurrentCell();
+		Door door = cell.getDoor(direction);
+		//if the door is unBreakable it means that your are at a border of the board so there is no cell after
+		if(door.isBreakable()){
+			return !door.isBreak() || !this.getCellDirection(direction,actor).getDoor(Direction.oppose(direction)).isBreak();
+		}
+		return false;
+	}
+
+
+
+	/**
 	 * move the actor in the direction
 	 * @param player the player
 	 * @param direction the direction
