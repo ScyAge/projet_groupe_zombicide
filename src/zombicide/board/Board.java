@@ -618,8 +618,7 @@ public class Board {
 private int compteur =0;
 	/** 
 	 * generate x zombies in this cell 
-	 * @param nb the number of zombies 
-	 * @param Z type of Zombie to spawn
+	 * @param nb the number of zombies
 	 */ 
 	public void ProductionZombie(int nb,int LevelTotal) {
 		Random random = new Random();
