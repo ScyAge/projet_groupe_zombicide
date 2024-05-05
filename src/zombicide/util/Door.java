@@ -6,8 +6,8 @@ package zombicide.util;
  */
 public abstract class Door {
 
+	/**Param Door*/
 	private boolean Breakable;
-	
 	private boolean Break; 
 	
 	/**
@@ -26,6 +26,7 @@ public abstract class Door {
 	public void SetNotBreakble() {
 		this.Breakable = false;
 	}
+	
 	/**
 	 * return true if we can break the door and else false
 	 * @return true if we can break the door and else false
@@ -33,6 +34,7 @@ public abstract class Door {
 	public boolean isBreakable() {
 		return this.Breakable;
 	}
+	
 	/**
 	 * return true if the door is break and else false
 	 * @return true if the door is break and else false
@@ -49,6 +51,7 @@ public abstract class Door {
 			this.Break = true;
 		}
 	}
+	
 	/**
 	 * Close the door
 	 */
