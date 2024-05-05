@@ -68,6 +68,12 @@ public class Zombie extends Actor {
     public String toString() {
         return String.format("%s have %d life Points",this.getClass().getSimpleName(),this.lifePoints);
     }
+    
+    /**
+     * prints the status of the zombie*/
+    public void zombieStatus() {
+    	System.out.println("Zombie"+ this.getId()+ " lifePoints="+ this.getLifePoints());
+    }
 
 
 }
