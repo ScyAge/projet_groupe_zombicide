@@ -74,8 +74,11 @@ public class MoveZ implements ActionZombie {
 	}
 
 	@Override
-	public boolean IsActionPlayable(Zombie z) {
-		Cell c = z.getCurrentCell();
-		return (c.getDoor(Direction.North).isBreak() ||c.getDoor(Direction.South).isBreak() ||c.getDoor(Direction.East).isBreak() ||c.getDoor(Direction.West).isBreak());
+	public boolean IsActionPlayable(Zombie zombie) {
+		List<Boolean> directionCanMove = new ArrayList<>();
+		for(Direction direct : Direction.values()) {
+			directionCanMove.add(this.board.canMove(zombie,direct));
+		}
+		return directionCanMove.contains(true);
 	}
 }

@@ -11,12 +11,12 @@ public interface ActionZombie {
      * Execute an action of the zombie
      * @param z a zombie
      */
-    public void action(Zombie z);
+    void action(Zombie z);
 
     /**
      * Test if a zombie can execute the action
      * @param z a zombie
      * @return the result of the test
      */
-    public boolean IsActionPlayable(Zombie z);
+    boolean IsActionPlayable(Zombie z);
 }
