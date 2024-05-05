@@ -15,4 +15,9 @@ public class MockItem extends Item{
     public void ItemEffect(Player player) {
         return;
     }
+    
+    @Override
+    public String itemDescription() {
+    	return "";
+    }
 }
