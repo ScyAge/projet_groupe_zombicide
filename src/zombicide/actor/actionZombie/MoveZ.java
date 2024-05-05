@@ -1,9 +1,14 @@
 package zombicide.actor.actionZombie;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
+import zombicide.util.listchooser.ListChooser;
+import zombicide.util.listchooser.RandomListChooser;
 
 /**
  * Class Move implementation  of ActionZombie
@@ -36,20 +41,20 @@ public class MoveZ implements ActionZombie {
 		return res;
 	}
 	
-	private Direction choiceDirectionNoise(Zombie z) {
-		Direction d = null;
+	private List<Direction> choiceDirectionNoise(Zombie z) {
+		List<Direction> d = new ArrayList<>();
 		Cell c = choiceCellNoise(); 
 		if(z.getCurrentCell().getX()> c.getX() && this.board.getCellBoard(z.getCurrentCell().getX()-1,z.getCurrentCell().getY()).getDoor(Direction.South).isBreak()) {
-			d = Direction.North;
+			d.add(Direction.North) ;
 		}
 		else if(z.getCurrentCell().getX()< c.getX() && this.board.getCellBoard(z.getCurrentCell().getX()+1,z.getCurrentCell().getY()).getDoor(Direction.North).isBreak()) {
-			d = Direction.South;
+			d.add(Direction.South);
 		}
 		else if(z.getCurrentCell().getY()< c.getY() && this.board.getCellBoard(z.getCurrentCell().getX(),z.getCurrentCell().getY()+1).getDoor(Direction.West).isBreak()) {
-			d = Direction.East;
+			d.add(Direction.East);
 		}
 		else if(z.getCurrentCell().getY()> c.getY() && this.board.getCellBoard(z.getCurrentCell().getX(),z.getCurrentCell().getY()-1).getDoor(Direction.East).isBreak()) {
-			d = Direction.West;
+			d.add(Direction.West);
 		}
 		return d;
 	}
@@ -59,7 +64,8 @@ public class MoveZ implements ActionZombie {
 	 * @param z zombies who want to move
 	 */
 	public void action(Zombie z) {
-		Direction d = choiceDirectionNoise(z);
+		ListChooser<Direction> l = new RandomListChooser<Direction>();
+		Direction d = l.choose("choose the direction", this.choiceDirectionNoise(z));
 		int actionPoints= z.getAction_points();
 		z.setAction_points(actionPoints-1);
 		if(d != null) {
