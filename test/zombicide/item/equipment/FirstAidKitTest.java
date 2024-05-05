@@ -62,5 +62,9 @@ public class FirstAidKitTest extends EquipmentTest{
 
 	}
 
+	public void equalsTest() {
+		assertNotEquals(this.firstAidKit,this.board);
+		assertEquals(this.firstAidKit,this.board);
+	}
 	
 }
