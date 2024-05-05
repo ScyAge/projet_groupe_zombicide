@@ -10,6 +10,7 @@ import zombicide.actor.zombie.Broom;
 import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
+import zombicide.cell.Continental;
 import zombicide.cell.Room;
 import zombicide.cell.Street;
 import zombicide.exeption.ItemDoesNotExistExeption;
@@ -196,24 +197,33 @@ public class PlayerTest {
         actions.add(a7);
 
         //creation of a player
-        Player p = new Player(3, b.getCellBoard(1, 1), 3, 5, actions);
+        Player p = new Player(3, b.getCellBoard(2, 1), 3, 5, actions);
 
         assertEquals(p.getAllAction(), actions);
 
-        //no item in room no zombie no item in backpack and no door are break so these action can't be in the list and its a room
+        //only Move , lookAround and MakeNoise are in the list because the condition for the other action are not complete
         List<ActionsPlayer> actionsPlayers = p.getActionOfThePlayer();
-        assertFalse(actionsPlayers.contains(a1));
+        assertTrue(actionsPlayers.contains(a1));
         assertFalse(actionsPlayers.contains(a2));
         assertFalse(actionsPlayers.contains(a3));
+        assertFalse(actionsPlayers.contains(a4));
+        assertTrue(actionsPlayers.contains(a5));
+        assertTrue(actionsPlayers.contains(a6));
         assertFalse(actionsPlayers.contains(a7));
 
         //if the room contain a zombie and an item the actione SearchInRoom and attack are here
-        b.getCellBoard(1, 1).addZombies(new Broom(b.getCellBoard(1, 1), 1));
-        b.getCellBoard(1, 1).addItem(new Axe());
+        p.setCell(b.getCellBoard(1,0));
+        b.getCellBoard(1, 0).addZombies(new Broom(b.getCellBoard(1, 0), 1));
+        b.getCellBoard(1, 0).addItem(new Axe());
         p.setItemInHand(new Axe());
         List<ActionsPlayer> actionsPlayers2 = p.getActionOfThePlayer();
         assertTrue(actionsPlayers2.contains(a3));
-        assertTrue(actionsPlayers2.contains(a7));
+        if(b.getCellBoard(1, 0) instanceof Continental){
+            assertFalse(actionsPlayers2.contains(a7));
+        }
+        else{
+            assertTrue(actionsPlayers2.contains(a7));
+        }
 
     }
 

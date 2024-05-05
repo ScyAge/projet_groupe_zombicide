@@ -34,7 +34,7 @@ public class ChanceuxTest {
 		 this.chooser = new RandomListChooser<>();
 		 this.board = new TrainingBoard();
 		 this.board.initBoard();
-	     this.cell = this.board.getCellBoard(0,1);
+	     this.cell = this.board.getCellBoard(0,2);
 	     this.player = new Player(3,this.cell,1,5);
 	  
 	     this.cell.addPlayers(this.player);
