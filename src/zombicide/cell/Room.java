@@ -9,6 +9,7 @@ import zombicide.util.door.*;
  */
 public class Room extends Cell {
 	
+	
 	/** Constructor for the Class Room
 	 * @param x coordinates of the cell
 	 * @param y coordinates of the cell

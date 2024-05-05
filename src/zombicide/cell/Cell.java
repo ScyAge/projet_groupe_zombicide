@@ -13,7 +13,7 @@ import zombicide.item.*;
 public abstract class Cell {
 	
 	
-	
+	/**Param of Cell */
 	private final List<Player> players;
 	private final List<Zombie> zombies;
 	private  int x;
@@ -43,6 +43,7 @@ public abstract class Cell {
 	public static final String colorBlue = "\u001B[34m" ;
 	
 	private final boolean canSpawnInCell;
+	
 	/**
 	 * Constructor of the class Cell
 	 *
