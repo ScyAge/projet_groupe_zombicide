@@ -46,6 +46,7 @@ public class CombattantTest {
 	     this.z2= new Walker(this.cell, 2);
 		 this.cell.addZombies(z1);
 		 this.cell.addZombies(z2);
+		 Combattant bis = new Combattant(this.board);
 	}
 	
     @Test
@@ -70,5 +71,8 @@ public class CombattantTest {
     	assertTrue(LP1-1== z1.getLifePoints() || LP2-1== z2.getLifePoints());
     	assertTrue(z1.isDead()||z2.isDead());
     }
-	
+	@Test
+	public void TestToString(){
+		assertEquals(this.action.toString(),"Combattant action");
+	}
 }
