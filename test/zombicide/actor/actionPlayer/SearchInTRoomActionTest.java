@@ -87,4 +87,9 @@ public class SearchInTRoomActionTest {
 
         assertTrue(testItem.containsAll(testItemAfterAction));
     }
+
+    @Test
+    public void testToString(){
+        assertEquals(this.act.toString(),"SearchInRoomAction action");
+    }
 }
