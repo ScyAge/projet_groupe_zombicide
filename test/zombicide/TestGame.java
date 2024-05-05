@@ -75,4 +75,15 @@ public class TestGame {
         assertFalse(this.game.AreTheyAllAlive());
 
     }
+    
+    @Test 
+    public void totalXPTest() {
+    	assertEquals(4, this.game.totalXP());
+    	p1.UpOneExpertiseLevel();
+    	p2.UpOneExpertiseLevel();
+    	p2.UpOneExpertiseLevel();
+    	assertEquals(7,this.game.totalXP());
+    	
+    }
+    
 }
