@@ -97,9 +97,9 @@ public  class Weapon extends Item {
 		return false;
 	}
 	
-	/**
-	 * method that prints a description of the weapon */
-	public void weaponDescription() {
-		System.out.println("damageValue="+ this.getDamage()+ ", canBreakDoor="+ this.getBreakDoor());
+	@Override
+	public String itemDescription() {
+		String res= "damageValue="+ this.getDamage()+ ", canBreakDoor="+ this.getBreakDoor();
+		return res;
 	}
 }

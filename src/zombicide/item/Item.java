@@ -106,4 +106,8 @@ public abstract class Item implements Cloneable{
 		}
 		return false;
 	}
+	
+	/**
+	 * method that prints a short description of the item effect*/
+	public abstract String itemDescription();
 }

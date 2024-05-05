@@ -111,7 +111,8 @@ public class Glasses extends Equipment {
 	}
 	
 	@Override
-	public void equipmentDescription() {
-		System.out.println("see through walls");
+	public String itemDescription() {
+		String res="see through walls";
+		return res;
 	}
 }

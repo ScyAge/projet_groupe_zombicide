@@ -107,7 +107,8 @@ public class MapCard extends Equipment{
 	}
 	
 	@Override
-	public void equipmentDescription() {
-		System.out.println("allows you to visualize the entire city and the actors");
+	public String itemDescription() {
+		String res=("allows you to visualize the entire city and the actors");
+		return res;
 	}
 }

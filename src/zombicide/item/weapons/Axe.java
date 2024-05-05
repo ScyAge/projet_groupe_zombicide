@@ -40,4 +40,5 @@ public class Axe extends Weapon{
     public Axe(){
         super(Max_Range_Axe,Min_Range_Axe, Damage_Axe, Threshold_Axe, BreakDoor_Axe, Noisy_Axe, nbDice_Axe);
     }
+    
 }

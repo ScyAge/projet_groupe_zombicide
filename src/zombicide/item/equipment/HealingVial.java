@@ -23,8 +23,9 @@ public class HealingVial extends Equipment{
 	}
 	
 	@Override
-	public void equipmentDescription() {
-		System.out.println("gain a lifePoint");
+	public String itemDescription() {
+		String res= ("gain a lifePoint");
+		return res;
 	}
 
 }

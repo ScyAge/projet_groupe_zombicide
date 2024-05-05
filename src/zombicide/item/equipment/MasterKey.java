@@ -77,7 +77,8 @@ public class MasterKey extends Equipment {
 	}
 	
 	@Override
-	public void equipmentDescription() {
-		System.out.println("Opens a door in the chosen direction ");
+	public String itemDescription() {
+		String res= ("Opens a door in the chosen direction ");
+		return res;
 	}
 }

@@ -62,7 +62,8 @@ public class FirstAidKit extends Equipment {
 	}
 	
 	@Override
-	public void equipmentDescription() {
-		System.out.println("heal one of the survivors in your zone");
+	public String itemDescription() {
+		String res=("heal one of the survivors in your zone");
+		return res;
 	}
 }

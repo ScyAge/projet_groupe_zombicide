@@ -38,8 +38,6 @@ public abstract class  Equipment extends Item {
 	protected abstract void effectOfTheEquip(Player p);
 	
 	
-	/**
-	 * method that print a short description of the equipment's effect*/
-	public abstract void equipmentDescription() ;
+	
 
 }
