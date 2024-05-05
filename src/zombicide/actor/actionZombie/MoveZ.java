@@ -24,9 +24,12 @@ public class MoveZ implements ActionZombie {
 	public MoveZ(Board board){
 		this.board = board;
 	}
-	
 
 
+	/**
+	 * method that returns the noisiest cell from the board
+	 * @return the cell
+	 */
 	private Cell choiceCellNoise() {
 		int NoiseMax = -1 ;
 		Cell res =null;
@@ -40,7 +43,12 @@ public class MoveZ implements ActionZombie {
 		}
 		return res;
 	}
-	
+
+	/**
+	 * a method that returns a list of Direction the zombie can take to get to the noisiest cell
+	 * @param z the  zombie
+	 * @return Directions
+	 */
 	private List<Direction> choiceDirectionNoise(Zombie z) {
 		List<Direction> d = new ArrayList<>();
 		Cell c = choiceCellNoise(); 
