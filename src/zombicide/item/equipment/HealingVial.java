@@ -21,5 +21,10 @@ public class HealingVial extends Equipment{
 	public void effectOfTheEquip(Player player) {
 		player.setLifePoints(1);
 	}
+	
+	@Override
+	public void equipmentDescription() {
+		System.out.println("gain a lifePoint");
+	}
 
 }

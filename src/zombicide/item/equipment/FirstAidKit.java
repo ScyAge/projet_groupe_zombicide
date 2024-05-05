@@ -60,5 +60,9 @@ public class FirstAidKit extends Equipment {
 		}
 		return false;
 	}
-
+	
+	@Override
+	public void equipmentDescription() {
+		System.out.println("heal one of the survivors in your zone");
+	}
 }

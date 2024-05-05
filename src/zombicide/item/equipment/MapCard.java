@@ -105,4 +105,9 @@ public class MapCard extends Equipment{
 		}
 		return false;
 	}
+	
+	@Override
+	public void equipmentDescription() {
+		System.out.println("allows you to visualize the entire city and the actors");
+	}
 }

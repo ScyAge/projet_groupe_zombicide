@@ -75,4 +75,9 @@ public class MasterKey extends Equipment {
 		}
 		return false;
 	}
+	
+	@Override
+	public void equipmentDescription() {
+		System.out.println("Opens a door in the chosen direction ");
+	}
 }

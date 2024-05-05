@@ -109,4 +109,9 @@ public class Glasses extends Equipment {
 		}
 		return false;
 	}
+	
+	@Override
+	public void equipmentDescription() {
+		System.out.println("see through walls");
+	}
 }
