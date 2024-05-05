@@ -139,5 +139,8 @@ public class GlassesTest extends EquipmentTest{
 		assertTrue(got.contains("Players in cell (0, 1): \nP" + p3.getId()) || got.contains("You can't look in the room"));
 		assertTrue(got.contains("Zombie in cell (0, 1): \nZ" + z3.getId())|| got.contains("You can't look in the room"));
 	}
-	
+	public void equalsTest() {
+		assertNotEquals(this.glasses,this.board);
+		assertEquals(this.glasses,this.board);
+	}
 }
