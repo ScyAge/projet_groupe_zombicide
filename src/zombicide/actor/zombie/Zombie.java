@@ -66,12 +66,14 @@ public class Zombie extends Actor {
      * @return Affichage of Zombie
      */
     public String toString() {
-        return String.format("%s have %d life Points",this.getClass().getSimpleName(),this.lifePoints);
+    	Cell c= this.getCurrentCell();
+        return String.format("%s has %d life Points and is at the cell (%d,%d)",this.getClass().getSimpleName(),this.lifePoints, c.getX(), c.getY());
     }
     
     /**
      * prints the status of the zombie*/
     public void zombieStatus() {
+    	
     	System.out.println("Zombie"+ this.getId()+ " lifePoints="+ this.getLifePoints());
     }
 
