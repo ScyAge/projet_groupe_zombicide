@@ -68,8 +68,21 @@ public class Game {
     	this.board.Display();
     	
     	boolean firstRound = true;
+    	
     	while((this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30)|| firstRound){
             this.board.Display();
+            //Status des acteurs
+            System.out.println("** Status of actors ");
+            for(Player p: this.allPlayers ) {
+            	p.playerStatus();
+            }
+            System.out.println("\n");
+            
+            for(Zombie z: this.board.getAllZombies()) {
+            	z.zombieStatus();
+            }
+            System.out.println("\n"+ "\n");
+          
             //tour des joueurs
     		System.out.println("** Survivor tour");
             this.roundPlayer();
