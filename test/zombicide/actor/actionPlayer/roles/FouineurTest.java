@@ -50,4 +50,8 @@ public class FouineurTest {
         assertEquals(this.p.getAction_points(), acp);
     }
 
+    @Test
+    public void TestToString(){
+        assertEquals(this.act.toString(),"Fouineur action");
+    }
 }
