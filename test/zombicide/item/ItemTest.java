@@ -55,10 +55,10 @@ public abstract class ItemTest {
 
     @Test
     public void TestEquals(){
-       MockItem test = new MockItem();
-       assertEquals(this.mi, test);
+       Item test = this.createItem();
+       assertEquals(this.i, test);
        Cell cell = new Room(5,5);
-       assertNotEquals(this.mi,cell);
+       assertNotEquals(this.i,cell);
 
     }
 }

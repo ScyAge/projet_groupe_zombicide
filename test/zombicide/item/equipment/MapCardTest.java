@@ -15,18 +15,17 @@ public class MapCardTest extends EquipmentTest{
     private Item i;
     private Player p;
     private Cell cell;
-    private Board b;
+    private static final Board b = new TrainingBoard();
 
 
     @Override
     protected Equipment createEquip() {
-        return new MapCard(this.b);
+        return new MapCard(b);
     }
 
     @BeforeEach
     public void initM(){
-        this.b = new TrainingBoard();
-        this.b.initBoard();
+        b.initBoard();
         this.cell = b.getCellBoard(2,2);
         this.p = new Player(3,this.cell,3,5);
         this.i = new MapCard(b);
@@ -62,4 +61,5 @@ public class MapCardTest extends EquipmentTest{
             System.out.println(System.err);
         }
     }
+
 }
