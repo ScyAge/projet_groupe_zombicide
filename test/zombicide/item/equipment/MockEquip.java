@@ -13,4 +13,9 @@ public class MockEquip extends Equipment{
     protected void effectOfTheEquip(Player p) {
         this.applyCalled +=1;
     }
+    
+    @Override
+    public String itemDescription() {
+    	return "";
+    }
 }
