@@ -85,7 +85,7 @@ public  class Weapon extends Item {
 
 	@Override
 	public void ItemEffect(Player player) {
-		this.Used();
+		return;
 	}
 
 	@Override

@@ -35,7 +35,7 @@ public class Glasses extends Equipment {
 	
 	
 	/**
-	 *return the actors that are in adjacent cells to the player's cell
+	 * return the actors that are in adjacent cells to the player's cell
 	 * @param p the player who use the item
 	 * @return players and zombies id in the adjacent cells
 	 * */
@@ -68,7 +68,8 @@ public class Glasses extends Equipment {
 	}
 
 
-    /** gives the list of adjacent cells to the cell with the given coordinates
+    /** 
+     * gives the list of adjacent cells to the cell with the given coordinates
 	 * @param x the horizontal coordinate of the cell
 	 * @param y the vertical coordinate of the cell
 	 * @return a list of the adjacent cells
@@ -96,7 +97,8 @@ public class Glasses extends Equipment {
 	 * tells whether the cell with the given coordinates is valid or not
 	 * @param x the horitontal coordinate of the cell
 	 * @param y the vertical coordinate of the cell
-	 * @return true if the coordinates are valid, and false if not*/
+	 * @return true if the coordinates are valid, and false if not
+	 * */
 	private boolean isValidCell(int x, int y) {
 		return x>=0 && x<this.board.getBoard().length && y>=0 && y< this.board.getBoard()[0].length;
 	}
