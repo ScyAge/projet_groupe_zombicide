@@ -37,6 +37,13 @@ class HealingVialTest extends EquipmentTest{
         testHV.ItemEffect(this.testP);
         assertEquals(4, this.testP.getLifePoints()); // ne peut pas dépassé ses pv max
     }
+    
+    @Test
+	public void itemDescriptionTest() {
+		String expected = "gain a lifePoint";
+		String res= this.testHV.itemDescription();
+		assertEquals(expected, res);
+	}
 
 
 }

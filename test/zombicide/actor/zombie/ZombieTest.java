@@ -74,13 +74,13 @@ public class ZombieTest {
 	}
 	@Test
 	public void testToString(){
-		assertEquals(this.z1.toString(),"Gigantomachia have 1000 life Points");
-		assertEquals(this.z2.toString(),"Walker have 1 life Points");
-		assertEquals(this.z3.toString(),"Runner have 2 life Points");
-		assertEquals(this.z4.toString(),"Broom have 4 life Points");
-		assertEquals(this.z5.toString(),"Abominations have 6 life Points");
+		assertEquals(this.z1.toString(),"Gigantomachia has 1000 life Points and is at the cell (1,1)");
+		assertEquals(this.z2.toString(),"Walker has 1 life Points and is at the cell (1,1)");
+		assertEquals(this.z3.toString(),"Runner has 2 life Points and is at the cell (1,1)");
+		assertEquals(this.z4.toString(),"Broom has 4 life Points and is at the cell (1,1)");
+		assertEquals(this.z5.toString(),"Abominations has 6 life Points and is at the cell (1,1)");
 		Zombie z = new Zombie(3,3,this.room,3,3);
-		assertEquals(z.toString(),"Zombie have 3 life Points");
+		assertEquals(z.toString(),"Zombie has 3 life Points and is at the cell (1,1)");
 	}
     
     

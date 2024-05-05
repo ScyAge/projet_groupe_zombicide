@@ -63,4 +63,10 @@ public class FirstAidKitTest extends EquipmentTest{
 	}
 
 	
+	@Test
+	public void itemDescriptionTest() {
+		String expected = "heal one of the survivors in your zone";
+		String res= this.firstAidKit.itemDescription();
+		assertEquals(expected, res);
+	}
 }

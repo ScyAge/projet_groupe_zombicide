@@ -23,8 +23,7 @@ public class MasterKeyTest extends EquipmentTest{
     private Cell cell;
     private Player p;
 	private static final ListChooser<Direction> chooser = new RandomListChooser<>();
-
-	private MasterKey masterkey2;
+    private MasterKey masterkey2;
 
 	@Override
 	protected Equipment createEquip() {
@@ -68,5 +67,12 @@ public class MasterKeyTest extends EquipmentTest{
 		}
 		this.masterkey.ItemEffect(this.p);
 		assertTrue(this.masterkey.isUsed());
+	}
+
+	@Test
+	public void itemDescriptionTest() {
+		String expected = "Opens a door in the chosen direction ";
+		String res= this.masterkey.itemDescription();
+		assertEquals(expected, res);
 	}
 }
