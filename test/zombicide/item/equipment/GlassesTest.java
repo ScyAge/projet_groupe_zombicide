@@ -145,4 +145,11 @@ public class GlassesTest extends EquipmentTest{
 		assertNotEquals(this.glasses,this.board);
 		assertEquals(this.glasses,this.board);
 	}
+	
+	@Test 
+	public void itemDescriptionTest() {
+		String expected= "see through walls";
+		String res= this.glasses.itemDescription();
+		assertEquals(expected, res);
+	}
 }

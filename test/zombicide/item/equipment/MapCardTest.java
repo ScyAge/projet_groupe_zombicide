@@ -62,4 +62,11 @@ public class MapCardTest extends EquipmentTest{
             System.out.println(System.err);
         }
     }
+    
+    @Test
+	public void itemDescriptionTest() {
+		String expected = "allows you to visualize the entire city and the actors";
+		String res= this.i.itemDescription();
+		assertEquals(expected, res);
+	}
 }

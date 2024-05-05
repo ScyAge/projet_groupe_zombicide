@@ -23,7 +23,6 @@ public class MasterKeyTest extends EquipmentTest{
     private Player p;
 	private ListChooser<Direction> chooser;
 
-	private MasterKey masterkey2;
 
 	@Override
 	protected Equipment createEquip() {
@@ -36,7 +35,6 @@ public class MasterKeyTest extends EquipmentTest{
 		this.board.initBoard();
 		this.chooser = new RandomListChooser<>();
 		this.masterkey= new MasterKey(chooser, board);
-		this.masterkey2= new MasterKey(board);
         this.cell = this.board.getCellBoard(1,1);
         this.p= new Player(1,this.cell, 0,0);
         
@@ -69,5 +67,12 @@ public class MasterKeyTest extends EquipmentTest{
 		}
 		this.masterkey.ItemEffect(this.p);
 		assertTrue(this.masterkey.isUsed());
+	}
+	
+	@Test
+	public void itemDescriptionTest() {
+		String expected = "Opens a door in the chosen direction ";
+		String res= this.masterkey.itemDescription();
+		assertEquals(expected, res);
 	}
 }
