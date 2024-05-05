@@ -222,4 +222,12 @@ public class Player extends Actor{
 		}
 		return res;
 	}
+	
+	/**
+	 * prints the status of the player */
+	public void playerStatus() {
+		Item item=this.getItemInHand();
+		String description = item.itemDescription();
+		System.out.println("Player"+ this.getId()+ " lifePoints="+ this.getLifePoints()+ ", expertiseLevel="+ this.getExpertiseLevel()+ ", inHands="+( item == null ?"null": (item+ "["+ description+"]")));
+	}
 }
