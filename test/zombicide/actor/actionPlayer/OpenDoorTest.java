@@ -26,7 +26,7 @@ public class OpenDoorTest {
     public void init(){
         this.b = new TrainingBoard();
         this.b.initBoard();
-        this.p = new Player(3,b.getCellBoard(1,1),1,5);
+        this.p = new Player(3,b.getCellBoard(0,0),1,5);
         this.open = new OpenDoor(new RandomListChooser<>(),this.b);
         this.cassePorte = new Axe();
         this.p.setItemInHand(this.cassePorte);
@@ -64,6 +64,18 @@ public class OpenDoorTest {
         List<Door> test = new ArrayList<>();
         test.addAll(testBis);
         assertTrue(!test.get(0).isBreak() && !test.get(1).isBreak() && !test.get(2).isBreak()&& !test.get(3).isBreak());
+    }
+    
+
+    @Test
+    public void TestOpenDoorInStreet(){
+    	Player p1 = new Player(3,b.getCellBoard(1,1),1,5);
+    	open.action(p1);
+    	open.action(p1);
+    	open.action(p1);
+    	open.action(p1);
+    	assertTrue(b.getCellBoard(2, 1).getAllZombies().isEmpty()&&b.getCellBoard(1, 2).getAllZombies().isEmpty());
+    	
     }
 
     @Test
