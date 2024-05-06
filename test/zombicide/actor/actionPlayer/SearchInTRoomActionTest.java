@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
+import zombicide.cell.DrugStore;
 import zombicide.item.Item;
 import zombicide.item.equipment.FirstAidKit;
 import zombicide.item.weapons.*;
@@ -49,10 +50,19 @@ public class SearchInTRoomActionTest {
         testItem.addAll(this.p.getBackPack());
         testItem.addAll(this.cell.getAllItems());
 
-        assertEquals(2, this.cell.getAllItems().size());
-        this.act.action(this.p);
-        assertEquals(1, this.cell.getAllItems().size());
-        assertTrue(this.p.getBackPack().contains(wp1)||this.p.getBackPack().contains(wp2));
+
+        if(this.cell instanceof DrugStore) {
+            assertEquals(3, this.cell.getAllItems().size());
+            this.act.action(this.p);
+            assertEquals(2, this.cell.getAllItems().size());
+            assertTrue(this.p.getBackPack().contains(wp1) || this.p.getBackPack().contains(wp2));
+        }
+        else {
+            assertEquals(2, this.cell.getAllItems().size());
+            this.act.action(this.p);
+            assertEquals(1, this.cell.getAllItems().size());
+            assertTrue(this.p.getBackPack().contains(wp1) || this.p.getBackPack().contains(wp2));
+        }
 
         //test de la coherence des item present dans la cell et dans le sac
         List<Item> testItemAfterAction = new ArrayList<>();
@@ -74,11 +84,22 @@ public class SearchInTRoomActionTest {
         testItem.addAll(this.p.getBackPack());
         testItem.addAll(this.cell.getAllItems());
 
-        assertEquals(2, this.cell.getAllItems().size());
-        this.act.action(this.p);
-        //echange d'un item du sac avec un item de la room
-        assertEquals(2, this.cell.getAllItems().size());
-        assertTrue(this.p.getBackPack().contains(wp1)||this.p.getBackPack().contains(wp2));
+
+        if(this.cell instanceof DrugStore){
+            assertEquals(3, this.cell.getAllItems().size());
+            this.act.action(this.p);
+            //echange d'un item du sac avec un item de la room
+            assertEquals(3, this.cell.getAllItems().size());
+            assertTrue(this.p.getBackPack().contains(wp1)||this.p.getBackPack().contains(wp2) ||this.p.getBackPack().contains(this.p.getBackPack().get(0)));
+        }
+        else{
+            assertEquals(2, this.cell.getAllItems().size());
+            this.act.action(this.p);
+            //echange d'un item du sac avec un item de la room
+            assertEquals(2, this.cell.getAllItems().size());
+            assertTrue(this.p.getBackPack().contains(wp1)||this.p.getBackPack().contains(wp2));
+        }
+
 
         //test de la coherence des item present dans la cell et dans le sac
         List<Item> testItemAfterAction = new ArrayList<>();

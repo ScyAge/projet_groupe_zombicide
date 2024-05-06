@@ -15,7 +15,7 @@ import zombicide.util.listchooser.ListChooser;
 import zombicide.util.listchooser.RandomListChooser;
 
 public class FirstAidKitTest extends EquipmentTest{
-	private static final ListChooser<Player> chooser = new RandomListChooser<>();;
+	private static final ListChooser<Player> chooser = new RandomListChooser<>();
 	private Player player;
 	private Board board;
 	private Cell cell;
@@ -62,9 +62,11 @@ public class FirstAidKitTest extends EquipmentTest{
 
 	}
 
-	public void equalsTest() {
-		assertNotEquals(this.firstAidKit,this.board);
-		assertEquals(this.firstAidKit,this.board);
-	}
 	
+	@Test
+	public void itemDescriptionTest() {
+		String expected = "heal one of the survivors in your zone";
+		String res= this.firstAidKit.itemDescription();
+		assertEquals(expected, res);
+	}
 }

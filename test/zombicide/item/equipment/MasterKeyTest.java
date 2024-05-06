@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import zombicide.actor.player.Player;
+import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.cell.Cell;
 import zombicide.util.Direction;
@@ -18,26 +19,23 @@ import zombicide.util.listchooser.RandomListChooser;
 public class MasterKeyTest extends EquipmentTest{
 	
 	private MasterKey masterkey;
-	private TrainingBoard board;
+	private static final Board board = new TrainingBoard();
     private Cell cell;
     private Player p;
-	private ListChooser<Direction> chooser;
-
-	private MasterKey masterkey2;
+	private static final ListChooser<Direction> chooser = new RandomListChooser<>();
+    private MasterKey masterkey2;
 
 	@Override
 	protected Equipment createEquip() {
-		return new MasterKey(this.chooser,board);
+		return new MasterKey(chooser,board);
 	}
 
 	@BeforeEach
     public void initMast(){
-		this.board = new TrainingBoard();
-		this.board.initBoard();
-		this.chooser = new RandomListChooser<>();
+		board.initBoard();
 		this.masterkey= new MasterKey(chooser, board);
 		this.masterkey2= new MasterKey(board);
-        this.cell = this.board.getCellBoard(1,1);
+        this.cell = board.getCellBoard(1,1);
         this.p= new Player(1,this.cell, 0,0);
         
 	}
@@ -48,10 +46,10 @@ public class MasterKeyTest extends EquipmentTest{
 		this.masterkey.effectOfTheEquip(this.p);
 		assertTrue(this.cell.getDoor(Direction.North).isBreak()|| this.cell.getDoor(Direction.South).isBreak() || 
 				this.cell.getDoor(Direction.East).isBreak() || this.cell.getDoor(Direction.West).isBreak());
-		Door nordOposeDoor = this.board.getCellDirection(Direction.North,this.p).getDoor(Direction.South);
-		Door southOposeDoor = this.board.getCellDirection(Direction.South,this.p).getDoor(Direction.North);
-		Door EastOposeDoor = this.board.getCellDirection(Direction.East,this.p).getDoor(Direction.West);
-		Door WestOposeDoor = this.board.getCellDirection(Direction.West,this.p).getDoor(Direction.East);
+		Door nordOposeDoor = board.getCellDirection(Direction.North,this.p).getDoor(Direction.South);
+		Door southOposeDoor = board.getCellDirection(Direction.South,this.p).getDoor(Direction.North);
+		Door EastOposeDoor = board.getCellDirection(Direction.East,this.p).getDoor(Direction.West);
+		Door WestOposeDoor = board.getCellDirection(Direction.West,this.p).getDoor(Direction.East);
 		assertTrue(nordOposeDoor.isBreak() || southOposeDoor.isBreak() || EastOposeDoor.isBreak() || WestOposeDoor.isBreak());
 	}
 
@@ -69,5 +67,12 @@ public class MasterKeyTest extends EquipmentTest{
 		}
 		this.masterkey.ItemEffect(this.p);
 		assertTrue(this.masterkey.isUsed());
+	}
+
+	@Test
+	public void itemDescriptionTest() {
+		String expected = "Opens a door in the chosen direction ";
+		String res= this.masterkey.itemDescription();
+		assertEquals(expected, res);
 	}
 }

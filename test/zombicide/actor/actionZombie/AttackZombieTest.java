@@ -24,18 +24,18 @@ public class AttackZombieTest {
 	void setUp() {
 		b = new Board(5,5);
 		this.b.initBoard();
-		z = new Gigantomachia(b.getCellBoard(0, 0),1);
-		p = new Player(1,b.getCellBoard(0, 0),1,5);
-		p2 = new Player(1,b.getCellBoard(0, 0),1,5);
+		z = new Gigantomachia(b.getCellBoard(2, 0),1);
+		p = new Player(1,b.getCellBoard(2, 0),1,5);
+		p2 = new Player(1,b.getCellBoard(2, 0),1,5);
 		a = new AttackZombie();
-		b.getCellBoard(0, 0).addZombies(z);
+		b.getCellBoard(2, 0).addZombies(z);
 	}
 	
 	@Test
 	public void actionTest() {
 		a.action(z);
 		assertEquals(p.getLifePoints(),1);
-		b.getCellBoard(0, 0).addPlayers(p);
+		b.getCellBoard(2, 0).addPlayers(p);
 		a.action(z);
 		assertEquals(p.getLifePoints(),-999);
 		assertTrue(p.isDead());
@@ -44,8 +44,8 @@ public class AttackZombieTest {
 	
 	@Test
 	public void action2PlayersTest() {
-		b.getCellBoard(0, 0).addPlayers(p);
-		b.getCellBoard(0, 0).addPlayers(p2);
+		b.getCellBoard(2, 0).addPlayers(p);
+		b.getCellBoard(2, 0).addPlayers(p2);
 		a.action(z);
 		assertTrue(p.getLifePoints() == -999 || p2.getLifePoints() == -999 );
 	}

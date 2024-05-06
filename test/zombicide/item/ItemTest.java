@@ -53,7 +53,13 @@ public abstract class ItemTest {
         assertEquals(this.mi.getBreakDoor(),MockItem.breakDoor);
     }
 
+    @Test
+    public void TestEquals(){
+       Item test = this.createItem();
+       assertEquals(this.i, test);
+       Cell cell = new Room(5,5);
+       assertNotEquals(this.i,cell);
 
-
+    }
 }
 

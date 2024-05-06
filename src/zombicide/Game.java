@@ -53,6 +53,10 @@ public class Game {
     	return res.toList().contains(false);
     }
     
+    
+    /**
+     * method that gives the total of expertiseLevel of all players 
+     * @return totalExpertiseLevel*/
     public int totalXP() {
     	int totalExpertiseLevel = 0;
     	for(Player p: this.allPlayers) {

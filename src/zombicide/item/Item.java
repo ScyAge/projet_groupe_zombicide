@@ -17,7 +17,13 @@ public abstract class Item implements Cloneable{
 	 */
 	protected boolean breakDoor;
 
+	/**
+	 * if the item is noisy
+	 */
 	protected boolean noisy;
+	/**
+	 * if the item can attack
+	 */
 	protected boolean canAttack;
 	/**
 	 * Builder of Item
@@ -38,7 +44,6 @@ public abstract class Item implements Cloneable{
 	 * */
 	public boolean isUsed() {
 		return this.Use;
-		
 	}
 	
 	/**

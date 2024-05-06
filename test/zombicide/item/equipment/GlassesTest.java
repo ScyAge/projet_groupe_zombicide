@@ -17,30 +17,29 @@ public class GlassesTest extends EquipmentTest{
 	
 	private Glasses glasses;
 	private Player player;
-	private Board board;
+	private static final Board board = new TrainingBoard();
 	private Cell cell;
 
 
 	@Override
 	protected Equipment createEquip() {
-		return new Glasses(this.board);
+		return new Glasses(board);
 	}
 
 	@BeforeEach
 	public void initG() {
-        this.board = new TrainingBoard();
-		this.board.initBoard();
-        this.cell = this.board.getCellBoard(1,1);
+		board.initBoard();
+        this.cell = board.getCellBoard(1,1);
         this.player= new Player(3,cell,0,5);
         this.cell.addPlayers(player);
-        this.glasses= new Glasses(this.board);
+        this.glasses= new Glasses(board);
 	}
 	
 	@Test
 	public void TestActorsAround() {
-		Cell adjCell1 = this.board.getCellBoard(1, 0);
-		Cell adjCell2 = this.board.getCellBoard(1, 2);
-		Cell adjCell3 = this.board.getCellBoard(0, 1);
+		Cell adjCell1 = board.getCellBoard(1, 0);
+		Cell adjCell2 = board.getCellBoard(1, 2);
+		Cell adjCell3 = board.getCellBoard(0, 1);
 		
 		Player p1 = new Player(3, adjCell1,1,5);
 		Player p2 = new Player(3,adjCell2,2,5);
@@ -75,9 +74,9 @@ public class GlassesTest extends EquipmentTest{
 
 	@Test
 	public void TestEffectOfTheEquip() {
-		Cell adjCell1 = this.board.getCellBoard(1, 0);
-		Cell adjCell2 = this.board.getCellBoard(1, 2);
-		Cell adjCell3 = this.board.getCellBoard(0, 1);
+		Cell adjCell1 = board.getCellBoard(1, 0);
+		Cell adjCell2 = board.getCellBoard(1, 2);
+		Cell adjCell3 = board.getCellBoard(0, 1);
 
 		Player p1 = new Player(3, adjCell1,1,5);
 		Player p2 = new Player(3,adjCell2,2,5);
@@ -103,11 +102,11 @@ public class GlassesTest extends EquipmentTest{
 
 	@Test
 	public void TestActorsAroundWithContinentalNear(){
-		this.board.getBoard()[1][2] = new Continental(1,2);
+		board.getBoard()[1][2] = new Continental(1,2);
 
-		Cell adjCell1 = this.board.getCellBoard(1, 0);
-		Cell adjCell2 = this.board.getCellBoard(1, 2);
-		Cell adjCell3 = this.board.getCellBoard(0, 1);
+		Cell adjCell1 = board.getCellBoard(1, 0);
+		Cell adjCell2 = board.getCellBoard(1, 2);
+		Cell adjCell3 = board.getCellBoard(0, 1);
 
 		Player p1 = new Player(3, adjCell1,1,5);
 		Player p2 = new Player(3,adjCell2,2,5);
@@ -139,8 +138,13 @@ public class GlassesTest extends EquipmentTest{
 		assertTrue(got.contains("Players in cell (0, 1): \nP" + p3.getId()) || got.contains("You can't look in the room"));
 		assertTrue(got.contains("Zombie in cell (0, 1): \nZ" + z3.getId())|| got.contains("You can't look in the room"));
 	}
-	public void equalsTest() {
-		assertNotEquals(this.glasses,this.board);
-		assertEquals(this.glasses,this.board);
+
+
+	@Test
+	public void itemDescriptionTest() {
+		String expected= "see through walls";
+		String res= this.glasses.itemDescription();
+		assertEquals(expected, res);
 	}
+
 }

@@ -132,7 +132,14 @@ public class WeaponsTest extends ItemTest {
         }
 
     }
-    
+
+
+    @Test
+	public void itemDescriptionTest() {
+		String expected = "damageValue=1, canBreakDoor=false";
+		String res= this.w.itemDescription();
+		assertEquals(expected, res);
+	}
     
 }
 
