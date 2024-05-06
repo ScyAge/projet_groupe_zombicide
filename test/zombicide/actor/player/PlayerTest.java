@@ -13,7 +13,6 @@ import zombicide.cell.Cell;
 import zombicide.cell.Continental;
 import zombicide.cell.Room;
 import zombicide.cell.Street;
-import zombicide.exeption.ItemDoesNotExistExeption;
 import zombicide.item.Item;
 import zombicide.item.weapons.*;
 
@@ -60,7 +59,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void takeItemInTheBackPack() throws ArrayIndexOutOfBoundsException, ItemDoesNotExistExeption {
+    public void takeItemInTheBackPack() throws ArrayIndexOutOfBoundsException {
         //on remplit le sac
         for (int i = 0; i < 6; i++) {
             this.testP.putItemInBackPack(this.testI);
@@ -71,7 +70,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void takeItemInTheBackPackOutOfBoundExept() throws ArrayIndexOutOfBoundsException, ItemDoesNotExistExeption {
+    public void takeItemInTheBackPackOutOfBoundExept() throws ArrayIndexOutOfBoundsException {
         //on remplit le sac
         for (int i = 0; i < 6; i++) {
             this.testP.putItemInBackPack(this.testI);
@@ -90,7 +89,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void TestTakeInHandFromBackPack() throws ItemDoesNotExistExeption {
+    public void TestTakeInHandFromBackPack() {
         this.testP.putItemInBackPack(this.testI);
         this.testP.takeInHandFromBackPack(0);
         assertEquals(this.testP.getItemInHand(), this.testI);
@@ -98,7 +97,7 @@ public class PlayerTest {
     }
 
     @Test
-    public void TestTakeInHandFromBackPackIfAnItemIsAlreadyInYourHand() throws ItemDoesNotExistExeption {
+    public void TestTakeInHandFromBackPackIfAnItemIsAlreadyInYourHand(){
         Item testI2 = new Gun();
         this.testP.setItemInHand(testI2);
         this.testP.putItemInBackPack(this.testI);

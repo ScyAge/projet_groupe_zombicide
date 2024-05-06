@@ -132,7 +132,13 @@ public class WeaponsTest extends ItemTest {
         }
 
     }
-
+    
+    @Test
+    public void TestItemEffect() {
+    	assertEquals(false, this.w.isUsed());
+    	this.w.ItemEffect(p);
+    	assertEquals(false, this.w.isUsed());
+    }
 
     @Test
 	public void itemDescriptionTest() {
