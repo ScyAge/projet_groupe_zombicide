@@ -53,10 +53,10 @@ public  class Weapon extends Item {
 	}
 
 	
-	/**gives the range of the given weapon
+	/**gives the maximum range of the given weapon
 	 * @return range of the weapon 
 	 * */
-	public int getRange() {
+	public int getMaxRange() {
 		return this.rangeMax;
 	}
 	/**gives the min range of the given weapon
