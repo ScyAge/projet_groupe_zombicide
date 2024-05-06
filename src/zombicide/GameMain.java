@@ -34,11 +34,19 @@ import zombicide.util.listchooser.RandomListChooser;
 public class GameMain {
 	
 	public static void main(String[] args) {
-		int size = 5;
-		if(args.length> 0) {
-			size = Integer.parseInt(args[0]);
+		int height = 5;
+		int withd  = 5;
+		if(args.length> 0 && args.length< 3) {
+			if(args.length == 1){
+				height = Integer.parseInt(args[0]);
+				withd = Integer.parseInt(args[0]);
+			}
+			else {
+				height = Integer.parseInt(args[0]);
+				withd = Integer.parseInt(args[1]);
+			}
 		}
-		Board b = new Board(size,size);
+		Board b = new Board(height,withd);
 		//init items
 		List<Item> items = new ArrayList<>();
 		Item Kit = new FirstAidKit(new RandomListChooser<>());
