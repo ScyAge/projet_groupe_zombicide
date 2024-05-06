@@ -275,7 +275,7 @@ maintenant lors de la création de l'objet board le plateau n'est pas généré 
 puis de lancer `initBoard` qui permet de générer le plateau, car c'est cette méthode qui lors de la creation d'une cellule lance la méthode `placeItemAlea` qui permet de mettre ou non 1 à 3 item dans la pièce.
 
 La méthode `placeItemAlea` nous a poussé à rajouter quelque chose dans nos items, c'est l'interface Cloneable ainsi que la méthode clone et des tests de clone associé afin de pouvoir copier un item de la list d'item et de le mettre dans la cellule sans que les objets soient les memes, ce qui veut dire que nous n'avons aucune garantie que tous les objets soient présents lors d'une partie vu qu'ils sont choisis aléatoirement lors du placement.
-Attention la copie est seulement de surface en effet tous les attributs primitifs sont copiés son le meme mais les objets aussi ce qui nous permet de toujours avoir le meme board dans tous nos Item
+Attention la copie est seulement en surface, en effet tous les attributs primitifs sont copiés et donc identique idem pour les attributs qui sont des objets les objets, à noter que les attributs représentés par les objets ne sont pas cloné , ce qui permet de garder une coherence au niveau du Board par exemple 
 
 
 Nous avons donc créé le premier `GameMain` (non interactif). 
@@ -288,14 +288,14 @@ Grâce à l'ajout de ces deux `main` nous avons pu tester dans des conditions r�
 - Le placement des cellules `Sewer` qui avait de mauvaises coordonnées lors de leur création.
 - l'ajout d'une `MapCard` dans le sac à dos lors du spawn d'un joueur. 
 
-Bref tous ces problèmes nous ont mené à verifier l'intégralité du projet fichier par fichier afin de repérer de potentielles améliorations, mais aussi de corrigé du bug en tout genre, améliorer les documentations:
+Bref tous ces problèmes nous ont mené à verifier l'intégralité du projet fichier par fichier afin de repérer de potentielles améliorations, mais aussi de corrigé du bug en tout genre, améliorer les documentations :
 
 - Notamment trois fichiers qui ont été central dans l'amélioration du code `OpenDoor` , `Move` et `Attack`. Ces fichiers avaient tous les trois quelque chose en commun : une méthode a rallonge et en plus incompréhensible
-Donc une réécriture de ces méthodes ainsi qu'un usage plus méthodique des méthodes du `Board ` nous ont permis de simplifier grandement leur écriture, avec moins de boucle, de cascade d'if etc.
+Donc une réécriture de ces méthodes ainsi qu'un usage plus méthodique des méthodes du `Board ` nous ont permis de simplifier grandement leur écriture, avec moins de boucle, de cascade d'if, etc.
 Cela nous a fait particulièrement rajouter la méthode `canBreakDoor` dans le `Board` qui a simplifé le code de `OpenDoor`.
 
 - Dans ce genre d'amélioration, l'implémentation de certaines classes a été renouvelée notamment `Equipement` qui s'est vu devenir abstraite avec l'ajout de la méthode `effectOfTheEquip`.
-Cet ajout permet de renforcer la sécurité de la création d'un nouvel equipement qui le force a créer cette méthode qui sera ensuite appelée dans la methode `ItemEffect` qui est elle même implémentée via `Item`
+Cet ajout permet de renforcer la sécurité de la création d'un nouvel équipement qui le force à créer cette méthode qui sera ensuite appelée dans la methode `ItemEffect` qui est elle-même implémentée via `Item`
 
 - Une implémentation similaire a été réalisée dans `Actor`, `Player` et `Zombie` avec l'ajout de `consequenceOfDeath` qui permet de gérer spécifiquement le cas de la mort pour chaque Acteur sans répétition de code,
 particulièrement avec une belle utilisation du lookUp dans la partie des Zombies avec l'abomination et le Broom qui définissent un comportement différent de la méthode `takeDamage` qui appelle sa méthode qui vient de la super classe (à voir par vous-même). 
@@ -305,12 +305,12 @@ particulièrement avec une belle utilisation du lookUp dans la partie des Zombie
 Ce Livrable a été aussi l'occasion d'expérimenter quelque chose dans les tests notamment ceux du package item :
 
 - L'utilisation d'heritage dans les classes de test et l'ajout de factory methode : qui permet dans le cas de chacune des classes héritant d'item de tester si leur implémentation fonctionne aussi avec les tests d'item
-- Mais aussi l'utilisation de Mock qui nous a permis de tester des méthodes qui utilisent des methodes abstraites dans leur code afin de vérifier que l'appel était bien réalisé ou encore des tests de getter et setter pour augmenter le coverage
+- Mais aussi l'utilisation de Mock qui nous a permis de tester des méthodes qui utilisent des méthodes abstraites dans leur code afin de vérifier que l'appel était bien réalisé ou encore des tests de getter et setter pour augmenter le coverage
 
 
 Suite au changement que nous avons aussi annoncé lors du livrable précédent, nous avons :
 - amélioré l'affichage lors des différents tours du jeu, ainsi qu'à l'execution des actions. Ce qui aide à une meilleure comprehension lors des différents moments du jeu
-- Maintenant l'ajout des pieces dites spéciales est générique dans le cas de potentielle extension des cell
+- Maintenant l'ajout des pièces dites spéciales est générique dans le cas de potentielle extension des cell
 - Pour l'ajout optimal des actions rien n'a été changé, car l'ajout des actions est fait par nous meme 
 
 Certains comportements ont été ajoutés :
@@ -326,7 +326,7 @@ Nous avons réalisé tout ce que le sujet nous demandait.
 
 ### Difficultés restant à résoudre
 
-Nous avons plus avons terminer le jeu donc dans un sens il nous reste plus réellement de difficulté à résoudre
+Ce n'est pas demandé dans le sujet de base, mais il aurait été cool de pouvoir essayer de faire un ajout dynamique des actions pour chacun des survivants
 
 
 ### Commande de Génération et de compilation
@@ -369,7 +369,7 @@ make run_no_jar_automatique
 
 
 ### Diagramme UML
-<img src="uml/umlLivrable3.png"/>
+<img alt="uml4" src="uml/umlLivrable4.png"/>
 
 # Journal de bord
 
