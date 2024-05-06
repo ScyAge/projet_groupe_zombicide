@@ -11,7 +11,10 @@ import zombicide.cell.Cell;
 import zombicide.util.Direction;
 
 public class LookAroundTest {
-
+	
+	public static final String colorPink= "\u001B[38;5;213m";
+	
+	public static final String colorWhite = "\u001B[0m" ;
     private Board b;
     private Player p;
     private Zombie z;
@@ -34,10 +37,10 @@ public class LookAroundTest {
         this.b.BreakDoor(Direction.North,1,1);
         this.b.BreakDoor(Direction.West,1,1);
         String res = this.act.display(this.p);
-        assertTrue(res.contains("Player of id 1"));
-        assertTrue(res.contains("Zombie of id 1"));
-        assertTrue(res.contains("the door at the direction North is opened"));
-        assertTrue(res.contains("the door at the direction West is opened"));
+        assertTrue(res.contains("Player 1"));
+        assertTrue(res.contains("Zombie 1"));
+        assertTrue(res.contains("the door at the direction "+ colorPink+"North"+ colorWhite +" is opened"));
+        assertTrue(res.contains("the door at the direction "+ colorPink+"West"+ colorWhite +" is opened"));
 
 
     }
@@ -49,9 +52,9 @@ public class LookAroundTest {
         this.b.BreakDoor(Direction.West,0,2);
         this.act.action(p);
         String res = this.act.display(p);
-        assertTrue(res.contains("Player of id 3"));
-        assertTrue(res.contains("the door at the direction South is opened"));
-        assertTrue(res.contains("the door at the direction West is opened"));
+        assertTrue(res.contains("Player 3"));
+        assertTrue(res.contains("the door at the direction " +colorPink+"South"+ colorWhite+" is opened"));
+        assertTrue(res.contains("the door at the direction " +colorPink+"West"+ colorWhite+" is opened"));
     }
     @Test
     public void testToString(){
