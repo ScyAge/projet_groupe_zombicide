@@ -108,4 +108,30 @@ public class TestGame {
     	
     }
     
+    @Test
+    public void roundUpdateBoardTest() {
+    	ActionsPlayer makeNoise = new MakeNoise();
+    	int totNoise=0;
+    	makeNoise.action(p1);
+		for(int i = 0 ; i < this.b.getBoard().length ; i++){
+			for(int j = 0; j < this.b.getBoard()[0].length; j++){
+				totNoise+= this.b.getCellBoard(i, j).getNoise();
+			}
+		}
+		assertFalse(0==totNoise);
+		
+		int nbZ= this.b.getAllZombies().size();
+		this.game.roundUpdateBoard();
+		totNoise=0;
+		for(int i = 0 ; i < this.b.getBoard().length ; i++){
+			for(int j = 0; j < this.b.getBoard()[0].length; j++){
+				totNoise+= this.b.getCellBoard(i, j).getNoise();
+			}
+		}
+		int nbZ_after= this.b.getAllZombies().size();
+		assertEquals(0,totNoise);
+		assertTrue(nbZ_after>nbZ);
+		
+		
+    }
 }
