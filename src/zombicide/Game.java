@@ -113,7 +113,7 @@ public class Game {
 	/**
      * method that play the round for all the player in the game
      */
-    protected void roundPlayer() {
+    private void roundPlayer() {
         for(Player p : this.allPlayers){
         	System.out.println("I am player "+p.getId());
             while(p.getAction_points() > 0){
@@ -143,7 +143,7 @@ public class Game {
     /**
      * method that play the round for all the zombie on the board
      */
-    protected void roundZombie(){
+    private void roundZombie(){
         ActionZombie attack = new AttackZombie();
         ActionZombie move = new MoveZ(this.board);
         List<Zombie> zombies = this.board.updateListZombie();
@@ -177,7 +177,7 @@ public class Game {
     /**
      * Multiplies zombies across all sewer cells on the board based on the average expertise level of all players.
      */
-    protected void multiplyZombies() {
+    private void multiplyZombies() {
     	int totalExpertiseLevel = this.totalXP();
     	int averageExpertiseLevel = totalExpertiseLevel/this.allPlayers.size();
     	
