@@ -84,7 +84,7 @@ public class SearchInTRoomActionTest {
         testItem.addAll(this.p.getBackPack());
         testItem.addAll(this.cell.getAllItems());
 
-
+        
         if(this.cell instanceof DrugStore){
             assertEquals(3, this.cell.getAllItems().size());
             this.act.action(this.p);

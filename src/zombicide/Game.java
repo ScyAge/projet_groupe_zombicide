@@ -182,7 +182,7 @@ public class Game {
     	int averageExpertiseLevel = totalExpertiseLevel/this.allPlayers.size();
     	
     	int nbZombiesToAdd = (int) Math.ceil(averageExpertiseLevel/3.0);   
-    	this.board.ProductionZombie(nbZombiesToAdd,totalExpertiseLevel);
+    	this.board.ProductionZombie(nbZombiesToAdd);
     	
     }
 

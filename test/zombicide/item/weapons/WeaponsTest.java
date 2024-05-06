@@ -42,7 +42,7 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testGetter() {
         assertEquals(1, w.getDamage());
-        assertEquals(1, w.getRange());
+        assertEquals(1, w.getMaxRange());
         assertEquals(4, w.getThreshold());
         assertFalse(w.getBreakDoor());
         assertFalse(w.isUsed());
@@ -51,7 +51,7 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testGun() {
         wTest = new Gun();
-        assertEquals(1, wTest.getRange());
+        assertEquals(1, wTest.getMaxRange());
         assertEquals(0, wTest.getMinRange());
         assertEquals(1, wTest.getDamage());
         assertEquals(4, wTest.getThreshold());
@@ -63,7 +63,7 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testCrowbar() {
         wTest = new Crowbar();
-        assertEquals(0, wTest.getRange());
+        assertEquals(0, wTest.getMaxRange());
         assertEquals(0, wTest.getMinRange());
         assertEquals(1, wTest.getDamage());
         assertEquals(4, wTest.getThreshold());
@@ -75,7 +75,7 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testChainsaw() {
         wTest = new Chainsaw();
-        assertEquals(0, wTest.getRange());
+        assertEquals(0, wTest.getMaxRange());
         assertEquals(0, wTest.getMinRange());
         assertEquals(3, wTest.getDamage());
         assertEquals(5, wTest.getThreshold());
@@ -87,7 +87,7 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testCarabine() {
         wTest = new Carabine();
-        assertEquals(3, wTest.getRange());
+        assertEquals(3, wTest.getMaxRange());
         assertEquals(1, wTest.getMinRange());
         assertEquals(1, wTest.getDamage());
         assertEquals(4, wTest.getThreshold());
@@ -99,7 +99,7 @@ public class WeaponsTest extends ItemTest {
     @Test
     public void testAxe() {
         wTest = new Axe();
-        assertEquals(0, wTest.getRange());
+        assertEquals(0, wTest.getMaxRange());
         assertEquals(0, wTest.getMinRange());
         assertEquals(2, wTest.getDamage());
         assertEquals(4, wTest.getThreshold());
@@ -132,7 +132,13 @@ public class WeaponsTest extends ItemTest {
         }
 
     }
-
+    
+    @Test
+    public void TestItemEffect() {
+    	assertEquals(false, this.w.isUsed());
+    	this.w.ItemEffect(p);
+    	assertEquals(false, this.w.isUsed());
+    }
 
     @Test
 	public void itemDescriptionTest() {

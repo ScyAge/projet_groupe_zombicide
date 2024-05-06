@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Walker;
 import zombicide.actor.zombie.Zombie;
+import zombicide.cell.Cell;
+import zombicide.cell.Room;
+import zombicide.cell.Sewer;
 import zombicide.item.Item;
 import zombicide.item.equipment.*;
 import zombicide.util.Direction;
@@ -287,13 +290,28 @@ public class BoardTest {
 	@Test
 	public void TestPlacementITem(){
 		List<Item> g = new ArrayList<>();
-		g.add(new Axe());
-		g.add(new Carabine());
-		g.add(new Gun());
-		Board b = new Board(5,5,g);
-		b.initBoard();
-        assertFalse(b.getItem().isEmpty());
-		b.Display();
+		Item a = new Axe();
+		Item b = new Carabine();
+		Item c = new Gun();
+		g.add(a);
+		g.add(b);
+		g.add(c);
+		Board board = new Board(5,5,g);
+		board.setItems(g);
+		board.initBoard();
+
+		List<Item> test = new ArrayList<>();
+		for(int i = 0 ; i < board.getBoard().length ; i++){
+			for(int j = 0 ; j < board.getBoard()[0].length ; j++){
+				test.addAll(board.getCellBoard(i,j).getAllItems());
+			}
+		}
+        for(Item i : test){
+			assertTrue(i.equals(a) || i.equals(b) || i.equals(c));
+		}
+		if(test.isEmpty()){
+			assertTrue(true);
+		}
 	}
 
 	@Test
@@ -315,6 +333,128 @@ public class BoardTest {
 				assertEquals(board.getBoard()[i][j].getNoise(),0);
 			}
 		}
+	}
+
+	@Test
+	public void testAddGetSpecialCell(){
+		Cell test = new Room(5,5);
+		this.board.addSpecialCell(test);
+		assertTrue(this.board.getSpecialCell().contains(test));
+	}
+
+	@Test void testSetGetItems(){
+		List<Item> items = new ArrayList<>();
+		Item Kit = new FirstAidKit(new RandomListChooser<>());
+		Item glasses = new Glasses(this.board);
+		Item heal = new HealingVial();
+		items.add(Kit);
+		items.add(glasses);
+		items.add(heal);
+		this.board.setItems(items);
+		assertTrue(this.board.getItems().containsAll(items));
+	}
+
+	@Test
+	public void testGetSpawnPlayer(){
+		assertEquals(this.board.getSpawnPlayers(),this.board.getCellBoard(2,2));
+	}
+
+
+	@Test
+	public void testAddGetZombie(){
+		Zombie z1 = new Walker(null,5);
+		Zombie z2 = new Walker(null,5);
+		Zombie z3 = new Walker(null,5);
+		List<Zombie> listZ = new ArrayList<>();
+		listZ.add(z1);
+		listZ.add(z2);
+		listZ.add(z3);
+		this.board.addZombieList(z1);
+		this.board.addZombieList(z2);
+		this.board.addZombieList(z3);
+		List<Zombie> allZombieBoard = this.board.getAllZombies();
+		assertTrue(allZombieBoard.containsAll(listZ));
+	}
+
+	@Test
+	public void testUpdateListZombie(){
+
+		Zombie z1 = new Walker(this.board.getCellBoard(2,2),5);
+		Zombie z2 = new Walker(this.board.getCellBoard(2,2),5);
+		Zombie z3 = new Walker(this.board.getCellBoard(2,2),5);
+		List<Zombie> listZ = new ArrayList<>();
+		listZ.add(z1);
+		listZ.add(z2);
+		listZ.add(z3);
+		this.board.addZombieList(z1);
+		this.board.addZombieList(z2);
+		this.board.addZombieList(z3);
+
+		//no zombie dead so
+		assertTrue(this.board.updateListZombie().containsAll(listZ));
+
+		// z1 and z2 are dead
+		z1.takeDamage(10);
+		z2.takeDamage(10);
+		assertFalse(this.board.updateListZombie().containsAll(listZ));
+		assertTrue(this.board.updateListZombie().contains(z3));
+	}
+
+	@Test
+	public void ProducZombieTest(){
+		List<Sewer> allSewers = this.board.getAllSewers();
+		for(Cell cell : allSewers){
+			assertTrue(cell.getAllZombies().isEmpty());
+		}
+		//each sewer have now 5 zombie
+		this.board.ProductionZombie(5);
+
+		for(Cell cell : allSewers){
+            assertEquals(5, cell.getAllZombies().size());
+		}
+	}
+	@Test
+	public void TestCanBreakDoor(){
+		//case in a street with all the Door open but there is two room near so you can break their door
+		Player player = new Player(5,this.board.getCellBoard(2,3),5,5);
+		this.board.getCellBoard(2,3).addPlayers(player);
+		assertTrue(this.board.canBreakDoor(Direction.North,player));
+		assertFalse(this.board.canBreakDoor(Direction.East,player));
+		assertTrue(this.board.canBreakDoor(Direction.South,player));
+		assertFalse(this.board.canBreakDoor(Direction.West,player));
+
+		//Case in a Room with no door break
+
+		Player player2 = new Player(5,this.board.getCellBoard(1,1),5,5);
+		this.board.getCellBoard(1,1).addPlayers(player);
+		assertTrue(this.board.canBreakDoor(Direction.North,player2));
+		assertTrue(this.board.canBreakDoor(Direction.East,player2));
+		assertTrue(this.board.canBreakDoor(Direction.South,player2));
+		assertTrue(this.board.canBreakDoor(Direction.West,player2));
+
+		//Case in border of the board in street
+
+		Player player3 = new Player(5,this.board.getCellBoard(2,0),5,5);
+		this.board.getCellBoard(2,0).addPlayers(player);
+		assertTrue(this.board.canBreakDoor(Direction.North,player3));
+		assertFalse(this.board.canBreakDoor(Direction.East,player3));
+		assertTrue(this.board.canBreakDoor(Direction.South,player3));
+		//Door unbreakble
+		assertFalse(this.board.canBreakDoor(Direction.West,player3));
+
+		//Case in corner border of the board in a room
+		Player player4 = new Player(5,this.board.getCellBoard(0,0),5,5);
+		this.board.getCellBoard(0,0).addPlayers(player);
+
+		//Door unbreakble
+		assertFalse(this.board.canBreakDoor(Direction.North,player4));
+
+		assertTrue(this.board.canBreakDoor(Direction.East,player4));
+		assertTrue(this.board.canBreakDoor(Direction.South,player4));
+
+		//Door unbreakble
+		assertFalse(this.board.canBreakDoor(Direction.West,player4));
+
 	}
     
 

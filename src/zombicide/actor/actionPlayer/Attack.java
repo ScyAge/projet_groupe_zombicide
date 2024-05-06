@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import zombicide.actor.Actor;
 import zombicide.actor.player.Player;
 import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
@@ -46,6 +47,8 @@ public class Attack implements ActionsPlayer{
 		this.board = board ;
 	}
 	
+
+
 	/**
 	 * selects all the zombies around the player that he can attack with his weapon
 	 * @param player the player who will attack
@@ -53,56 +56,30 @@ public class Attack implements ActionsPlayer{
 	 * @return the list of zombies that the player can attack
 	 */
 	public List<Zombie> WhoCanAttack(Player player, Weapon w){
-		List<Zombie> z = new ArrayList<>();
-		Cell c;
-		int i;
+		List<Zombie> ListZ = new ArrayList<>();
+
 		if(0>= w.getMinRange()) {
 			if(player.getCurrentCell().canLook()){
-				z.addAll(player.getCurrentCell().getAllZombies());
+				ListZ.addAll(player.getCurrentCell().getAllZombies());
 			}
 		}
+
 		for(Direction D : Direction.values()) {
-			c = player.getCurrentCell();
-			i=0;
-			if( D == Direction.West) {
-				while(c.getDoor(D).isBreak() && c.getY()-1 - i>=0 && i-1 < w.getRange() &&i>=w.getMinRange()&&this.board.getCellBoard(c.getX(), c.getY()-1).getDoor(Direction.East).isBreak()) {
-					c = this.board.getCellBoard(c.getX(), c.getY()-1);
-					if(c.canLook()){
-						z.addAll(c.getAllZombies());
-					}
-					i+=1;
+			int range = 1 ;
+			//a pseudo player used to execute canMove of the Board
+			Player bisPlayer = new Player(0,player.getCurrentCell(),0,0);
+			while(board.canMove(bisPlayer,D) && range <= w.getMaxRange()){
+				Cell nextCell = board.getCellDirection(D,bisPlayer);
+				if(nextCell.canLook()){
+					ListZ.addAll(nextCell.getAllZombies());
 				}
-			}
-			if( D == Direction.East) {
-				while(c.getDoor(D).isBreak() && c.getY()+i+1< this.board.getBoard()[0].length && i -1< w.getRange()&&i>=w.getMinRange()&&this.board.getCellBoard(c.getX(), c.getY()+1).getDoor(Direction.West).isBreak()) {
-					c = this.board.getCellBoard(c.getX(), c.getY()+1);
-					if(c.canLook()){
-						z.addAll(c.getAllZombies());
-					}
-					i+=1;
-				}
-			}
-			if( D == Direction.South) {
-				while(c.getDoor(D).isBreak() && i+c.getX()+1< this.board.getBoard().length &&i-1 < w.getRange()&&i>=w.getMinRange()&&this.board.getCellBoard(c.getX()+1, c.getY()).getDoor(Direction.North).isBreak()) {
-					c = this.board.getCellBoard(c.getX()+1, c.getY());
-					if(c.canLook()){
-						z.addAll(c.getAllZombies());
-					}
-					i+=1;
-				}
-			}
-			if( D == Direction.North) {
-				while(c.getDoor(D).isBreak() && c.getX()-i-1>= 0 && i-1 < w.getRange()&&i>=w.getMinRange()&&this.board.getCellBoard(c.getX()-1, c.getY()).getDoor(Direction.South).isBreak()) {
-					c = this.board.getCellBoard(c.getX()-1, c.getY());
-					if(c.canLook()){
-						z.addAll(c.getAllZombies());
-					}
-					i+=1;
-				}
+				bisPlayer.setCell(nextCell);
+				range+=1;
 			}
 		}
-		return z;
+		return ListZ;
 	}
+
 	
 	@Override
 	public void action(Player p) {

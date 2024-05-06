@@ -21,11 +21,12 @@ public class Board {
 	protected Cell[][] board;
     private int xr;
     private List<Item> items;
-	private List<Zombie> listZombie;
-	private List<Sewer> listSewer;
+	private final List<Zombie> listZombie;
+	private final List<Sewer> listSewer;
 	private SpawnPlayers spawnPlayer;
-	private List<Cell> SpecialCell;
+	private final List<Cell> SpecialCell;
 
+	private int compteur =0;
 
 	/**
 	 * Builder of Board
@@ -61,7 +62,16 @@ public class Board {
 	public void addSpecialCell(Cell c) {
 		this.SpecialCell.add(c);
 	}
-	
+
+	/**
+	 *Get the list of spécial cell
+	 * @return List<Cell> the list of special cell
+	 */
+	public List<Cell> getSpecialCell() {
+		return this.SpecialCell;
+	}
+
+
 	/**
 	 * set the list items of the board
 	 * @param i the list of items
@@ -69,7 +79,15 @@ public class Board {
 	public void setItems(List<Item> i) {
 		this.items =i;
 	}
-	
+
+	/**
+	 * get the list of item
+	 * @return list of item
+	 */
+	public List<Item> getItems() {
+		return items;
+	}
+
 	/**
 	 * Init the board
 	 */
@@ -122,10 +140,6 @@ public class Board {
 				SpawnPlayers SP = new SpawnPlayers(X,Y);
 				this.board[X][Y] = SP;
 				this.spawnPlayer = SP;
-
-				SpawnPlayers Sp = new SpawnPlayers(X,Y);
-				this.board[X][Y] = Sp;
-				this.spawnPlayer = Sp;
 			}
 
 		}
@@ -408,7 +422,8 @@ public class Board {
 	}
 
 	/**
-	 * Place item on the board if and only if the random number drawn is 5.
+	 * method which pseudo-randomly places an item on a cell of the board with a probability of 1/2 that an object will be placed.
+	 * A minimum of 1 item will be placed in the cell, a maximum of 3.
 	 * @param x indice of the cell
 	 * @param y indice of the cell
 	 */
@@ -610,16 +625,16 @@ public class Board {
 	 * update the list of the zombie if zombies are dead
 	 */
 	public List<Zombie> updateListZombie(){
-		List<Zombie> test = this.listZombie.stream().filter(z -> !z.isDead()).toList();
-		return test;
+        return this.listZombie.stream().filter(z -> !z.isDead()).toList();
 	}
 
-private int compteur =0;
-	/** 
-	 * generate x zombies in this cell 
-	 * @param nb the number of zombies
-	 */ 
-	public void ProductionZombie(int nb,int LevelTotal) {
+
+	/**
+	 * generate x zombies in each sewer
+	 *
+	 * @param nb the number of zombies to spawn
+	 */
+	public void ProductionZombie(int nb) {
 		Random random = new Random();
 		for(Sewer s : this.getAllSewers()) {
 			for (int i = 0; i < nb; i++) {
