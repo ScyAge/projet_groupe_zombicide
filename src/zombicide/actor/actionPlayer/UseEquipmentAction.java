@@ -24,6 +24,7 @@ public class UseEquipmentAction implements ActionsPlayer {
             	p.setItemInHand(null);
             }
         }
+        p.setAction_points(p.getAction_points()-1);
     }
 
     @Override
