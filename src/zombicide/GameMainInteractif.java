@@ -77,7 +77,7 @@ public class GameMainInteractif {
 		ActionsPlayer attack = new Attack(new InteractiveListChooser<>(),b);
 		ActionsPlayer search = new SearchInTRoomAction(new InteractiveListChooser<>());
 
-		//ajout dans une ArrayList
+		//ajout dans une ArrayList sans attaque pour les roles
 		List<ActionsPlayer> actions = new ArrayList<>();
 		actions.add(take);
 		actions.add(LA);
@@ -85,12 +85,9 @@ public class GameMainInteractif {
 		actions.add(move);
 		actions.add(noise);
 		actions.add(useEquip);
-		actions.add(attack);
 		actions.add(search);
-		
-		Item MasterKey2 = new MasterKey(new InteractiveListChooser<>(),b);
-		
-		
+
+
 		List<Player> Players = new ArrayList<>();
 		//creation des players
 		Player p1 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),1,5,actions);
@@ -109,13 +106,16 @@ public class GameMainInteractif {
 		ActionsPlayer Fouineur = new Fouineur(new InteractiveListChooser<>());
 		ActionsPlayer Soigneur = new Soigneur(new InteractiveListChooser<>());
 
+		//for p1 and p2 there is no need to have attack action beacause of the role
 		p1.setAction(Chanceux);
 		p2.setAction(Combattant);
+
 		p3.setAction(Fouineur);
+		p3.setAction(attack);
 		p4.setAction(Soigneur);
+		p4.setAction(attack);
 		
 		b.getSpawnPlayers().spawnPlayer(Players,b);
-		
 		Game g = new Game(b,Players,actions,items,new InteractiveListChooser<>());	
 		g.play();
 	}

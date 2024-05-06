@@ -84,8 +84,6 @@ public class GameMain {
 		actions.add(move);
 		actions.add(noise);
 		actions.add(useEquip);
-		actions.add(attack);
-		actions.add(search);
 		
 
 
@@ -107,10 +105,18 @@ public class GameMain {
 		ActionsPlayer Fouineur = new Fouineur(new RandomListChooser<>());
 		ActionsPlayer Soigneur = new Soigneur(new RandomListChooser<>());
 
+		//for p1 and p2 there is no need to have attack action beacause of the role and add of the search action for the player who don't have Fouineur
 		p1.setAction(Chanceux);
+		p1.setAction(search);
 		p2.setAction(Combattant);
+		p2.setAction(search);
+
 		p3.setAction(Fouineur);
+		p3.setAction(attack);
+
 		p4.setAction(Soigneur);
+		p4.setAction(attack);
+		p4.setAction(search);
 		
 		b.getSpawnPlayers().spawnPlayer(Players,b);
 
