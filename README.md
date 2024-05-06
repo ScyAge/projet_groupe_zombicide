@@ -211,38 +211,37 @@ Maintenant que toute les fonctionnalité du jeu sont en place action, item , act
 
 >Génération de la doc :
 ```bash
-make doc
+javadoc -sourcepath src -subpackages zombicide -d docs
 ```
 
 >Compilation des classes
 ```bash
-make compile
+javac -sourcepath src src/zombicide/board/*.java src/zombicide/cell/*.java src/zombicide/actor/*.java src/zombicide/exeption/*.java src/zombicide/item/*.java src/zombicide/util/*.java src/zombicide/*.java src/zombicide/actor/actionPlayer/*.java src/zombicide/actor/actionZombie/*.java src/zombicide/actor/player/*.java src/zombicide/actor/zombie/*.java src/zombicide/item/equipment/*.java src/zombicide/item/weapons/*.java src/zombicide/util/door/*.java src/zombicide/util/listchooser/*.java src/zombicide/util/listchooser/util/*.java -d classes
+```
+
+>Compilation des tests
+``` bash
+javac -classpath junit-console.jar:classes test/zombicide/board/*.java test/zombicide/cell/*.java test/zombicide/item/*.java test/zombicide/util/*.java test/zombicide/actor/actionPlayer/*.java test/zombicide/actor/actionZombie/*.java test/zombicide/actor/player/*.java test/zombicide/actor/zombie/*.java test/zombicide/item/equipment/*.java test/zombicide/item/weapons/*.java test/zombicide/actor/actionPlayer/roles/*.java test/zombicide/util/listchooser/util/*.java
 ```
 
 >Exécution des tests
 ```bash
-make test
+java -jar junit-console.jar -classpath test:classes -scan-classpath  
 ```
 
 > Génération du jar
 ```bash
-make jar  
+jar cvfe livrable3.jar zombicide.Livrable3 -C classes .  
 ```
 
 >Lancement du programme avec le jar
 ``` bash
-make run_jar_interactif
-```
-``` bash
-make run_jar_automatique
+java -jar livrable3.jar  
 ```
 
 >Lancement du programme sans le jar
 ``` bash
-make run_no_jar_interactif
-```
-``` bash
-make run_no_jar_automatique
+java -classpath classes zombicide.Livrable3
 ```
 
 ### Diagramme UML
@@ -333,46 +332,38 @@ Nous avons plus avons terminer le jeu donc dans un sens il nous reste plus réel
 
 >Génération de la doc :
 ```bash
-javadoc -sourcepath src -subpackages zombicide -d docs
+make doc
 ```
 
 >Compilation des classes
 ```bash
-javac -sourcepath src src/zombicide/**/*.java -d classes
-```
-
->Compilation des tests
-``` bash
-javac -classpath junit-console.jar:classes test/zombicide/**/*.java 
+make compile
 ```
 
 >Exécution des tests
 ```bash
-java -jar junit-console.jar -classpath test:classes -scan-classpath  
+make test
 ```
 
-> Génération du jar (automatique et interactif)
+> Génération du jar
 ```bash
-jar cvfe livrable4_interactif.jar zombicide.GameMainInteractif -C classes .  
-```
-```bash
-jar cvfe livrable4_automatique.jar zombicide.GameMain -C classes .  
+make jar  
 ```
 
->Lancement du programme avec le jar (automatique et interactif)
+>Lancement du programme avec le jar
 ``` bash
-java -jar livrable4_interactif.jar  
+make run_jar_interactif
 ```
 ``` bash
-java -jar livrable4_automatique.jar  
+make run_jar_automatique
 ```
 
->Lancement du programme sans le jar (automatique et interactif)
+>Lancement du programme sans le jar
 ``` bash
-java -classpath classes zombicide.GameMain
+make run_no_jar_interactif
 ```
 ``` bash
-java -classpath classes zombicide.GameMainInteractif
+make run_no_jar_automatique
 ```
 
 
