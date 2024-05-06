@@ -1,5 +1,6 @@
 package zombicide;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class GameMain {
 	public static void main(String[] args) {
 		int height = 5;
 		int withd  = 5;
+		try{
 		if(args.length> 0 && args.length< 3) {
 			if(args.length == 1){
 				height = Integer.parseInt(args[0]);
@@ -45,91 +47,104 @@ public class GameMain {
 				height = Integer.parseInt(args[0]);
 				withd = Integer.parseInt(args[1]);
 			}
+			if(height < 5 || withd < 5 ){
+				throw new InvalidParameterException();
+			}
 		}
-		Board b = new Board(height,withd);
-		//init items
-		List<Item> items = new ArrayList<>();
-		Item Kit = new FirstAidKit(new RandomListChooser<>());
-		Item glasses = new Glasses(b);
-		Item heal = new HealingVial();
-		Item Mapcard = new MapCard(b);
-		Item MasterKey = new MasterKey(new RandomListChooser<>(),b);
-		Item gun =new Gun();
-		Item crowbar =new Crowbar();
-		Item chainsaw =new Chainsaw();
-		Item carabine =new Carabine();
-		Item axe =new Axe();
 
-		items.add(axe);
-		items.add(Kit);
-		items.add(glasses);
-		items.add(heal);
-		items.add(Mapcard);
-		items.add(gun);
-		items.add(crowbar);
-		items.add(chainsaw);
-		items.add(MasterKey);
-		items.add(carabine);
+			Board b = new Board(height,withd);
+			//init items
+			List<Item> items = new ArrayList<>();
+			Item Kit = new FirstAidKit(new RandomListChooser<>());
+			Item glasses = new Glasses(b);
+			Item heal = new HealingVial();
+			Item Mapcard = new MapCard(b);
+			Item MasterKey = new MasterKey(new RandomListChooser<>(),b);
+			Item gun =new Gun();
+			Item crowbar =new Crowbar();
+			Item chainsaw =new Chainsaw();
+			Item carabine =new Carabine();
+			Item axe =new Axe();
 
-		b.setItems(items);
-		b.initBoard();
+			items.add(axe);
+			items.add(Kit);
+			items.add(glasses);
+			items.add(heal);
+			items.add(Mapcard);
+			items.add(gun);
+			items.add(crowbar);
+			items.add(chainsaw);
+			items.add(MasterKey);
+			items.add(carabine);
 
-		//initalisation de toute les actions
-		ActionsPlayer take = new TakeInHandAction(new RandomListChooser<>());
-		ActionsPlayer LA =new LookAround(b);
-		ActionsPlayer OD = new OpenDoor(new RandomListChooser<>(),b);
-		ActionsPlayer move = new Move(b,new RandomListChooser<>());
-		ActionsPlayer noise = new MakeNoise();
-		ActionsPlayer useEquip = new UseEquipmentAction();
-		ActionsPlayer attack = new Attack(new RandomListChooser<>(),b);
-		ActionsPlayer search = new SearchInTRoomAction(new RandomListChooser<>());
+			b.setItems(items);
+			b.initBoard();
 
-		//ajout dans une ArrayList
-		List<ActionsPlayer> actions = new ArrayList<>();
-		actions.add(take);
-		actions.add(LA);
-		actions.add(OD);
-		actions.add(move);
-		actions.add(noise);
-		actions.add(useEquip);
-		
+			//initalisation de toute les actions
+			ActionsPlayer take = new TakeInHandAction(new RandomListChooser<>());
+			ActionsPlayer LA =new LookAround(b);
+			ActionsPlayer OD = new OpenDoor(new RandomListChooser<>(),b);
+			ActionsPlayer move = new Move(b,new RandomListChooser<>());
+			ActionsPlayer noise = new MakeNoise();
+			ActionsPlayer useEquip = new UseEquipmentAction();
+			ActionsPlayer attack = new Attack(new RandomListChooser<>(),b);
+			ActionsPlayer search = new SearchInTRoomAction(new RandomListChooser<>());
+
+			//ajout dans une ArrayList
+			List<ActionsPlayer> actions = new ArrayList<>();
+			actions.add(take);
+			actions.add(LA);
+			actions.add(OD);
+			actions.add(move);
+			actions.add(noise);
+			actions.add(useEquip);
 
 
-		List<Player> Players = new ArrayList<>();
-		//creation des players
-		Player p1 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),1,5,actions);
-		Player p2 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),2,5,actions);
-		Player p3 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),3,5,actions);
-		Player p4 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),4,5,actions);
 
-		Players.add(p1);
-		Players.add(p2);
-		Players.add(p3);
-		Players.add(p4);
+			List<Player> Players = new ArrayList<>();
+			//creation des players
+			Player p1 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),1,5,actions);
+			Player p2 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),2,5,actions);
+			Player p3 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),3,5,actions);
+			Player p4 = new Player(5,b.getCellBoard(b.getSpawnPlayers().getX(), b.getSpawnPlayers().getY()),4,5,actions);
 
-		//création des Roles plus ajout
-		ActionsPlayer Chanceux = new Chanceux(new RandomListChooser<>(),b);
-		ActionsPlayer Combattant = new Combattant(new RandomListChooser<>(),b);
-		ActionsPlayer Fouineur = new Fouineur(new RandomListChooser<>());
-		ActionsPlayer Soigneur = new Soigneur(new RandomListChooser<>());
+			Players.add(p1);
+			Players.add(p2);
+			Players.add(p3);
+			Players.add(p4);
 
-		//for p1 and p2 there is no need to have attack action beacause of the role and add of the search action for the player who don't have Fouineur
-		p1.setAction(Chanceux);
-		p1.setAction(search);
-		p2.setAction(Combattant);
-		p2.setAction(search);
+			//création des Roles plus ajout
+			ActionsPlayer Chanceux = new Chanceux(new RandomListChooser<>(),b);
+			ActionsPlayer Combattant = new Combattant(new RandomListChooser<>(),b);
+			ActionsPlayer Fouineur = new Fouineur(new RandomListChooser<>());
+			ActionsPlayer Soigneur = new Soigneur(new RandomListChooser<>());
 
-		p3.setAction(Fouineur);
-		p3.setAction(attack);
+			//for p1 and p2 there is no need to have attack action beacause of the role and add of the search action for the player who don't have Fouineur
+			p1.setAction(Chanceux);
+			p1.setAction(search);
+			p2.setAction(Combattant);
+			p2.setAction(search);
 
-		p4.setAction(Soigneur);
-		p4.setAction(attack);
-		p4.setAction(search);
-		
-		b.getSpawnPlayers().spawnPlayer(Players,b);
+			p3.setAction(Fouineur);
+			p3.setAction(attack);
 
-		
-		Game g = new Game(b,Players,actions,items,new RandomListChooser<>());	
-		g.play();
+			p4.setAction(Soigneur);
+			p4.setAction(attack);
+			p4.setAction(search);
+
+			b.getSpawnPlayers().spawnPlayer(Players,b);
+
+
+			Game g = new Game(b,Players,actions,items,new RandomListChooser<>());
+			g.play();
+
+		}
+		catch (NumberFormatException ex){
+			System.out.println("invalid parameters  the parameters must be integers ");
+		}
+		catch (InvalidParameterException ex){
+			System.out.println("invalid parameters : takes 1 or 2 numbers as parameters, which must be greater than or equal to 5. If there is only one parameter, the map will be square, otherwise rectangular, depending on the parameters.");
+		}
+
 	}
 }
