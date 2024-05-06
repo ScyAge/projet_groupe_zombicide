@@ -571,3 +571,12 @@ En résumé, nous avons retravaillé certaines classes qui n'étaient pas adapt�
 Maintenant, nous devons travailler sur le rendu du livrable 3, notamment avec la rédaction du README, la création du main pour ce livrable, et continuer d'ajuster/compléter certaines méthodes pour mieux correspondre au cahier des charges du jeu.
 
 ## Semaine 12
+Cette semaine, nous avons entamé des avancées significatives sur la logique du jeu en mettant en place des méthodes pour gérer les tours des joueurs et des zombies, ainsi que pour vérifier la survie de tous les acteurs impliqués.
+
+ En parallèle, nous avons identifié et corrigé un problème lié à la gestion des items : auparavant, un joueur conservait un item en main même après son utilisation, ce qui a été résolu dans la mise à jour de la classe `UseEquipment`. 
+ 
+ De plus, nous avons apporté des modifications à la classe `Board` pour permettre la récupération des zombies présents sur le plateau. Cette fonctionnalité est cruciale pour déterminer si des zombies sont encore en vie, et ce dans la classe `Game`, un élément clé pour la gestion de la fin de partie.
+  
+ les améliorations apportées cette semaine ne se sont pas seulement traduites par un renforcement de la logique de jeu, mais ont également permis d'identifier quelques bugs .
+ Cette démarche critique est essentielle pour la finalisation du livrable 4, en assurant que toutes les fonctionnalités interagissent correctement. 
+  
