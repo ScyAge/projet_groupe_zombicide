@@ -61,9 +61,9 @@ public class Move implements ActionsPlayer {
 	 * @param player Player who want to move
 	 */
 	public void action(Player player) {
-		System.out.println("La move action va être éxecuter");
 		List<Direction> directions=  DirectionToMove(player);
-		Direction D= this.chooser.choose("choose a direction: ", directions);
+		Direction D= this.chooser.choose("-> choose a direction: ", directions);
+		System.out.println("Moving to "+ D);
 		this.board.movePlayer(player, D);
 		int actionPoints= player.getAction_points();
 		player.setAction_points(actionPoints-1);

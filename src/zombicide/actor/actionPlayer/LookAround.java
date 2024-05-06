@@ -19,6 +19,12 @@ public class LookAround implements ActionsPlayer {
 	 */
 	private final Board b ;
 	
+	/** colour pink */
+	public static final String colorPink= "\u001B[38;5;213m";
+	
+	/**color white*/
+	public static final String colorWhite = "\u001B[0m" ;
+	
 	/**
 	 * Builder of LookAround
 	 * @param b The board
@@ -42,7 +48,7 @@ public class LookAround implements ActionsPlayer {
 	public String display(Player p) {
 		StringBuilder res = new StringBuilder();
 		Cell c= p.getCurrentCell();
-		res.append(String.format("Description of the area : %s\n",c.description()));
+		res.append(String.format("- Description of the area : \n %s\n",c.description()));
 		
 		List<Player> players= c.getAllPlayers();
 		List<Zombie> zombies= c.getAllZombies();
@@ -50,13 +56,13 @@ public class LookAround implements ActionsPlayer {
 		if(!players.isEmpty()) {
 			res.append("Players in this Area : \n");
 			for(Player player: players) {
-				res.append(String.format("Player of id %d\n",player.getId()));
+				res.append(String.format("Player %d\n",player.getId()));
 			}
 		}
 		if (!zombies.isEmpty()) {
 			res.append("Zombie in this Area : \n");
 			for(Zombie z: zombies) {
-				res.append(String.format("Zombie of id %d\n",z.getId()));
+				res.append(String.format("Zombie %d\n",z.getId()));
 			}
 		}
 		
@@ -71,7 +77,8 @@ public class LookAround implements ActionsPlayer {
 				test = b.getCellDirection(d,p).getDoor(Direction.oppose(d)).isBreak();
 			}
 			if(door.isBreak() && test) {
-				res.append(String.format("the door at the direction %s is opened\n",d));
+				String direction = colorPink+d + colorWhite;
+				res.append(String.format("the door at the direction %s is opened\n",direction));
 			}
 		}
 		return res.toString();

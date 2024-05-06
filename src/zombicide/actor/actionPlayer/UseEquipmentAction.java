@@ -17,8 +17,8 @@ public class UseEquipmentAction implements ActionsPlayer {
     @Override
     public void action(Player p) {
         if(this.IsActionPlayable(p)){
-        	System.out.println("L'equipement est utiliser !");
             Item equipment = p.getItemInHand();
+            System.out.println(equipment+" est utilisé !");
             equipment.ItemEffect(p);
             if(equipment.isUsed()) {
             	p.setItemInHand(null);

@@ -32,7 +32,7 @@ public class TakeInHandAction implements ActionsPlayer {
     
     @Override
     public void action(Player p) {
-         Item item = this.chooser.choose("\"Choose the object you want to take from your bag\"",p.getBackPack());
+         Item item = this.chooser.choose("-> Choose the object you want to take from your bag",p.getBackPack());
          if(item != null) {
              int index = p.getBackPack().indexOf(item);
              p.takeInHandFromBackPack(index);
