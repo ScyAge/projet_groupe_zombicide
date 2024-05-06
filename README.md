@@ -326,7 +326,8 @@ Nous avons réalisé tout ce que le sujet nous demandait.
 
 ### Difficultés restant à résoudre
 
-Ce n'est pas demandé dans le sujet de base, mais il aurait été cool de pouvoir essayer de faire un ajout dynamique des actions pour chacun des survivants
+Ce n'est pas demandé dans le sujet de base, mais il aurait été cool de pouvoir essayer de faire un ajout dynamique des actions pour chacun des survivants.
+Il est aussi dommage de ne pas pousser plus loin le comportement des survivivants car ils leur sont impossibles de gagner.
 
 
 ### Commande de Génération et de compilation
@@ -355,6 +356,17 @@ make jar
 ``` bash
 make run_jar_interactif
 ```
+
+>Lancement du programme jar interactif avec des paramètres avec un paramètre le board sera carré et avec 2 selon leur valeur, il sera rectangulaire avec 0 ou plus, il sera de taille 5/5
+``` bash
+java -jar  livrable4_interactif.jar
+```
+
+>Lancement du programme jar automatique avec des paramètres avec un paramètre le board sera carré et avec 2 selon leur valeur, il sera rectangulaire avec 0 ou plus, il sera de taille 5/5
+``` bash
+java -jar  livrable4_automatique.jar 
+```
+
 ``` bash
 make run_jar_automatique
 ```
