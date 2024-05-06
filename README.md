@@ -251,7 +251,8 @@ java -classpath classes zombicide.Livrable3
 
 Dans ce quatrième livrable, c'est enfin l'heure de mettre en relation toutes les classes précédemment créées afin de jouer enfin à notre jeu.
 
-En effet, dans ce quatrième livrable, nous avons passé la majeure partie de notre temps à rassembler toutes nos anciennes classes afin de construire la classe `Game` qui permet de lancer une partie, mais aussi à corriger de nombreux bugs et aussi à faire de l'optimisation dans l'écriture de certaines méthodes.
+En effet, dans ce quatrième livrable, nous avons passé la majeure partie de notre temps à rassembler toutes nos anciennes classes afin de construire la classe `Game` qui permet de lancer une partie. Suite à cette création, nous avons identifié et corrigé de nombreux bugs. En parallèle, nous avons également optimisé l'écriture de certaines méthodes.
+
 
 Dans un premier temps, nous avons créé la boucle principale du jeu avec la méthode  `Play`  qui appartient à la classe `Game`.
 Dans cette méthode, nous appelons trois autres méthodes :  `RoundPlayer` , suivie de `RoundZombie` et enfin `RoundUpdateBoard`.
@@ -332,46 +333,38 @@ Nous avons plus avons terminer le jeu donc dans un sens il nous reste plus réel
 
 >Génération de la doc :
 ```bash
-javadoc -sourcepath src -subpackages zombicide -d docs
+make doc
 ```
 
 >Compilation des classes
 ```bash
-javac -sourcepath src src/zombicide/**/*.java -d classes
-```
-
->Compilation des tests
-``` bash
-javac -classpath junit-console.jar:classes test/zombicide/**/*.java 
+make compile
 ```
 
 >Exécution des tests
 ```bash
-java -jar junit-console.jar -classpath test:classes -scan-classpath  
+make test
 ```
 
-> Génération du jar (automatique et interactif)
+> Génération du jar
 ```bash
-jar cvfe livrable4_interactif.jar zombicide.GameMainInteractif -C classes .  
-```
-```bash
-jar cvfe livrable4_automatique.jar zombicide.GameMain -C classes .  
+make jar  
 ```
 
->Lancement du programme avec le jar (automatique et interactif)
+>Lancement du programme avec le jar
 ``` bash
-java -jar livrable4_interactif.jar  
+make run_jar_interactif
 ```
 ``` bash
-java -jar livrable4_automatique.jar  
+make run_jar_automatique
 ```
 
->Lancement du programme sans le jar (automatique et interactif)
+>Lancement du programme sans le jar
 ``` bash
-java -classpath classes zombicide.GameMain
+make run_no_jar_interactif
 ```
 ``` bash
-java -classpath classes zombicide.GameMainInteractif
+make run_no_jar_automatique
 ```
 
 
