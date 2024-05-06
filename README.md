@@ -251,7 +251,7 @@ java -classpath classes zombicide.Livrable3
 
 Dans ce quatrième livrable, c'est enfin l'heure de mettre en relation toutes les classes précédemment créées afin de jouer enfin à notre jeu.
 
-En effet, dans ce quatrième livrable, nous avons passé la majeure partie de notre temps à rassembler toutes nos anciennes classes afin de construire la classe `Game` qui permet de lancer une partie, mais aussi a corrigé de nombreux bugs et aussi à faire de l'optimisation dans l'écriture de certaine méthode
+En effet, dans ce quatrième livrable, nous avons passé la majeure partie de notre temps à rassembler toutes nos anciennes classes afin de construire la classe `Game` qui permet de lancer une partie. Suite à cette création, nous avons identifié et corrigé de nombreux bugs. En parallèle, nous avons également optimisé l'écriture de certaines méthodes.
 
 Dans un premier temps, nous avons créé la boucle principale du jeu avec la méthode  `Play`  qui appartient à la classe `Game`.
 Dans cette méthode, nous appelons trois autres méthodes :  `RoundPlayer` , suivie de `RoundZombie` et enfin `RoundUpdateBoard`.
