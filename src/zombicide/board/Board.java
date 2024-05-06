@@ -65,7 +65,7 @@ public class Board {
 
 	/**
 	 *Get the list of spécial cell
-	 * @return List<Cell> the list of special cell
+	 * @return  the list of special cell
 	 */
 	public List<Cell> getSpecialCell() {
 		return this.SpecialCell;
@@ -607,7 +607,7 @@ public class Board {
 
 	/**
 	 * add a zombie to the list of the zombie
-	 * @param z
+	 * @param z the zombie to add
 	 */
 	public void addZombieList(Zombie z){
 		this.listZombie.add(z);
@@ -623,9 +623,16 @@ public class Board {
 
 	/**
 	 * update the list of the zombie if zombies are dead
+	 * @return the list of the zombie alive 
 	 */
 	public List<Zombie> updateListZombie(){
-        return this.listZombie.stream().filter(z -> !z.isDead()).toList();
+		List<Zombie> zombie = new ArrayList<>();
+		for(Zombie z : this.listZombie ) {
+			if(!z.isDead()) {
+				zombie.add(z);
+			}
+		}
+		return zombie;
 	}
 
 

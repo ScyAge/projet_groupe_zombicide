@@ -12,6 +12,7 @@ public abstract class Item implements Cloneable{
 	 * the Item is use or not 
 	 */
 	protected boolean Use;
+	
 	/**
 	 * can break door
 	 */
@@ -21,12 +22,16 @@ public abstract class Item implements Cloneable{
 	 * if the item is noisy
 	 */
 	protected boolean noisy;
+	
 	/**
 	 * if the item can attack
 	 */
 	protected boolean canAttack;
+	
 	/**
 	 * Builder of Item
+	 * @param canAttack if the item can attack or not
+	 * @param noisy if the item is noisy or not
 	 * @param breakDoor can break door
 	 */
 	public Item(boolean breakDoor,boolean canAttack ,boolean noisy) {
@@ -113,6 +118,8 @@ public abstract class Item implements Cloneable{
 	}
 	
 	/**
-	 * method that prints a short description of the item effect*/
+	 * method that prints a short description of the item effect
+	 * @return the description
+	 * */
 	public abstract String itemDescription();
 }

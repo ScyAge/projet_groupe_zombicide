@@ -19,8 +19,10 @@ public class MasterKey extends Equipment {
 	private final ListChooser<Direction> chooser;
 	
 	private final Board b;
+	
 	/**
 	 * Builder of MasterKey
+	 * @param b the board
 	 */
 	public MasterKey(Board b) {
 		super(false);
@@ -33,7 +35,7 @@ public class MasterKey extends Equipment {
 	 * Builder of MasterKey
 	 *
 	 * @param chooser ListChooser of the masterkey
-	 * @param b
+	 * @param b the board
 	 */
 	public MasterKey(ListChooser<Direction> chooser, Board b) {
 		super(false);

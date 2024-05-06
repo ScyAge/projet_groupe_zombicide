@@ -26,6 +26,7 @@ public class SpawnPlayers extends Street {
 	 * players are added to the list of players in the spawn point cell, and a
 	 * gun is assigned to each player.
 	 * @param players the list of players to populate on the spawn point
+	 * @param Board the board of the player 
 	 * */
 	public void spawnPlayer(List<Player> players,Board Board) {
 		for(Player p : players) {

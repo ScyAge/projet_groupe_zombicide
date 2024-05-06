@@ -31,7 +31,7 @@ public class Input {
 	
 	/**
 	 * Allows entry of an int on standard input
-	 * 
+	 * @throws java.io.IOException the exception
 	 * @return the int entered
 	 */
 	public static int readInt() throws java.io.IOException {

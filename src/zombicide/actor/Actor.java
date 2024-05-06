@@ -142,6 +142,7 @@ public abstract class Actor {
 
 	/**
 	 * add n to the basic max point
+	 * @param n the number of maxActionPoint to add
 	 */
 	public void addNMaxActionPoints(int n) {
 		this.maxActionPoint +=n;

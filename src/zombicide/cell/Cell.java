@@ -114,7 +114,13 @@ public abstract class Cell {
 	 * @return List of players
 	 */
 	public List<Player> getAllPlayers() {
-		return this.players.stream().filter(p -> !p.isDead()).toList();
+		List<Player> player = new ArrayList<>();
+		for(Player p : this.players ) {
+			if(!p.isDead()) {
+				player.add(p);
+			}
+		}
+		return player;
 	}
 
 	/**
@@ -138,7 +144,13 @@ public abstract class Cell {
 	 * @return List of zombies
 	 */
 	public List<Zombie> getAllZombies() {
-		return this.zombies.stream().filter(p -> !p.isDead()).toList();
+		List<Zombie> zombie = new ArrayList<>();
+		for(Zombie z : this.zombies ) {
+			if(!z.isDead()) {
+				zombie.add(z);
+			}
+		}
+		return zombie;
 	}
 	
 	/**

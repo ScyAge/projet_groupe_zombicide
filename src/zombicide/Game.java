@@ -36,8 +36,7 @@ public class Game {
         for(Player p :  this.allPlayers){
             test.add(p.isDead());
         }
-        Stream<Boolean> res = test.stream().filter(c -> !c);
-        return  res.toList().contains(false);
+        return  test.contains(false);
     }
 
     /**
@@ -49,8 +48,7 @@ public class Game {
     	for(Zombie z: this.board.getAllZombies()) {
     		test.add(z.isDead());
     	}
-    	Stream<Boolean> res= test.stream().filter(c->!c);
-    	return res.toList().contains(false);
+    	return test.contains(false);
     }
     
     
@@ -139,7 +137,17 @@ public class Game {
     		}
         }
     }
-
+    
+    private void UpdatePlayer(){
+		List<Player> player = new ArrayList<>();
+		for(Player p : this.allPlayers ) {
+			if(!p.isDead()) {
+				player.add(p);
+			}
+		}
+		this.allPlayers = player;
+    }
+    
     /**
      * method that play the round for all the zombie on the board
      */
@@ -151,7 +159,7 @@ public class Game {
             while(z.getAction_points() > 0){
                 if(attack.IsActionPlayable(z)){
                     attack.action(z);
-                    this.allPlayers = this.allPlayers.stream().filter(p -> !p.isDead()).toList();
+                    this.UpdatePlayer();
                 }
                 else{
                     move.action(z);
