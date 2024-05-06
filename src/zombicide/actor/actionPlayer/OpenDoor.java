@@ -109,9 +109,9 @@ public class OpenDoor implements ActionsPlayer {
 				c.addZombies(z);
 				this.board.addZombieList(z);
 			}
-			ListChooser<String> zombieChooser = new RandomListChooser<>();
+	
 			List<String> specialZ= List.of("Abomination", "Broom");
-			String zombieType= zombieChooser.choose("-> choose the special type of zombie", specialZ);
+			String zombieType= specialZ.get(random.nextInt(specialZ.size()));
 			switch(zombieType) {
 				case "Abomination":
 					Abominations a= new Abominations(c, random.nextInt(100));

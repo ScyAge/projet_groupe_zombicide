@@ -87,7 +87,7 @@ public class Game {
             	p.playerStatus();
             }
     
-            System.out.println("\n"+ "\n");
+            System.out.println("\n");
           
             //tour des joueurs
     		System.out.println(colorGreen+"** Survivor tour"+ colorWhite);
@@ -98,6 +98,7 @@ public class Game {
             if(this.areZombiesAllALive()) {
             	this.roundZombie();
             }
+            System.out.println("\n");
     		//update board
             System.out.println(colorGreen+"** Update Board"+ colorWhite);
         	if(this.AreTheyAllAlive()&& (this.areZombiesAllALive()|| firstRound)) {
