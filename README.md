@@ -273,7 +273,7 @@ problème notamment, car certain objet nécessite le plateau pour être créé n
 maintenant lors de la création de l'objet board le plateau n'est pas généré automatiquement ce qui nous permet de créer tous nos item et le placer dans une liste que l'on donne au board
 puis de lancer `initBoard` qui permet de générer le plateau, car c'est cette méthode qui lors de la creation d'une cellule lance la méthode `placeItemAlea` qui permet de mettre ou non 1 à 3 item dans la piece.
 
-La méthode `placeItemAlea` nous a demandé de rajouter quelque chose dans nos item, c'est l'interface Cloneable ainsi que la méthode clone et des tests de clone associé afin de pouvoir copier un item de la list d'item et de le mettre dans la cellule sans que les objets soit les memes,  ce qui ve dire que nous n'avons aucune garantie que tous les objets, soit présent lors d'une partie vu qu'ils sont choisi aléatoirement lors du placement.
+La méthode `placeItemAlea` nous a demandé de rajouter quelque chose dans nos item, c'est l'interface Cloneable ainsi que la méthode clone et des tests de clone associé afin de pouvoir copier un item de la list d'item et de le mettre dans la cellule sans que les objets soit les memes, ce qui ve dire que nous n'avons aucune garantie que tous les objets, soit présent lors d'une partie vu qu'ils sont choisi aléatoirement lors du placement.
 Attention la copie est seulement de surface en effet tous les attributs primitifs sont copié son le meme mais les objets aussi ce qui nous permet de toujours avoir le meme board dans tous nos Item
 
 
@@ -307,18 +307,21 @@ Ce Livrable a été aussi l'occasion d'expérimenté quelque chose dans les test
 - Mais aussi l'utilisation de Mock qui nous ont permis de tester des méthodes qui utilisent des methode abstraite dans leur code afin de vérifier que l'appel était bien réalisé ou encore des tests de getter et setter pour augmenté le coverage
 
 
+Suite au changement que nous avons aussi annoncé lors du livrable précédent, nous avons :
+- améliorer l'affichage lors des différents tours du jeu, ainsi qu'à l'execution des actions. Ce qui aide à un meilleur comprehension lors des du différent moment du jeu
+- Maintenant l'ajout des piece dite spéciale est générique dans le cas de potentielle extension des cell
+- Pour l'ajout optimal des actions rien n'a été changer, car l'ajout des actions est fait par nous meme 
 
+Certain comportement, on était ajouté :
 
-Suite à ces corrections, nous avons :
-- améliorer l'affichage 
-- créer la possibilité d'ajouté des Speciales ou non.
-- Donner une meilleure liste des actions possibles.
+- La masterKey lorsqu'elle ouvre une porte ne fait pas apparaitre de zombie
+
 
 Voilà, globalement, les points principaux de la construction de ce quatrième et dernier livrable.
 
 ### Atteinte des objectifs
 
-Nous avons atteint l'objectif fixé dans le livrable précédent ! En effet, nous avons amélioré l'implémentation des cellules spéciales pour permettre d'en rajouter si nécessaire. De plus, nous avons enrichi les possibilités d'action des joueurs. Le jeu est désormais entièrement terminé et jouable. De plus, l'affichage a été amélioré.
+Nous avons réalisé tout ce que le sujet nous demandait. 
 
 ### Difficultés restant à résoudre
 
