@@ -73,8 +73,8 @@ public class Game {
     	
     	while((this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30)|| firstRound){
             this.board.Display();
-            //Status des acteurs
-            System.out.println("** Status of actors ");
+            //Status des joueurs
+            System.out.println("** Status of players ");
             for(Player p: this.allPlayers ) {
             	p.playerStatus();
             }

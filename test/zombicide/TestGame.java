@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import zombicide.actor.actionPlayer.*;
 import zombicide.actor.player.Player;
+import zombicide.actor.zombie.Zombie;
 import zombicide.board.Board;
 import zombicide.board.TrainingBoard;
 import zombicide.util.listchooser.RandomListChooser;
@@ -18,6 +19,8 @@ public class TestGame {
     private Player p2;
     private Player p3;
     private Player p4;
+	private Zombie z1;
+	private Zombie z2;
     private Board b;
     @BeforeEach
     public void init(){
@@ -27,11 +30,14 @@ public class TestGame {
         this.p2= new Player(5, b.getCellBoard(0,0), 2, 6);
         this.p3 = new Player(5, b.getCellBoard(0,0), 3, 6);
         this.p4 = new Player(5, b.getCellBoard(0,0), 4, 6);
+        z1 = new Zombie(5,2,b.getCellBoard(0, 0),5,5);
+    	z2 = new Zombie(5,2,b.getCellBoard(2, 2),5,5);
         List<Player> AllP = new ArrayList<>();
         AllP.add(this.p1);
         AllP.add(this.p2);
         AllP.add(this.p3);
         AllP.add(this.p4);
+       
 
         ActionsPlayer take = new TakeInHandAction(new RandomListChooser<>());
         ActionsPlayer LA =new LookAround(b);
@@ -83,6 +89,22 @@ public class TestGame {
     	p2.UpOneExpertiseLevel();
     	p2.UpOneExpertiseLevel();
     	assertEquals(7,this.game.totalXP());
+    	
+    }
+    
+    @Test
+    public void areZombiesAllAliveTest() {
+    	List<Zombie> AllZ= this.b.getAllZombies();
+    	AllZ.add(this.z1);
+    	AllZ.add(this.z2);
+    	assertTrue(this.game.areZombiesAllALive());
+    	
+    	AllZ.get(0).takeDamage(100);
+    	assertTrue(z1.isDead());
+    	assertTrue(this.game.areZombiesAllALive());
+    	this.z2.takeDamage(100);
+    	assertTrue(z2.isDead());
+    	assertFalse(this.game.areZombiesAllALive());
     	
     }
     
