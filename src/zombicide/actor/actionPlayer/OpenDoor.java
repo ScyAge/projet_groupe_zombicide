@@ -67,17 +67,17 @@ public class OpenDoor implements ActionsPlayer {
 		Item item= p.getItemInHand();
 		Cell c= p.getCurrentCell();
 		if(item != null && item.getBreakDoor()) {
-			System.out.println("enter the Direction of the door you want to open");
 			
 			List<Direction> directions= DirectionToOpen(p);
-			Direction targetD= this.chooser.choose("choose a direction: ", directions);
-			
+			Direction targetD= this.chooser.choose("-> choose a direction: ", directions);
 			if(targetD != null) {
 				this.board.BreakDoor(targetD, c.getX(), c.getY());
 				if (item.canAttack()) {
 					c.setNoise(c.getNoise() + 1);
+					System.out.println("Opening the door on the direction "+ targetD);
 				}
 				generateZombies(p, targetD);
+				
 				
 			}else {
 				System.out.println("No direction chosen");
@@ -111,7 +111,7 @@ public class OpenDoor implements ActionsPlayer {
 			}
 			ListChooser<String> zombieChooser = new RandomListChooser<>();
 			List<String> specialZ= List.of("Abomination", "Broom");
-			String zombieType= zombieChooser.choose("choose the special type of zombie", specialZ);
+			String zombieType= zombieChooser.choose("-> choose the special type of zombie", specialZ);
 			switch(zombieType) {
 				case "Abomination":
 					Abominations a= new Abominations(c, random.nextInt(100));

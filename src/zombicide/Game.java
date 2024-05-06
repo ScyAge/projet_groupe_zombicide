@@ -18,7 +18,15 @@ public class Game {
     private List<Player> allPlayers;
     private final Board board;
 
-
+    /** colour pink */
+	public static final String colorPink= "\u001B[38;5;213m";
+	
+	/**color white*/
+	public static final String colorWhite = "\u001B[0m" ;
+	
+	/**color green*/
+	public static final String colorGreen = "\u001B[32m" ;
+	
     private final ListChooser<ActionsPlayer> PlayerChooser;
 
     public Game(Board b,List<Player> player, List<ActionsPlayer> AllActions, List<Item> AllItem,ListChooser<ActionsPlayer> PlayerChooser) {
@@ -74,7 +82,7 @@ public class Game {
     	while((this.AreTheyAllAlive()&& this.areZombiesAllALive()&&this.totalXP()<30)|| firstRound){
             this.board.Display();
             //Status des joueurs
-            System.out.println("** Status of players ");
+            System.out.println(colorGreen+ "** Status of players "+ colorWhite);
             for(Player p: this.allPlayers ) {
             	p.playerStatus();
             }
@@ -82,16 +90,16 @@ public class Game {
             System.out.println("\n"+ "\n");
           
             //tour des joueurs
-    		System.out.println("** Survivor tour");
+    		System.out.println(colorGreen+"** Survivor tour"+ colorWhite);
             this.roundPlayer();
             System.out.println("\n");
             //Action des Zombie
-            System.out.println("** Zombie tour");
+            System.out.println(colorGreen+"** Zombie tour"+ colorWhite);
             if(this.areZombiesAllALive()) {
             	this.roundZombie();
             }
     		//update board
-            System.out.println("** Update Board");
+            System.out.println(colorGreen+"** Update Board"+ colorWhite);
         	if(this.AreTheyAllAlive()&& (this.areZombiesAllALive()|| firstRound)) {
         		this.roundUpdateBoard();
         	}
@@ -116,8 +124,9 @@ public class Game {
         	System.out.println("I am player "+p.getId());
             while(p.getAction_points() > 0){
                 List<ActionsPlayer> actionPossible = p.getActionOfThePlayer();
-                ActionsPlayer actionHeChoose = this.PlayerChooser.choose("*** Which action do you want to do?",actionPossible);
+                ActionsPlayer actionHeChoose = this.PlayerChooser.choose("\n*** Which action do you want to do?",actionPossible);
                 if(actionHeChoose != null)
+                	System.out.println("* "+ colorPink+ actionHeChoose+ colorWhite);
                 	actionHeChoose.action(p);
                 this.board.updateListZombie();
             }
