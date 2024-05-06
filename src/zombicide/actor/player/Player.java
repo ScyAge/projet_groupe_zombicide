@@ -50,8 +50,7 @@ public class Player extends Actor{
 		this.itemInHand = null ;
 		this.expertiseLevel = 1;
 		this.backPackSize = taille_sac;
-		this.AllAction = new ArrayList<>();
-		this.AllAction.addAll(actions);
+		this.AllAction = new ArrayList<>(actions);
 	}
 
 

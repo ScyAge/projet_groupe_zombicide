@@ -251,32 +251,68 @@ java -classpath classes zombicide.Livrable3
 
 Dans ce quatrième livrable, c'est enfin l'heure de mettre en relation toutes les classes précédemment créées afin de jouer enfin à notre jeu.
 
-En effet, dans ce quatrième livrable, nous avons passé la majeure partie de notre temps à rassembler toutes nos anciennes classes afin de construire notre jeu.
+En effet, dans ce quatrième livrable, nous avons passé la majeure partie de notre temps à rassembler toutes nos anciennes classes afin de construire la classe `Game` qui permet de lancer une partie, mais aussi a corrigé de nombreux bugs et aussi à faire de l'optimisation dans l'écriture de certaine méthode
 
 Dans un premier temps, nous avons créé la boucle principale du jeu avec la méthode  `Play`  qui appartient à la classe `Game`.
- Dans cette méthode, nous appelons trois autres méthodes :  `RoundPlayer` , suivie de `RoundZombie` et enfin `RoundUpdateBoard`.
+Dans cette méthode, nous appelons trois autres méthodes :  `RoundPlayer` , suivie de `RoundZombie` et enfin `RoundUpdateBoard`.
 
-Par conséquent, dans un deuxième temps, nous avons créé ces trois méthodes :
+Ces trois méthodes nous permettent de faire jouer chacun des `Acteur` au tour par tour, dans un deuxième temps donc , nous avons écrit ces trois méthodes :
 
-- `RoundPlayer`  qui permet aux joueurs d'exécuter des actions. De plus, cette méthode nous a demandé de créer une méthode `getBasicActionPoints`  dans la classe `Player`  afin de pouvoir réinitialiser les points d'action du joueur.
-- `RoundZombie` qui permet aux zombies d'exécuter des actions, en priorité attaquer s'il y a un joueur dans leur cellule, sinon se déplacer. De plus, cette méthode nous a demandé de créer une méthode `getBasicActionPoints` dans la classe `Zombie`afin de pouvoir réinitialiser les points d'action de chaque zombie.
-- `RoundUpdateBoard`  qui  permet de clear le bruit dans chacune des cellules , et qui permet d'ajouter les zombies dans les égout.
-Suite à cela , le game été fini . 
+- `RoundPlayer`  qui permet aux joueurs d'exécuter des actions, qui affiche quel joueur est en train de jouer, mais aussi qu'une fois une action réaliser on update la liste des zombies, car certain d'eux peuvent être mort après l'action, ou encore de faire augmenter le nombre max de point d'action du joueur selon son niveau.
+- `RoundZombie` qui permet aux zombies d'exécuter des actions, en priorité attaquer s'il y a un joueur dans leur cellule, sinon se déplacer, mais aussi de vérifier que les joueurs pris pour cible des attaques ne soit pas mort entre temps.
+- `RoundUpdateBoard`  qui  permet de clear le bruit dans chacune des cellules, et qui permet d'ajouter les zombies dans les égouts avec des méthodes respectivement dans La classe `Game` et `Board` qui permettent se savoir combiens de zombie il faut faire apparaitre dans chaque égout et de les ajouter dans les égouts.
 
-Nous avons donc créer le premier `GameMain` (non interactife). 
+Les méthodes `RoundPlayer` ainsi que `RoundZombie` nous, on fait ajouter dans `Actor` deux méthodes `addNMaxActionPoints` et `getMaxActionPoints` afin de pouvoir reset les point d'action des Zombies et Surviants à chaque tour.  
+
+
+Suite à cela, le game été fini. 
+
+
+Il y a aussi un élément du jeu qui n'était pas présent ce sont les items sur le plateau lors de la génération. Cela nous a posé quelque 
+problème notamment, car certain objet nécessite le plateau pour être créé nous avons donc dû procéder par étape et changer le code : 
+maintenant lors de la création de l'objet board le plateau n'est pas généré automatiquement ce qui nous permet de créer tous nos item et le placer dans une liste que l'on donne au board
+puis de lancer `initBoard` qui permet de générer le plateau, car c'est cette méthode qui lors de la creation d'une cellule lance la méthode `placeItemAlea` qui permet de mettre ou non 1 à 3 item dans la piece.
+
+La méthode `placeItemAlea` nous a demandé de rajouter quelque chose dans nos item, c'est l'interface Cloneable ainsi que la méthode clone et des tests de clone associé afin de pouvoir copier un item de la list d'item et de le mettre dans la cellule sans que les objets soit les memes,  ce qui ve dire que nous n'avons aucune garantie que tous les objets, soit présent lors d'une partie vu qu'ils sont choisi aléatoirement lors du placement.
+Attention la copie est seulement de surface en effet tous les attributs primitifs sont copié son le meme mais les objets aussi ce qui nous permet de toujours avoir le meme board dans tous nos Item
+
+
+Nous avons donc créé le premier `GameMain` (non interactif). 
 Puis un autre lui interactif nommé en conséquence `GameMainInteractif` .
 
 
 Grâce à l'ajout de ces deux `main` nous avons pu tester dans des conditions réelles les anciennes fonctions créées. Et nous avons pu constater beaucoup d'erreurs dans ces anciennes méthodes, telles que :
-- L'action `OpenDoor` qui ajoutait des zombies mais pas forcément dans les bonnes cellules, à cause d'un problème d'indice.
+- L'action `OpenDoor` qui ajoutait des zombies, mais pas forcément dans les bonnes cellules, à cause d'un problème d'indice.
 - L'action `Attack` du joueur qui n'utilisait pas correctement la portée des armes.
 - Le placement des cellules `Sewer` qui avait de mauvaises coordonnées lors de leur création.
 - l'ajout d'une `MapCard` dans le sac à dos lors du spawn d'un joueur. 
 
+Bref tous ces problèmes nous ont mené à verifier l'intégralité du projet fichier par fichier afin de repérer de potentielles améliorations, mais aussi de corrigé du bug en tout genre, amélioré les documentations:
+
+- Notamment trois fichiers qui on était central dans l'amélioration du code `OpenDoor` , `Move` et `Attack`. Ces fichiers avaient tous les trois quelque chose en commun : une méthode a rallonge et en plus incompréhensible
+Donc une réécriture de ces méthodes ainsi qu'un usage plus méthodique des méthodes du `Board ` nous ont permis de simplifier grandement leur écriture, avec moins de boucle, de cascade d'if etc.
+Cela nous a fait particulièrement rajouter la méthode `canBreakDoor` dans le `Board` qui a simplifer le code de `OpenDoor`.
+
+- Dans ce genre d'amélioration, l'implémentation de certaine classe a été renouvelé notamment `Equipement` qui s'est vu devenir abstraite avec l'ajout de la méthode `effectOfTheEquip`.
+Cet ajout permet de renforcer la sécurité de la création d'un nouvel equipement qui le force a créé cette méthode qui sera ensuite appelée dans la methode `ItemEffect` qui est-elle même implémenté via `Item`
+
+- Une implementation similaire a été réaliser dans `Actor`, `Player` et `Zombie` avec l'ajout de `consequenceOfDeath` qui permet de gérer spécifiquement le cas de la mort pour chaque Acteur sans répétition de code,
+particulièrement avec une belle utilisation du lookUp dans la partie des Zombies avec l'abomination et le Broom qui définissent un comportement différent de la méthode `takeDamage` qui appelle ça méthode qui vient de la super classe (à voir par vous-même). 
+
+- Certains fichiers qui sont passés à la trappe lors du livrable précedent, on était corrigé particulièrement la `MasterKey` qui n'avait pas du tout le comportement attendu.
+
+Ce Livrable a été aussi l'occasion d'expérimenté quelque chose dans les tests notamment ceux du package item :
+
+- L'utilisation d'heritage dans les classes de test et l'ajout de factory methode : qui permettre dans le cas de chacune des classes héritant d'item de teste si leur implémentation fonctionne aussi avec les tests d'item
+- Mais aussi l'utilisation de Mock qui nous ont permis de tester des méthodes qui utilisent des methode abstraite dans leur code afin de vérifier que l'appel était bien réalisé ou encore des tests de getter et setter pour augmenté le coverage
+
+
+
+
 Suite à ces corrections, nous avons :
 - améliorer l'affichage 
-- créer la possibilité d'ajouté des Speciales ou non .
-- Donner une meilleur liste des actions possibles .
+- créer la possibilité d'ajouté des Speciales ou non.
+- Donner une meilleure liste des actions possibles.
 
 Voilà, globalement, les points principaux de la construction de ce quatrième et dernier livrable.
 
