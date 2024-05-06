@@ -16,10 +16,13 @@ import zombicide.cell.Street;
 import zombicide.item.Item;
 import zombicide.item.weapons.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerTest {
+	private final ByteArrayOutputStream output = new ByteArrayOutputStream();
     private Player testP;
     private Item testI;
     private Item testI2;
@@ -28,6 +31,7 @@ public class PlayerTest {
 
     @BeforeEach
     public void initAtt() {
+    	System.setOut(new PrintStream(output));
         this.testCell = new Room(5, 5);
         this.testP = new Player(5, this.testCell, 1, 6);
         this.testCell.addPlayers(this.testP);
@@ -224,6 +228,21 @@ public class PlayerTest {
             assertTrue(actionsPlayers2.contains(a7));
         }
 
+    }
+    
+    @Test
+    public void playerStatusTest() {
+    	String expected= "Player1 lifePoints=5, expertiseLevel=1, inHands=null [null]";
+    	testP.playerStatus();
+    	assertTrue(output.toString().contains(expected));
+    	output.reset();
+    	
+    	this.testP.putItemInBackPack(testI);
+    	this.testP.takeInHandFromBackPack(0);
+    	testP.playerStatus();
+    	String res= "Player1 lifePoints=5, expertiseLevel=1, inHands=Axe [damageValue=2, canBreakDoor=true]";
+    	assertTrue(output.toString().contains(res));
+    	
     }
 
 

@@ -80,11 +80,7 @@ public class Game {
             for(Player p: this.allPlayers ) {
             	p.playerStatus();
             }
-            System.out.println("\n");
-            
-            for(Zombie z: this.board.getAllZombies()) {
-            	z.zombieStatus();
-            }
+    
             System.out.println("\n"+ "\n");
           
             //tour des joueurs
