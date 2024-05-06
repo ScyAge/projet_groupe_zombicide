@@ -113,6 +113,7 @@ public class Attack implements ActionsPlayer{
 					if(X>= w.getThreshold()) {
 						if(w.isNoisy()) {
 							p.getCurrentCell().setNoise(p.getCurrentCell().getNoise()+1);
+							System.out.printf("-[The noise in now at %d in this cell]-\n",p.getCurrentCell().getNoise());
 						}
 						targetZ.takeDamage(w.getDamage());
 
