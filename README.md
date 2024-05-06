@@ -313,7 +313,7 @@ Suite au changement que nous avons aussi annoncé lors du livrable précédent, 
 - Maintenant l'ajout des pieces dites spéciales est générique dans le cas de potentielle extension des cell
 - Pour l'ajout optimal des actions rien n'a été changé, car l'ajout des actions est fait par nous meme 
 
-Certains comportements ont étaientt ajoutés :
+Certains comportements ont étaient ajoutés :
 
 - La masterKey lorsqu'elle ouvre une porte ne fait pas apparaitre de zombie
 
